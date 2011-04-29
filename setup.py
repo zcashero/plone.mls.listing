@@ -19,7 +19,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.1b1'
+version = '0.1dev'
 
 #---[ START Server locking]--------------------------------------------------
 LOCK_PYPI_SERVER = "http://mypypi.inqbus.de"
@@ -48,7 +48,7 @@ def check_server(server):
                 if (sys.argv[i] == '-r') or (sys.argv[i] == '--repository'):
                     # Next one is the repository itself.
                     try:
-                        repo = sys.argv[i+1]
+                        repo = sys.argv[i + 1]
                         if repo.lower() != server.lower():
                             print "You tried to %s to %s, while this package "\
                                   "is locked to %s" % (command, repo, server)
@@ -65,7 +65,7 @@ def check_server(server):
                 # No repo found for the command.
                 print "Adding repository %s to the command %s" % (
                     server, command)
-                sys.argv[commandpos+1:commandpos+1] = ['-r', server]
+                sys.argv[commandpos + 1: commandpos + 1] = ['-r', server]
                 changed = True
 
     if changed:
@@ -82,7 +82,8 @@ setup(
         open("README.txt").read() + "\n" +
         open(os.path.join("docs", "HISTORY.txt")).read(),
     ]),
-    # Get more strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # Get more strings from
+    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Web Environment",
@@ -110,10 +111,14 @@ setup(
     install_requires=[
       'setuptools',
       # -*- Extra requirements: -*-
+      'Plone',
+      'plone.app.dexterity',
+      'collective.autopermission',
+      'plone.mls.core',
     ],
     entry_points="""
     # -*- Entry points: -*-
-    
+
     [z3c.autoinclude.plugin]
     target = plone
     """,

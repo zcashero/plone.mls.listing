@@ -1,10 +1,23 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
+    xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="plone.mls.listing">
 
+  <!-- Initialize Zope 2 Product. -->
+  <!-- ========================== -->
   <five:registerPackage package="." initialize=".initialize" />
 
+
+  <!-- Include package dependencies. -->
+  <!-- ============================= -->
+  <includeDependencies package="." />
+  <include package=".content" />
   <include file="profiles.zcml" />
+
+
+  <!-- Grok package. -->
+  <!-- ============= -->
+  <grok:grok package="." />
 
 </configure>

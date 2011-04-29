@@ -3,7 +3,8 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="plone.mls.listing">
 
-  <!-- Register the installation GenericSetup extension profile -->
+  <!-- GenericSetup Profiles. -->
+  <!-- ====================== -->
   <genericsetup:registerProfile
       name="default"
       title="plone.mls.listing"
