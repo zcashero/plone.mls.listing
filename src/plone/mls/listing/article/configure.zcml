@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:article="http://namespaces.zope.org/article"
+    i18n_domain="plone.mls.listing">
+      
+  <include package="raptus.article.core" />
+
+  <article:component
+      component=".listing.ComponentLeft"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      name="mls.listing.left"
+      selection="raptus.article.core.interfaces.IArticle"
+      viewlet=".listing.ViewletLeft"
+      />
+
+</configure>
