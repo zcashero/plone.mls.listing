@@ -112,7 +112,7 @@ setup(
       'setuptools',
       # -*- Extra requirements: -*-
       'Plone',
-      'plone.app.dexterity',
+      'plone.app.dexterity >= 1.0rc1',
       'collective.autopermission',
       'plone.mls.core',
     ],

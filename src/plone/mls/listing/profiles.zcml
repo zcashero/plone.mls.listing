@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.mls.listing">
 
   <!-- GenericSetup Profiles. -->
@@ -12,5 +13,16 @@
       description="Plone support for MLS Listings."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+
+<!--
+  <genericsetup:registerProfile
+      name="article"
+      title="plone.mls.listing"
+      directory="profiles/article"
+      description="Plone support for MLS Listings (with article)."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      zcml:condition="installed raptus.article.core"
+      />
+-->
 
 </configure>
