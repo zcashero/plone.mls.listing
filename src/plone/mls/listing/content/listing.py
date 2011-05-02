@@ -13,14 +13,17 @@
 # FOR A PARTICULAR PURPOSE
 #
 ##############################################################################
-"""Interface definitions."""
+"""Listing content type."""
 
 # zope imports
 from five import grok
 from plone.directives import form
+from plone.memoize.view import memoize
 from zope import schema
+from zope.publisher.interfaces import NotFound
 
 # local imports
+from plone.mls.core.utils import authenticate, get_listing
 from plone.mls.listing import _
 
 
@@ -53,4 +56,31 @@ class IListing(form.Schema):
 class View(grok.View):
     grok.context(IListing)
     grok.require('zope2.View')
-    
+
+    def __init__(self, context, request):
+        super(View, self).__init__(context, request)
+        
+
+    @property
+    @memoize
+    def available(self):
+        return authenticate()
+
+    @property
+    @memoize
+    def raw(self):
+        raw = get_listing(self.context.listing_id)
+        if not raw:
+            raise NotFound(self.context, self.context.listing_id, self.request)
+        return raw
+
+    @property
+    @memoize
+    def data(self):
+        return self.raw.get('data', None)
+
+    @property
+    @memoize
+    def groups(self):
+        if self.data is not None:
+            return self.data.get('groups', None)

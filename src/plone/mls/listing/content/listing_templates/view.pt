@@ -11,19 +11,48 @@
     <metal:main fill-slot="main">
       <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-  
+
         <h1 class="documentFirstHeading" tal:content="context/title|nothing" />
-  
-  
+
+
         <div tal:replace="structure provider:plone.belowcontenttitle" />
-  
+
         <p class="documentDescription" tal:content="context/description|nothing" />
-  
+
         <div tal:replace="structure provider:plone.abovecontentbody" />
-  
-  
+
+        <tal:listing tal:condition="view/available|nothing">
+          <dl class="enableFormTabbing" tal:define="groups view/groups|nothing" tal:condition="groups">
+            <tal:groups tal:repeat="group groups">
+              <tal:group tal:define="id group/id|nothing;
+                                     label group/label|nothing;
+                                     fields group/fields|nothing;"
+                         tal:condition="fields">
+                <dt tal:content="label"
+                    tal:attributes="id string:fieldsetlegend-${id}">Group</dt>
+                <dd tal:attributes="id string:fieldset-${id}">
+                  <table class="listing vertical" style="width: 100%;">
+                    <tbody>
+                      <tr tal:repeat="field fields">
+                        <th tal:content="field/label|nothing" style="width: 200px;">Label</th>
+                        <td tal:content="structure field/value|nothing">Label</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <dl tal:replace="nothing">
+                    <tal:fields tal:repeat="field fields">
+                      <dt tal:content="field/label|nothing">Label</dt>
+                      <dd tal:content="structure field/value|nothing">Value</dd>
+                    </tal:fields>
+                  </dl>
+                </dd>
+              </tal:group>
+            </tal:groups>
+          </dl>
+        </tal:listing>
+
         <div tal:replace="structure provider:plone.belowcontentbody" />
-  
+
       </tal:main-macro>
     </metal:main>
   </body>
