@@ -21,7 +21,25 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
+        <tal:listing tal:condition="not:view/available|nothing">
+          <p class="discreet">This listing is currently not available.</p>
+        </tal:listing>
+
         <tal:listing tal:condition="view/available|nothing">
+
+          <div id="info" tal:define="info view/info|nothing" tal:condition="info">
+            <h2 i18n:translate="heading_listing_information_basic">Basic Listing Information</h2>
+            <table class="listing vertical">
+              <tbody>
+                <tr tal:repeat="item info">
+                  <th tal:content="item/label|nothing">Label</th>
+                  <td tal:content="item/value|nothing">Value</td>
+                </tr>
+              </tbody>
+            </table>      
+          
+          </div>
+
           <dl class="enableFormTabbing" tal:define="groups view/groups|nothing" tal:condition="groups">
             <tal:groups tal:repeat="group groups">
               <tal:group tal:define="id group/id|nothing;
@@ -33,10 +51,12 @@
                 <dd tal:attributes="id string:fieldset-${id}">
                   <table class="listing vertical" style="width: 100%;">
                     <tbody>
-                      <tr tal:repeat="field fields">
-                        <th tal:content="field/label|nothing" style="width: 200px;">Label</th>
-                        <td tal:content="structure field/value|nothing">Label</td>
-                      </tr>
+                      <tal:field tal:repeat="field fields">
+                        <tr tal:condition="field/value">
+                          <th tal:content="field/label|nothing" style="width: 200px;">Label</th>
+                          <td tal:content="structure field/value|nothing">Label</td>
+                        </tr>
+                      </tal:field>
                     </tbody>
                   </table>
                   <dl tal:replace="nothing">
@@ -49,6 +69,16 @@
               </tal:group>
             </tal:groups>
           </dl>
+
+          <ul id="images" tal:define="images view/images|nothing" tal:condition="images" style="list-style: none; margin-left: 0;">
+            <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[listing]"
+                tal:attributes="href image/url;
+                                title image/title|nothing;"><img src="" alt="" title=""
+                tal:attributes="src image/thumb;
+                                alt image/title|nothing;
+                                title image/description|nothing" /></a></li>
+          </ul>
+
         </tal:listing>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />

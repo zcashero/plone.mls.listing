@@ -62,25 +62,32 @@ class View(grok.View):
         
 
     @property
-    @memoize
     def available(self):
-        return authenticate()
+        return self.raw is not None
 
     @property
     @memoize
     def raw(self):
-        raw = get_listing(self.context.listing_id)
-        if not raw:
+        _raw = get_listing(self.context.listing_id)
+        if not _raw:
             raise NotFound(self.context, self.context.listing_id, self.request)
-        return raw
+        return _raw
 
     @property
-    @memoize
     def data(self):
         return self.raw.get('data', None)
 
     @property
-    @memoize
     def groups(self):
         if self.data is not None:
             return self.data.get('groups', None)
+
+    @property
+    def info(self):
+        if self.data is not None:
+            return self.data.get('info', None)
+
+    @property
+    def images(self):
+        if self.data is not None:
+            return self.data.get('images', None)
