@@ -9,7 +9,7 @@
 
   <body>
     <metal:main fill-slot="main">
-      <tal:main-macro metal:define-macro="main">
+      <div class="listing detail" metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="view/title|nothing" />
@@ -33,8 +33,8 @@
             <table class="listing vertical">
               <tbody>
                 <tr tal:repeat="item info">
-                  <th tal:content="item/label|nothing">Label</th>
-                  <td tal:content="item/value|nothing">Value</td>
+                  <th tal:content="info/?item/label|nothing">Label</th>
+                  <td tal:content="info/?item/value|nothing">Value</td>
                 </tr>
               </tbody>
             </table>      
@@ -84,7 +84,7 @@
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
-      </tal:main-macro>
+      </div>
     </metal:main>
   </body>
 </html>

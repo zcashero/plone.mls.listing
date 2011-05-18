@@ -86,7 +86,7 @@ class View(grok.View):
                 name=u'plone_tools')
             ms = ptools.membership()
             if ms.checkPermission('Modify portal content', self.context):
-                if e.code == 503:
+                if e.code in [502, 503, 504]:
                     pstate = getMultiAdapter((self.context, self.request),
                         name=u'plone_portal_state')
                     portal_url = pstate.portal_url()
@@ -97,7 +97,7 @@ class View(grok.View):
                     self._error['extended'] = config.ERROR_404
 
         if _raw is not None:
-            self._data = _raw.get('data', None)
+            self._data = _raw.get('listing', None)
 
     @property
     def data(self):
@@ -110,7 +110,10 @@ class View(grok.View):
     @property
     def title(self):
         if getattr(self.request, 'listing_id', None) is not None:
-            return u"Insert title here"
+            if self.info is not None:
+                title = self.info.get('title', None)
+                if title is not None:
+                    return title.get('value', self.context.title)
         else:
             return self.context.Title
 
