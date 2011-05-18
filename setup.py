@@ -114,6 +114,7 @@ setup(
       'Plone',
       'plone.app.dexterity >= 1.0rc1',
       'collective.autopermission',
+      'collective.prettyphoto',
       'plone.mls.core',
     ],
     entry_points="""
