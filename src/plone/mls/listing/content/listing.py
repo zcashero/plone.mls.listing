@@ -17,13 +17,16 @@
 
 # zope imports
 from five import grok
+from plone.dexterity.content import Item
 from plone.directives import form
 from plone.memoize.view import memoize
 from zope import schema
+from zope.component import getMultiAdapter
 from zope.publisher.interfaces import NotFound
 
 # local imports
-from plone.mls.core.utils import authenticate, get_listing
+from plone.mls.core import config
+from plone.mls.core.utils import authenticate, get_listing, MLSConnectionError, MLSDataError
 from plone.mls.listing import _
 
 
@@ -59,23 +62,57 @@ class View(grok.View):
 
     def __init__(self, context, request):
         super(View, self).__init__(context, request)
-        
+        self._error = {}
+        self._data = None
 
-    @property
-    def available(self):
-        return self.raw is not None
+    def __call__(self):
+        self._get_data()
+        return super(View, self).__call__()
 
-    @property
     @memoize
-    def raw(self):
-        _raw = get_listing(self.context.listing_id)
-        if not _raw:
-            raise NotFound(self.context, self.context.listing_id, self.request)
-        return _raw
+    def _get_data(self):
+        """Get the remote listing data from the MLS."""
+        _raw = None
+        if getattr(self.request, 'listing_id', None) is not None:
+            listing_id = self.request.listing_id
+        else:
+            listing_id = self.context.listing_id
+        try:
+            _raw = get_listing(listing_id)
+        except (MLSDataError, MLSConnectionError), e:
+            self._error['standard'] = u"This listing is temporary not available. Please try again later."
+
+            ptools = getMultiAdapter((self.context, self.request),
+                name=u'plone_tools')
+            ms = ptools.membership()
+            if ms.checkPermission('Modify portal content', self.context):
+                if e.code == 503:
+                    pstate = getMultiAdapter((self.context, self.request),
+                        name=u'plone_portal_state')
+                    portal_url = pstate.portal_url()
+                    self._error['extended'] = config.ERROR_503 % dict(
+                        portal_url=portal_url)
+
+                elif e.code == 404:
+                    self._error['extended'] = config.ERROR_404
+
+        if _raw is not None:
+            self._data = _raw.get('data', None)
 
     @property
     def data(self):
-        return self.raw.get('data', None)
+        return self._data
+
+    @property
+    def error(self):
+        return self._error
+
+    @property
+    def title(self):
+        if getattr(self.request, 'listing_id', None) is not None:
+            return u"Insert title here"
+        else:
+            return self.context.Title
 
     @property
     def groups(self):
@@ -91,3 +128,8 @@ class View(grok.View):
     def images(self):
         if self.data is not None:
             return self.data.get('images', None)
+
+    @property
+    def contact(self):
+        if self.data is not None:
+            return self.data.get('contact', None)

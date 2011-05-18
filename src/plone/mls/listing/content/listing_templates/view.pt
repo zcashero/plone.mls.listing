@@ -12,7 +12,7 @@
       <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <h1 class="documentFirstHeading" tal:content="context/title|nothing" />
+        <h1 class="documentFirstHeading" tal:content="view/title|nothing" />
 
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
@@ -21,11 +21,12 @@
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
-        <tal:listing tal:condition="not:view/available|nothing">
-          <p class="discreet">This listing is currently not available.</p>
-        </tal:listing>
+        <tal:error tal:define="error view/error|nothing" tal:condition="error">
+            <p tal:content="error/standard|nothing">Error</p>
+            <div class="extended" tal:define="extended error/extended|nothing" tal:condition="extended" tal:content="structure extended"></div>
+        </tal:error>
 
-        <tal:listing tal:condition="view/available|nothing">
+        <tal:listing tal:condition="view/data|nothing">
 
           <div id="info" tal:define="info view/info|nothing" tal:condition="info">
             <h2 i18n:translate="heading_listing_information_basic">Basic Listing Information</h2>
