@@ -1,7 +1,8 @@
 Changelog
 =========
 
-0.1dev (unreleased)
+0.1dev (2011-05-18)
 -------------------
 
-- Initial release
+- First Beta Release.
+  [thomas]
