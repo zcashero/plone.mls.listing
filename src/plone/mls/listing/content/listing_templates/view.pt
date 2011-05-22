@@ -38,8 +38,16 @@
                 </tr>
               </tbody>
             </table>      
-          
           </div>
+
+          <ul id="images" tal:define="images view/images|nothing" tal:condition="images" style="list-style: none; margin-left: 0;">
+            <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[listing]"
+                tal:attributes="href image/url;
+                                title image/title|nothing;"><img src="" alt="" title=""
+                tal:attributes="src image/thumb;
+                                alt image/title|nothing;
+                                title image/description|nothing" /></a></li>
+          </ul>
 
           <p tal:content="view/long_description|nothing" />
           
@@ -72,16 +80,6 @@
               </tal:group>
             </tal:groups>
           </dl>
-
-          <ul id="images" tal:define="images view/images|nothing" tal:condition="images" style="list-style: none; margin-left: 0;">
-            <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[listing]"
-                tal:attributes="href image/url;
-                                title image/title|nothing;"><img src="" alt="" title=""
-                tal:attributes="src image/thumb;
-                                alt image/title|nothing;
-                                title image/description|nothing" /></a></li>
-          </ul>
-
         </tal:listing>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
