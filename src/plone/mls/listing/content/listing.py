@@ -118,6 +118,16 @@ class View(grok.View):
             return self.context.Title
 
     @property
+    def description(self):
+        if self.data is not None:
+            return self.data.get('description', None)
+
+    @property
+    def long_description(self):
+        if self.data is not None:
+            return self.data.get('long_description', None)
+
+    @property
     def groups(self):
         if self.data is not None:
             return self.data.get('groups', None)

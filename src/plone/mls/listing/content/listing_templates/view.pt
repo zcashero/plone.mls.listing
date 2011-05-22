@@ -17,7 +17,7 @@
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <p class="documentDescription" tal:content="context/description|nothing" />
+        <p class="documentDescription" tal:content="view/description|nothing" />
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
@@ -41,6 +41,8 @@
           
           </div>
 
+          <p tal:content="view/long_description|nothing" />
+          
           <dl class="enableFormTabbing" tal:define="groups view/groups|nothing" tal:condition="groups">
             <tal:groups tal:repeat="group groups">
               <tal:group tal:define="id group/id|nothing;
