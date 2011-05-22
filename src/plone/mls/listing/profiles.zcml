@@ -14,15 +14,27 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-<!--
-  <genericsetup:registerProfile
-      name="article"
-      title="plone.mls.listing"
-      directory="profiles/article"
-      description="Plone support for MLS Listings (with article)."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      zcml:condition="installed raptus.article.core"
-      />
--->
+  <!-- GenericSetup Import Steps. -->
+  <!-- ========================== -->
+  <genericsetup:importStep
+      name="plone.mls.listing.kupu"
+      title="Kupu configuration for plone.mls.listing"
+      description="Additional setup steps for plone.mls.listing"
+      handler=".setuphandlers.setup_kupu">
+    <depends name="kupu" />
+  </genericsetup:importStep>
+
+
+  <!-- GenericSetup Upgrade Steps. -->
+  <!-- =========================== -->
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Adds linkable types to editors."
+      source="1000"
+      destination="1001"
+      handler=".migration.migrate_to_1001"
+      sortkey="1"
+      profile="plone.mls.listing:default"
+      /> 
 
 </configure>
