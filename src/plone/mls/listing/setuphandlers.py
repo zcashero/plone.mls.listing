@@ -23,7 +23,7 @@ from zope.component import getUtility
 
 def setup_kupu(context):
     """Set up Kupu."""
-    if not context.readDataFile('plone.mls.listing.listing_various.txt'):
+    if not context.readDataFile('plone.mls.listing_various.txt'):
         return
 
     site = getUtility(IPloneSiteRoot)
