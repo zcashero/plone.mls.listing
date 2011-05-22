@@ -24,6 +24,15 @@
     <depends name="kupu" />
   </genericsetup:importStep>
 
+  <genericsetup:importStep
+      name="plone.mls.listing.article"
+      title="raptus.article configuration for plone.mls.listing"
+      description="Additional setup steps for plone.mls.listing"
+      handler=".setuphandlers.setup_article"
+      zcml:condition="installed raptus.article.core">
+    <depends name="metadata" />
+  </genericsetup:importStep>
+
 
   <!-- GenericSetup Upgrade Steps. -->
   <!-- =========================== -->
