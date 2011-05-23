@@ -29,36 +29,38 @@ from raptus.article.core import interfaces
 from raptus.article.nesting.interfaces import IArticles
 
 # local imports
+from plone.mls.core.utils import get_listing, MLSConnectionError, MLSDataError
 from plone.mls.listing import _
+from plone.mls.listing.article.interfaces import IListingLists
 
 
-class IListingLeft(interface.Interface):
-    """Marker interface for the listing left viewlet."""
+class IListings(interface.Interface):
+    """Marker interface for the listings viewlet."""
 
 
-class ComponentLeft(object):
-    """Component which lists the MLS Listings with images on the left side."""
+class ListingsComponent(object):
+    """Component which lists the MLS Listings."""
     interface.implements(interfaces.IComponent)
     component.adapts(interfaces.IArticle)
     
     title = _(
-        u"heading_article_listing_left",
-        default=u"MLS Listing left",
+        u"heading_article_listings",
+        default=u"MLS Listings",
     )
     description = _(
-        u"help_article_listing_left",
+        u"help_article_listings",
         default=u"List of the contained MLS Listings.",
     )
     image = '++resource++listing_left.gif'
-    interface = IListingLeft
-    viewlet = 'plone.mls.listing.article.left'
+    interface = IListings
+    viewlet = 'plone.mls.listing.article.listings'
     
     def __init__(self, context):
         self.context = context
 
 
-class ViewletLeft(ViewletBase):
-    """Viewlet listing the MLS Listings, with images on the left side."""
+class ListingsViewlet(ViewletBase):
+    """Viewlet listing the MLS Listings."""
     index = ViewPageTemplateFile('listing.pt')
     image_class = "component componentLeft"
     type = "left"
@@ -90,23 +92,38 @@ class ViewletLeft(ViewletBase):
     
     @property
     @memoize
-    def articles(self):
-        provider = IArticles(self.context)
+    def listings(self):
+        provider = IListingLists(self.context)
         manageable = interfaces.IManageable(self.context)
         mship = getToolByName(self.context, 'portal_membership')
         if mship.checkPermission(MANAGE_PERMISSION, self.context):
-            items = provider.getArticles()
+            items = provider.getListingLists()
         else:
-            items = provider.getArticles(component=self.component)
-        items = manageable.getList(items, self.component)
+            items = provider.getListingLists(component=self.component)
+        items = manageable.getList(items)
         i = 0
         l = len(items)
+
         for item in items:
-            item.update({'title': item['brain'].Title,
-                         'description': item['brain'].Description,
-                         'url': item['brain'].hasDetail and item['brain'].getURL() or None,
-                         'class': self._class(item['brain'], i, l)})
-            if item.has_key('show') and item['show']:
-                item['class'] += ' hidden'
+            item.update({
+                'title': item['brain'].Title,
+                'description': item['brain'].Description,
+                'url': item['brain'].getURL(),
+                'class': self._class(item['brain'], i, l),
+            })
+#             if item.has_key('show') and item['show']:
+#                 item['class'] += ' hidden'
+
+            # Use brains instead!
+            obj = item['brain'].getObject()
+            listing_id = obj.listing_id
+            try:
+                raw = get_listing(listing_id, summary=True)
+            except (MLSDataError, MLSConnectionError), e:
+                continue
+            else:
+                listing = raw.get('listing', None)
+                item['listing'] = listing
+
             i += 1
         return items

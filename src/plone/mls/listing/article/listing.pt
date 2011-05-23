@@ -1,1 +1,71 @@
-<h1>Listings, ausm MLS?</h1>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      tal:omit-tag="">
+  <ul i18n:domain="plone.mls.listing"
+      tal:condition="view/listings|nothing"
+      tal:attributes="class string:visualNoMarker manageableList listings listing-${view/type} ${view/type}">
+    <tal:item repeat="item view/listings">
+      <li class="component"
+          tal:attributes="class string:component ${item/class}">
+        <metal:manage use-macro="context/raptus_article_macros/macros/manage" />
+
+        <tal:listing tal:define="listing item/listing|nothing" tal:condition="listing">
+          <div class="tileItem visualIEFloatFix" style="margin-bottom: 1em;">
+            <h2 class="tileHeadline"><a href="" class="summary url"
+                tal:attributes="href string:${item/url}/${listing/mls_id}"
+                tal:content="listing/title/value">Listing Title</a></h2>
+
+            <table class="tileBody">
+              <tbody>
+                <tr>
+                  <td rowspan="6" style="width: 12%; vertical-align: top;">
+            <a href=""
+               tal:define="image listing/lead_image|nothing"
+               tal:condition="image"
+               tal:attributes="href string:${item/url}/${listing/mls_id}"><img class="image-left" src="" alt="" title=""
+               tal:attributes="src image/thumb;
+                               alt image/title;
+                               title image/title" /></a>
+                  </td>
+                  <th style="width: 22%" tal:content="listing/price/label|nothing">Label</th>
+                  <td style="width: 22%" tal:content="listing/price/value|nothing">Value</td>
+                  <th style="width: 22%" tal:content="listing/wf_status/label|nothing">Label</th>
+                  <td style="width: 22%" tal:content="listing/wf_status/value|nothing">Value</td>
+                </tr>
+                <tr>
+                  <th tal:content="listing/listing_type/label|nothing">Label</th>
+                  <td tal:content="listing/listing_type/value|nothing">Value</td>
+                  <th tal:content="listing/images/label|nothing">Label</th>
+                  <td tal:content="listing/images/value|nothing">Value</td>
+                </tr>
+                <tr>
+                  <th tal:content="listing/object_type/label|nothing">Label</th>
+                  <td tal:content="listing/object_type/value|nothing">Value</td>
+                  <th tal:content="listing/bath_bed/label|nothing">Label</th>
+                  <td tal:content="listing/bath_bed/value|nothing">Value</td>
+                </tr>
+                <tr>
+                  <th tal:content="listing/location/label|nothing">Label</th>
+                  <td colspan="3" tal:content="listing/location/value|nothing">Value</td>
+                </tr>
+                <tr>
+                  <th tal:content="listing/location_type/label|nothing">Label</th>
+                  <td colspan="3" tal:content="listing/location_type/value|nothing">Value</td>
+                </tr>
+                <tr>
+                  <th tal:content="listing/view_type/label|nothing">Label</th>
+                  <td colspan="3" tal:content="listing/view_type/value|nothing">Value</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="visualClear"></div>
+          </div>
+        </tal:listing>
+      </li>
+    </tal:item>
+  </ul>
+</html>

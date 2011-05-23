@@ -8,14 +8,16 @@
   <include package="raptus.article.core" />
 
 
+  <adapter  factory=".adapters.ListingLists" />
+
   <!-- Article Component Registrations. -->
   <!-- ================================ -->
   <article:component
-      component=".listing.ComponentLeft"
+      component=".listing.ListingsComponent"
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       name="mls.listing.left"
       selection="raptus.article.core.interfaces.IArticle"
-      viewlet=".listing.ViewletLeft"
+      viewlet=".listing.ListingsViewlet"
       />
 
 </configure>
