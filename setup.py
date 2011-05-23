@@ -19,7 +19,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.1dev'
+version = '0.1b1'
 
 #---[ START Server locking]--------------------------------------------------
 LOCK_PYPI_SERVER = "http://mypypi.inqbus.de"

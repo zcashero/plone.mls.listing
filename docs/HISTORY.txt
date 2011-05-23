@@ -1,6 +1,21 @@
 Changelog
 =========
 
+0.1b1 (2011-05-23)
+------------------
+
+- Added description and long description to detail view.
+  [thomas]
+- Added listing to linkable types (TinyMCE and Kupu).
+  [thomas]
+- Moved images on top below the listing information.
+  [thomas]
+- Added configuration for raptus.article.
+  [thomas]
+- Added article integration.
+  [thomas]
+
+
 0.1dev (2011-05-18)
 -------------------
 
