@@ -95,11 +95,12 @@ class ListingsViewlet(ViewletBase):
     def listings(self):
         provider = IListingLists(self.context)
         manageable = interfaces.IManageable(self.context)
-        mship = getToolByName(self.context, 'portal_membership')
-        if mship.checkPermission(MANAGE_PERMISSION, self.context):
-            items = provider.getListingLists()
-        else:
-            items = provider.getListingLists(component=self.component)
+#         mship = getToolByName(self.context, 'portal_membership')
+#         if mship.checkPermission(MANAGE_PERMISSION, self.context):
+#             items = provider.getListingLists()
+#         else:
+#             items = provider.getListingLists(component=self.component)
+        items = provider.getListingLists()
         items = manageable.getList(items)
         i = 0
         l = len(items)
