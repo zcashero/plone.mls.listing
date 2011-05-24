@@ -109,14 +109,19 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-      'setuptools',
-      # -*- Extra requirements: -*-
-      'Plone',
-      'plone.app.dexterity >= 1.0rc1',
-      'collective.autopermission',
-      'collective.prettyphoto',
-      'plone.mls.core',
+        'setuptools',
+        # -*- Extra requirements: -*-
+        'Plone',
+        'plone.app.dexterity >= 1.0rc1',
+        'collective.autopermission',
+        'collective.prettyphoto',
+        'plone.mls.core',
     ],
+    extras_require=dict(
+        plone4=[
+            'plone.app.versioningbehavior',
+        ],
+    ),
     entry_points="""
     # -*- Entry points: -*-
 

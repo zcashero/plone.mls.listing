@@ -17,6 +17,7 @@
 
 # zope imports
 from Products.CMFCore.utils import getToolByName
+from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from zope.component import getUtility
 
@@ -63,3 +64,22 @@ def setup_article(context):
             return
         if not LISTING_TYPE in article.allowed_content_types:
             article.allowed_content_types += (LISTING_TYPE, )
+
+
+def setup_versioning(context):
+    """Enable versioning in portal types."""
+    if not context.readDataFile('plone.mls.listing_various.txt'):
+        return
+
+    site = getUtility(IPloneSiteRoot)
+    portal_repository = getToolByName(site, 'portal_repository')
+    versionable_types = list(portal_repository.getVersionableContentTypes())
+    if LISTING_TYPE not in versionable_types:
+        # Use append() to make sure we don't overwrite any content types which
+        # may already be under version control.
+        versionable_types.append(LISTING_TYPE)
+        # Add default versioning policies to the versioned type.
+        for policy_id in DEFAULT_POLICIES:
+            portal_repository.addPolicyForContentType(LISTING_TYPE, policy_id)
+    portal_repository.setVersionableContentTypes(versionable_types)
+

@@ -33,6 +33,14 @@
     <depends name="metadata" />
   </genericsetup:importStep>
 
+  <genericsetup:importStep
+      name="plone.mls.listing.versioning"
+      title="Enable versioning for plone.mls.listing"
+      description="Additional setup steps for plone.mls.listing"
+      handler=".setuphandlers.setup_versioning">
+    <depends name="types" />
+  </genericsetup:importStep>
+
 
   <!-- GenericSetup Upgrade Steps. -->
   <!-- =========================== -->
@@ -43,6 +51,16 @@
       destination="1001"
       handler=".migration.migrate_to_1001"
       sortkey="1"
+      profile="plone.mls.listing:default"
+      /> 
+
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Enable versioning for plone.mls.listing.listing."
+      source="1001"
+      destination="1002"
+      handler=".migration.migrate_to_1002"
+      sortkey="2"
       profile="plone.mls.listing:default"
       /> 
 

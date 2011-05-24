@@ -35,6 +35,7 @@
     <element value="plone.app.dexterity.behaviors.metadata.IPublication" />
     <element value="plone.app.dexterity.behaviors.metadata.IOwnership" />
     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation" />
+    <element value="plone.app.versioningbehavior.behaviors.IVersionable" />
   </property>
 
   <!-- View information. -->
