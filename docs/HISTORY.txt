@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.1b2 (2011-05-24)
+------------------
+
+- Added versioning for dexterity content type.
+  [thomas]
+
+
 0.1b1 (2011-05-23)
 ------------------
 
