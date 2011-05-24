@@ -121,6 +121,9 @@ setup(
         plone4=[
             'plone.app.versioningbehavior',
         ],
+        tests=[
+            'raptus.article.core',
+        ],
     ),
     entry_points="""
     # -*- Entry points: -*-
