@@ -64,4 +64,14 @@
       profile="plone.mls.listing:default"
       /> 
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Add custom browser layer for plone.mls.listing."
+      source="1002"
+      destination="1003"
+      handler=".migration.migrate_to_1003"
+      sortkey="3"
+      profile="plone.mls.listing:default"
+      /> 
+
 </configure>

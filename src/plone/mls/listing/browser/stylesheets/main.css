@@ -1,0 +1,40 @@
+.listing #listing-info {
+  margin-bottom: 1.5em;
+}
+
+.listing #listing-info dl {
+  border-bottom: 1px dotted #CCC;
+  margin: 0.5em 0;
+  overflow: hidden;
+  padding: 0.5em 0;
+  word-wrap: break-word;
+}
+
+.listing #listing-info dt {
+  clear: both;
+  display: inline;
+  float: left;
+  margin-right: 5%;
+  width: 30%;
+}
+
+.listing #listing-info dd {
+  display: inline;
+  float: left;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 65%;
+}
+
+.listing #listing-images {
+  float: left;
+  margin-bottom: 1.5em;
+  margin-right: 1em;
+  width: 430px;
+}
+
+.listing #listing-details,
+.listing ul.formTabs {
+  clear: both;
+}

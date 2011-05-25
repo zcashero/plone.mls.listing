@@ -1,0 +1,20 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plone.mls.listing">
+
+  <!-- Zope 3 browser resources. -->
+  <!-- ========================= -->
+  <browser:resourceDirectory
+      directory="javascript"
+      layer=".interfaces.IListingSpecific"
+      name="plone.mls.listing.javascript"
+      />
+
+  <browser:resourceDirectory
+      directory="stylesheets"
+      layer=".interfaces.IListingSpecific"
+      name="plone.mls.listing.stylesheets"
+      />
+
+</configure>

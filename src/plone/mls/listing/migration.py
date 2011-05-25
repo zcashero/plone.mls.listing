@@ -19,7 +19,12 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
+from plone.browserlayer import utils as layerutils
 from zope.component import getUtility
+
+# local imports
+from plone.mls.listing.browser.interfaces import IListingSpecific
+
 
 LISTING_TYPE = 'plone.mls.listing.listing'
 
@@ -100,3 +105,18 @@ def migrate_to_1002(context):
         for policy_id in DEFAULT_POLICIES:
             portal_repository.addPolicyForContentType(LISTING_TYPE, policy_id)
     portal_repository.setVersionableContentTypes(versionable_types)
+
+
+def migrate_to_1003(context):
+    """Migrate from 1002 to 1003.
+
+    * Add plone.mls.listing browser layer.
+    * Register custom stylesheet.
+    """
+    site = getUtility(IPloneSiteRoot)
+
+    if not IListingSpecific in layerutils.registered_layers():
+        layerutils.register_layer(IListingSpecific, name='plone.mls.listing')
+
+    portal_css = getToolByName(site, 'portal_css')
+    portal_css.registerStylesheet('++resource++plone.mls.listing.stylesheets/main.css', media='screen')

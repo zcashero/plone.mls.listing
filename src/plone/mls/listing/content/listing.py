@@ -138,9 +138,17 @@ class View(grok.View):
             return self.data.get('info', None)
 
     @property
+    def lead_image(self):
+        if self.data is not None:
+            image = self.data.get('images', None)[:1]
+            if len(image) > 0:
+                return image[0]
+        return None
+
+    @property
     def images(self):
         if self.data is not None:
-            return self.data.get('images', None)
+            return self.data.get('images', None)[1:]
 
     @property
     def contact(self):

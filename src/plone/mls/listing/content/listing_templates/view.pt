@@ -9,11 +9,11 @@
 
   <body>
     <metal:main fill-slot="main">
-      <div class="listing detail" metal:define-macro="main">
+      <div class="listing detail" metal:define-macro="main" tal:define="info view/info|nothing">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="view/title|nothing" />
-
+        <p tal:condition="info/location" tal:content="info/location/value">Location</p>
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
@@ -28,30 +28,76 @@
 
         <tal:listing tal:condition="view/data|nothing">
 
-          <div id="info" tal:define="info view/info|nothing" tal:condition="info">
+          <div id="listing-info" tal:condition="info">
             <h2 i18n:translate="heading_listing_information_basic">Basic Listing Information</h2>
-            <table class="listing vertical">
-              <tbody>
-                <tr tal:repeat="item info">
-                  <th tal:content="info/?item/label|nothing">Label</th>
-                  <td tal:content="info/?item/value|nothing">Value</td>
-                </tr>
-              </tbody>
-            </table>      
+            <dl class="price">
+              <tal:item tal:define="item info/price|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+            </dl>
+      
+            <dl class="workflow">
+              <tal:item tal:define="item info/id|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+      
+              <tal:item tal:define="item info/object_type|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+      
+              <tal:item tal:define="item info/listing_type|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+      
+              <tal:item tal:define="item info/wf_status|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value" tal:attributes="class item/value">Value</dd>
+              </tal:item>
+      
+              <tal:item tal:define="item info/images|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+            </dl>
+      
+            <dl>
+              <tal:item tal:define="item info/bath_bed|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+      
+              <tal:item tal:define="item info/location_type|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+      
+              <tal:item tal:define="item info/view_type|nothing" tal:condition="item">
+                <dt tal:content="item/label">Label</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
+            </dl>
           </div>
 
-          <ul id="images" tal:define="images view/images|nothing" tal:condition="images" style="list-style: none; margin-left: 0;">
-            <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[listing]"
-                tal:attributes="href image/url;
-                                title image/title|nothing;"><img src="" alt="" title=""
-                tal:attributes="src image/thumb;
-                                alt image/title|nothing;
-                                title image/description|nothing" /></a></li>
-          </ul>
+          <div id="listing-images">
+            <h2 class="hiddenStructure" i18n:translate="heading_listing_images">Listing Images</h2>
+            <img class="preview" src="" tal:define="image view/lead_image|nothing" tal:condition="image" tal:attributes="src image/preview" />
+            <ul class="thumbnails" tal:define="images view/images|nothing" tal:condition="images" style="list-style: none; margin-left: 0;">
+              <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[listing]"
+                  tal:attributes="href image/url;
+                                  title image/title|nothing;"><img src="" alt="" title=""
+                  tal:attributes="src image/tile;
+                                  alt image/title|nothing;
+                                  title image/description|nothing" /></a></li>
+            </ul>
+          </div>
 
           <p tal:content="view/long_description|nothing" />
           
-          <dl class="enableFormTabbing" tal:define="groups view/groups|nothing" tal:condition="groups">
+          <dl id="listing-details" class="enableFormTabbing" tal:define="groups view/groups|nothing" tal:condition="groups">
             <tal:groups tal:repeat="group groups">
               <tal:group tal:define="id group/id|nothing;
                                      label group/label|nothing;
@@ -85,6 +131,9 @@
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
       </div>
+      <script type="text/javascript" src="++resource++plone.mls.listing.javascript/galleria-1.2.2.js"></script>
+      <script type="text/javascript" src="++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js"></script>
+      <script type="text/javascript" src="++resource++plone.mls.listing.javascript/listing_view.js"></script>
     </metal:main>
   </body>
 </html>
