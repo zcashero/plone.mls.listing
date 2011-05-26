@@ -13,7 +13,7 @@
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
         <h1 class="documentFirstHeading" tal:content="view/title|nothing" />
-        <p tal:condition="info/location" tal:content="info/location/value">Location</p>
+        <p tal:condition="info/location|nothing" tal:content="info/location/value|nothing">Location</p>
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
