@@ -148,7 +148,9 @@ class View(grok.View):
     @property
     def images(self):
         if self.data is not None:
-            return self.data.get('images', None)[1:]
+            images = self.data.get('images', None)
+            if len(images) > 1:
+                return images
 
     @property
     def contact(self):
