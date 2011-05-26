@@ -74,4 +74,14 @@
       profile="plone.mls.listing:default"
       /> 
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Disable 'Link using UIDs' for TinyMCE."
+      source="1003"
+      destination="1004"
+      handler=".migration.migrate_to_1004"
+      sortkey="4"
+      profile="plone.mls.listing:default"
+      /> 
+
 </configure>

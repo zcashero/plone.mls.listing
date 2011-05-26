@@ -120,3 +120,15 @@ def migrate_to_1003(context):
 
     portal_css = getToolByName(site, 'portal_css')
     portal_css.registerStylesheet('++resource++plone.mls.listing.stylesheets/main.css', media='screen')
+
+
+def migrate_to_1004(context):
+    """Migrate from 1003 to 1004.
+
+    * Set 'Link using UIDs' for TinyMCE to false.
+    """
+    site = getUtility(IPloneSiteRoot)
+
+    tinymce = getToolByName(site, 'portal_tinymce', None)
+    if tinymce is not None:
+        tinymce.link_using_uids = False

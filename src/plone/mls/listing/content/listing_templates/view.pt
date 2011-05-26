@@ -84,7 +84,12 @@
 
           <div id="listing-images">
             <h2 class="hiddenStructure" i18n:translate="heading_listing_images">Listing Images</h2>
-            <img class="preview" src="" tal:define="image view/lead_image|nothing" tal:condition="image" tal:attributes="src image/preview" />
+            <a href="" rel="prettyPhoto[listing]" class="preview"
+               tal:define="image view/lead_image|nothing"
+               tal:condition="image"
+               tal:attributes="href image/url;
+                               title image/title|nothing;"><img src=""
+               tal:attributes="src image/preview" /></a>
             <ul class="thumbnails" tal:define="images view/images|nothing" tal:condition="images" style="list-style: none; margin-left: 0;">
               <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[listing]"
                   tal:attributes="href image/url;
