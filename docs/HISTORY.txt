@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.1rc2 (2011-05-26)
+-------------------
+
+- Added missing lead image to list of images.
+  [thomas]
+- Updated css for listing slideshow.
+  [thomas]
+  
+
 0.1rc1 (2011-05-26)
 -------------------
 
