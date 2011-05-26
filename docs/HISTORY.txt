@@ -1,6 +1,19 @@
 Changelog
 =========
 
+0.1rc1 (2011-05-26)
+-------------------
+
+- Added custom browserlayer and custom css file.
+  [thomas]
+- Added migrations for browserlayer and css.
+  [thomas]
+- Added Galleria JS Slideshow.
+  [thomas]
+- Disable 'Link using UID's in TinyMCE.
+  [thomas]
+
+
 0.1b2 (2011-05-24)
 ------------------
 
