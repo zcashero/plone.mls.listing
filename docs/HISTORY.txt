@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.1rc3 (2011-06-04)
+-------------------
+
+- Fixed location info traceback if listing does not exist.
+  [thomas]
+
+
 0.1rc2 (2011-05-26)
 -------------------
 
