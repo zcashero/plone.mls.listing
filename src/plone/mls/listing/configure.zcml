@@ -1,7 +1,6 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
-    xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.mls.listing">
 
@@ -20,9 +19,5 @@
   <!-- Include optional package dependencies. -->
   <!-- ====================================== -->
   <include package=".article" zcml:condition="installed raptus.article.core" />
-
-  <!-- Grok package. -->
-  <!-- ============= -->
-  <grok:grok package="." />
 
 </configure>
