@@ -26,7 +26,8 @@ from zope.publisher.interfaces import NotFound
 
 # local imports
 from plone.mls.core import config
-from plone.mls.core.utils import authenticate, get_listing, MLSConnectionError, MLSDataError
+from plone.mls.core.utils import (get_language, get_listing,
+    MLSConnectionError, MLSDataError)
 from plone.mls.listing import _
 
 
@@ -73,12 +74,13 @@ class View(grok.View):
     def _get_data(self):
         """Get the remote listing data from the MLS."""
         _raw = None
+        lang = get_language(self.context)
         if getattr(self.request, 'listing_id', None) is not None:
             listing_id = self.request.listing_id
         else:
             listing_id = self.context.listing_id
         try:
-            _raw = get_listing(listing_id)
+            _raw = get_listing(listing_id, lang=lang)
         except (MLSDataError, MLSConnectionError), e:
             self._error['standard'] = u"This listing is temporary not available. Please try again later."
 
