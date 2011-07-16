@@ -1,14 +1,15 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:article="http://namespaces.zope.org/article"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.mls.listing">
       
   <!-- Include package dependencies. -->
   <!-- ============================= -->
-  <include package="raptus.article.core" />
+  <include package="raptus.article.core" zcml:condition="installed raptus.article.core" />
 
 
-  <adapter  factory=".adapters.ListingLists" />
+  <adapter  factory=".adapters.ListingLists" zcml:condition="installed raptus.article.core" />
 
   <!-- Article Component Registrations. -->
   <!-- ================================ -->
@@ -18,6 +19,7 @@
       name="mls.listing.left"
       selection="raptus.article.core.interfaces.IArticle"
       viewlet=".listing.ListingsViewlet"
+      zcml:condition="installed raptus.article.core"
       />
 
 </configure>
