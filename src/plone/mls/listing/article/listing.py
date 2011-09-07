@@ -29,7 +29,8 @@ from raptus.article.core import interfaces
 from raptus.article.nesting.interfaces import IArticles
 
 # local imports
-from plone.mls.core.utils import get_listing, MLSConnectionError, MLSDataError
+from plone.mls.core.utils import (get_language, get_listing, MLSConnectionError,
+    MLSDataError)
 from plone.mls.listing import _
 from plone.mls.listing.article.interfaces import IListingLists
 
