@@ -118,8 +118,9 @@ class ListingsViewlet(ViewletBase):
             # Use brains instead!
             obj = item['brain'].getObject()
             listing_id = obj.listing_id
+            lang = get_language(obj)
             try:
-                raw = get_listing(listing_id, summary=True)
+                raw = get_listing(listing_id, summary=True, lang=lang)
             except (MLSDataError, MLSConnectionError), e:
                 continue
             else:
