@@ -19,7 +19,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.1'
+version = '0.1.1'
 
 #---[ START Server locking]--------------------------------------------------
 LOCK_PYPI_SERVER = "http://pypi.propertyshelf.com"
