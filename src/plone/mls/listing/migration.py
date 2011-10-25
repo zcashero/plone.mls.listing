@@ -96,25 +96,22 @@ def migrate_to_1002(context):
     try:
         from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
         # we're on plone < 4.1, configure versionable types manually
-        setVersionedTypes(context)
     except ImportError:
         # repositorytool.xml will be used
         pass
-
-
-def setVersionedTypes(context):
-    # 3. Enable versioning in portal types.
-    site = getUtility(IPloneSiteRoot)
-    portal_repository = getToolByName(site, 'portal_repository')
-    versionable_types = list(portal_repository.getVersionableContentTypes())
-    if LISTING_TYPE not in versionable_types:
-        # Use append() to make sure we don't overwrite any content types which
-        # may already be under version control.
-        versionable_types.append(LISTING_TYPE)
-        # Add default versioning policies to the versioned type.
-        for policy_id in DEFAULT_POLICIES:
-            portal_repository.addPolicyForContentType(LISTING_TYPE, policy_id)
-    portal_repository.setVersionableContentTypes(versionable_types)
+    else:
+        # 3. Enable versioning in portal types.
+        site = getUtility(IPloneSiteRoot)
+        portal_repository = getToolByName(site, 'portal_repository')
+        versionable_types = list(portal_repository.getVersionableContentTypes())
+        if LISTING_TYPE not in versionable_types:
+            # Use append() to make sure we don't overwrite any content types which
+            # may already be under version control.
+            versionable_types.append(LISTING_TYPE)
+            # Add default versioning policies to the versioned type.
+            for policy_id in DEFAULT_POLICIES:
+                portal_repository.addPolicyForContentType(LISTING_TYPE, policy_id)
+        portal_repository.setVersionableContentTypes(versionable_types)
 
 
 def migrate_to_1003(context):
