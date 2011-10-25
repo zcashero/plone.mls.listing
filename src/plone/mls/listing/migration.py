@@ -17,7 +17,6 @@
 
 # zope imports
 from Products.CMFCore.utils import getToolByName
-from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from plone.browserlayer import utils as layerutils
 from zope.component import getUtility
@@ -70,7 +69,6 @@ def migrate_to_1002(context):
     """
     site = getUtility(IPloneSiteRoot)
     portal_types = getToolByName(site, 'portal_types')
-    portal_repository = getToolByName(site, 'portal_repository')
     quickinstaller = getToolByName(site, 'portal_quickinstaller')
 
     # 1. Add plone.mls.featured.featured to Article's allowd types.
@@ -95,7 +93,19 @@ def migrate_to_1002(context):
         if not versioning_behavior in listing.behaviors:
             listing.behaviors += (versioning_behavior, )
 
+    try:
+        from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
+        # we're on plone < 4.1, configure versionable types manually
+        setVersionedTypes(context)
+    except ImportError:
+        # repositorytool.xml will be used
+        pass
+
+
+def setVersionedTypes(context):
     # 3. Enable versioning in portal types.
+    site = getUtility(IPloneSiteRoot)
+    portal_repository = getToolByName(site, 'portal_repository')
     versionable_types = list(portal_repository.getVersionableContentTypes())
     if LISTING_TYPE not in versionable_types:
         # Use append() to make sure we don't overwrite any content types which

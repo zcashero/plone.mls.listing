@@ -17,7 +17,6 @@
 
 # zope imports
 from Products.CMFCore.utils import getToolByName
-from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from zope.component import getUtility
 
@@ -71,6 +70,16 @@ def setup_versioning(context):
     if not context.readDataFile('plone.mls.listing_various.txt'):
         return
 
+    try:
+        from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
+        # we're on plone < 4.1, configure versionable types manually
+        setVersionedTypes(context)
+    except ImportError:
+        # repositorytool.xml will be used
+        pass
+
+
+def setVersionedTypes(context):
     site = getUtility(IPloneSiteRoot)
     portal_repository = getToolByName(site, 'portal_repository')
     versionable_types = list(portal_repository.getVersionableContentTypes())
@@ -82,4 +91,3 @@ def setup_versioning(context):
         for policy_id in DEFAULT_POLICIES:
             portal_repository.addPolicyForContentType(LISTING_TYPE, policy_id)
     portal_repository.setVersionableContentTypes(versionable_types)
-
