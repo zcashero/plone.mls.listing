@@ -1,26 +1,28 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2011 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
 #
-##############################################################################
-"""Zope 2 Product initialization."""
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+###############################################################################
+"""Plone support for MLS Listings."""
 
 # zope imports
 from zope.i18nmessageid import MessageFactory
 
 
 _ = MessageFactory('plone.mls.listing')
-
-
-def initialize(context):
-    """Initializer called when used as a Zope 2 product."""

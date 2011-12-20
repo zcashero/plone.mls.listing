@@ -1,18 +1,24 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2011 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
 #
-##############################################################################
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+###############################################################################
 """Setup for plone.mls.listing package."""
 
 import os
@@ -77,7 +83,7 @@ check_server(LOCK_PYPI_SERVER)
 setup(
     name='plone.mls.listing',
     version=version,
-    description="Plone support for MLS Listings",
+    description="Plone support for MLS Listings.",
     long_description='\n\n'.join([
         open("README.txt").read() + "\n" +
         open(os.path.join("docs", "HISTORY.txt")).read(),
@@ -112,16 +118,17 @@ setup(
         'setuptools',
         # -*- Extra requirements: -*-
         'Plone',
-        'plone.app.dexterity >= 1.0rc1',
+        'plone.app.dexterity [grok]',
         'collective.autopermission',
         'collective.prettyphoto',
         'plone.mls.core',
+        'plone.app.referenceablebehavior',
+        'plone.app.relationfield',
+        'plone.app.versioningbehavior',
     ],
     extras_require=dict(
-        plone4=[
-            'plone.app.versioningbehavior',
-        ],
-        tests=[
+        test=[
+            'plone.app.testing',
             'raptus.article.core',
         ],
     ),

@@ -19,37 +19,36 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 ###############################################################################
-"""Test Setup of plone.mls.listing."""
+"""Test Content Types of plone.mls.listing."""
 
 # python imports
 import unittest2 as unittest
+
+# zope imports
+from Products.CMFCore.utils import getToolByName
 
 # local imports
 from plone.mls.listing.testing import PLONE_MLS_LISTING_INTEGRATION_TESTING
 
 
+LISTING_TYPE = 'plone.mls.listing.listing'
+
+
 class TestSetup(unittest.TestCase):
-    """Setup Test Case for plone.mls.listing."""
+    """Content Test Case for plone.mls.listing."""
     layer = PLONE_MLS_LISTING_INTEGRATION_TESTING
 
-    def test_plone_mls_core_installed(self):
-        """Test that plone.mls.core is installed."""
+    def test_listing_available(self):
+        """Test that the listing content type is available."""
         portal = self.layer['portal']
-        qi = portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled('plone.mls.core'))
+        portal_types = getToolByName(portal, 'portal_types')
+        self.assertTrue(LISTING_TYPE in portal_types)
 
-    def test_plone_app_dexterity_installed(self):
-        """Test that plone.app.dexterity is installed."""
-        portal = self.layer['portal']
-        qi = portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled('plone.app.dexterity'))
-
-    def test_raptus_article_core_installed(self):
-        """Test that raptus.article.core is installed.
-
-        Note that raptus.article.core is only installed automatically in tests
-        so that we can test the article integration.
-        """
-        portal = self.layer['portal']
-        qi = portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled('raptus.article.core'))
+#     def test_versioning(self):
+#         versionable_types = list(self.portal_repo.getVersionableContentTypes())
+#         self.failUnless(LISTING_TYPE in versionable_types)
+#
+#     def test_article_integration(self):
+#         article = self.portal_types.get('Article', None)
+#         self.failUnless(article is not None)
+#         self.failUnless(LISTING_TYPE in article.allowed_content_types)
