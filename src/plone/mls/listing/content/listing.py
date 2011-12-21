@@ -1,28 +1,32 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2011 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
 #
-##############################################################################
-"""Listing content type."""
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+###############################################################################
+"""Dexterity based Listing content type."""
 
 # zope imports
 from five import grok
-from plone.dexterity.content import Item
 from plone.directives import form
 from plone.memoize.view import memoize
 from zope import schema
 from zope.component import getMultiAdapter
-from zope.publisher.interfaces import NotFound
 
 # local imports
 from plone.mls.core import config
@@ -39,7 +43,7 @@ class IListing(form.Schema):
             u"help_listing_title",
             default=u"",
         ),
-        title = _(
+        title=_(
             u"label_listing_title",
             default=u"Title",
         ),
@@ -82,7 +86,8 @@ class View(grok.View):
         try:
             _raw = get_listing(listing_id, lang=lang)
         except (MLSDataError, MLSConnectionError), e:
-            self._error['standard'] = u"This listing is temporary not available. Please try again later."
+            self._error['standard'] = u"This listing is temporary not " \
+                                      u"available. Please try again later."
 
             ptools = getMultiAdapter((self.context, self.request),
                 name=u'plone_tools')

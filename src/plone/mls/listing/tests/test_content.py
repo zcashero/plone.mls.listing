@@ -43,12 +43,3 @@ class TestSetup(unittest.TestCase):
         portal = self.layer['portal']
         portal_types = getToolByName(portal, 'portal_types')
         self.assertTrue(LISTING_TYPE in portal_types)
-
-#     def test_versioning(self):
-#         versionable_types = list(self.portal_repo.getVersionableContentTypes())
-#         self.failUnless(LISTING_TYPE in versionable_types)
-#
-#     def test_article_integration(self):
-#         article = self.portal_types.get('Article', None)
-#         self.failUnless(article is not None)
-#         self.failUnless(LISTING_TYPE in article.allowed_content_types)

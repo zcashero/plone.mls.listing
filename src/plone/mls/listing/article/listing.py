@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2011 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation.
 #
-##############################################################################
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+###############################################################################
 """Article integration for MLS Listings."""
 
 # zope imports
-from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
@@ -24,13 +29,11 @@ from plone.memoize.instance import memoize
 from zope import interface, component
 
 # raptus.article imports
-from raptus.article.core.config import MANAGE_PERMISSION
 from raptus.article.core import interfaces
-from raptus.article.nesting.interfaces import IArticles
 
 # local imports
-from plone.mls.core.utils import (get_language, get_listing, MLSConnectionError,
-    MLSDataError)
+from plone.mls.core.utils import (get_language, get_listing,
+    MLSConnectionError, MLSDataError)
 from plone.mls.listing import _
 from plone.mls.listing.article.interfaces import IListingLists
 
@@ -43,7 +46,7 @@ class ListingsComponent(object):
     """Component which lists the MLS Listings."""
     interface.implements(interfaces.IComponent)
     component.adapts(interfaces.IArticle)
-    
+
     title = _(
         u"heading_article_listings",
         default=u"MLS Listings",
@@ -55,7 +58,7 @@ class ListingsComponent(object):
     image = '++resource++listing_left.gif'
     interface = IListings
     viewlet = 'plone.mls.listing.article.listings'
-    
+
     def __init__(self, context):
         self.context = context
 
@@ -67,30 +70,30 @@ class ListingsViewlet(ViewletBase):
     type = "left"
     thumb_size = "listingleft"
     component = "listing.left"
-    
+
     def _class(self, brain, i, l):
         cls = []
         if i == 0:
             cls.append('first')
-        if i == l-1:
+        if i == l - 1:
             cls.append('last')
         if i % 2 == 0:
             cls.append('odd')
         if i % 2 == 1:
             cls.append('even')
         return ' '.join(cls)
-    
+
     @property
     def title_pre(self):
         props = getToolByName(self.context, 'portal_properties').raptus_article
         return props.getProperty('listings_%s_titletop' % self.type, False)
-    
+
     @property
     @memoize
     def show_caption(self):
         props = getToolByName(self.context, 'portal_properties').raptus_article
         return props.getProperty('listings_%s_caption' % self.type, False)
-    
+
     @property
     @memoize
     def listings(self):
@@ -123,6 +126,7 @@ class ListingsViewlet(ViewletBase):
             try:
                 raw = get_listing(listing_id, summary=True, lang=lang)
             except (MLSDataError, MLSConnectionError), e:
+                print(e)
                 continue
             else:
                 listing = raw.get('listing', None)
