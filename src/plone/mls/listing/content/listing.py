@@ -32,7 +32,7 @@ from zope.component import getMultiAdapter
 from plone.mls.core import config
 from plone.mls.core.utils import (get_language, get_listing,
     MLSConnectionError, MLSDataError)
-from plone.mls.listing import _
+from plone.mls.listing.i18n import _
 
 
 class IListing(form.Schema):

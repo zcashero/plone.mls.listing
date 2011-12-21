@@ -25,7 +25,9 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.1.2'
+sys.path.insert(0, os.path.abspath('src/'))
+from plone.mls.listing import __version__
+
 
 #---[ START Server locking]--------------------------------------------------
 LOCK_PYPI_SERVER = "http://pypi.propertyshelf.com"
@@ -82,7 +84,7 @@ check_server(LOCK_PYPI_SERVER)
 
 setup(
     name='plone.mls.listing',
-    version=version,
+    version=__version__,
     description="Plone support for MLS Listings.",
     long_description='\n\n'.join([
         open("README.txt").read() + "\n" +
@@ -106,14 +108,20 @@ setup(
     author_email='thomas@propertyshelf.com',
     maintainer='Thomas Massmann',
     maintainer_email='thomas@propertyshelf.com',
-    url='http://mypypi.inqbus.de/',
-    download_url='http://mypypi.inqbus.de/private/plone.mls.listing',
+    url='http://pypi.propertyshelf.com/',
+    download_url='http://pypi.propertyshelf.com/private/plone.mls.listing',
     license='Commercial',
     packages=find_packages('src', exclude=['ez_setup']),
     package_dir={'': 'src'},
     namespace_packages=['plone', 'plone.mls'],
     include_package_data=True,
     zip_safe=False,
+    extras_require=dict(
+        test=[
+            'plone.app.testing',
+            'raptus.article.core',
+        ],
+    ),
     install_requires=[
         'setuptools',
         # -*- Extra requirements: -*-
@@ -121,17 +129,11 @@ setup(
         'plone.app.dexterity [grok]',
         'collective.autopermission',
         'collective.prettyphoto',
-        'plone.mls.core',
         'plone.app.referenceablebehavior',
         'plone.app.relationfield',
         'plone.app.versioningbehavior',
+        'plone.mls.core',
     ],
-    extras_require=dict(
-        test=[
-            'plone.app.testing',
-            'raptus.article.core',
-        ],
-    ),
     entry_points="""
     # -*- Entry points: -*-
 

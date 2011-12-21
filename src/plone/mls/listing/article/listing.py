@@ -34,8 +34,8 @@ from raptus.article.core import interfaces
 # local imports
 from plone.mls.core.utils import (get_language, get_listing,
     MLSConnectionError, MLSDataError)
-from plone.mls.listing import _
 from plone.mls.listing.article.interfaces import IListingLists
+from plone.mls.listing.i18n import _
 
 
 class IListings(interface.Interface):
