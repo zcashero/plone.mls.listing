@@ -22,8 +22,31 @@
 """Various stand alone browser views for listings."""
 
 # zope imports
+from plone.memoize.view import memoize
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
 from zope.publisher.browser import BrowserView
+
+# local imports
+from mls.apiclient.client import ListingResource
+from plone.mls.core.interfaces import IMLSSettings
 
 
 class RecentListings(BrowserView):
     """Shows recent (active) listings from the MLS."""
+
+    @property
+    @memoize
+    def listings(self):
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(IMLSSettings)
+        base_url = getattr(settings, 'mls_site', None)
+        api_key = getattr(settings, 'mls_key', None)
+        resource = ListingResource(base_url, api_key=api_key)
+        params = {
+            'sort_on': 'created',
+            'reverse': '1',
+            'limit': self.request.get('limit', 25),
+            'offset': self.request.get('offset', 0),
+        }
+        return resource.search(**params)

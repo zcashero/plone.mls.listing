@@ -126,9 +126,10 @@ setup(
         'setuptools',
         # -*- Extra requirements: -*-
         'Plone',
-        'plone.app.dexterity [grok]',
         'collective.autopermission',
         'collective.prettyphoto',
+        'mls.apiclient',
+        'plone.app.dexterity [grok]',
         'plone.app.referenceablebehavior',
         'plone.app.relationfield',
         'plone.app.versioningbehavior',
