@@ -3,6 +3,18 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="plone.mls.listing">
 
+  <!-- Recent Listings. -->
+  <!-- ================ -->
+  <browser:page
+      class=".views.RecentListings"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="recent-listings"
+      permission="zope2.View"
+      template="templates/recent_listings.pt"
+      />
+
+
   <!-- Zope 3 browser resources. -->
   <!-- ========================= -->
   <browser:resourceDirectory
