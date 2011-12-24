@@ -14,7 +14,64 @@
       <h1 class="documentFirstHeading">Recent MLS Listings</h1>
       <div tal:replace="structure provider:plone.belowcontenttitle" />
 
+      <p class="documentDescription" tal:content="context/description|nothing" />
+
       <div tal:replace="structure provider:plone.abovecontentbody" />
+
+      <p tal:define="text context/body_text|nothing" tal:condition="text" tal:replace="structure text/output">Body Text</p>
+
+      <tal:listings tal:define="listings view/listings|nothing" tal:condition="listings" tal:repeat="listing listings">
+        <div class="tileItem visualIEFloatFix" style="margin-bottom: 1em;">
+          <h2 class="tileHeadline"><a href="" class="summary url"
+              tal:attributes="href string:${context/absolute_url}/${listing/mls_id}"
+              tal:content="listing/title/value">Listing Title</a></h2>
+
+          <table class="tileBody">
+            <tbody>
+              <tr>
+                <td rowspan="6" style="width: 12%; vertical-align: top;">
+          <a href=""
+             tal:define="image listing/lead_image|nothing"
+             tal:condition="image"
+             tal:attributes="href string:${context/absolute_url}/${listing/mls_id}"><img class="image-left" src="" alt="" title=""
+             tal:attributes="src image/thumb;
+                             alt image/title;
+                             title image/title" /></a>
+                </td>
+                <th style="width: 22%" tal:content="listing/price/label|nothing">Label</th>
+                <td style="width: 22%" tal:content="listing/price/value|nothing">Value</td>
+                <th style="width: 22%" tal:content="listing/workflow_status/label|nothing">Label</th>
+                <td style="width: 22%" tal:content="listing/workflow_status/value|nothing">Value</td>
+              </tr>
+              <tr>
+                <th tal:content="listing/listing_type/label|nothing">Label</th>
+                <td tal:content="listing/listing_type/value|nothing">Value</td>
+                <th tal:content="listing/images/label|nothing">Label</th>
+                <td tal:content="listing/images/value|nothing">Value</td>
+              </tr>
+              <tr>
+                <th tal:content="listing/object_type/label|nothing">Label</th>
+                <td tal:content="listing/object_type/value|nothing">Value</td>
+                <th tal:content="listing/beds_baths/label|nothing">Label</th>
+                <td tal:content="listing/beds_baths/value|nothing">Value</td>
+              </tr>
+              <tr>
+                <th tal:content="listing/location/label|nothing">Label</th>
+                <td colspan="3" tal:content="listing/location/value|nothing">Value</td>
+              </tr>
+              <tr>
+                <th tal:content="listing/location_type/label|nothing">Label</th>
+                <td colspan="3" tal:content="listing/location_type/value|nothing">Value</td>
+              </tr>
+              <tr>
+                <th tal:content="listing/view_type/label|nothing">Label</th>
+                <td colspan="3" tal:content="listing/view_type/value|nothing">Value</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="visualClear"></div>
+        </div>
+      </tal:listings>
 
       <div tal:replace="structure provider:plone.belowcontentbody" />
     </section>
