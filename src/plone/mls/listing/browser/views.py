@@ -41,6 +41,8 @@ class RecentListings(BrowserView):
         return self.index()
 
     def update(self):
+        self.portal_state = self.context.unrestrictedTraverse(
+            "@@plone_portal_state")
         self._get_listings()
 
     @property
@@ -86,6 +88,7 @@ class RecentListings(BrowserView):
         params = {
             'limit': self.request.get('limit', 25),
             'offset': self.request.get('offset', 0),
+            'lang': self.portal_state.language(),
         }
         results, batching = recent_listings(params)
         self._listings = results

@@ -83,25 +83,30 @@ class View(grok.View):
             listing_id = self.request.listing_id
         else:
             listing_id = self.context.listing_id
-        try:
-            _raw = get_listing(listing_id, lang=lang)
-        except (MLSDataError, MLSConnectionError), e:
-            self._error['standard'] = u"This listing is temporary not " \
-                                      u"available. Please try again later."
 
-            ptools = getMultiAdapter((self.context, self.request),
-                name=u'plone_tools')
-            ms = ptools.membership()
-            if ms.checkPermission('Modify portal content', self.context):
-                if e.code in [502, 503, 504]:
-                    pstate = getMultiAdapter((self.context, self.request),
-                        name=u'plone_portal_state')
-                    portal_url = pstate.portal_url()
-                    self._error['extended'] = config.ERROR_503 % dict(
-                        portal_url=portal_url)
+        from mls.apiclient.client import ListingResource
+        api = ListingResource('http://localhost:8060/mls/', 'IULtjlczY6l5zHZLi6jbGPUUqc2jCvD93kxBbnl1ueA', debug=True)
+        _raw = api.get(listing_id, lang=lang)
 
-                elif e.code == 404:
-                    self._error['extended'] = config.ERROR_404
+#         try:
+#             _raw = get_listing(listing_id, lang=lang)
+#         except (MLSDataError, MLSConnectionError), e:
+#             self._error['standard'] = u"This listing is temporary not " \
+#                                       u"available. Please try again later."
+# 
+#             ptools = getMultiAdapter((self.context, self.request),
+#                 name=u'plone_tools')
+#             ms = ptools.membership()
+#             if ms.checkPermission('Modify portal content', self.context):
+#                 if e.code in [502, 503, 504]:
+#                     pstate = getMultiAdapter((self.context, self.request),
+#                         name=u'plone_portal_state')
+#                     portal_url = pstate.portal_url()
+#                     self._error['extended'] = config.ERROR_503 % dict(
+#                         portal_url=portal_url)
+# 
+#                 elif e.code == 404:
+#                     self._error['extended'] = config.ERROR_404
 
         if _raw is not None:
             self._data = _raw.get('listing', None)

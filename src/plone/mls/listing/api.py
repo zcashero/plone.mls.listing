@@ -53,7 +53,7 @@ def recent_listings(params={}, batching=True):
     resource = ListingResource(base_url, api_key=api_key, debug=True)
 
     try:
-        results, batch = resource.search(**search_params)
+        results, batch = resource.search(search_params)
     except MLSError, e:
         logger.warn(e)
 

@@ -7,7 +7,7 @@
       i18n:domain="plone.mls.listing"
       tal:omit-tag="">
   <body>
-    <section id="recent-listings"
+    <section id="recent-listings" class="listing-summary"
              metal:fill-slot="main"
              tal:define="page_url context/@@plone_context_state/current_base_url">
 
@@ -43,42 +43,54 @@
           <table class="tileBody">
             <tbody>
               <tr>
-                <td rowspan="6" style="width: 12%; vertical-align: top;">
-          <a href=""
-             tal:define="image listing/lead_image|nothing"
-             tal:condition="image"
-             tal:attributes="href string:${page_url}/${listing/id/value}"><img class="image-left" src="" alt="" title=""
-             tal:attributes="src image" /></a>
+                <td class="lead-image" rowspan="6">
+                  <a href=""
+                     tal:define="image listing/lead_image|nothing"
+                     tal:condition="image"
+                     tal:attributes="href string:${page_url}/${listing/id/value}"><img class="image-left" src="" alt="" title=""
+                     tal:attributes="src image" /></a>
                 </td>
-                <th style="width: 22%" tal:content="listing/price/label|nothing">Label</th>
+                <th style="width: 22%"><span tal:replace="listing/price/label|nothing">Label</span>:</th>
                 <td style="width: 22%" tal:content="listing/price/value|nothing">Value</td>
-                <th style="width: 22%" tal:content="listing/workflow_status/label|nothing">Label</th>
+                <th style="width: 22%"><span tal:replace="listing/workflow_status/label|nothing">Label</span>:</th>
                 <td style="width: 22%" tal:content="listing/workflow_status/value|nothing">Value</td>
               </tr>
+
               <tr>
-                <th tal:content="listing/listing_type/label|nothing">Label</th>
-                <td tal:content="listing/listing_type/value|nothing">Value</td>
-                <th tal:content="listing/image_count/label|nothing">Label</th>
+                <tal:item tal:define="item listing/listing_type | nothing"
+                          tal:condition="item">
+                  <th><span tal:replace="item/label|nothing">Label</span>:</th>
+                  <td tal:content="item/value|nothing">Value</td>
+                </tal:item>
+                <th><span tal:replace="listing/image_count/label|nothing">Label</span>:</th>
                 <td tal:content="listing/image_count/value|nothing">Value</td>
               </tr>
-              <tr>
-                <th tal:content="listing/object_type/label|nothing">Label</th>
+
+              <tr tal:condition="listing/object_type | listing/beds_baths | nothing">
+                <th><span tal:replace="listing/object_type/label|nothing">Label</span>:</th>
                 <td tal:content="listing/object_type/value|nothing">Value</td>
-                <th tal:content="listing/beds_baths/label|nothing">Label</th>
+                <th><span tal:replace="listing/beds_baths/label|nothing">Label</span>:</th>
                 <td tal:content="listing/beds_baths/value|nothing">Value</td>
               </tr>
-              <tr>
-                <th tal:content="listing/location/label|nothing">Label</th>
-                <td colspan="3" tal:content="listing/location/value|nothing">Value</td>
+
+              <tr tal:define="item listing/location | nothing"
+                  tal:condition="item">
+                <th><span tal:replace="item/label | nothing">Label</span>:</th>
+                <td colspan="3" tal:content="item/value | nothing">Value</td>
               </tr>
-              <tr>
-                <th tal:content="listing/location_type/label|nothing">Label</th>
-                <td colspan="3" tal:content="listing/location_type/value|nothing">Value</td>
+
+              <tr tal:define="item listing/location_type | nothing"
+                  tal:condition="item">
+                <th><span tal:replace="item/label | nothing">Label</span>:</th>
+                <td colspan="3" tal:content="item/value | nothing">Value</td>
               </tr>
-              <tr>
-                <th tal:content="listing/view_type/label|nothing">Label</th>
-                <td colspan="3" tal:content="listing/view_type/value|nothing">Value</td>
+
+              <tr tal:define="item listing/view_type | nothing"
+                  tal:condition="item">
+                <th><span tal:replace="item/label | nothing">Label</span>:</th>
+                <td colspan="3" tal:content="item/value | nothing">Value</td>
               </tr>
+
             </tbody>
           </table>
           <div class="visualClear"></div>
