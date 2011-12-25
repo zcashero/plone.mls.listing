@@ -21,32 +21,96 @@
 ###############################################################################
 """Various stand alone browser views for listings."""
 
+from urllib import urlencode
+
 # zope imports
 from plone.memoize.view import memoize
-from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
+from zope.component import queryMultiAdapter
 from zope.publisher.browser import BrowserView
+from zope.publisher.interfaces import NotFound
 
 # local imports
-from mls.apiclient.client import ListingResource
-from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.listing.api import recent_listings
 
 
 class RecentListings(BrowserView):
     """Shows recent (active) listings from the MLS."""
 
+    def __call__(self):
+        self.update()
+        return self.index()
+
+    def update(self):
+        self._get_listings()
+
     @property
     @memoize
     def listings(self):
-        registry = getUtility(IRegistry)
-        settings = registry.forInterface(IMLSSettings)
-        base_url = getattr(settings, 'mls_site', None)
-        api_key = getattr(settings, 'mls_key', None)
-        resource = ListingResource(base_url, api_key=api_key)
+        return self._listings
+
+    @property
+    def batching(self):
+        batching = self._batching
+        if batching is None:
+            return
+
+        plone_context_state = queryMultiAdapter((self.context, self.request),
+                                                name='plone_context_state')
+        page_url = plone_context_state.current_base_url()
+        request_query = self.request.get('QUERY_STRING', None)
+        limit = int(self.request.get('limit', 25))
+        offset = int(self.request.get('offset', 0))
+
+        batch = {}
+        if batching.get('next', None):
+            query = {
+                'limit': limit,
+                'offset': offset + limit,
+            }
+            batch.update({
+                'next': page_url + '?' + urlencode(query)
+            })
+
+        if batching.get('prev', None):
+            query = {
+                'limit': limit,
+                'offset': offset - limit,
+            }
+            batch.update({
+                'prev': page_url + '?' + urlencode(query)
+            })
+        return batch
+
+    def _get_listings(self):
+        """Query the recent listings."""
         params = {
-            'sort_on': 'created',
-            'reverse': '1',
             'limit': self.request.get('limit', 25),
             'offset': self.request.get('offset', 0),
         }
-        return resource.search(**params)
+        results, batching = recent_listings(params)
+        self._listings = results
+        self._batching = batching
+
+    def publishTraverse(self, request, name):
+        if getattr(request, 'listing_id', None) is None:
+            self.request.listing_id = name
+        try:
+            return super(RecentListings, self).publishTraverse(request, name)
+        except (NotFound, AttributeError):
+
+            # We store the listing_id parameter in the request.
+            self.request.listing_id = name
+            listing_view = 'listing-detail'
+            default_view = self.context.getDefaultLayout()
+
+            # Let's call the listing view.
+            view = queryMultiAdapter((self.context, request), name=listing_view)
+            if view is not None:
+                return view
+
+            # Deliver the default item view as fallback.
+            view = queryMultiAdapter((self.context, request), name=default_view)
+            if view is not None:
+                return view
+
+        raise NotFound(self.context, name, request)

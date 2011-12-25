@@ -14,6 +14,13 @@
       template="templates/recent_listings.pt"
       />
 
+  <browser:page
+      for="*"
+      name="listing-detail"
+      class="plone.mls.listing.content.listing.View"
+      permission="zope2.View"
+      />
+
 
   <!-- Zope 3 browser resources. -->
   <!-- ========================= -->
