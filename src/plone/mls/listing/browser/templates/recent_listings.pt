@@ -40,59 +40,67 @@
               tal:attributes="href string:${page_url}/${listing/id/value}"
               tal:content="listing/title/value">Listing Title</a></h2>
 
-          <table class="tileBody">
-            <tbody>
-              <tr>
-                <td class="lead-image" rowspan="6">
-                  <a href=""
-                     tal:define="image listing/lead_image|nothing"
-                     tal:condition="image"
-                     tal:attributes="href string:${page_url}/${listing/id/value}"><img class="image-left" src="" alt="" title=""
-                     tal:attributes="src image" /></a>
-                </td>
-                <th style="width: 22%"><span tal:replace="listing/price/label|nothing">Label</span>:</th>
-                <td style="width: 22%" tal:content="listing/price/value|nothing">Value</td>
-                <th style="width: 22%"><span tal:replace="listing/workflow_status/label|nothing">Label</span>:</th>
-                <td style="width: 22%" tal:content="listing/workflow_status/value|nothing">Value</td>
-              </tr>
+          <figure tal:define="image listing/lead_image|nothing">
+            <a href="" tal:attributes="href string:${page_url}/${listing/id/value};
+                                       title listing/title/value"><img src="" alt=""
+                       tal:condition="image"
+                       tal:attributes="src image" /><img
+                       tal:condition="not:image" alt="" title=""
+                       src="++resource++static/images/no-image.png" width="128" /></a>
+            <figcaption>
+              <small tal:content="listing/title/value">Caption</small>
+            </figcaption>
+          </figure>
 
-              <tr>
-                <tal:item tal:define="item listing/listing_type | nothing"
-                          tal:condition="item">
-                  <th><span tal:replace="item/label|nothing">Label</span>:</th>
-                  <td tal:content="item/value|nothing">Value</td>
-                </tal:item>
-                <th><span tal:replace="listing/image_count/label|nothing">Label</span>:</th>
-                <td tal:content="listing/image_count/value|nothing">Value</td>
-              </tr>
+          <section>
+            <dl>
+              <tal:item tal:define="item listing/price | nothing" tal:condition="item">
+                <dt class="row"><span tal:replace="item/label">Label</span>:</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
 
-              <tr tal:condition="listing/object_type | listing/beds_baths | nothing">
-                <th><span tal:replace="listing/object_type/label|nothing">Label</span>:</th>
-                <td tal:content="listing/object_type/value|nothing">Value</td>
-                <th><span tal:replace="listing/beds_baths/label|nothing">Label</span>:</th>
-                <td tal:content="listing/beds_baths/value|nothing">Value</td>
-              </tr>
+              <tal:item tal:define="item listing/workflow_status | nothing" tal:condition="item">
+                <dt><span tal:replace="item/label">Label</span>:</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
 
-              <tr tal:define="item listing/location | nothing"
-                  tal:condition="item">
-                <th><span tal:replace="item/label | nothing">Label</span>:</th>
-                <td colspan="3" tal:content="item/value | nothing">Value</td>
-              </tr>
+              <tal:item tal:define="item listing/listing_type | nothing" tal:condition="item">
+                <dt class="row"><span tal:replace="item/label">Label</span>:</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
 
-              <tr tal:define="item listing/location_type | nothing"
-                  tal:condition="item">
-                <th><span tal:replace="item/label | nothing">Label</span>:</th>
-                <td colspan="3" tal:content="item/value | nothing">Value</td>
-              </tr>
+              <tal:item tal:define="item listing/image_count | nothing" tal:condition="item">
+                <dt><span tal:replace="item/label">Label</span>:</dt>
+                <dd tal:content="item/value" tal:attributes="class item/value">Value</dd>
+              </tal:item>
 
-              <tr tal:define="item listing/view_type | nothing"
-                  tal:condition="item">
-                <th><span tal:replace="item/label | nothing">Label</span>:</th>
-                <td colspan="3" tal:content="item/value | nothing">Value</td>
-              </tr>
+              <tal:item tal:define="item listing/object_type | nothing" tal:condition="item">
+                <dt class="row"><span tal:replace="item/label">Label</span>:</dt>
+                <dd tal:content="item/value">Value</dd>
+              </tal:item>
 
-            </tbody>
-          </table>
+              <tal:item tal:define="item listing/beds_baths | nothing" tal:condition="item">
+                <dt class="column_two"><span tal:replace="item/label">Label</span>:</dt>
+                <dd class="column_two" tal:content="item/value">Value</dd>
+              </tal:item>
+
+              <tal:item tal:define="item listing/location | nothing" tal:condition="item">
+                <dt class="row"><span tal:replace="item/label">Label</span>:</dt>
+                <dd class="full" tal:content="item/value">Value</dd>
+              </tal:item>
+
+              <tal:item tal:define="item listing/location_type | nothing" tal:condition="item">
+                <dt class="row"><span tal:replace="item/label">Label</span>:</dt>
+                <dd class="full" tal:content="item/value">Value</dd>
+              </tal:item>
+
+              <tal:item tal:define="item listing/view_type | nothing" tal:condition="item">
+                <dt class="row"><span tal:replace="item/label">Label</span>:</dt>
+                <dd class="full" tal:content="item/value">Value</dd>
+              </tal:item>
+            </dl>
+          </section>
+
           <div class="visualClear"></div>
         </div>
 

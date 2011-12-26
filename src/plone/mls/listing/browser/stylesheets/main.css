@@ -39,3 +39,50 @@
 .listing ul.formTabs {
   clear: both;
 }
+
+#content .listing-summary figure {
+  float: left;
+  margin-right: 3%;
+  width: 22%;
+}
+
+#content .listing-summary figure a {
+  border: 1px solid #D5D5D5;
+  display: block;
+  padding: 3%;
+}
+
+#content .listing-summary figure img {
+  width: 100%;
+}
+
+#content .listing-summary figure figcaption {
+  display: none;
+}
+
+#content .listing-summary section {
+  float: left;
+  width: 75%;
+}
+
+#content .listing-summary dt {
+  float: left;
+  margin: 0 3% 0 0;
+  width: 22%;
+}
+
+#content .listing-summary dt.row {
+  clear: both;
+}
+
+#content .listing-summary dd {
+  float: left;
+  margin: 0 3% 0 0;
+  width: 22%;
+}
+
+#content .listing-summary dd.full {
+  float: left;
+  margin: 0;
+  width: 75%;
+}
