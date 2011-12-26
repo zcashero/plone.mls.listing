@@ -25,6 +25,12 @@
   <!-- Zope 3 browser resources. -->
   <!-- ========================= -->
   <browser:resourceDirectory
+      directory="images"
+      layer=".interfaces.IListingSpecific"
+      name="plone.mls.listing.images"
+      />
+
+  <browser:resourceDirectory
       directory="javascript"
       layer=".interfaces.IListingSpecific"
       name="plone.mls.listing.javascript"

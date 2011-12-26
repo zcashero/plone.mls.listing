@@ -40,13 +40,13 @@
               tal:attributes="href string:${page_url}/${listing/id/value}"
               tal:content="listing/title/value">Listing Title</a></h2>
 
-          <figure tal:define="image listing/lead_image|nothing">
+          <figure tal:define="image listing/lead_image | nothing">
             <a href="" tal:attributes="href string:${page_url}/${listing/id/value};
                                        title listing/title/value"><img src="" alt=""
                        tal:condition="image"
                        tal:attributes="src image" /><img
                        tal:condition="not:image" alt="" title=""
-                       src="++resource++static/images/no-image.png" width="128" /></a>
+                       src="++resource++plone.mls.listing.images/no-image.png" /></a>
             <figcaption>
               <small tal:content="listing/title/value">Caption</small>
             </figcaption>

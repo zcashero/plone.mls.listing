@@ -40,6 +40,9 @@
   clear: both;
 }
 
+/* Table-like listing summary.
+   ===========================
+*/
 #content .listing-summary figure {
   float: left;
   margin-right: 3%;
