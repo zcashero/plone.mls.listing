@@ -9,7 +9,7 @@
   <body>
     <section id="recent-listings" class="listing-summary"
              metal:fill-slot="main"
-             tal:define="page_url context/@@plone_context_state/current_base_url;
+             tal:define="page_url view/view_url;
                          is_view_template context/@@plone_context_state/is_view_template;">
 
       <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -47,11 +47,11 @@
         <div class="tileItem visualIEFloatFix" style="margin-bottom: 1em;"
              tal:repeat="listing listings">
           <h2 class="tileHeadline"><a href="" class="summary url"
-              tal:attributes="href string:${page_url}/${listing/id/value}"
+              tal:attributes="href string:${page_url}${listing/id/value}"
               tal:content="listing/title/value">Listing Title</a></h2>
 
           <figure tal:define="image listing/lead_image | nothing">
-            <a href="" tal:attributes="href string:${page_url}/${listing/id/value};
+            <a href="" tal:attributes="href string:${page_url}${listing/id/value};
                                        title listing/title/value"><img src="" alt=""
                        tal:condition="image"
                        tal:attributes="src image" /><img

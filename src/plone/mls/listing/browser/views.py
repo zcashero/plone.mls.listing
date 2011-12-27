@@ -29,6 +29,7 @@ from plone.memoize.view import memoize
 from zope.component import queryMultiAdapter
 from zope.publisher.browser import BrowserView
 from zope.publisher.interfaces import NotFound
+from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
 from plone.mls.listing.api import recent_listings
@@ -52,10 +53,11 @@ class RecentListings(BrowserView):
         self._get_listings()
 
     @memoize
-    def is_view(self):
-        import ipdb; ipdb.set_trace()
-        if self.context_state.is_view_template():
-            return self.context_state.current_base_url() 
+    def view_url(self):
+        if not self.context_state.is_view_template():
+            return self.context_state.current_base_url()
+        else:
+         return absoluteURL(self.context, self.request) + '/'
 
     @property
     @memoize
