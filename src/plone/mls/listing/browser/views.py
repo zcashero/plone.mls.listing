@@ -19,12 +19,13 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 ###############################################################################
-"""Various stand alone browser views for listings."""
+"""Various browser views for listings."""
 
 # python imports
 from urllib import urlencode
 
 # zope imports
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.memoize.view import memoize
 from zope.component import queryMultiAdapter
 from zope.publisher.browser import BrowserView
@@ -32,7 +33,93 @@ from zope.publisher.interfaces import NotFound
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-from plone.mls.listing.api import recent_listings
+from plone.mls.listing.api import listing_details, recent_listings
+
+
+class ListingDetails(BrowserView):
+
+    index = ViewPageTemplateFile('templates/listing_details.pt')
+
+    _error = {}
+    _data = None
+
+    def __call__(self):
+        self.update()
+        return self.index()
+
+    def update(self):
+        self.portal_state = queryMultiAdapter((self.context, self.request),
+                                              name='plone_portal_state')
+        self._get_data()
+
+    @memoize
+    def _get_data(self):
+        """Get the remote listing data from the MLS."""
+        lang = self.portal_state.language()
+        if getattr(self.request, 'listing_id', None) is not None:
+            listing_id = self.request.listing_id
+        else:
+            listing_id = self.context.listing_id
+
+        self._data = listing_details(listing_id, lang)
+
+    @property
+    def data(self):
+        return self._data
+
+    @property
+    def error(self):
+        return self._error
+
+    @property
+    def title(self):
+        if getattr(self.request, 'listing_id', None) is not None:
+            if self.info is not None:
+                title = self.info.get('title', None)
+                if title is not None:
+                    return title.get('value', self.context.title)
+        else:
+            return self.context.Title
+
+    @property
+    def description(self):
+        if self.data is not None:
+            return self.data.get('description', None)
+
+    @property
+    def long_description(self):
+        if self.data is not None:
+            return self.data.get('long_description', None)
+
+    @property
+    def groups(self):
+        if self.data is not None:
+            return self.data.get('groups', None)
+
+    @property
+    def info(self):
+        if self.data is not None:
+            return self.data.get('info', None)
+
+    @property
+    def lead_image(self):
+        if self.data is not None:
+            image = self.data.get('images', None)[:1]
+            if len(image) > 0:
+                return image[0]
+        return None
+
+    @property
+    def images(self):
+        if self.data is not None:
+            images = self.data.get('images', None)
+            if len(images) > 1:
+                return images
+
+    @property
+    def contact(self):
+        if self.data is not None:
+            return self.data.get('contact', None)
 
 
 class RecentListings(BrowserView):

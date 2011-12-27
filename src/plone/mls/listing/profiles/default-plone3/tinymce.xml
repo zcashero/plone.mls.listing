@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<object>
-  <resourcetypes>
-    <linkable purge="false">
-      <element value="plone.mls.listing.listing" />
-    </linkable>
-  </resourcetypes>
-</object>

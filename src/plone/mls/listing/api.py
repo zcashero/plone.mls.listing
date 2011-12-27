@@ -39,6 +39,7 @@ logger = logging.getLogger(PRODUCT_NAME)
 
 
 def recent_listings(params={}, batching=True):
+    """Return a list of recent MLS listings."""
     search_params = {
         'sort_on': 'created',
         'reverse': '1',
@@ -60,3 +61,18 @@ def recent_listings(params={}, batching=True):
     if batching:
         return results, batch
     return results
+
+
+def listing_details(listing_id, lang=None):
+    """Return detail information for a listing."""
+    registry = getUtility(IRegistry)
+    settings = registry.forInterface(IMLSSettings)
+    base_url = getattr(settings, 'mls_site', None)
+    api_key = getattr(settings, 'mls_key', None)
+    resource = ListingResource(base_url, api_key=api_key)
+    try:
+        listing = resource.get(listing_id, lang=lang)
+    except MLSError, e:
+        logger.warn(e)
+        return None
+    return listing.get('listing', None)

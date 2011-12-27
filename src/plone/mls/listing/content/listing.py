@@ -22,13 +22,10 @@
 """Dexterity based Listing content type."""
 
 # zope imports
-from five import grok
 from plone.directives import form
-from plone.memoize.view import memoize
 from zope import schema
 
 # local imports
-from plone.mls.core.utils import get_language
 from plone.mls.listing.i18n import _
 
 
@@ -56,92 +53,3 @@ class IListing(form.Schema):
             default=u"MLS Listing ID",
         ),
     )
-
-
-class View(grok.View):
-    grok.context(IListing)
-    grok.require('zope2.View')
-
-    def __init__(self, context, request):
-        super(View, self).__init__(context, request)
-        self._error = {}
-        self._data = None
-
-    def __call__(self):
-        self._get_data()
-        return super(View, self).__call__()
-
-    @memoize
-    def _get_data(self):
-        """Get the remote listing data from the MLS."""
-        _raw = None
-        lang = get_language(self.context)
-        if getattr(self.request, 'listing_id', None) is not None:
-            listing_id = self.request.listing_id
-        else:
-            listing_id = self.context.listing_id
-
-        from mls.apiclient.client import ListingResource
-        api = ListingResource('http://localhost:8060/mls/', 'IULtjlczY6l5zHZLi6jbGPUUqc2jCvD93kxBbnl1ueA', debug=True)
-        _raw = api.get(listing_id, lang=lang)
-
-        if _raw is not None:
-            self._data = _raw.get('listing', None)
-
-    @property
-    def data(self):
-        return self._data
-
-    @property
-    def error(self):
-        return self._error
-
-    @property
-    def title(self):
-        if getattr(self.request, 'listing_id', None) is not None:
-            if self.info is not None:
-                title = self.info.get('title', None)
-                if title is not None:
-                    return title.get('value', self.context.title)
-        else:
-            return self.context.Title
-
-    @property
-    def description(self):
-        if self.data is not None:
-            return self.data.get('description', None)
-
-    @property
-    def long_description(self):
-        if self.data is not None:
-            return self.data.get('long_description', None)
-
-    @property
-    def groups(self):
-        if self.data is not None:
-            return self.data.get('groups', None)
-
-    @property
-    def info(self):
-        if self.data is not None:
-            return self.data.get('info', None)
-
-    @property
-    def lead_image(self):
-        if self.data is not None:
-            image = self.data.get('images', None)[:1]
-            if len(image) > 0:
-                return image[0]
-        return None
-
-    @property
-    def images(self):
-        if self.data is not None:
-            images = self.data.get('images', None)
-            if len(images) > 1:
-                return images
-
-    @property
-    def contact(self):
-        if self.data is not None:
-            return self.data.get('contact', None)
