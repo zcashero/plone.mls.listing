@@ -57,7 +57,7 @@ class RecentListings(BrowserView):
         if not self.context_state.is_view_template():
             return self.context_state.current_base_url()
         else:
-         return absoluteURL(self.context, self.request) + '/'
+            return absoluteURL(self.context, self.request) + '/'
 
     @property
     @memoize
@@ -71,7 +71,6 @@ class RecentListings(BrowserView):
             return
 
         page_url = self.context_state.current_base_url()
-        request_query = self.request.get('QUERY_STRING', None)
         limit = self.limit
         offset = int(self.request.get('offset', 0))
 
@@ -119,12 +118,14 @@ class RecentListings(BrowserView):
             default_view = self.context.getDefaultLayout()
 
             # Let's call the listing view.
-            view = queryMultiAdapter((self.context, request), name=listing_view)
+            view = queryMultiAdapter((self.context, request),
+                                     name=listing_view)
             if view is not None:
                 return view
 
             # Deliver the default item view as fallback.
-            view = queryMultiAdapter((self.context, request), name=default_view)
+            view = queryMultiAdapter((self.context, request),
+                                     name=default_view)
             if view is not None:
                 return view
 

@@ -26,12 +26,9 @@ from five import grok
 from plone.directives import form
 from plone.memoize.view import memoize
 from zope import schema
-from zope.component import getMultiAdapter
 
 # local imports
-from plone.mls.core import config
-from plone.mls.core.utils import (get_language, get_listing,
-    MLSConnectionError, MLSDataError)
+from plone.mls.core.utils import get_language
 from plone.mls.listing.i18n import _
 
 
@@ -87,26 +84,6 @@ class View(grok.View):
         from mls.apiclient.client import ListingResource
         api = ListingResource('http://localhost:8060/mls/', 'IULtjlczY6l5zHZLi6jbGPUUqc2jCvD93kxBbnl1ueA', debug=True)
         _raw = api.get(listing_id, lang=lang)
-
-#         try:
-#             _raw = get_listing(listing_id, lang=lang)
-#         except (MLSDataError, MLSConnectionError), e:
-#             self._error['standard'] = u"This listing is temporary not " \
-#                                       u"available. Please try again later."
-# 
-#             ptools = getMultiAdapter((self.context, self.request),
-#                 name=u'plone_tools')
-#             ms = ptools.membership()
-#             if ms.checkPermission('Modify portal content', self.context):
-#                 if e.code in [502, 503, 504]:
-#                     pstate = getMultiAdapter((self.context, self.request),
-#                         name=u'plone_portal_state')
-#                     portal_url = pstate.portal_url()
-#                     self._error['extended'] = config.ERROR_503 % dict(
-#                         portal_url=portal_url)
-# 
-#                 elif e.code == 404:
-#                     self._error['extended'] = config.ERROR_404
 
         if _raw is not None:
             self._data = _raw.get('listing', None)

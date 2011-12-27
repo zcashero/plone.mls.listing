@@ -23,7 +23,6 @@
 
 # zope imports
 from plone.theme.interfaces import IDefaultPloneLayer
-from zope.interface import Interface
 
 
 class IListingSpecific(IDefaultPloneLayer):
