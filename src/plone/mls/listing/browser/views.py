@@ -21,6 +21,7 @@
 ###############################################################################
 """Various stand alone browser views for listings."""
 
+# python imports
 from urllib import urlencode
 
 # zope imports
@@ -41,9 +42,20 @@ class RecentListings(BrowserView):
         return self.index()
 
     def update(self):
-        self.portal_state = self.context.unrestrictedTraverse(
-            "@@plone_portal_state")
+        self.limit = int(self.request.get('limit',
+                                          getattr(self.context, 'limit', 25)))
+        self.portal_state = queryMultiAdapter((self.context, self.request),
+                                              name='plone_portal_state')
+        self.context_state = queryMultiAdapter((self.context, self.request),
+                                               name='plone_context_state')
+
         self._get_listings()
+
+    @memoize
+    def is_view(self):
+        import ipdb; ipdb.set_trace()
+        if self.context_state.is_view_template():
+            return self.context_state.current_base_url() 
 
     @property
     @memoize
@@ -56,11 +68,9 @@ class RecentListings(BrowserView):
         if batching is None:
             return
 
-        plone_context_state = queryMultiAdapter((self.context, self.request),
-                                                name='plone_context_state')
-        page_url = plone_context_state.current_base_url()
+        page_url = self.context_state.current_base_url()
         request_query = self.request.get('QUERY_STRING', None)
-        limit = int(self.request.get('limit', 25))
+        limit = self.limit
         offset = int(self.request.get('offset', 0))
 
         batch = {}
@@ -86,7 +96,7 @@ class RecentListings(BrowserView):
     def _get_listings(self):
         """Query the recent listings."""
         params = {
-            'limit': self.request.get('limit', 25),
+            'limit': self.limit,
             'offset': self.request.get('offset', 0),
             'lang': self.portal_state.language(),
         }

@@ -19,12 +19,35 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 ###############################################################################
-"""Interface definitions."""
+"""Dexterity based recent listing content type."""
 
 # zope imports
-from plone.theme.interfaces import IDefaultPloneLayer
-from zope.interface import Interface
+from plone.app.textfield import RichText
+from plone.app.textfield.widget import RichTextFieldWidget
+from plone.directives import form
+from zope import schema
+
+# local imports
+from plone.mls.listing.i18n import _
 
 
-class IListingSpecific(IDefaultPloneLayer):
-    """Marker interface that defines a Zope 3 browser layer."""
+class IRecentListings(form.Schema):
+    """Recent Listings Content Type Interface."""
+
+    limit = schema.Int(
+        default=25,
+        required=True,
+        title=_(
+            u"label_recent_listings_limit",
+            default=u"Items per page"
+        ),
+    )
+
+    form.widget(body_text=RichTextFieldWidget)
+    body_text = RichText(
+        required=False,
+        title=_(
+            u"label_recent_listings_body_text",
+            default=u"Body Text",
+        ),
+    )

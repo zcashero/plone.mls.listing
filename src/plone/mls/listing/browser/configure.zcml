@@ -5,9 +5,20 @@
 
   <!-- Recent Listings. -->
   <!-- ================ -->
+  <!-- Default view for plone.mls.listing.recentlistings. -->
   <browser:page
       class=".views.RecentListings"
-      for="*"
+      for="plone.mls.listing.content.recent_listings.IRecentListings"
+      layer=".interfaces.IListingSpecific"
+      name="view"
+      permission="zope2.View"
+      template="templates/recent_listings.pt"
+      />
+
+  <!-- Standalone view for recent listings. -->
+  <browser:page
+      class=".views.RecentListings"
+      for="plone.app.layout.navigation.interfaces.INavigationRoot"
       layer=".interfaces.IListingSpecific"
       name="recent-listings"
       permission="zope2.View"
@@ -40,6 +51,16 @@
       directory="stylesheets"
       layer=".interfaces.IListingSpecific"
       name="plone.mls.listing.stylesheets"
+      />
+
+  <!-- Traversing Adapter. -->
+  <!-- =================== -->
+  <adapter
+      for="plone.mls.listing.content.recent_listings.IRecentListings
+           zope.publisher.interfaces.browser.IBrowserRequest"
+      provides="zope.publisher.interfaces.browser.IBrowserPublisher"
+      factory=".traversal.RecentListingsTraverser"
+      permission="zope2.View"
       />
 
 </configure>
