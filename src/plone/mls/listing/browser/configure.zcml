@@ -36,7 +36,7 @@
   <!-- Standalone view for recent listings. -->
   <browser:page
       class=".views.RecentListings"
-      for="plone.app.layout.navigation.interfaces.INavigationRoot"
+      for="*"
       layer=".interfaces.IListingSpecific"
       name="recent-listings"
       permission="zope2.View"

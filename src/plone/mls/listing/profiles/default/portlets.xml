@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<portlets>
+  <portlet
+      addview="portlets.AgentInformation"
+      title="Agent Information"
+      description="A portlet displaying agent information for a listing."
+  />
+</portlets>

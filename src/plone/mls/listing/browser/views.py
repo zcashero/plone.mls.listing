@@ -28,20 +28,24 @@ from urllib import urlencode
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.memoize.view import memoize
 from zope.component import queryMultiAdapter
+from zope.interface import implements
 from zope.publisher.browser import BrowserView
 from zope.publisher.interfaces import NotFound
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
 from plone.mls.listing.api import listing_details, recent_listings
+from plone.mls.listing.browser.interfaces import IListingDetails
 
 
 class ListingDetails(BrowserView):
+    implements(IListingDetails)
 
     index = ViewPageTemplateFile('templates/listing_details.pt')
 
     _error = {}
     _data = None
+    listing_id = None
 
     def __call__(self):
         self.update()
@@ -57,11 +61,11 @@ class ListingDetails(BrowserView):
         """Get the remote listing data from the MLS."""
         lang = self.portal_state.language()
         if getattr(self.request, 'listing_id', None) is not None:
-            listing_id = self.request.listing_id
+            self.listing_id = self.request.listing_id
         else:
-            listing_id = self.context.listing_id
-
-        self._data = listing_details(listing_id, lang)
+            self.listing_id = getattr(self.context, 'listing_id', None)
+        if self.listing_id:
+            self._data = listing_details(self.listing_id, lang)
 
     @property
     def data(self):
