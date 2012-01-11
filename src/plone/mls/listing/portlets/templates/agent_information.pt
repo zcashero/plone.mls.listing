@@ -77,6 +77,14 @@
           <dd tal:content="item/value">Value</dd>
         </tal:item>
 
+        <tal:item tal:define="item contact/agent/agent_email | nothing"
+                  tal:condition="item">
+          <dt><span tal:replace="item/label">Label</span>:</dt>
+          <dd><a href=""
+                 tal:content="item/value"
+                 tal:attributes="href string: mailto:${item/value}">Value</a></dd>
+        </tal:item>
+
         <tal:item tal:define="item contact/agency/website | nothing"
                   tal:condition="item">
           <dt><span tal:replace="item/label">Label</span>:</dt>
