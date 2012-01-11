@@ -92,3 +92,41 @@
   margin: 0;
   width: 75%;
 }
+
+/* AgentInformation Portlet
+   ========================
+*/
+.portletAgentInformation .portletItem figure img {
+  max-width: 100%;
+}
+
+.portletAgentInformation .portletItem figure figcaption {
+  display: none;
+}
+
+.portletAgentInformation .portletItem .agent_title,
+.portletAgentInformation .portletItem .agency_name {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.portletAgentInformation .portletItem .contact_details {
+  margin-top: 1em;
+  word-wrap: break-word;
+}
+
+.portletAgentInformation .portletItem .contact_details dt {
+  background: transparent;
+  clear: both;
+  float: left;
+  margin: 0 3% 0 0;
+  padding: 0.42em 0;
+  width: 37%;
+}
+
+.portletAgentInformation .portletItem .contact_details dd {
+  float: left;
+  margin: 0;
+  padding: 0.42em 0;
+  width: 60%;
+}

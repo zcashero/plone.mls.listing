@@ -86,5 +86,6 @@
         </tal:item>
       </dl>
     </dd>
+    <div class="visualClear"></div>
   </dl>
 </html>
