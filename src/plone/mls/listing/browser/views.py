@@ -25,6 +25,8 @@
 from urllib import urlencode
 
 # zope imports
+from Products.CMFPlone.browser.navigation import (get_view_url,
+    PhysicalNavigationBreadcrumbs)
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.memoize.view import memoize
 from zope.component import queryMultiAdapter
@@ -221,3 +223,19 @@ class RecentListings(BrowserView):
                 return view
 
         raise NotFound(self.context, name, request)
+
+
+class ListingNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
+
+    def breadcrumbs(self):
+        base = super(ListingNavigationBreadcrumbs, self).breadcrumbs()
+
+        name, item_url = get_view_url(self.context)
+
+        listing_id = getattr(self.request, 'listing_id', None)
+        if listing_id is not None:
+            base += ({'absolute_url': item_url + '/' + listing_id,
+                      'Title': listing_id.upper(), },
+                    )
+
+        return base

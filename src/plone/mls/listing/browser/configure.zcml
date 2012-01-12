@@ -3,6 +3,25 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="plone.mls.listing">
 
+
+  <browser:page
+      class=".recent_listings.RecentListingsConfiguration"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="recent-listings-config"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      class=".recent_listings.RecentListings"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="recent-listings-view"
+      permission="zope2.View"
+      template="templates/recent_listings.pt"
+      />
+
+
   <!-- Listing Details. -->
   <!-- ================ -->
   <browser:page
@@ -16,8 +35,18 @@
   <browser:page
       class=".views.ListingDetails"
       for="*"
+      layer=".interfaces.IListingSpecific"
       name="listing-detail"
       permission="zope2.View"
+      />
+
+  <browser:page
+      class=".views.ListingNavigationBreadcrumbs"
+      for="plone.mls.listing.content.recent_listings.IRecentListings"
+      layer=".interfaces.IListingSpecific"
+      name="breadcrumbs_view"
+      permission="zope.Public"
+      allowed_attributes="breadcrumbs"
       />
 
 
