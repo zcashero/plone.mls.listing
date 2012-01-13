@@ -26,13 +26,9 @@ from ZPublisher.BaseRequest import DefaultPublishTraverse
 from zope.component import queryMultiAdapter
 from zope.publisher.interfaces import NotFound
 
-# local imports
-from plone.mls.listing.content.recent_listings import IRecentListings
-
 
 class RecentListingsTraverser(DefaultPublishTraverse):
     """Custom Traverser for IRecentListings."""
-    __used_for__ = IRecentListings
 
     def publishTraverse(self, request, name):
         """See zope.publisher.interfaces.IPublishTraverse"""

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<object name="portal_actions" meta_type="Plone Actions Tool"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="plone.mls.listing">
+
+  <object name="object" meta_type="CMF Action Category">
+    <object name="recent-listings-config" meta_type="CMF Action">
+      <property name="available_expr">object/@@recent-listings-status/active</property>
+      <property name="description" i18n:translate="">Configure the Recent Listings viewlet.</property>
+      <property name="icon_expr"></property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Configure Recent Listings</property>
+      <property name="url_expr">string:${object_url}/@@recent-listings-config</property>
+      <property name="visible">True</property>
+    </object>
+  </object>
+
+  <object name="object_buttons" meta_type="CMF Action Category">
+    <object name="recent-listings-activate" meta_type="CMF Action">
+      <property name="available_expr">object/@@recent-listings-status/can_activate</property>
+      <property name="description" i18n:translate="">Activate the Recent Listings viewlet.</property>
+      <property name="icon_expr"></property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Activate Recent Listings</property>
+      <property name="url_expr">string:${object_url}/@@recent-listings-toggle</property>
+      <property name="visible">True</property>
+    </object>
+    <object name="recent-listings-deactivate" meta_type="CMF Action">
+   	  <property name="available_expr">object/@@recent-listings-status/active</property>
+      <property name="description" i18n:translate="">Deactivate the Recent Listings viewlet.</property>
+      <property name="icon_expr"></property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Deactivate Recent Listings</property>
+      <property name="url_expr">string:${object_url}/@@recent-listings-toggle</property>
+      <property name="visible">True</property>
+    </object>
+  </object>
+
+</object>

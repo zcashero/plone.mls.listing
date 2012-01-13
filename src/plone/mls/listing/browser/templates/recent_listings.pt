@@ -8,24 +8,10 @@
       tal:omit-tag="">
   <body>
     <section id="recent-listings" class="listing-summary"
-             metal:fill-slot="main"
-             tal:define="page_url view/view_url;
+             metal:fill-slot="content-core"
+             tal:replace="nothing"
+             tal:define="page_url view/view_url | nothing;
                          is_view_template context/@@plone_context_state/is_view_template;">
-
-      <div tal:replace="structure provider:plone.abovecontenttitle" />
-      <h1 class="documentFirstHeading"
-          tal:condition="is_view_template"
-          tal:content="context/pretty_title_or_id">Recent MLS Listings</h1>
-      <h1 class="documentFirstHeading"
-          tal:condition="not: is_view_template"
-          i18n:translate="heading_recent_listings">Recent Listings</h1>     
-      <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-      <p class="documentDescription"
-         tal:condition="is_view_template"
-         tal:content="context/description | nothing" />
-
-      <div tal:replace="structure provider:plone.abovecontentbody" />
 
       <p tal:define="text context/body_text | nothing"
          tal:condition="python: is_view_template and text"

@@ -4,21 +4,48 @@
     i18n_domain="plone.mls.listing">
 
 
-  <browser:page
-      class=".recent_listings.RecentListingsConfiguration"
-      for="*"
+  <!-- Recent Listings. -->
+  <!-- ================ -->
+  <browser:viewlet
+      class=".recent_listings.RecentListingsViewlet"
+      for=".recent_listings.IRecentListings"
       layer=".interfaces.IListingSpecific"
-      name="recent-listings-config"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      name="plone.mls.listing.recent_listings"
       permission="zope2.View"
       />
 
   <browser:page
-      class=".recent_listings.RecentListings"
+      class=".recent_listings.RecentListingsConfiguration"
+      for=".recent_listings.IRecentListings"
+      layer=".interfaces.IListingSpecific"
+      name="recent-listings-config"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".recent_listings.RecentListingsStatus"
       for="*"
       layer=".interfaces.IListingSpecific"
-      name="recent-listings-view"
-      permission="zope2.View"
-      template="templates/recent_listings.pt"
+      name="recent-listings-status"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".recent_listings.RecentListingsToggle"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="recent-listings-toggle"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      allowed_attributes="breadcrumbs"
+      class=".recent_listings.RecentListingsNavigationBreadcrumbs"
+      for=".recent_listings.IRecentListings"
+      layer=".interfaces.IListingSpecific"
+      name="breadcrumbs_view"
+      permission="zope.Public"
       />
 
 
@@ -38,38 +65,6 @@
       layer=".interfaces.IListingSpecific"
       name="listing-detail"
       permission="zope2.View"
-      />
-
-  <browser:page
-      class=".views.ListingNavigationBreadcrumbs"
-      for="plone.mls.listing.content.recent_listings.IRecentListings"
-      layer=".interfaces.IListingSpecific"
-      name="breadcrumbs_view"
-      permission="zope.Public"
-      allowed_attributes="breadcrumbs"
-      />
-
-
-  <!-- Recent Listings. -->
-  <!-- ================ -->
-  <!-- Default view for plone.mls.listing.recentlistings. -->
-  <browser:page
-      class=".views.RecentListings"
-      for="plone.mls.listing.content.recent_listings.IRecentListings"
-      layer=".interfaces.IListingSpecific"
-      name="view"
-      permission="zope2.View"
-      template="templates/recent_listings.pt"
-      />
-
-  <!-- Standalone view for recent listings. -->
-  <browser:page
-      class=".views.RecentListings"
-      for="*"
-      layer=".interfaces.IListingSpecific"
-      name="recent-listings"
-      permission="zope2.View"
-      template="templates/recent_listings.pt"
       />
 
 
@@ -96,8 +91,14 @@
 
   <!-- Traversing Adapter. -->
   <!-- =================== -->
-  <adapter
+
+<!--
       for="plone.mls.listing.content.recent_listings.IRecentListings
+           zope.publisher.interfaces.browser.IBrowserRequest"
+-->
+
+  <adapter
+      for="plone.mls.listing.browser.recent_listings.IRecentListings
            zope.publisher.interfaces.browser.IBrowserRequest"
       provides="zope.publisher.interfaces.browser.IBrowserPublisher"
       factory=".traversal.RecentListingsTraverser"

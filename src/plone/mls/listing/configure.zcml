@@ -17,4 +17,8 @@
   <!-- ====================================== -->
   <include package=".article" zcml:condition="installed raptus.article.core" />
 
+  <class class="Products.Archetypes.BaseObject.BaseObject">
+    <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
+  </class>
+
 </configure>

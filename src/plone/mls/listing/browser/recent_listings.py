@@ -26,35 +26,49 @@ from urllib import urlencode
 
 # zope imports
 from Acquisition import aq_inner
+from Products.CMFPlone.browser.navigation import (get_view_url,
+    PhysicalNavigationBreadcrumbs)
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
 from z3c.form import field, button
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
-from zope.interface import Interface, implements
+from zope.interface import Interface, alsoProvides, noLongerProvides
 from zope.publisher.browser import BrowserView
+from zope.publisher.interfaces import NotFound
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
 from plone.mls.listing.api import recent_listings
+from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.mls.listing.i18n import _
 
 CONFIGURATION_KEY = 'plone.mls.listing.recentlistings'
+
+
+class IPossibleRecentListings(Interface):
+    """Marker interface for possible RecentListings view."""
 
 
 class IRecentListings(Interface):
     """Marker interface for RecentListings view."""
 
 
-class RecentListings(BrowserView):
+class RecentListingsViewlet(ViewletBase):
     """Show recent MLS listings."""
-    implements(IRecentListings)
+    index = ViewPageTemplateFile('templates/recent_listings_viewlet.pt')
 
     def __call__(self):
         self.update()
         return self.index()
+
+    @property
+    def available(self):
+        return IRecentListings.providedBy(self.context) and \
+               not IListingDetails.providedBy(self.view)
 
     @property
     def config(self):
@@ -187,7 +201,7 @@ class RecentListingsConfiguration(form.Form):
     )
     description = _(
         u"help_recent_listings_configuration",
-        default=u"Adjust the behaviour for this 'Recent Listings' view.",
+        default=u"Adjust the behaviour for this 'Recent Listings' viewlet.",
     )
 
     def getContent(self):
@@ -211,3 +225,74 @@ class RecentListingsConfiguration(form.Form):
     @button.buttonAndHandler(_(u"Cancel"))
     def handle_cancel(self, action):
         self.request.response.redirect(absoluteURL(self.context, self.request))
+
+
+class RecentListingsStatus(object):
+    """Return activation/deactivation status of RecentListings view."""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    @property
+    def can_activate(self):
+        return IPossibleRecentListings.providedBy(self.context) and \
+               not IRecentListings.providedBy(self.context)
+
+    @property
+    def active(self):
+        return IRecentListings.providedBy(self.context)
+
+
+class RecentListingsToggle(object):
+    """Toggle RecentListings view for the current context."""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        msg_type = 'info'
+
+        if IRecentListings.providedBy(self.context):
+            # Deactivate RecentListings view.
+            noLongerProvides(self.context, IRecentListings)
+            msg = _(
+                u"text_recent_listings_deactivated",
+                default=u"Recent Listings View deactivated.",
+            )
+        elif IPossibleRecentListings.providedBy(self.context):
+            alsoProvides(self.context, IRecentListings)
+            msg = _(
+                u"text_recent_listings_activated",
+                default=u"Recent Listings View activated.",
+            )
+        else:
+            msg = _(
+                u"text_recent_listings_toggle_error",
+                default=u"The Recent Listings view does't work with this " \
+                         "content type. Add 'IPossibleRecentListings' to " \
+                         "the provided interfaces to enable this feature.",
+            )
+            msg_type = 'error'
+
+        self.context.plone_utils.addPortalMessage(msg, msg_type)
+        self.request.response.redirect(self.context.absolute_url())
+
+
+class RecentListingsNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
+    """Custom breadcrumb navigation for IRecentListings."""
+
+    def breadcrumbs(self):
+        base = super(RecentListingsNavigationBreadcrumbs, self).breadcrumbs()
+
+        name, item_url = get_view_url(self.context)
+
+        listing_id = getattr(self.request, 'listing_id', None)
+        last_item = self.request.steps[-2:-1]
+        if listing_id is not None and self.context.id in last_item:
+            base += ({'absolute_url': item_url + '/' + listing_id,
+                      'Title': listing_id.upper(), },
+                    )
+
+        return base
