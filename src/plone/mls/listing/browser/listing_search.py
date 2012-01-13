@@ -25,8 +25,6 @@
 from urllib import urlencode
 
 # zope imports
-from Products.CMFPlone.browser.navigation import (get_view_url,
-    PhysicalNavigationBreadcrumbs)
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
@@ -40,7 +38,8 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
 # from plone.mls.listing.api import recent_listings
-from plone.mls.listing.browser.interfaces import IListingDetails
+from plone.mls.listing.browser.interfaces import (IBaseListingItems, 
+    IListingDetails)
 from plone.mls.listing.i18n import _
 
 CONFIGURATION_KEY = 'plone.mls.listing.listingsearch'
@@ -50,7 +49,7 @@ class IPossibleListingSearch(Interface):
     """Marker interface for possible ListingSearch viewlet."""
 
 
-class IListingSearch(Interface):
+class IListingSearch(IBaseListingItems):
     """Marker interface for ListingSearch viewlet."""
 
 
@@ -145,7 +144,7 @@ class IListingSearchConfiguration(Interface):
 
 
 class ListingSearchConfiguration(form.Form):
-    """Recent Listings Configuration Form."""
+    """Listing Search Configuration Form."""
 
     fields = field.Fields(IListingSearchConfiguration)
     label = _(
@@ -224,28 +223,10 @@ class ListingSearchToggle(object):
             msg = _(
                 u"text_listing_search_toggle_error",
                 default=u"The 'Listing Search' viewlet does't work with " \
-                         "this content type. Add 'IPossibleRecentListings' " \
+                         "this content type. Add 'IPossibleListingSearch' " \
                          "to the provided interfaces to enable this feature.",
             )
             msg_type = 'error'
 
         self.context.plone_utils.addPortalMessage(msg, msg_type)
         self.request.response.redirect(self.context.absolute_url())
-
-
-class ListingSearchNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
-    """Custom breadcrumb navigation for IListingSearch."""
-
-    def breadcrumbs(self):
-        base = super(ListingSearchNavigationBreadcrumbs, self).breadcrumbs()
-
-        name, item_url = get_view_url(self.context)
-
-        listing_id = getattr(self.request, 'listing_id', None)
-        last_item = self.request.steps[-2:-1]
-        if listing_id is not None and self.context.id in last_item:
-            base += ({'absolute_url': item_url + '/' + listing_id,
-                      'Title': listing_id.upper(), },
-                    )
-
-        return base

@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plone.mls.listing"
+      tal:omit-tag="">
+  <section id="listing-collection" class="listing-summary"
+           tal:condition="view/available | nothing"
+           tal:define="page_url view/view_url | nothing;
+                       is_view_template context/@@plone_context_state/is_view_template;">
+  </section>
+</html>

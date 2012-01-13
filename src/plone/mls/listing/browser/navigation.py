@@ -19,20 +19,26 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 ###############################################################################
-"""Interface definitions."""
+"""Navigation Breadcrumb customizations."""
 
 # zope imports
-from plone.theme.interfaces import IDefaultPloneLayer
-from zope.interface import Interface
+from Products.CMFPlone.browser.navigation import (get_view_url,
+    PhysicalNavigationBreadcrumbs)
 
 
-class IListingSpecific(IDefaultPloneLayer):
-    """Marker interface that defines a Zope 3 browser layer."""
+class ListingDetailsNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
+    """Custom breadcrumb navigation for listing details."""
 
+    def breadcrumbs(self):
+        base = super(ListingDetailsNavigationBreadcrumbs, self).breadcrumbs()
 
-class IListingDetails(Interface):
-    """Marker interface for ListingDetails view."""
+        name, item_url = get_view_url(self.context)
 
+        listing_id = getattr(self.request, 'listing_id', None)
+        last_item = self.request.steps[-2:-1]
+        if listing_id is not None and self.context.id in last_item:
+            base += ({'absolute_url': item_url + '/' + listing_id,
+                      'Title': listing_id.upper(), },
+                    )
 
-class IBaseListingItems(Interface):
-    """Marker interface for all listing 'collection' items."""
+        return base
