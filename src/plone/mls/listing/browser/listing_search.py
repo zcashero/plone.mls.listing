@@ -19,7 +19,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
 ###############################################################################
-"""Recent MLS Listings."""
+"""MLS Listing Search."""
 
 # python imports
 from urllib import urlencode
@@ -39,24 +39,24 @@ from zope.interface import Interface, alsoProvides, noLongerProvides
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-from plone.mls.listing.api import recent_listings
+# from plone.mls.listing.api import recent_listings
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.mls.listing.i18n import _
 
-CONFIGURATION_KEY = 'plone.mls.listing.recentlistings'
+CONFIGURATION_KEY = 'plone.mls.listing.listingsearch'
 
 
-class IPossibleRecentListings(Interface):
-    """Marker interface for possible RecentListings viewlet."""
+class IPossibleListingSearch(Interface):
+    """Marker interface for possible ListingSearch viewlet."""
 
 
-class IRecentListings(Interface):
-    """Marker interface for RecentListings viewlet."""
+class IListingSearch(Interface):
+    """Marker interface for ListingSearch viewlet."""
 
 
-class RecentListingsViewlet(ViewletBase):
-    """Show recent MLS listings."""
-    index = ViewPageTemplateFile('templates/recent_listings_viewlet.pt')
+class ListingSearchViewlet(ViewletBase):
+    """Search for listings in the MLS."""
+    index = ViewPageTemplateFile('templates/listing_search_viewlet.pt')
 
     _listings = None
     _batching = None
@@ -67,7 +67,7 @@ class RecentListingsViewlet(ViewletBase):
 
     @property
     def available(self):
-        return IRecentListings.providedBy(self.context) and \
+        return IListingSearch.providedBy(self.context) and \
                not IListingDetails.providedBy(self.view)
 
     @property
@@ -93,15 +93,6 @@ class RecentListingsViewlet(ViewletBase):
             'offset': self.request.get('offset', 0),
             'lang': self.portal_state.language(),
         }
-        results, batching = recent_listings(params)
-        self._listings = results
-        self._batching = batching
-
-    @property
-    @memoize
-    def listings(self):
-        """Return listing results."""
-        return self._listings
 
     @memoize
     def view_url(self):
@@ -140,68 +131,30 @@ class RecentListingsViewlet(ViewletBase):
         return batch
 
 
-class IRecentListingsConfiguration(Interface):
-    """Recent Listings Configuration Form."""
-
-    listing_type = schema.List(
-        default=None,
-        required=False,
-        title=_(
-            u"label_recent_listings_listing_types",
-            default=u"Listing Types"
-        ),
-        value_type=schema.Choice(
-            values=['Residential Lease', 'Residential Sale'],
-        ),
-    )
-
-    price_min = schema.Int(
-        description=_(
-            u"help_recent_listings_price_min",
-            default=u"Enter the minimum price for listings. If no price is " \
-                     "given, all listings from the lowest price are shown.",
-        ),
-        required=False,
-        title=_(
-            u"label_recent_listings_price_min",
-            default=u"Minimum Price",
-        ),
-    )
-
-    price_max = schema.Int(
-        description=_(
-            u"help_recent_listings_price_max",
-            default=u"Enter the maximum price for listings. If no price is " \
-                     "given, all listings to the highest price are shown.",
-        ),
-        required=False,
-        title=_(
-            u"label_recent_listings_price_max",
-            default=u"Maximum Price",
-        ),
-    )
+class IListingSearchConfiguration(Interface):
+    """Listing Search Configuration Form."""
 
     limit = schema.Int(
         default=25,
         required=False,
         title=_(
-            u"label_recent_listings_limit",
+            u"label_listing_search_limit",
             default=u"Items per Page"
         ),
     )
 
 
-class RecentListingsConfiguration(form.Form):
+class ListingSearchConfiguration(form.Form):
     """Recent Listings Configuration Form."""
 
-    fields = field.Fields(IRecentListingsConfiguration)
+    fields = field.Fields(IListingSearchConfiguration)
     label = _(
-        u"label_recent_listings_configuration",
-        default=u"'Recent Listings' Configuration",
+        u"label_listing_search_configuration",
+        default=u"'Listing Search' Configuration",
     )
     description = _(
-        u"help_recent_listings_configuration",
-        default=u"Adjust the behaviour for this 'Recent Listings' viewlet.",
+        u"help_listing_search_configuration",
+        default=u"Adjust the behaviour for this 'Listing Search' viewlet.",
     )
 
     def getContent(self):
@@ -211,7 +164,7 @@ class RecentListingsConfiguration(form.Form):
 
     def update(self):
         self.request.set('disable_border', True)
-        return super(RecentListingsConfiguration, self).update()
+        return super(ListingSearchConfiguration, self).update()
 
     @button.buttonAndHandler(_(u"Save"))
     def handle_save(self, action):
@@ -227,8 +180,8 @@ class RecentListingsConfiguration(form.Form):
         self.request.response.redirect(absoluteURL(self.context, self.request))
 
 
-class RecentListingsStatus(object):
-    """Return activation/deactivation status of RecentListings viewlet."""
+class ListingSearchStatus(object):
+    """Return activation/deactivation status of ListingSearch viewlet."""
 
     def __init__(self, context, request):
         self.context = context
@@ -236,16 +189,16 @@ class RecentListingsStatus(object):
 
     @property
     def can_activate(self):
-        return IPossibleRecentListings.providedBy(self.context) and \
-               not IRecentListings.providedBy(self.context)
+        return IPossibleListingSearch.providedBy(self.context) and \
+               not IListingSearch.providedBy(self.context)
 
     @property
     def active(self):
-        return IRecentListings.providedBy(self.context)
+        return IListingSearch.providedBy(self.context)
 
 
-class RecentListingsToggle(object):
-    """Toggle RecentListings viewlet for the current context."""
+class ListingSearchToggle(object):
+    """Toggle ListingSearch viewlet for the current context."""
 
     def __init__(self, context, request):
         self.context = context
@@ -254,23 +207,23 @@ class RecentListingsToggle(object):
     def __call__(self):
         msg_type = 'info'
 
-        if IRecentListings.providedBy(self.context):
-            # Deactivate RecentListings viewlet.
-            noLongerProvides(self.context, IRecentListings)
+        if IListingSearch.providedBy(self.context):
+            # Deactivate ListingSearch viewlet.
+            noLongerProvides(self.context, IListingSearch)
             msg = _(
-                u"text_recent_listings_deactivated",
-                default=u"'Recent Listings' viewlet deactivated.",
+                u"text_listing_search_deactivated",
+                default=u"'Listing Search' viewlet deactivated.",
             )
-        elif IPossibleRecentListings.providedBy(self.context):
-            alsoProvides(self.context, IRecentListings)
+        elif IPossibleListingSearch.providedBy(self.context):
+            alsoProvides(self.context, IListingSearch)
             msg = _(
-                u"text_recent_listings_activated",
-                default=u"'Recent Listings' viewlet activated.",
+                u"text_listing_search_activated",
+                default=u"'Listing Search' viewlet activated.",
             )
         else:
             msg = _(
-                u"text_recent_listings_toggle_error",
-                default=u"The 'Recent Listings' viewlet does't work with " \
+                u"text_listing_search_toggle_error",
+                default=u"The 'Listing Search' viewlet does't work with " \
                          "this content type. Add 'IPossibleRecentListings' " \
                          "to the provided interfaces to enable this feature.",
             )
@@ -280,11 +233,11 @@ class RecentListingsToggle(object):
         self.request.response.redirect(self.context.absolute_url())
 
 
-class RecentListingsNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
-    """Custom breadcrumb navigation for IRecentListings."""
+class ListingSearchNavigationBreadcrumbs(PhysicalNavigationBreadcrumbs):
+    """Custom breadcrumb navigation for IListingSearch."""
 
     def breadcrumbs(self):
-        base = super(RecentListingsNavigationBreadcrumbs, self).breadcrumbs()
+        base = super(ListingSearchNavigationBreadcrumbs, self).breadcrumbs()
 
         name, item_url = get_view_url(self.context)
 

@@ -49,6 +49,51 @@
       />
 
 
+  <!-- Listing Search. -->
+  <!-- =============== -->
+  <browser:viewlet
+      class=".listing_search.ListingSearchViewlet"
+      for=".listing_search.IListingSearch"
+      layer=".interfaces.IListingSpecific"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      name="plone.mls.listing.listing_search"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      class=".listing_search.ListingSearchConfiguration"
+      for=".listing_search.IListingSearch"
+      layer=".interfaces.IListingSpecific"
+      name="listing-search-config"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".listing_search.ListingSearchStatus"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="listing-search-status"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      class=".listing_search.ListingSearchToggle"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="listing-search-toggle"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <browser:page
+      allowed_attributes="breadcrumbs"
+      class=".listing_search.ListingSearchNavigationBreadcrumbs"
+      for=".listing_search.IListingSearch"
+      layer=".interfaces.IListingSpecific"
+      name="breadcrumbs_view"
+      permission="zope.Public"
+      />
+
+
   <!-- Listing Details. -->
   <!-- ================ -->
   <browser:page

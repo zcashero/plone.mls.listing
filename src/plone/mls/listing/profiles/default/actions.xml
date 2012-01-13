@@ -4,6 +4,23 @@
         i18n:domain="plone.mls.listing">
 
   <object name="object" meta_type="CMF Action Category">
+    <!-- Listing Search. -->
+    <!-- =============== -->
+    <object name="listing-search-config" meta_type="CMF Action">
+      <property name="available_expr">object/@@listing-search-status/active</property>
+      <property name="description" i18n:translate="">Configure the Listing Search viewlet.</property>
+      <property name="icon_expr"></property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Configure Listing Search</property>
+      <property name="url_expr">string:${object_url}/@@listing-search-config</property>
+      <property name="visible">True</property>
+    </object>
+
+    <!-- Recent Listings. -->
+    <!-- ================ -->
     <object name="recent-listings-config" meta_type="CMF Action">
       <property name="available_expr">object/@@recent-listings-status/active</property>
       <property name="description" i18n:translate="">Configure the Recent Listings viewlet.</property>
@@ -19,6 +36,35 @@
   </object>
 
   <object name="object_buttons" meta_type="CMF Action Category">
+    <!-- Listing Search. -->
+    <!-- =============== -->
+    <object name="listing-search-activate" meta_type="CMF Action">
+      <property name="available_expr">object/@@listing-search-status/can_activate</property>
+      <property name="description" i18n:translate="">Activate the Listing Search viewlet.</property>
+      <property name="icon_expr"></property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Activate Listing Search</property>
+      <property name="url_expr">string:${object_url}/@@listing-search-toggle</property>
+      <property name="visible">True</property>
+    </object>
+    <object name="listing-search-deactivate" meta_type="CMF Action">
+   	  <property name="available_expr">object/@@listing-search-status/active</property>
+      <property name="description" i18n:translate="">Deactivate the Listing Search viewlet.</property>
+      <property name="icon_expr"></property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Deactivate Listing Search</property>
+      <property name="url_expr">string:${object_url}/@@listing-search-toggle</property>
+      <property name="visible">True</property>
+    </object>
+
+    <!-- Recent Listings. -->
+    <!-- ================ -->
     <object name="recent-listings-activate" meta_type="CMF Action">
       <property name="available_expr">object/@@recent-listings-status/can_activate</property>
       <property name="description" i18n:translate="">Activate the Recent Listings viewlet.</property>

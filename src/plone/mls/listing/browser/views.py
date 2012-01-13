@@ -21,20 +21,15 @@
 ###############################################################################
 """Various browser views for listings."""
 
-# python imports
-from urllib import urlencode
-
 # zope imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.memoize.view import memoize
 from zope.component import queryMultiAdapter
 from zope.interface import implements
 from zope.publisher.browser import BrowserView
-from zope.publisher.interfaces import NotFound
-from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-from plone.mls.listing.api import listing_details, recent_listings
+from plone.mls.listing.api import listing_details
 from plone.mls.listing.browser.interfaces import IListingDetails
 
 
