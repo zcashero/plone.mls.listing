@@ -4,23 +4,35 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       i18n:domain="plone.mls.listing"
-      tal:omit-tag="">
+      tal:omit-tag=""
+      tal:condition="view/available | nothing"
+      tal:define="listings view/listings | nothing;
+                  batch view/batching | nothing;
+                  results batch/sequence_length | nothing;">
 
   <div id="search-form"
        tal:condition="view/form | nothing"
-       tal:content="structure view/form/render" />
+       tal:attributes="class python: results and 'results' or ''">
+    <p id="show-form" i18n:domain="plone" style="display: none;"><a href=""
+       i18n:translate="edit_your_search_options">Edit your search options</a></p>
+    <div tal:replace="structure view/form/render"></div>
+  </div>
 
   <section id="listing-search" class="listing-summary"
-           tal:condition="view/available | nothing"
            tal:define="page_url view/view_url | nothing;
                        is_view_template context/@@plone_context_state/is_view_template;
                        b_size view/limit;
                        b_orphan python: 1;
                        b_start request/b_start | python: 0;">
 
-    <tal:listings tal:define="listings view/listings | nothing;
-                              batch view/batching | nothing;"
-                  tal:condition="listings">
+    <tal:listings tal:condition="listings">
+
+      <h2 i18n:domain="plone"
+          tal:condition="results"><span
+          i18n:translate="batch_x_items_matching_your_criteria"><span
+          i18n:name="number"
+          tal:omit-tag=""
+          tal:content="results">234</span> items matching your search terms</span></h2>
 
       <div metal:use-macro="context/batch_macros/macros/navigation" />
 
@@ -99,12 +111,21 @@
     </tal:listings>
     <script type="text/javascript" src="++resource++plone.mls.listing.javascript/jquery.ias.min.js"></script>
     <script type="text/javascript">
-      jQuery.ias({
-        container : "#listing-search",
-        item: ".tileItem",
-        pagination: "#content .listingBar",
-        next: ".next a",
-        loader: "spinner.gif"
+      jQuery(function($) {
+        if ($('div.results').length > 0) {
+          $('div.results > form').hide();
+          $('div.results #show-form').show().click(function(event) {
+            event.preventDefault();
+            $('div.results > form').slideToggle();
+          });
+        }
+        $.ias({
+          container : "#listing-search",
+          item: ".tileItem",
+          pagination: "#content .listingBar",
+          next: ".next a",
+          loader: "spinner.gif"
+        });
       });
     </script>
   </section>
