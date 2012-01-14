@@ -32,51 +32,51 @@
             <h2 i18n:translate="heading_listing_information_basic">Basic Listing Information</h2>
             <dl class="price">
               <tal:item tal:define="item info/price|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
             </dl>
       
             <dl class="workflow">
               <tal:item tal:define="item info/id|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
       
               <tal:item tal:define="item info/object_type|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
       
               <tal:item tal:define="item info/listing_type|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
       
               <tal:item tal:define="item info/wf_status|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value" tal:attributes="class item/value">Value</dd>
               </tal:item>
       
               <tal:item tal:define="item info/images|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
             </dl>
       
             <dl>
               <tal:item tal:define="item info/bath_bed|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
       
               <tal:item tal:define="item info/location_type|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
       
               <tal:item tal:define="item info/view_type|nothing" tal:condition="item">
-                <dt tal:content="item/label">Label</dt>
+                <dt><span tal:replace="item/label">Label</span>:</dt>
                 <dd tal:content="item/value">Value</dd>
               </tal:item>
             </dl>
@@ -115,7 +115,7 @@
                     <tbody>
                       <tal:field tal:repeat="field fields">
                         <tr tal:condition="field/value">
-                          <th tal:content="field/label|nothing" style="width: 200px;">Label</th>
+                          <th style="width: 200px;"><span tal:replace="field/label|nothing">Label</span>:</th>
                           <td tal:content="structure field/value|nothing">Label</td>
                         </tr>
                       </tal:field>
@@ -123,7 +123,7 @@
                   </table>
                   <dl tal:replace="nothing">
                     <tal:fields tal:repeat="field fields">
-                      <dt tal:content="field/label|nothing">Label</dt>
+                      <dt><span tal:replace="item/label">Label</span>:</dt>
                       <dd tal:content="structure field/value|nothing">Value</dd>
                     </tal:fields>
                   </dl>
