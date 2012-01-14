@@ -21,24 +21,32 @@
 ###############################################################################
 """MLS Listing Search."""
 
-# python imports
-from urllib import urlencode
-
 # zope imports
+from Acquisition import aq_inner
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
+from plone.z3cform import z2
 from z3c.form import field, button
+from z3c.form.interfaces import IFormLayer
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
 from zope.interface import Interface, alsoProvides, noLongerProvides
 from zope.traversing.browser.absoluteurl import absoluteURL
 
+# starting from 0.6.0 version plone.z3cform has IWrappedForm interface
+try:
+    from plone.z3cform.interfaces import IWrappedForm
+    HAS_WRAPPED_FORM = True
+except ImportError:
+    HAS_WRAPPED_FORM = False
+
 # local imports
-# from plone.mls.listing.api import recent_listings
-from plone.mls.listing.browser.interfaces import (IBaseListingItems, 
+from plone.mls.core.navigation import ListingBatch
+from plone.mls.listing.api import search
+from plone.mls.listing.browser.interfaces import (IBaseListingItems,
     IListingDetails)
 from plone.mls.listing.i18n import _
 
@@ -51,6 +59,40 @@ class IPossibleListingSearch(Interface):
 
 class IListingSearch(IBaseListingItems):
     """Marker interface for ListingSearch viewlet."""
+
+
+class IListingSearchForm(Interface):
+    """Listing search form schema definition."""
+
+    listing_type = schema.List(
+        required=False,
+        title=_(
+            u"label_listing_search_listing_type",
+            default=u"Listing Type",
+        ),
+        value_type=schema.Choice(
+            values=['Residential Sale', 'Residential Lease'],
+        ),
+    )
+
+    searchable_text = schema.TextLine(
+        required=False,
+        title=_(
+            u"label_listing_search_searchable_text",
+            default=u"Searchable Text",
+        )
+    )
+
+
+class ListingSearchForm(form.Form):
+    """Listing Search Form."""
+    fields = field.Fields(IListingSearchForm)
+    ignoreContext = True
+    method = 'get'
+
+    @button.buttonAndHandler(_(u"Search"), name='search')
+    def handle_search(self, action):
+        data, errors = self.extractData()
 
 
 class ListingSearchViewlet(ViewletBase):
@@ -77,21 +119,39 @@ class ListingSearchViewlet(ViewletBase):
 
     def update(self):
         """Prepare view related data."""
+        super(ListingSearchViewlet, self).update()
         self.portal_state = queryMultiAdapter((self.context, self.request),
                                               name='plone_portal_state')
         self.context_state = queryMultiAdapter((self.context, self.request),
                                                name='plone_context_state')
 
         self.limit = self.config.get('limit', 25)
-        self._get_listings()
+
+        z2.switch_on(self, request_layer=IFormLayer)
+        self.form = ListingSearchForm(aq_inner(self.context), self.request)
+        if HAS_WRAPPED_FORM:
+            alsoProvides(self.form, IWrappedForm)
+        self.form.update()
+        if self.request.form.get(self.form.prefix + self.form.buttons.prefix +
+                                 '.search') is not None:
+            self._get_listings()
 
     def _get_listings(self):
         """Query the recent listings from the MLS."""
         params = {
             'limit': self.limit,
-            'offset': self.request.get('offset', 0),
+            'offset': self.request.get('b_start', 0),
             'lang': self.portal_state.language(),
         }
+        results, batching = search(params)
+        self._listings = results
+        self._batching = batching
+
+    @property
+    @memoize
+    def listings(self):
+        """Return listing results."""
+        return self._listings
 
     @memoize
     def view_url(self):
@@ -103,31 +163,9 @@ class ListingSearchViewlet(ViewletBase):
 
     @property
     def batching(self):
-        batching = self._batching
-        if batching is None:
-            return
-
-        page_url = self.context_state.current_base_url()
-        limit = self.limit
-        offset = int(self.request.get('offset', 0))
-
-        batch = {}
-        if batching.get('next', None):
-            query = {
-                'offset': offset + limit,
-            }
-            batch.update({
-                'next': page_url + '?' + urlencode(query)
-            })
-
-        if batching.get('prev', None):
-            query = {
-                'offset': offset - limit,
-            }
-            batch.update({
-                'prev': page_url + '?' + urlencode(query)
-            })
-        return batch
+        return ListingBatch(self.listings, self.limit,
+                            self.request.get('b_start', 0), orphan=1,
+                            batch_data=self._batching)
 
 
 class IListingSearchConfiguration(Interface):
@@ -168,15 +206,19 @@ class ListingSearchConfiguration(form.Form):
     @button.buttonAndHandler(_(u"Save"))
     def handle_save(self, action):
         data, errors = self.extractData()
-        if not errors:
-            annotations = IAnnotations(self.context)
-            annotations[CONFIGURATION_KEY] = data
-            self.request.response.redirect(absoluteURL(self.context,
-                                                       self.request))
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+
+        annotations = IAnnotations(self.context)
+        annotations[CONFIGURATION_KEY] = data
+        self.request.response.redirect(absoluteURL(self.context, self.request))
+        return u''
 
     @button.buttonAndHandler(_(u"Cancel"))
     def handle_cancel(self, action):
         self.request.response.redirect(absoluteURL(self.context, self.request))
+        return u''
 
 
 class ListingSearchStatus(object):

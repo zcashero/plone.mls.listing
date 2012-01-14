@@ -94,6 +94,12 @@ class ListingCollectionViewlet(ViewletBase):
             'lang': self.portal_state.language(),
         }
 
+    @property
+    @memoize
+    def listings(self):
+        """Return listing results."""
+        return self._listings
+
     @memoize
     def view_url(self):
         """Generate view url."""

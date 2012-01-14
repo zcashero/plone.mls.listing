@@ -76,3 +76,25 @@ def listing_details(listing_id, lang=None):
         logger.warn(e)
         return None
     return listing.get('listing', None)
+
+
+def search(params={}, batching=True):
+    """Search for listings."""
+    search_params = {
+        'sort_on': 'listing_id',
+    }
+    search_params.update(params)
+    registry = getUtility(IRegistry)
+    settings = registry.forInterface(IMLSSettings)
+    base_url = getattr(settings, 'mls_site', None)
+    api_key = getattr(settings, 'mls_key', None)
+    resource = ListingResource(base_url, api_key=api_key)
+
+    try:
+        results, batch = resource.search(search_params)
+    except MLSError, e:
+        logger.warn(e)
+
+    if batching:
+        return results, batch
+    return results
