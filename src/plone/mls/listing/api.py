@@ -88,6 +88,8 @@ def search(params={}, batching=True):
     settings = registry.forInterface(IMLSSettings)
     base_url = getattr(settings, 'mls_site', None)
     api_key = getattr(settings, 'mls_key', None)
+    batch = None
+    results = []
     resource = ListingResource(base_url, api_key=api_key)
 
     try:
