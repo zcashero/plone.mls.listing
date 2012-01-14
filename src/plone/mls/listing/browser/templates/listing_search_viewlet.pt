@@ -112,6 +112,7 @@
     <script type="text/javascript" src="++resource++plone.mls.listing.javascript/jquery.ias.min.js"></script>
     <script type="text/javascript">
       jQuery(function($) {
+        // Hide the form when search was performed and show the edit form options link.
         if ($('div.results').length > 0) {
           $('div.results > form').hide();
           $('div.results #show-form').show().click(function(event) {
@@ -119,12 +120,23 @@
             $('div.results > form').slideToggle();
           });
         }
+
+        // Infinite Ajax Scroll for search results.
         $.ias({
-          container : "#listing-search",
-          item: ".tileItem",
-          pagination: "#content .listingBar",
-          next: ".next a",
-          loader: "spinner.gif"
+          container : '#listing-search',
+          item: '.tileItem',
+          pagination: '#content .listingBar',
+          next: '.next a',
+          loader: 'spinner.gif'
+        });
+
+        // Show the configuration form with a nice overlay.
+        $('#content-views #contentview-listing-search-config > a').prepOverlay({
+          subtype: 'ajax',
+          filter: '#content>*',
+          formselector: '#content-core > form',
+          noform: 'close',
+          closeselector: '[name=form.buttons.cancel]'
         });
       });
     </script>
