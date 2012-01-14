@@ -21,9 +21,6 @@
 ###############################################################################
 """MLS Listing collection."""
 
-# python imports
-from urllib import urlencode
-
 # zope imports
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
@@ -37,7 +34,8 @@ from zope.interface import Interface, alsoProvides, noLongerProvides
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
-# from plone.mls.listing.api import recent_listings
+from plone.mls.core.navigation import ListingBatch
+from plone.mls.listing.api import search
 from plone.mls.listing.browser.interfaces import (IBaseListingItems,
     IListingDetails)
 from plone.mls.listing.i18n import _
@@ -90,9 +88,12 @@ class ListingCollectionViewlet(ViewletBase):
         """Query the recent listings from the MLS."""
         params = {
             'limit': self.limit,
-            'offset': self.request.get('offset', 0),
+            'offset': self.request.get('b_start', 0),
             'lang': self.portal_state.language(),
         }
+        results, batching = search(params)
+        self._listings = results
+        self._batching = batching
 
     @property
     @memoize
@@ -110,31 +111,9 @@ class ListingCollectionViewlet(ViewletBase):
 
     @property
     def batching(self):
-        batching = self._batching
-        if batching is None:
-            return
-
-        page_url = self.context_state.current_base_url()
-        limit = self.limit
-        offset = int(self.request.get('offset', 0))
-
-        batch = {}
-        if batching.get('next', None):
-            query = {
-                'offset': offset + limit,
-            }
-            batch.update({
-                'next': page_url + '?' + urlencode(query)
-            })
-
-        if batching.get('prev', None):
-            query = {
-                'offset': offset - limit,
-            }
-            batch.update({
-                'prev': page_url + '?' + urlencode(query)
-            })
-        return batch
+        return ListingBatch(self.listings, self.limit,
+                            self.request.get('b_start', 0), orphan=1,
+                            batch_data=self._batching)
 
 
 class IListingCollectionConfiguration(Interface):
