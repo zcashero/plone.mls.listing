@@ -13,7 +13,15 @@
       compression="safe"
       cookable="True"
       enabled="True"
-      id="++resource++plone.mls.listing.javascript/listing.js"
+      id="++resource++plone.mls.listing.javascript/listing_ias.js"
       insert-after="++resource++plone.mls.listing.javascript/jquery.ias.min.js"
+      />
+
+  <javascript
+      cacheable="True"
+      compression="safe"
+      cookable="True"
+      enabled="True"
+      id="++resource++plone.mls.listing.javascript/listing.js"
       />
 </object>

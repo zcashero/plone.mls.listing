@@ -4,7 +4,11 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       i18n:domain="plone.mls.listing"
-      tal:omit-tag="">
+      tal:omit-tag=""
+      tal:condition="view/available | nothing"
+      tal:define="listings view/listings | nothing;
+                  batch view/batching | nothing;
+                  results batch/sequence_length | nothing;">
   <section id="listing-collection" class="listing-summary"
            tal:condition="view/available | nothing"
            tal:define="page_url view/view_url | nothing;
@@ -13,9 +17,7 @@
                        b_orphan python: 1;
                        b_start request/b_start | python: 0;">
 
-    <tal:listings tal:define="listings view/listings | nothing;
-                              batch view/batching | nothing;"
-                  tal:condition="listings">
+    <tal:listings tal:condition="listings">
 
       <div metal:use-macro="context/batch_macros/macros/navigation" />
 

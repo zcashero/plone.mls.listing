@@ -147,10 +147,6 @@ class ListingCollectionConfiguration(form.Form):
         return annotations.get(CONFIGURATION_KEY,
                                annotations.setdefault(CONFIGURATION_KEY, {}))
 
-    def update(self):
-        self.request.set('disable_border', True)
-        return super(ListingCollectionConfiguration, self).update()
-
     @button.buttonAndHandler(_(u"Save"))
     def handle_save(self, action):
         data, errors = self.extractData()
