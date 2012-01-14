@@ -47,6 +47,29 @@ jQuery(function($) {
     });
   }
 
+  if ($('#listing-images .thumbnails').length > 0) {
+    // Build JS Gallery for listing detail view.
+
+    // Load the theme ones more. This is necessary for mobile devices.
+    Galleria.loadTheme('++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js');
+    $('#listing-images a.preview').replaceWith('<div id="galleria"></div>');
+
+    // Hide the thumbnails
+    $('#listing-images .thumbnails').hide();
+
+    // Initialize Galleria.
+    var galleria_obj = $('#galleria').galleria({
+      dataSource: '.thumbnails',
+      width: 410,
+      height: 400,
+      preload: 3,
+      transition: 'fade',
+      transitionSpeed: 1000,
+      autoplay: 5000
+    });
+  }
+
+
   if ($('#content-views #contentview-listing-collection-config').length > 0) {
     // Show the listing search configuration form with a nice overlay.
     $('#content-views #contentview-listing-collection-config > a').prepOverlay({

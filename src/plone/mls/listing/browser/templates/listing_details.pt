@@ -138,7 +138,6 @@
       </div>
       <script type="text/javascript" src="++resource++plone.mls.listing.javascript/galleria-1.2.2.js"></script>
       <script type="text/javascript" src="++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js"></script>
-      <script type="text/javascript" src="++resource++plone.mls.listing.javascript/listing_view.js"></script>
     </metal:main>
   </body>
 </html>
