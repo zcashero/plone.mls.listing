@@ -92,15 +92,5 @@
       <div metal:use-macro="context/batch_macros/macros/navigation" />
 
     </tal:listings>
-    <script type="text/javascript" src="++resource++plone.mls.listing.javascript/jquery.ias.min.js"></script>
-    <script type="text/javascript">
-      jQuery.ias({
-        container : "#listing-collection",
-        item: ".tileItem",
-        pagination: "#content .listingBar",
-        next: ".next a",
-        loader: "spinner.gif"
-      });
-    </script>
   </section>
 </html>

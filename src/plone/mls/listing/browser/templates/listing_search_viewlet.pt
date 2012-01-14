@@ -10,14 +10,6 @@
                   batch view/batching | nothing;
                   results batch/sequence_length | nothing;">
 
-  <div id="search-form"
-       tal:condition="view/form | nothing"
-       tal:attributes="class python: results and 'results' or ''">
-    <p id="show-form" i18n:domain="plone" style="display: none;"><a href=""
-       i18n:translate="edit_your_search_options">Edit your search options</a></p>
-    <div tal:replace="structure view/form/render"></div>
-  </div>
-
   <section id="listing-search" class="listing-summary"
            tal:define="page_url view/view_url | nothing;
                        is_view_template context/@@plone_context_state/is_view_template;
@@ -25,8 +17,15 @@
                        b_orphan python: 1;
                        b_start request/b_start | python: 0;">
 
-    <tal:listings tal:condition="listings">
+    <div id="search-form"
+         tal:condition="view/form | nothing"
+         tal:attributes="class python: results and 'results' or ''">
+      <p id="show-form" i18n:domain="plone" style="display: none;"><a href=""
+         i18n:translate="edit_your_search_options">Edit your search options</a></p>
+      <div tal:replace="structure view/form/render"></div>
+    </div>
 
+    <tal:listings tal:condition="listings">
       <h2 i18n:domain="plone"
           tal:condition="results"><span
           i18n:translate="batch_x_items_matching_your_criteria"><span
@@ -109,36 +108,5 @@
       <div metal:use-macro="context/batch_macros/macros/navigation" />
 
     </tal:listings>
-    <script type="text/javascript" src="++resource++plone.mls.listing.javascript/jquery.ias.min.js"></script>
-    <script type="text/javascript">
-      jQuery(function($) {
-        // Hide the form when search was performed and show the edit form options link.
-        if ($('div.results').length > 0) {
-          $('div.results > form').hide();
-          $('div.results #show-form').show().click(function(event) {
-            event.preventDefault();
-            $('div.results > form').slideToggle();
-          });
-        }
-
-        // Infinite Ajax Scroll for search results.
-        $.ias({
-          container : '#listing-search',
-          item: '.tileItem',
-          pagination: '#content .listingBar',
-          next: '.next a',
-          loader: 'spinner.gif'
-        });
-
-        // Show the configuration form with a nice overlay.
-        $('#content-views #contentview-listing-search-config > a').prepOverlay({
-          subtype: 'ajax',
-          filter: '#content>*',
-          formselector: '#content-core > form',
-          noform: 'close',
-          closeselector: '[name=form.buttons.cancel]'
-        });
-      });
-    </script>
   </section>
 </html>
