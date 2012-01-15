@@ -27,6 +27,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
 from z3c.form import field, button
+from z3c.form.browser import checkbox
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
@@ -119,14 +120,13 @@ class IRecentListingsConfiguration(Interface):
     """Recent Listings Configuration Form."""
 
     listing_type = schema.List(
-        default=None,
         required=False,
         title=_(
-            u"label_recent_listings_listing_types",
-            default=u"Listing Types"
+            u"label_recent_listings_listing_type",
+            default=u"Listing Type",
         ),
         value_type=schema.Choice(
-            values=['Residential Lease', 'Residential Sale'],
+            source='plone.mls.listing.ListingTypes'
         ),
     )
 
@@ -170,6 +170,7 @@ class RecentListingsConfiguration(form.Form):
     """Recent Listings Configuration Form."""
 
     fields = field.Fields(IRecentListingsConfiguration)
+    fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     label = _(
         u"label_recent_listings_configuration",
         default=u"'Recent Listings' Configuration",

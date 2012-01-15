@@ -23,4 +23,9 @@
     <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
   </class>
 
+  <utility
+      component=".vocabularies.ListingTypesVocabularyFactory"
+      name="plone.mls.listing.ListingTypes"
+      />
+
 </configure>

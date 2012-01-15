@@ -90,7 +90,7 @@ def search(params={}, batching=True):
     api_key = getattr(settings, 'mls_key', None)
     batch = None
     results = []
-    resource = ListingResource(base_url, api_key=api_key)
+    resource = ListingResource(base_url, api_key=api_key, debug=True)
 
     try:
         results, batch = resource.search(search_params)

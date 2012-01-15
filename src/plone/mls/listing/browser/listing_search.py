@@ -29,6 +29,7 @@ from plone.directives import form
 from plone.memoize.view import memoize
 from plone.z3cform import z2
 from z3c.form import field, button
+from z3c.form.browser import checkbox
 from z3c.form.interfaces import IFormLayer
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
@@ -64,35 +65,79 @@ class IListingSearch(IBaseListingItems):
 class IListingSearchForm(Interface):
     """Listing search form schema definition."""
 
-    listing_type = schema.List(
+    listing_type = schema.Tuple(
+        default=('cl', 'cs', 'll', 'rl', 'rs', ),
         required=False,
         title=_(
             u"label_listing_search_listing_type",
             default=u"Listing Type",
         ),
         value_type=schema.Choice(
-            values=['Residential Sale', 'Residential Lease'],
+            source='plone.mls.listing.ListingTypes'
         ),
     )
 
-    searchable_text = schema.TextLine(
+#     searchable_text = schema.TextLine(
+#         required=False,
+#         title=_(
+#             u"label_listing_search_searchable_text",
+#             default=u"Searchable Text",
+#         )
+#     )
+
+    location_state = schema.Choice(
         required=False,
-        title=_(
-            u"label_listing_search_searchable_text",
-            default=u"Searchable Text",
-        )
+        title=u'State',
+        values=['Alajuela', 'Cartago', ],
+    )
+
+    location_county = schema.Choice(
+        required=False,
+        title=u'County',
+        values=['Abangares', 'Acosta', ],
+    )
+
+    location_district = schema.Choice(
+        required=False,
+        title=u'District',
+        values=['Angeles', 'Anselmo Llorente', ],
+    )
+
+    price_min = schema.Int(
+        required=False,
+        title=u'Price (Min)',
+    )
+
+    price_max = schema.Int(
+        required=False,
+        title=u'Price (Max)',
     )
 
 
 class ListingSearchForm(form.Form):
     """Listing Search Form."""
     fields = field.Fields(IListingSearchForm)
+    fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     ignoreContext = True
     method = 'get'
+    search_params = None
 
     @button.buttonAndHandler(_(u"Search"), name='search')
     def handle_search(self, action):
         data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        self.search_params = {}
+        if len(data.get('listing_type', ())) > 0:
+            # Return comma separated list of listing types
+            data['listing_type'] = ','.join(data['listing_type'])
+        else:
+            data['listing_type'] = None
+        for item in data:
+            # Remove all None-Type values
+            if data[item] is not None:
+                self.search_params[item] = data[item]
 
 
 class ListingSearchViewlet(ViewletBase):
@@ -132,18 +177,18 @@ class ListingSearchViewlet(ViewletBase):
         if HAS_WRAPPED_FORM:
             alsoProvides(self.form, IWrappedForm)
         self.form.update()
-        if self.request.form.get(self.form.prefix + self.form.buttons.prefix +
-                                 '.search') is not None:
-            self._get_listings()
+        if self.form.search_params is not None:
+            self._get_listings(self.form.search_params)
 
-    def _get_listings(self):
+    def _get_listings(self, params):
         """Query the recent listings from the MLS."""
-        params = {
+        search_params = {
             'limit': self.limit,
             'offset': self.request.get('b_start', 0),
             'lang': self.portal_state.language(),
         }
-        results, batching = search(params)
+        search_params.update(params)
+        results, batching = search(search_params)
         self._listings = results
         self._batching = batching
 
