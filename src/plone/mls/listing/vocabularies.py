@@ -22,22 +22,83 @@
 """Vocabulary definitions."""
 
 # zope imports
+from zope.component import queryMultiAdapter
+from zope.globalrequest import getRequest
 from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+
+# local imports
+from plone.mls.listing.api import search_options
 
 
 class ListingTypesVocabulary(object):
     implements(IVocabularyFactory)
 
     def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('listing_types', portal_state.language())
         items = []
-        items.append(SimpleTerm('cl', 'cl', u'Commercial Lease'))
-        items.append(SimpleTerm('cs', 'cs', u'Commercial Sale'))
-        items.append(SimpleTerm('ll', 'll', u'Land Listing'))
-        items.append(SimpleTerm('rl', 'rl', u'Residential Lease'))
-        items.append(SimpleTerm('rs', 'rs', u'Residential Sale'))
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
         return SimpleVocabulary(items)
 
 
 ListingTypesVocabularyFactory = ListingTypesVocabulary()
+
+
+class LocationCountyVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('location_county', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+LocationCountyVocabularyFactory = LocationCountyVocabulary()
+
+
+class LocationDistrictVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('location_district', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+LocationDistrictVocabularyFactory = LocationDistrictVocabulary()
+
+
+class LocationStateVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('location_state', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+LocationStateVocabularyFactory = LocationStateVocabulary()

@@ -27,6 +27,7 @@ from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
 from z3c.form import field, button
+from z3c.form.browser import checkbox
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
@@ -35,7 +36,7 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
 from plone.mls.core.navigation import ListingBatch
-from plone.mls.listing.api import search
+from plone.mls.listing.api import prepare_search_params, search
 from plone.mls.listing.browser.interfaces import (IBaseListingItems,
     IListingDetails)
 from plone.mls.listing.i18n import _
@@ -91,6 +92,8 @@ class ListingCollectionViewlet(ViewletBase):
             'offset': self.request.get('b_start', 0),
             'lang': self.portal_state.language(),
         }
+        params.update(self.config)
+        params = prepare_search_params(params)
         results, batching = search(params)
         self._listings = results
         self._batching = batching
@@ -119,6 +122,46 @@ class ListingCollectionViewlet(ViewletBase):
 class IListingCollectionConfiguration(Interface):
     """Listing Collection Configuration Form."""
 
+    listing_type = schema.Tuple(
+        default=('cl', 'cs', 'll', 'rl', 'rs', ),
+        required=False,
+        title=_(
+            u"label_listing_search_listing_type",
+            default=u"Listing Type",
+        ),
+        value_type=schema.Choice(
+            source='plone.mls.listing.ListingTypes'
+        ),
+    )
+
+    location_state = schema.Choice(
+        required=False,
+        title=u'State',
+        source='plone.mls.listing.LocationStates',
+    )
+
+    location_county = schema.Choice(
+        required=False,
+        title=u'County',
+        source='plone.mls.listing.LocationCounties',
+    )
+
+    location_district = schema.Choice(
+        required=False,
+        title=u'District',
+        source='plone.mls.listing.LocationDistricts',
+    )
+
+    price_min = schema.Int(
+        required=False,
+        title=u'Price (Min)',
+    )
+
+    price_max = schema.Int(
+        required=False,
+        title=u'Price (Max)',
+    )
+
     limit = schema.Int(
         default=25,
         required=False,
@@ -133,6 +176,7 @@ class ListingCollectionConfiguration(form.Form):
     """Listing Collection Configuration Form."""
 
     fields = field.Fields(IListingCollectionConfiguration)
+    fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     label = _(
         u"label_listing_collection_configuration",
         default=u"'Listing Collection' Configuration",
@@ -150,11 +194,12 @@ class ListingCollectionConfiguration(form.Form):
     @button.buttonAndHandler(_(u"Save"))
     def handle_save(self, action):
         data, errors = self.extractData()
-        if not errors:
-            annotations = IAnnotations(self.context)
-            annotations[CONFIGURATION_KEY] = data
-            self.request.response.redirect(absoluteURL(self.context,
-                                                       self.request))
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        annotations = IAnnotations(self.context)
+        annotations[CONFIGURATION_KEY] = data
+        self.request.response.redirect(absoluteURL(self.context, self.request))
 
     @button.buttonAndHandler(_(u"Cancel"))
     def handle_cancel(self, action):

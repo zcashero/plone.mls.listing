@@ -46,7 +46,7 @@ except ImportError:
 
 # local imports
 from plone.mls.core.navigation import ListingBatch
-from plone.mls.listing.api import search
+from plone.mls.listing.api import prepare_search_params, search
 from plone.mls.listing.browser.interfaces import (IBaseListingItems,
     IListingDetails)
 from plone.mls.listing.i18n import _
@@ -88,19 +88,19 @@ class IListingSearchForm(Interface):
     location_state = schema.Choice(
         required=False,
         title=u'State',
-        values=['Alajuela', 'Cartago', ],
+        source='plone.mls.listing.LocationStates',
     )
 
     location_county = schema.Choice(
         required=False,
         title=u'County',
-        values=['Abangares', 'Acosta', ],
+        source='plone.mls.listing.LocationCounties',
     )
 
     location_district = schema.Choice(
         required=False,
         title=u'District',
-        values=['Angeles', 'Anselmo Llorente', ],
+        source='plone.mls.listing.LocationDistricts',
     )
 
     price_min = schema.Int(
@@ -128,16 +128,7 @@ class ListingSearchForm(form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
-        self.search_params = {}
-        if len(data.get('listing_type', ())) > 0:
-            # Return comma separated list of listing types
-            data['listing_type'] = ','.join(data['listing_type'])
-        else:
-            data['listing_type'] = None
-        for item in data:
-            # Remove all None-Type values
-            if data[item] is not None:
-                self.search_params[item] = data[item]
+        self.search_params = prepare_search_params(data)
 
 
 class ListingSearchViewlet(ViewletBase):

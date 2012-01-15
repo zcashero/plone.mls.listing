@@ -28,4 +28,19 @@
       name="plone.mls.listing.ListingTypes"
       />
 
+  <utility
+      component=".vocabularies.LocationCountyVocabularyFactory"
+      name="plone.mls.listing.LocationCounties"
+      />
+
+  <utility
+      component=".vocabularies.LocationDistrictVocabularyFactory"
+      name="plone.mls.listing.LocationDistricts"
+      />
+
+  <utility
+      component=".vocabularies.LocationStateVocabularyFactory"
+      name="plone.mls.listing.LocationStates"
+      />
+
 </configure>

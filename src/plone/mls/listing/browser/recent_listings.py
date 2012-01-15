@@ -36,7 +36,7 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 
 # local imports
 from plone.mls.core.navigation import ListingBatch
-from plone.mls.listing.api import recent_listings
+from plone.mls.listing.api import prepare_search_params, recent_listings
 from plone.mls.listing.browser.interfaces import (IBaseListingItems,
     IListingDetails)
 from plone.mls.listing.i18n import _
@@ -91,6 +91,8 @@ class RecentListingsViewlet(ViewletBase):
             'offset': self.request.get('b_start', 0),
             'lang': self.portal_state.language(),
         }
+        params.update(self.config)
+        params = prepare_search_params(params)
         results, batching = recent_listings(params)
         self._listings = results
         self._batching = batching

@@ -38,6 +38,36 @@ from plone.mls.listing import PRODUCT_NAME
 logger = logging.getLogger(PRODUCT_NAME)
 
 
+def prepare_search_params(data):
+    """Prepare search params."""
+    params = {}
+    if len(data.get('listing_type', ())) > 0:
+        # Return comma separated list of listing types
+        data['listing_type'] = ','.join(data['listing_type'])
+    else:
+        data['listing_type'] = None
+    for item in data:
+        # Remove all None-Type values
+        if data[item] is not None:
+            params[item] = data[item]
+    return params
+
+
+def search_options(category, lang=None):
+    registry = getUtility(IRegistry)
+    settings = registry.forInterface(IMLSSettings)
+    base_url = getattr(settings, 'mls_site', None)
+    api_key = getattr(settings, 'mls_key', None)
+    resource = ListingResource(base_url, api_key=api_key)
+    results = []
+    try:
+        results = resource.category(category, lang)
+    except MLSError, e:
+        logger.warn(e)
+        return None
+    return results
+
+
 def recent_listings(params={}, batching=True):
     """Return a list of recent MLS listings."""
     search_params = {
@@ -90,7 +120,7 @@ def search(params={}, batching=True):
     api_key = getattr(settings, 'mls_key', None)
     batch = None
     results = []
-    resource = ListingResource(base_url, api_key=api_key, debug=True)
+    resource = ListingResource(base_url, api_key=api_key)
 
     try:
         results, batch = resource.search(search_params)
