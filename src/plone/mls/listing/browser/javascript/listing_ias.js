@@ -32,4 +32,4 @@ jQuery(function($) {
       loader: "spinner.gif"
     });
   }
-}
+});
