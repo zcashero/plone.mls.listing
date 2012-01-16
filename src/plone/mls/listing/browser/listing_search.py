@@ -77,14 +77,6 @@ class IListingSearchForm(Interface):
         ),
     )
 
-#     searchable_text = schema.TextLine(
-#         required=False,
-#         title=_(
-#             u"label_listing_search_searchable_text",
-#             default=u"Searchable Text",
-#         )
-#     )
-
     location_state = schema.Choice(
         required=False,
         title=u'State',
