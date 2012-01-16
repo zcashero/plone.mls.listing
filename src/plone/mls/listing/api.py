@@ -41,7 +41,8 @@ logger = logging.getLogger(PRODUCT_NAME)
 def prepare_search_params(data):
     """Prepare search params."""
     params = {}
-    if len(data.get('listing_type', ())) > 0:
+    if data.get('listing_type', ()) is not None and \
+        len(data.get('listing_type', ())) > 0:
         # Return comma separated list of listing types
         data['listing_type'] = ','.join(data['listing_type'])
     else:
