@@ -24,6 +24,11 @@
   </class>
 
   <utility
+      component=".vocabularies.GeographicTypesVocabularyFactory"
+      name="plone.mls.listing.GeographicTypes"
+      />
+
+  <utility
       component=".vocabularies.ListingTypesVocabularyFactory"
       name="plone.mls.listing.ListingTypes"
       />
@@ -41,6 +46,26 @@
   <utility
       component=".vocabularies.LocationStateVocabularyFactory"
       name="plone.mls.listing.LocationStates"
+      />
+
+  <utility
+      component=".vocabularies.LocationTypesVocabularyFactory"
+      name="plone.mls.listing.LocationTypes"
+      />
+
+  <utility
+      component=".vocabularies.ObjectTypesVocabularyFactory"
+      name="plone.mls.listing.ObjectTypes"
+      />
+
+  <utility
+      component=".vocabularies.OwnershipTypesVocabularyFactory"
+      name="plone.mls.listing.OwnershipTypes"
+      />
+
+  <utility
+      component=".vocabularies.ViewTypesVocabularyFactory"
+      name="plone.mls.listing.ViewTypes"
       />
 
 </configure>

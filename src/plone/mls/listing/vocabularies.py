@@ -32,6 +32,24 @@ from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from plone.mls.listing.api import search_options
 
 
+class GeographicTypesVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('geographic_types', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+GeographicTypesVocabularyFactory = GeographicTypesVocabulary()
+
+
 class ListingTypesVocabulary(object):
     implements(IVocabularyFactory)
 
@@ -102,3 +120,75 @@ class LocationStateVocabulary(object):
 
 
 LocationStateVocabularyFactory = LocationStateVocabulary()
+
+
+class LocationTypesVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('location_types', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+LocationTypesVocabularyFactory = LocationTypesVocabulary()
+
+
+class ObjectTypesVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('object_types', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+ObjectTypesVocabularyFactory = ObjectTypesVocabulary()
+
+
+class OwnershipTypesVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('ownership_types', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+OwnershipTypesVocabularyFactory = OwnershipTypesVocabulary()
+
+
+class ViewTypesVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        portal_state = queryMultiAdapter((context, getRequest()),
+                                          name='plone_portal_state')
+
+        types = search_options('view_types', portal_state.language())
+        items = []
+        if types is not None:
+            for item in types:
+                items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+ViewTypesVocabularyFactory = ViewTypesVocabulary()

@@ -1,3 +1,15 @@
+/* Search Forms.
+   =============
+*/
+.listing-summary #search-form form span.option {
+  float: left;
+}
+
+.listing-summary #search-form form div.field {
+  clear: both;
+  overflow: hidden;
+}
+
 /* Listing Detail page.
    ====================
 */

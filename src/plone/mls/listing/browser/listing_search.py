@@ -105,11 +105,71 @@ class IListingSearchForm(Interface):
         title=u'Price (Max)',
     )
 
+    location_type = schema.Tuple(
+        required=False,
+        title=_(
+            u"label_listing_search_location_type",
+            default=u"Location Type",
+        ),
+        value_type=schema.Choice(
+            source='plone.mls.listing.LocationTypes'
+        ),
+    )
+
+    geographic_type = schema.Tuple(
+        required=False,
+        title=_(
+            u"label_listing_search_geographic_type",
+            default=u"Geographic Type",
+        ),
+        value_type=schema.Choice(
+            source='plone.mls.listing.GeographicTypes'
+        ),
+    )
+
+    view_type = schema.Tuple(
+        required=False,
+        title=_(
+            u"label_listing_search_view_type",
+            default=u"View Type",
+        ),
+        value_type=schema.Choice(
+            source='plone.mls.listing.ViewTypes'
+        ),
+    )
+
+    object_type = schema.Tuple(
+        required=False,
+        title=_(
+            u"label_listing_search_object_type",
+            default=u"Object Type",
+        ),
+        value_type=schema.Choice(
+            source='plone.mls.listing.ObjectTypes'
+        ),
+    )
+
+    ownership_type = schema.Tuple(
+        required=False,
+        title=_(
+            u"label_listing_search_ownership_type",
+            default=u"Ownership Type",
+        ),
+        value_type=schema.Choice(
+            source='plone.mls.listing.OwnershipTypes'
+        ),
+    )
+
 
 class ListingSearchForm(form.Form):
     """Listing Search Form."""
     fields = field.Fields(IListingSearchForm)
+    fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     ignoreContext = True
     method = 'get'
     search_params = None
