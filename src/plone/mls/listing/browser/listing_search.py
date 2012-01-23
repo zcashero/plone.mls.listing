@@ -35,6 +35,7 @@ from zope import schema
 from zope.annotation.interfaces import IAnnotations
 from zope.component import queryMultiAdapter
 from zope.interface import Interface, alsoProvides, noLongerProvides
+from zope.schema.vocabulary import SimpleVocabulary
 from zope.traversing.browser.absoluteurl import absoluteURL
 
 # starting from 0.6.0 version plone.z3cform has IWrappedForm interface
@@ -49,6 +50,7 @@ from plone.mls.core.navigation import ListingBatch
 from plone.mls.listing.api import prepare_search_params, search
 from plone.mls.listing.browser.interfaces import (IBaseListingItems,
     IListingDetails)
+from plone.mls.listing.browser.valuerange.widget import ValueRangeFieldWidget
 from plone.mls.listing.i18n import _
 
 CONFIGURATION_KEY = 'plone.mls.listing.listingsearch'
@@ -93,6 +95,11 @@ class IListingSearchForm(Interface):
         required=False,
         title=u'District',
         source='plone.mls.listing.LocationDistricts',
+    )
+
+    location_city = schema.TextLine(
+        required=False,
+        title=u'City/Town',
     )
 
     price_min = schema.Int(
@@ -160,10 +167,62 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    beds = schema.Tuple(
+        required=False,
+        title=u'Bedrooms',
+        value_type=schema.Choice(
+            source='plone.mls.listing.Rooms',
+        ),
+    )
+#     beds = schema.Int(
+#         required=False,
+#         title=u'Bedrooms (Min)',
+#     )
+
+#     beds_max = schema.Int(
+#         required=False,
+#         title=u'Bedrooms (Max)',
+#     )
+
+    baths = schema.Tuple(
+        required=False,
+        title=u'Bathrooms',
+        value_type=schema.Choice(
+            source='plone.mls.listing.Rooms',
+        ),
+    )
+
+#     baths_min = schema.Int(
+#         required=False,
+#         title=u'Bathrooms (Min)',
+#     )
+# 
+#     baths_max = schema.Int(
+#         required=False,
+#         title=u'Bathrooms (Max)',
+#     )
+
+#     air_condition = schema.Bool(
+#         required=False,
+#         title=u'Air Condition',
+#     )
+# 
+#     pool = schema.Bool(
+#         required=False,
+#         title=u'Pool',
+#     )
+# 
+#     jacuzzi = schema.Bool(
+#         required=False,
+#         title=u'Jacuzzi',
+#     )
+
 
 class ListingSearchForm(form.Form):
     """Listing Search Form."""
     fields = field.Fields(IListingSearchForm)
+    fields['baths'].widgetFactory = ValueRangeFieldWidget
+    fields['beds'].widgetFactory = ValueRangeFieldWidget
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget

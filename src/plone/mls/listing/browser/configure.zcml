@@ -3,6 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="plone.mls.listing">
 
+  <include package=".valuerange" />
 
   <!-- Listing Collection. -->
   <!-- =================== -->

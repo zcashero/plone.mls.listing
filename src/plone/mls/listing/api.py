@@ -43,6 +43,15 @@ def prepare_search_params(data):
     params = {}
 
     for item in data:
+        if item in ['baths', 'beds', ]:
+            min_max = data[item]
+            if isinstance(min_max, (list, tuple, )):
+                if len(min_max) > 0 and min_max[0] != '--MINVALUE--':
+                    params[item + '_min'] = min_max[0]
+                if len(min_max) > 1 and min_max[1] != '--MAXVALUE--':
+                    params[item + '_max'] = min_max[1]
+                continue
+
         # Convert lists and tuples to comma separated lists.
         if isinstance(data[item], (list, tuple, )):
             if len(data.get(item, ())) > 0:
@@ -123,7 +132,7 @@ def search(params={}, batching=True):
     api_key = getattr(settings, 'mls_key', None)
     batch = None
     results = []
-    resource = ListingResource(base_url, api_key=api_key)
+    resource = ListingResource(base_url, api_key=api_key, debug=True)
 
     try:
         results, batch = resource.search(search_params)

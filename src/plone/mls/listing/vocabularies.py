@@ -32,6 +32,21 @@ from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from plone.mls.listing.api import search_options
 
 
+ROOM_VALUES = [
+    ('--MINVALUE--', 'Min'),
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
+    (5, '5'),
+    (6, '6'),
+    (7, '7'),
+    (8, '8'),
+    (9, '9'),
+    ('--MAXVALUE--', 'Max'),
+]
+
+
 class GeographicTypesVocabulary(object):
     implements(IVocabularyFactory)
 
@@ -174,6 +189,19 @@ class OwnershipTypesVocabulary(object):
 
 
 OwnershipTypesVocabularyFactory = OwnershipTypesVocabulary()
+
+
+class RoomsVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        items = []
+        for item in ROOM_VALUES:
+            items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+
+RoomsVocabularyFactory = RoomsVocabulary()
 
 
 class ViewTypesVocabulary(object):

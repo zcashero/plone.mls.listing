@@ -64,6 +64,11 @@
       />
 
   <utility
+      component=".vocabularies.RoomsVocabularyFactory"
+      name="plone.mls.listing.Rooms"
+      />
+
+  <utility
       component=".vocabularies.ViewTypesVocabularyFactory"
       name="plone.mls.listing.ViewTypes"
       />
