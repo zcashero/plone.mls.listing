@@ -73,4 +73,9 @@
       name="plone.mls.listing.ViewTypes"
       />
 
+  <utility
+      component=".vocabularies.YesNoAllVocabularyFactory"
+      name="plone.mls.listing.YesNoAll"
+      />
+
 </configure>

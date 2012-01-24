@@ -29,7 +29,7 @@ from plone.directives import form
 from plone.memoize.view import memoize
 from plone.z3cform import z2
 from z3c.form import field, button
-from z3c.form.browser import checkbox
+from z3c.form.browser import checkbox, radio
 from z3c.form.interfaces import IFormLayer
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
@@ -168,23 +168,16 @@ class IListingSearchForm(Interface):
     )
 
     beds = schema.Tuple(
+        default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
         title=u'Bedrooms',
         value_type=schema.Choice(
             source='plone.mls.listing.Rooms',
         ),
     )
-#     beds = schema.Int(
-#         required=False,
-#         title=u'Bedrooms (Min)',
-#     )
-
-#     beds_max = schema.Int(
-#         required=False,
-#         title=u'Bedrooms (Max)',
-#     )
 
     baths = schema.Tuple(
+        default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
         title=u'Bathrooms',
         value_type=schema.Choice(
@@ -192,42 +185,41 @@ class IListingSearchForm(Interface):
         ),
     )
 
-#     baths_min = schema.Int(
-#         required=False,
-#         title=u'Bathrooms (Min)',
-#     )
-# 
-#     baths_max = schema.Int(
-#         required=False,
-#         title=u'Bathrooms (Max)',
-#     )
+    air_condition = schema.Choice(
+        default='--NOVALUE--',
+        required=False,
+        source='plone.mls.listing.YesNoAll',
+        title=u'Air Condition',
+    )
 
-#     air_condition = schema.Bool(
-#         required=False,
-#         title=u'Air Condition',
-#     )
-# 
-#     pool = schema.Bool(
-#         required=False,
-#         title=u'Pool',
-#     )
-# 
-#     jacuzzi = schema.Bool(
-#         required=False,
-#         title=u'Jacuzzi',
-#     )
+    pool = schema.Choice(
+        default='--NOVALUE--',
+        required=False,
+        source='plone.mls.listing.YesNoAll',
+        title=u'Pool',
+    )
+
+    jacuzzi = schema.Choice(
+        default='--NOVALUE--',
+        required=False,
+        source='plone.mls.listing.YesNoAll',
+        title=u'Jacuzzi',
+    )
 
 
 class ListingSearchForm(form.Form):
     """Listing Search Form."""
     fields = field.Fields(IListingSearchForm)
+    fields['air_condition'].widgetFactory = radio.RadioFieldWidget
     fields['baths'].widgetFactory = ValueRangeFieldWidget
     fields['beds'].widgetFactory = ValueRangeFieldWidget
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['jacuzzi'].widgetFactory = radio.RadioFieldWidget
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['pool'].widgetFactory = radio.RadioFieldWidget
     fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     ignoreContext = True
     method = 'get'

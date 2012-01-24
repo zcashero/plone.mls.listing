@@ -220,3 +220,17 @@ class ViewTypesVocabulary(object):
 
 
 ViewTypesVocabularyFactory = ViewTypesVocabulary()
+
+
+class YesNoAllVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        items = []
+        items.append(SimpleTerm('1', '1', u'Yes'))
+        items.append(SimpleTerm('0', '0', u'No'))
+        items.append(SimpleTerm('--NOVALUE--', '--NOVALUE--', u'All'))
+        return SimpleVocabulary(items)
+
+
+YesNoAllVocabularyFactory = YesNoAllVocabulary()

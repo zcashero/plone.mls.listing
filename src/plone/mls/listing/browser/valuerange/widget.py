@@ -117,12 +117,16 @@ class ValueRangeWidget(HTMLTextInputWidget, SequenceWidget):
         maximum = self.request.get(self.name + '-max', None)
         if maximum:
             return maximum
+        else:
+            return u'--MAXVALUE--'
 
     @property
     def minimum(self):
         minimum = self.request.get(self.name + '-min', None)
         if minimum:
             return minimum
+        else:
+            return u'--MINVALUE--'
 
     def extract(self, default=NO_VALUE):
         """See z3c.form.interfaces.IWidget."""
