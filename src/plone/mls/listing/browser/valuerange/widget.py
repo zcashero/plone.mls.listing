@@ -132,6 +132,23 @@ class ValueRangeWidget(HTMLTextInputWidget, SequenceWidget):
         """See z3c.form.interfaces.IWidget."""
         min_ = self.request.get(self.name + '-min', default)
         max_ = self.request.get(self.name + '-max', default)
+
+        try:
+            self.terms.getTermByToken(min_)
+        except LookupError:
+            min_ = default
+
+        try:
+            self.terms.getTermByToken(max_)
+        except LookupError:
+            max_ = default
+
+        if min_ == default and max_ == default:
+            return default
+
+        if min_ == None and max_ == None:
+            return default
+
         return (min_, max_)
 
 

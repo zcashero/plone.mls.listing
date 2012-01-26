@@ -271,6 +271,7 @@ class ListingSearchViewlet(ViewletBase):
         if HAS_WRAPPED_FORM:
             alsoProvides(self.form, IWrappedForm)
         self.form.update()
+
         if self.form.search_params is not None:
             self._get_listings(self.form.search_params)
 
