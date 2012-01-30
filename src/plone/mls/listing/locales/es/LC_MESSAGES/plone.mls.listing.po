@@ -1,0 +1,314 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-01-29 21:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./../profiles/default/types/plone.mls.listing.listing.xml
+msgid "A single MLS Listing"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Activate Listing Collection"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Activate Listing Search"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Activate Recent Listings"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Activate the Listing Collection viewlet."
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Activate the Listing Search viewlet."
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Activate the Recent Listings viewlet."
+msgstr ""
+
+#: ./../browser/listing_collection.py:264
+#: ./../browser/listing_search.py:354
+#: ./../browser/recent_listings.py:199
+msgid "Cancel"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Configure Listing Collection"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Configure Listing Search"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Configure Recent Listings"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Configure the Listing Collection viewlet."
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Configure the Listing Search viewlet."
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Configure the Recent Listings viewlet."
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Deactivate Listing Collection"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Deactivate Listing Search"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Deactivate Recent Listings"
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Deactivate the Listing Collection viewlet."
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Deactivate the Listing Search viewlet."
+msgstr ""
+
+#: ./../profiles/default/actions.xml
+msgid "Deactivate the Recent Listings viewlet."
+msgstr ""
+
+#: ./../profiles/default/types/plone.mls.listing.listing.xml
+msgid "Listing"
+msgstr ""
+
+#: ./../browser/listing_collection.py:254
+#: ./../browser/listing_search.py:342
+#: ./../browser/recent_listings.py:190
+msgid "Save"
+msgstr ""
+
+#: ./../browser/listing_search.py:228
+msgid "Search"
+msgstr ""
+
+#. Default: "MLS Listings"
+#: ./../article/listing.py:50
+msgid "heading_article_listings"
+msgstr ""
+
+#. Default: "Listing Images"
+#: ./../browser/templates/listing_details.pt:86
+msgid "heading_listing_images"
+msgstr ""
+
+#. Default: "Basic Listing Information"
+#: ./../browser/templates/listing_details.pt:32
+msgid "heading_listing_information_basic"
+msgstr ""
+
+#. Default: "Agent Information"
+#: ./../portlets/agent_information.py:43
+msgid "heading_portlet_agent_information"
+msgstr ""
+
+#. Default: "List of the contained MLS Listings."
+#: ./../article/listing.py:54
+msgid "help_article_listings"
+msgstr ""
+
+#. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
+#: ./../browser/listing_collection.py:244
+msgid "help_listing_collection_configuration"
+msgstr ""
+
+#: ./../content/listing.py:47
+msgid "help_listing_listing_id"
+msgstr ""
+
+#. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
+#: ./../browser/listing_search.py:332
+msgid "help_listing_search_configuration"
+msgstr ""
+
+#: ./../content/listing.py:36
+msgid "help_listing_title"
+msgstr ""
+
+#. Default: "Adjust the behaviour for this 'Recent Listings' viewlet."
+#: ./../browser/recent_listings.py:180
+msgid "help_recent_listings_configuration"
+msgstr ""
+
+#. Default: "Enter the maximum price for listings. If no price is given, all listings to the highest price are shown."
+#: ./../browser/recent_listings.py:149
+msgid "help_recent_listings_price_max"
+msgstr ""
+
+#. Default: "Enter the minimum price for listings. If no price is given, all listings from the lowest price are shown."
+#: ./../browser/recent_listings.py:136
+msgid "help_recent_listings_price_min"
+msgstr ""
+
+#. Default: "'Listing Collection' Configuration"
+#: ./../browser/listing_collection.py:240
+msgid "label_listing_collection_configuration"
+msgstr ""
+
+#. Default: "Items per Page"
+#: ./../browser/listing_collection.py:223
+msgid "label_listing_collection_limit"
+msgstr ""
+
+#. Default: "MLS Listing ID"
+#: ./../content/listing.py:51
+msgid "label_listing_listing_id"
+msgstr ""
+
+#. Default: "'Listing Search' Configuration"
+#: ./../browser/listing_search.py:328
+msgid "label_listing_search_configuration"
+msgstr ""
+
+#. Default: "Geographic Type"
+#: ./../browser/listing_collection.py:178
+#: ./../browser/listing_search.py:128
+msgid "label_listing_search_geographic_type"
+msgstr ""
+
+#. Default: "Items per Page"
+#: ./../browser/listing_search.py:317
+msgid "label_listing_search_limit"
+msgstr ""
+
+#. Default: "Listing Type"
+#: ./../browser/listing_collection.py:128
+#: ./../browser/listing_search.py:73
+msgid "label_listing_search_listing_type"
+msgstr ""
+
+#. Default: "Location Type"
+#: ./../browser/listing_collection.py:167
+#: ./../browser/listing_search.py:117
+msgid "label_listing_search_location_type"
+msgstr ""
+
+#. Default: "Object Type"
+#: ./../browser/listing_collection.py:200
+#: ./../browser/listing_search.py:150
+msgid "label_listing_search_object_type"
+msgstr ""
+
+#. Default: "Ownership Type"
+#: ./../browser/listing_collection.py:211
+#: ./../browser/listing_search.py:161
+msgid "label_listing_search_ownership_type"
+msgstr ""
+
+#. Default: "View Type"
+#: ./../browser/listing_collection.py:189
+#: ./../browser/listing_search.py:139
+msgid "label_listing_search_view_type"
+msgstr ""
+
+#. Default: "Title"
+#: ./../content/listing.py:40
+msgid "label_listing_title"
+msgstr ""
+
+#. Default: "'Recent Listings' Configuration"
+#: ./../browser/recent_listings.py:176
+msgid "label_recent_listings_configuration"
+msgstr ""
+
+#. Default: "Items per Page"
+#: ./../browser/recent_listings.py:164
+msgid "label_recent_listings_limit"
+msgstr ""
+
+#. Default: "Listing Type"
+#: ./../browser/recent_listings.py:126
+msgid "label_recent_listings_listing_type"
+msgstr ""
+
+#. Default: "Maximum Price"
+#: ./../browser/recent_listings.py:155
+msgid "label_recent_listings_price_max"
+msgstr ""
+
+#. Default: "Minimum Price"
+#: ./../browser/recent_listings.py:142
+msgid "label_recent_listings_price_min"
+msgstr ""
+
+#: ./../browser/valuerange/widget.py:45
+msgid "no value"
+msgstr ""
+
+#: ./../browser/valuerange/widget.py:46
+msgid "select a value ..."
+msgstr ""
+
+#. Default: "'Listing Collection' viewlet activated."
+#: ./../browser/listing_collection.py:305
+msgid "text_listing_collection_activated"
+msgstr ""
+
+#. Default: "'Listing Collection' viewlet deactivated."
+#: ./../browser/listing_collection.py:299
+msgid "text_listing_collection_deactivated"
+msgstr ""
+
+#. Default: "The 'Listing Collection' viewlet does't work with this content type. Add 'IPossibleListingCollection' to the provided interfaces to enable this feature."
+#: ./../browser/listing_collection.py:310
+msgid "text_listing_collection_toggle_error"
+msgstr ""
+
+#. Default: "'Listing Search' viewlet activated."
+#: ./../browser/listing_search.py:396
+msgid "text_listing_search_activated"
+msgstr ""
+
+#. Default: "'Listing Search' viewlet deactivated."
+#: ./../browser/listing_search.py:390
+msgid "text_listing_search_deactivated"
+msgstr ""
+
+#. Default: "The 'Listing Search' viewlet does't work with this content type. Add 'IPossibleListingSearch' to the provided interfaces to enable this feature."
+#: ./../browser/listing_search.py:401
+msgid "text_listing_search_toggle_error"
+msgstr ""
+
+#. Default: "'Recent Listings' viewlet activated."
+#: ./../browser/recent_listings.py:240
+msgid "text_recent_listings_activated"
+msgstr ""
+
+#. Default: "'Recent Listings' viewlet deactivated."
+#: ./../browser/recent_listings.py:234
+msgid "text_recent_listings_deactivated"
+msgstr ""
+
+#. Default: "The 'Recent Listings' viewlet does't work with this content type. Add 'IPossibleRecentListings' to the provided interfaces to enable this feature."
+#: ./../browser/recent_listings.py:245
+msgid "text_recent_listings_toggle_error"
+msgstr ""
+
