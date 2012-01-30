@@ -1,139 +1,141 @@
+# 
+# Translators:
+# Thomas Massmann <thomas.massmann@inqbus.de>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-01-29 21:09+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: MLS Plone Components\n"
+"POT-Creation-Date: 2012-01-30 08:19+0000\n"
+"PO-Revision-Date: 2012-01-30 10:36+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
+"Language-Team: German (http://www.transifex.net/projects/p/MLS_Plone/team/de/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Domain: DOMAIN\n"
+"Language: de\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "A single MLS Listing"
-msgstr ""
+msgstr "Eine einzelne MLS Immobilie"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate Listing Collection"
-msgstr ""
+msgstr "Immobilien-Kollektion aktivieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate Listing Search"
-msgstr ""
+msgstr "Immobilien-Suche aktivieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate Recent Listings"
-msgstr ""
+msgstr "Neueste Immobilien aktivieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Listing Collection viewlet."
-msgstr ""
+msgstr "Das Viewlet für die Immobilien-Kollektion aktivieren."
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Listing Search viewlet."
-msgstr ""
+msgstr "Das Viewlet für die Immobilien-Suche aktivieren."
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Recent Listings viewlet."
-msgstr ""
+msgstr "Das Viewlet für die neuesten Immobilien aktivieren."
 
-#: ./../browser/listing_collection.py:264
-#: ./../browser/listing_search.py:354
+#: ./../browser/listing_collection.py:264 ./../browser/listing_search.py:354
 #: ./../browser/recent_listings.py:199
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure Listing Collection"
-msgstr ""
+msgstr "Immobilien-Kollektion konfigurieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure Listing Search"
-msgstr ""
+msgstr "Immobilien-Suche konfigurieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure Recent Listings"
-msgstr ""
+msgstr "Neueste Immobilien konfigurieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure the Listing Collection viewlet."
-msgstr ""
+msgstr "Konfiguration des Viewlets für Immobilien-Kollektionen."
 
 #: ./../profiles/default/actions.xml
 msgid "Configure the Listing Search viewlet."
-msgstr ""
+msgstr "Konfiguration des Viewlets für Immobilien-Suchen."
 
 #: ./../profiles/default/actions.xml
 msgid "Configure the Recent Listings viewlet."
-msgstr ""
+msgstr "Konfiguration des Viewlets für neueste Immobilien."
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Listing Collection"
-msgstr ""
+msgstr "Immobilien-Kollektion deaktivieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Listing Search"
-msgstr ""
+msgstr "Immobilien-Suche deaktivieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Recent Listings"
-msgstr ""
+msgstr "Neueste Immobilien deaktivieren"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate the Listing Collection viewlet."
-msgstr ""
+msgstr "Immobilien-Kollektion Viewlet deaktivieren."
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate the Listing Search viewlet."
-msgstr ""
+msgstr "Immobilien-Suche Viewlet deaktivieren."
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate the Recent Listings viewlet."
-msgstr ""
+msgstr "Neueste Immobilien Viewlet deaktivieren."
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
-msgstr ""
+msgstr "Immobilie"
 
-#: ./../browser/listing_collection.py:254
-#: ./../browser/listing_search.py:342
+#: ./../browser/listing_collection.py:254 ./../browser/listing_search.py:342
 #: ./../browser/recent_listings.py:190
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: ./../browser/listing_search.py:228
 msgid "Search"
-msgstr ""
+msgstr "Suchen"
 
 #. Default: "MLS Listings"
 #: ./../article/listing.py:50
 msgid "heading_article_listings"
-msgstr ""
+msgstr "MLS Immobilien"
 
 #. Default: "Listing Images"
 #: ./../browser/templates/listing_details.pt:86
 msgid "heading_listing_images"
-msgstr ""
+msgstr "Immobilien Bilder"
 
 #. Default: "Basic Listing Information"
 #: ./../browser/templates/listing_details.pt:32
 msgid "heading_listing_information_basic"
-msgstr ""
+msgstr "Basis-Informationen der Immobilie"
 
 #. Default: "Agent Information"
 #: ./../portlets/agent_information.py:43
 msgid "heading_portlet_agent_information"
-msgstr ""
+msgstr "Makler Informationen"
 
 #. Default: "List of the contained MLS Listings."
 #: ./../article/listing.py:54
 msgid "help_article_listings"
-msgstr ""
+msgstr "Liste von enthaltenen MLS Immobilien."
 
 #. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
 #: ./../browser/listing_collection.py:244
@@ -158,12 +160,14 @@ msgstr ""
 msgid "help_recent_listings_configuration"
 msgstr ""
 
-#. Default: "Enter the maximum price for listings. If no price is given, all listings to the highest price are shown."
+#. Default: "Enter the maximum price for listings. If no price is given, all
+#. listings to the highest price are shown."
 #: ./../browser/recent_listings.py:149
 msgid "help_recent_listings_price_max"
 msgstr ""
 
-#. Default: "Enter the minimum price for listings. If no price is given, all listings from the lowest price are shown."
+#. Default: "Enter the minimum price for listings. If no price is given, all
+#. listings from the lowest price are shown."
 #: ./../browser/recent_listings.py:136
 msgid "help_recent_listings_price_min"
 msgstr ""
@@ -189,43 +193,37 @@ msgid "label_listing_search_configuration"
 msgstr ""
 
 #. Default: "Geographic Type"
-#: ./../browser/listing_collection.py:178
-#: ./../browser/listing_search.py:128
+#: ./../browser/listing_collection.py:178 ./../browser/listing_search.py:128
 msgid "label_listing_search_geographic_type"
 msgstr ""
 
 #. Default: "Items per Page"
 #: ./../browser/listing_search.py:317
 msgid "label_listing_search_limit"
-msgstr ""
+msgstr "Suchergebnisse pro Seite"
 
 #. Default: "Listing Type"
-#: ./../browser/listing_collection.py:128
-#: ./../browser/listing_search.py:73
+#: ./../browser/listing_collection.py:128 ./../browser/listing_search.py:73
 msgid "label_listing_search_listing_type"
-msgstr ""
+msgstr "Art der Immobilie"
 
 #. Default: "Location Type"
-#: ./../browser/listing_collection.py:167
-#: ./../browser/listing_search.py:117
+#: ./../browser/listing_collection.py:167 ./../browser/listing_search.py:117
 msgid "label_listing_search_location_type"
 msgstr ""
 
 #. Default: "Object Type"
-#: ./../browser/listing_collection.py:200
-#: ./../browser/listing_search.py:150
+#: ./../browser/listing_collection.py:200 ./../browser/listing_search.py:150
 msgid "label_listing_search_object_type"
 msgstr ""
 
 #. Default: "Ownership Type"
-#: ./../browser/listing_collection.py:211
-#: ./../browser/listing_search.py:161
+#: ./../browser/listing_collection.py:211 ./../browser/listing_search.py:161
 msgid "label_listing_search_ownership_type"
 msgstr ""
 
 #. Default: "View Type"
-#: ./../browser/listing_collection.py:189
-#: ./../browser/listing_search.py:139
+#: ./../browser/listing_collection.py:189 ./../browser/listing_search.py:139
 msgid "label_listing_search_view_type"
 msgstr ""
 
@@ -261,7 +259,7 @@ msgstr ""
 
 #: ./../browser/valuerange/widget.py:45
 msgid "no value"
-msgstr ""
+msgstr "Alle"
 
 #: ./../browser/valuerange/widget.py:46
 msgid "select a value ..."
@@ -277,7 +275,9 @@ msgstr ""
 msgid "text_listing_collection_deactivated"
 msgstr ""
 
-#. Default: "The 'Listing Collection' viewlet does't work with this content type. Add 'IPossibleListingCollection' to the provided interfaces to enable this feature."
+#. Default: "The 'Listing Collection' viewlet does't work with this content
+#. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
+#. this feature."
 #: ./../browser/listing_collection.py:310
 msgid "text_listing_collection_toggle_error"
 msgstr ""
@@ -292,7 +292,9 @@ msgstr ""
 msgid "text_listing_search_deactivated"
 msgstr ""
 
-#. Default: "The 'Listing Search' viewlet does't work with this content type. Add 'IPossibleListingSearch' to the provided interfaces to enable this feature."
+#. Default: "The 'Listing Search' viewlet does't work with this content type.
+#. Add 'IPossibleListingSearch' to the provided interfaces to enable this
+#. feature."
 #: ./../browser/listing_search.py:401
 msgid "text_listing_search_toggle_error"
 msgstr ""
@@ -307,8 +309,11 @@ msgstr ""
 msgid "text_recent_listings_deactivated"
 msgstr ""
 
-#. Default: "The 'Recent Listings' viewlet does't work with this content type. Add 'IPossibleRecentListings' to the provided interfaces to enable this feature."
+#. Default: "The 'Recent Listings' viewlet does't work with this content type.
+#. Add 'IPossibleRecentListings' to the provided interfaces to enable this
+#. feature."
 #: ./../browser/recent_listings.py:245
 msgid "text_recent_listings_toggle_error"
 msgstr ""
+
 
