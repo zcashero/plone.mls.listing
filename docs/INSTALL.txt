@@ -1,5 +1,5 @@
 plone.mls.listing Installation
-=======================
+==============================
 
  * When you're reading this you have probably already run
    ``easy_install plone.mls.listing``. Find out how to install setuptools

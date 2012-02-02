@@ -4,6 +4,7 @@
     xmlns:plone="http://namespaces.plone.org/plone">
 
   <!-- Agent Information Portlet. -->
+  <!-- ========================== -->
   <plone:portlet
       addview=".agent_information.AddForm"
       assignment=".agent_information.Assignment"

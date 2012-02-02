@@ -1,1 +1,1 @@
-# This file is intentionally left blank.
+"""Custom Value Range (min, max) widget."""
