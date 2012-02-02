@@ -131,7 +131,7 @@ setup(
         'plone.app.referenceablebehavior',
         'plone.app.relationfield',
         'plone.app.versioningbehavior',
-        'plone.mls.core',
+        'plone.mls.core >= 0.2',
     ],
     entry_points="""
     # -*- Entry points: -*-
