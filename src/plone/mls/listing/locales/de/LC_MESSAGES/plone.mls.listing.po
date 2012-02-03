@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-02-02 22:51+0000\n"
-"PO-Revision-Date: 2012-02-02 22:52+0000\n"
+"PO-Revision-Date: 2012-02-03 09:50+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/MLS_Plone/team/de/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgstr "Das Viewlet für die neuesten Immobilien aktivieren."
 
 #: ./../portlets/templates/agent_information.pt:13
 msgid "Agent Information"
-msgstr ""
+msgstr "Makler-Informationen"
 
 #: ./../browser/listing_collection.py:262 ./../browser/listing_search.py:351
 #: ./../browser/recent_listings.py:197
@@ -145,28 +145,29 @@ msgstr "Liste von enthaltenen MLS Immobilien."
 #: ./../browser/listing_collection.py:242
 msgid "help_listing_collection_configuration"
 msgstr ""
+"Passen Sie die Einstellungen für das 'Immobilien-Kollektion' viewlets an."
 
 #. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
 #: ./../browser/listing_search.py:329
 msgid "help_listing_search_configuration"
-msgstr ""
+msgstr "Passen Sie die Einstellungen für das 'Immobilien-Suche' viewlet an."
 
 #. Default: "Adjust the behaviour for this 'Recent Listings' viewlet."
 #: ./../browser/recent_listings.py:178
 msgid "help_recent_listings_configuration"
-msgstr ""
+msgstr "Passen Sie die Einstellungen für das 'Neueste Immobilien' viewlet an."
 
 #. Default: "Enter the maximum price for listings. If no price is given, all
 #. listings to the highest price are shown."
 #: ./../browser/recent_listings.py:147
 msgid "help_recent_listings_price_max"
-msgstr ""
+msgstr "Geben Sie den maximalen Preis für Immobilien an."
 
 #. Default: "Enter the minimum price for listings. If no price is given, all
 #. listings from the lowest price are shown."
 #: ./../browser/recent_listings.py:134
 msgid "help_recent_listings_price_min"
-msgstr ""
+msgstr "Geben Sie den Mindestpreis für Immobilien an."
 
 #. Default: "'Listing Collection' Configuration"
 #: ./../browser/listing_collection.py:238
@@ -191,7 +192,7 @@ msgstr "Konfiguration der 'Immobilien-Suche'"
 #. Default: "Geographic Type"
 #: ./../browser/listing_collection.py:176 ./../browser/listing_search.py:125
 msgid "label_listing_search_geographic_type"
-msgstr ""
+msgstr "Art des Standortes"
 
 #. Default: "Items per Page"
 #: ./../browser/listing_search.py:314
@@ -206,7 +207,7 @@ msgstr "Art der Immobilie"
 #. Default: "Location Type"
 #: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:114
 msgid "label_listing_search_location_type"
-msgstr ""
+msgstr "Lage"
 
 #. Default: "Object Type"
 #: ./../browser/listing_collection.py:198 ./../browser/listing_search.py:147
@@ -216,12 +217,12 @@ msgstr "Art des Objektes"
 #. Default: "Ownership Type"
 #: ./../browser/listing_collection.py:209 ./../browser/listing_search.py:158
 msgid "label_listing_search_ownership_type"
-msgstr ""
+msgstr "Eigentumstyp"
 
 #. Default: "View Type"
 #: ./../browser/listing_collection.py:187 ./../browser/listing_search.py:136
 msgid "label_listing_search_view_type"
-msgstr ""
+msgstr "Art der Aussicht"
 
 #. Default: "Title"
 #: ./../content/listing.py:34
@@ -231,27 +232,27 @@ msgstr "Titel"
 #. Default: "'Recent Listings' Configuration"
 #: ./../browser/recent_listings.py:174
 msgid "label_recent_listings_configuration"
-msgstr ""
+msgstr "Konfiguration der 'Neuesten Immobilien'"
 
 #. Default: "Items per Page"
 #: ./../browser/recent_listings.py:162
 msgid "label_recent_listings_limit"
-msgstr ""
+msgstr "Ergebnisse pro Seite"
 
 #. Default: "Listing Type"
 #: ./../browser/recent_listings.py:124
 msgid "label_recent_listings_listing_type"
-msgstr ""
+msgstr "Art der Immobilie"
 
 #. Default: "Maximum Price"
 #: ./../browser/recent_listings.py:153
 msgid "label_recent_listings_price_max"
-msgstr ""
+msgstr "Maximalpreis"
 
 #. Default: "Minimum Price"
 #: ./../browser/recent_listings.py:140
 msgid "label_recent_listings_price_min"
-msgstr ""
+msgstr "Mindestpreis"
 
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
@@ -259,17 +260,17 @@ msgstr "Alle"
 
 #: ./../browser/valuerange/widget.py:44
 msgid "select a value ..."
-msgstr ""
+msgstr "---"
 
 #. Default: "'Listing Collection' viewlet activated."
 #: ./../browser/listing_collection.py:303
 msgid "text_listing_collection_activated"
-msgstr ""
+msgstr "Die Immobilien-Kollektion wurde aktiviert."
 
 #. Default: "'Listing Collection' viewlet deactivated."
 #: ./../browser/listing_collection.py:297
 msgid "text_listing_collection_deactivated"
-msgstr ""
+msgstr "Die Immobilien-Kollektion wurde deaktiviert."
 
 #. Default: "The 'Listing Collection' viewlet does't work with this content
 #. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
@@ -277,16 +278,19 @@ msgstr ""
 #: ./../browser/listing_collection.py:308
 msgid "text_listing_collection_toggle_error"
 msgstr ""
+"Die Immobilien-Kollektion konnte für diesen Inhaltstyp nicht aktiviert "
+"werden. Fügen Sie 'IPossibleListingCollection' zu den unterstützten "
+"Interfaces hinzu um dieses Feature zu aktivieren."
 
 #. Default: "'Listing Search' viewlet activated."
 #: ./../browser/listing_search.py:393
 msgid "text_listing_search_activated"
-msgstr ""
+msgstr "Die Immobilien-Suche wurde aktiviert."
 
 #. Default: "'Listing Search' viewlet deactivated."
 #: ./../browser/listing_search.py:387
 msgid "text_listing_search_deactivated"
-msgstr ""
+msgstr "Die Immobilien-Suche wurde deaktiviert."
 
 #. Default: "The 'Listing Search' viewlet does't work with this content type.
 #. Add 'IPossibleListingSearch' to the provided interfaces to enable this
@@ -294,16 +298,19 @@ msgstr ""
 #: ./../browser/listing_search.py:398
 msgid "text_listing_search_toggle_error"
 msgstr ""
+"Die Immobilien-Suche konnte für diesen Inhaltstyp nicht aktiviert werden. "
+"Fügen Sie 'IPossibleListingSearch' zu den unterstützten Interfaces hinzu um "
+"dieses Feature zu aktivieren."
 
 #. Default: "'Recent Listings' viewlet activated."
 #: ./../browser/recent_listings.py:238
 msgid "text_recent_listings_activated"
-msgstr ""
+msgstr "Die neuesten Immobilien wurden aktiviert."
 
 #. Default: "'Recent Listings' viewlet deactivated."
 #: ./../browser/recent_listings.py:232
 msgid "text_recent_listings_deactivated"
-msgstr ""
+msgstr "Die neuesten Immobilien wurden deaktiviert."
 
 #. Default: "The 'Recent Listings' viewlet does't work with this content type.
 #. Add 'IPossibleRecentListings' to the provided interfaces to enable this
@@ -311,5 +318,8 @@ msgstr ""
 #: ./../browser/recent_listings.py:243
 msgid "text_recent_listings_toggle_error"
 msgstr ""
+"Die neuesten Immobilien konnten für diesen Inhaltstyp nicht aktiviert "
+"werden. Fügen Sie 'IPossibleRecentListings' zu den unterstützten Interfaces "
+"hinzu um dieses Feature zu aktivieren."
 
 
