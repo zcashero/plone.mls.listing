@@ -4,6 +4,32 @@ Changelog
 0.2 (2012-02-02)
 ----------------
 
+- Use plone.app.testing for tests.
+  [thomas]
+
+- Upgraded dexterity content types. Requires plone.app.dexterity >= 1.1.
+  [thomas]
+
+- Added 'Recent Listings' viewlet with configuration.
+  [thomas]
+
+- Added 'Listing Collection' viewlet with configuration.
+  [thomas]
+
+- Added 'Listing Search' viewlet with configuration.
+  [thomas]
+
+- Added API methods to access the MLS API. Requires mls.apiclient.
+  [thomas]
+
+- Added Infinite Ajax Scroll JavaScript (disabled by default) for Facebook like scroll and auto-load of next items.
+  [thomas]
+
+- Added I18N.
+  [thomas]
+
+- Adjusted raptus.article based views (don't use tables anymore).
+  [thomas]
 
 
 0.1.2 (2011-10-26)
