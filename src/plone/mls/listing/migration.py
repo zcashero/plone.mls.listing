@@ -30,7 +30,7 @@ from plone.mls.listing.browser.interfaces import IListingSpecific
 
 
 LISTING_TYPE = 'plone.mls.listing.listing'
-
+PROFILE_ID = 'profile-plone.mls.listing:default'
 
 def migrate_to_1001(context):
     """Migrate from 1000 to 1001.
@@ -147,3 +147,17 @@ def migrate_to_1004(context):
     tinymce = getToolByName(site, 'portal_tinymce', None)
     if tinymce is not None:
         tinymce.link_using_uids = False
+
+
+def migrate_to_1005(context):
+    """Migrate from 1004 to 1005.
+
+    * Register 'Agent Information' portlet.
+    * Activate portal actions.
+    * Register JS resources.
+    """
+    site = getUtility(IPloneSiteRoot)
+    setup = getToolByName(site, 'portal_setup')
+    setup.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
+    setup.runImportStepFromProfile(PROFILE_ID, 'actions')
+    setup.runImportStepFromProfile(PROFILE_ID, 'portlets')
