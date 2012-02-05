@@ -1,1 +1,1 @@
-# This file is intentionally left blank.
+"""Definition of the dexterity based content types."""

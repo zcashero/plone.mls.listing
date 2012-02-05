@@ -1,25 +1,31 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2012 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AS IS AND ANY EXPRESSED OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+# OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+# NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+# EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-##############################################################################
+###############################################################################
 """Setup for plone.mls.listing package."""
 
 import os
 import sys
 from setuptools import setup, find_packages
 
-version = '0.1.2'
+sys.path.insert(0, os.path.abspath('src/'))
+from plone.mls.listing import __version__
+
 
 #---[ START Server locking]--------------------------------------------------
 LOCK_PYPI_SERVER = "http://pypi.propertyshelf.com"
@@ -76,8 +82,8 @@ check_server(LOCK_PYPI_SERVER)
 
 setup(
     name='plone.mls.listing',
-    version=version,
-    description="Plone support for MLS Listings",
+    version=__version__,
+    description="Plone support for MLS Listings.",
     long_description='\n\n'.join([
         open("README.txt").read() + "\n" +
         open(os.path.join("docs", "HISTORY.txt")).read(),
@@ -89,7 +95,7 @@ setup(
         "Environment :: Web Environment",
         "Framework :: Plone",
         "Intended Audience :: Other Audience",
-        "License :: Other/Proprietary License",
+        "License :: OSI Approved :: Zope Public License",
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
@@ -100,31 +106,33 @@ setup(
     author_email='thomas@propertyshelf.com',
     maintainer='Thomas Massmann',
     maintainer_email='thomas@propertyshelf.com',
-    url='http://mypypi.inqbus.de/',
-    download_url='http://mypypi.inqbus.de/private/plone.mls.listing',
-    license='Commercial',
+    url='http://pypi.propertyshelf.com/',
+    download_url='http://pypi.propertyshelf.com/private/plone.mls.listing',
+    license='ZPL 2.1',
     packages=find_packages('src', exclude=['ez_setup']),
     package_dir={'': 'src'},
     namespace_packages=['plone', 'plone.mls'],
     include_package_data=True,
     zip_safe=False,
+    extras_require=dict(
+        test=[
+            'plone.app.testing',
+            'raptus.article.core',
+        ],
+    ),
     install_requires=[
         'setuptools',
         # -*- Extra requirements: -*-
         'Plone',
-        'plone.app.dexterity >= 1.0rc1',
         'collective.autopermission',
         'collective.prettyphoto',
-        'plone.mls.core',
+        'mls.apiclient',
+        'plone.app.dexterity [grok]',
+        'plone.app.referenceablebehavior',
+        'plone.app.relationfield',
+        'plone.app.versioningbehavior',
+        'plone.mls.core >= 0.2',
     ],
-    extras_require=dict(
-        plone4=[
-            'plone.app.versioningbehavior',
-        ],
-        tests=[
-            'raptus.article.core',
-        ],
-    ),
     entry_points="""
     # -*- Entry points: -*-
 

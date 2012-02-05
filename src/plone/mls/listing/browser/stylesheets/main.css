@@ -1,3 +1,27 @@
+/* HTML5 Elements
+   ==============
+*/
+
+article, aside, figure, figcaption, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+
+/* Search Forms.
+   =============
+*/
+.listing-summary #search-form form span.option {
+  float: left;
+}
+
+.listing-summary #search-form form div.field {
+  clear: both;
+  overflow: hidden;
+}
+
+/* Listing Detail page.
+   ====================
+*/
 .listing #listing-info {
   font-size: 0.9em;
   margin-bottom: 1.5em;
@@ -38,4 +62,93 @@
 .listing #listing-details,
 .listing ul.formTabs {
   clear: both;
+}
+
+/* Table-like listing summary.
+   ===========================
+*/
+#content .listing-summary figure {
+  float: left;
+  margin-right: 3%;
+  width: 22%;
+}
+
+#content .listing-summary figure a {
+  border: 1px solid #D5D5D5;
+  display: block;
+  padding: 3%;
+}
+
+#content .listing-summary figure img {
+  width: 100%;
+}
+
+#content .listing-summary figure figcaption {
+  display: none;
+}
+
+#content .listing-summary section {
+  float: left;
+  width: 75%;
+}
+
+#content .listing-summary dt {
+  float: left;
+  margin: 0 3% 0 0;
+  width: 22%;
+}
+
+#content .listing-summary dt.row {
+  clear: both;
+}
+
+#content .listing-summary dd {
+  float: left;
+  margin: 0 3% 0 0;
+  width: 22%;
+}
+
+#content .listing-summary dd.full {
+  float: left;
+  margin: 0;
+  width: 75%;
+}
+
+/* AgentInformation Portlet
+   ========================
+*/
+.portletAgentInformation .portletItem figure img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.portletAgentInformation .portletItem figure figcaption {
+  display: none;
+}
+
+.portletAgentInformation .portletItem .agent_title,
+.portletAgentInformation .portletItem .agency_name {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.portletAgentInformation .portletItem .contact_details {
+  margin-top: 1em;
+  word-wrap: break-word;
+}
+
+.portletAgentInformation .portletItem .contact_details dt {
+  background: transparent;
+  clear: both;
+  float: left;
+  margin: 0 3% 0 0;
+  padding: 0.42em 0;
+  width: 37%;
+}
+
+.portletAgentInformation .portletItem .contact_details dd {
+  float: left;
+  margin: 0;
+  padding: 0.42em 0;
+  width: 60%;
 }

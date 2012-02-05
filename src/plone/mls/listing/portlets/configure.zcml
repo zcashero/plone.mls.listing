@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone">
+
+  <!-- Agent Information Portlet. -->
+  <!-- ========================== -->
+  <plone:portlet
+      addview=".agent_information.AddForm"
+      assignment=".agent_information.Assignment"
+      interface=".agent_information.IAgentInformationPortlet"
+      name="portlets.AgentInformation"
+      renderer=".agent_information.Renderer"
+      />
+
+</configure>

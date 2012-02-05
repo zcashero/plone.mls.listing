@@ -9,7 +9,10 @@
   <include package="raptus.article.core" zcml:condition="installed raptus.article.core" />
 
 
+  <!-- Adpater registrations. -->
+  <!-- ====================== -->
   <adapter  factory=".adapters.ListingLists" zcml:condition="installed raptus.article.core" />
+
 
   <!-- Article Component Registrations. -->
   <!-- ================================ -->

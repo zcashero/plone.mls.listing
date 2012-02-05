@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 
-##############################################################################
+###############################################################################
 #
-# Copyright (c) 2011 Propertyshelf, LLC and Contributors.
+# Copyright (c) 2012 Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
-# This software is subject to the provisions of the Zope Public License,
-# Version 2.1 (ZPL). A copy of the ZPL should accompany this distribution.
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
-# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
-# FOR A PARTICULAR PURPOSE
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AS IS AND ANY EXPRESSED OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+# OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+# NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+# EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-##############################################################################
+###############################################################################
 """Setup handlers for plone.mls.listing."""
 
 # zope imports
@@ -38,7 +42,8 @@ def setup_kupu(context):
             # Kupu's resource list can accumulate old, no longer valid types.
             # It will throw an exception if we try to resave them.
             # So, let's clean the list.
-            valid_types = dict([ (t.id, 1) for t in portal_types.listTypeInfo()])
+            valid_types = dict([(t.id, 1) for t in \
+                                portal_types.listTypeInfo()])
             linkable = [pt for pt in linkable if pt in valid_types]
 
             linkable.append(LISTING_TYPE)
@@ -79,12 +84,13 @@ def setup_versioning(context):
     else:
         site = getUtility(IPloneSiteRoot)
         portal_repository = getToolByName(site, 'portal_repository')
-        versionable_types = list(portal_repository.getVersionableContentTypes())
-        if LISTING_TYPE not in versionable_types:
-            # Use append() to make sure we don't overwrite any content types which
-            # may already be under version control.
-            versionable_types.append(LISTING_TYPE)
+        versionable = list(portal_repository.getVersionableContentTypes())
+        if LISTING_TYPE not in versionable:
+            # Use append() to make sure we don't overwrite any content types
+            # which may already be under version control.
+            versionable.append(LISTING_TYPE)
             # Add default versioning policies to the versioned type.
             for policy_id in DEFAULT_POLICIES:
-                portal_repository.addPolicyForContentType(LISTING_TYPE, policy_id)
-        portal_repository.setVersionableContentTypes(versionable_types)
+                portal_repository.addPolicyForContentType(LISTING_TYPE,
+                                                          policy_id)
+        portal_repository.setVersionableContentTypes(versionable)
