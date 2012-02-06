@@ -1,10 +1,12 @@
 # 
 # Translators:
+#   <meiyu@propertyshelf.com>, 2012.
+# Thomas Massmann <thomas.massmann@inqbus.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-02-02 22:51+0000\n"
-"PO-Revision-Date: 2012-02-02 22:52+0000\n"
+"PO-Revision-Date: 2012-02-05 15:48+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Chinese (http://www.transifex.net/projects/p/MLS_Plone/team/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -19,256 +21,256 @@ msgstr ""
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "A single MLS Listing"
-msgstr ""
+msgstr "單一房地產物件"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate Listing Collection"
-msgstr ""
+msgstr "啓動房地產物件收集功能"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate Listing Search"
-msgstr ""
+msgstr "啓動房地產物件搜尋"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate Recent Listings"
-msgstr ""
+msgstr "啓動最新房地產物件"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Listing Collection viewlet."
-msgstr ""
+msgstr "啓動房地產物件收集viewlet"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Listing Search viewlet."
-msgstr ""
+msgstr "啓動房地產物件搜尋viewlet"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Recent Listings viewlet."
-msgstr ""
+msgstr "啓動最新房地產物件viewlet"
 
 #: ./../portlets/templates/agent_information.pt:13
 msgid "Agent Information"
-msgstr ""
+msgstr "仲介人資訊"
 
 #: ./../browser/listing_collection.py:262 ./../browser/listing_search.py:351
 #: ./../browser/recent_listings.py:197
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure Listing Collection"
-msgstr ""
+msgstr "配製設定房地產物件收集功能"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure Listing Search"
-msgstr ""
+msgstr "配製設定房地產搜尋"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure Recent Listings"
-msgstr ""
+msgstr "配製設定最信房地產物件"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure the Listing Collection viewlet."
-msgstr ""
+msgstr "配製設定房地產物件收集viewlet"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure the Listing Search viewlet."
-msgstr ""
+msgstr "配製設定房地產物件搜尋viewlet"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure the Recent Listings viewlet."
-msgstr ""
+msgstr "配製設定最新房地產物件viewlet"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Listing Collection"
-msgstr ""
+msgstr "停用房地產物件收集功能"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Listing Search"
-msgstr ""
+msgstr "停用房地產物件搜尋"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Recent Listings"
-msgstr ""
+msgstr "停用最新房地產物件"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate the Listing Collection viewlet."
-msgstr ""
+msgstr "停用房地產物件收集功能viewelet"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate the Listing Search viewlet."
-msgstr ""
+msgstr "停用房地產物件搜尋viewlet"
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate the Recent Listings viewlet."
-msgstr ""
+msgstr "停用最新房地產物件搜尋"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
-msgstr ""
+msgstr "房地產物件"
 
 #: ./../browser/listing_collection.py:252 ./../browser/listing_search.py:339
 #: ./../browser/recent_listings.py:188
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: ./../browser/listing_search.py:225
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #. Default: "MLS Listings"
 #: ./../article/listing.py:48
 msgid "heading_article_listings"
-msgstr ""
+msgstr "ＭＬＳ房地產物件"
 
 #. Default: "Listing Images"
 #: ./../browser/templates/listing_details.pt:86
 msgid "heading_listing_images"
-msgstr ""
+msgstr "房地產物件照片"
 
 #. Default: "Basic Listing Information"
 #: ./../browser/templates/listing_details.pt:32
 msgid "heading_listing_information_basic"
-msgstr ""
+msgstr "基本資料"
 
 #. Default: "Agent Information"
 #: ./../portlets/agent_information.py:41
 msgid "heading_portlet_agent_information"
-msgstr ""
+msgstr "仲介資料"
 
 #. Default: "List of the contained MLS Listings."
 #: ./../article/listing.py:52
 msgid "help_article_listings"
-msgstr ""
+msgstr "ＭＬＳ房地產物件清單"
 
 #. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
 #: ./../browser/listing_collection.py:242
 msgid "help_listing_collection_configuration"
-msgstr ""
+msgstr "調整房地產物件收集功能viewlet"
 
 #. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
 #: ./../browser/listing_search.py:329
 msgid "help_listing_search_configuration"
-msgstr ""
+msgstr "調整房地產物件搜尋viewlet"
 
 #. Default: "Adjust the behaviour for this 'Recent Listings' viewlet."
 #: ./../browser/recent_listings.py:178
 msgid "help_recent_listings_configuration"
-msgstr ""
+msgstr "調整最新房地產物件viewlet"
 
 #. Default: "Enter the maximum price for listings. If no price is given, all
 #. listings to the highest price are shown."
 #: ./../browser/recent_listings.py:147
 msgid "help_recent_listings_price_max"
-msgstr ""
+msgstr "輸入房地產物件的最高價位。若未填入任何金額，所有價位的房地產物件皆會顯示。"
 
 #. Default: "Enter the minimum price for listings. If no price is given, all
 #. listings from the lowest price are shown."
 #: ./../browser/recent_listings.py:134
 msgid "help_recent_listings_price_min"
-msgstr ""
+msgstr "輸入房地產物件的最低價位。若未填入任何金額，所有價位的房地產物件皆會顯示。"
 
 #. Default: "'Listing Collection' Configuration"
 #: ./../browser/listing_collection.py:238
 msgid "label_listing_collection_configuration"
-msgstr ""
+msgstr "配製設定房地產物件收集功能"
 
 #. Default: "Items per Page"
 #: ./../browser/listing_collection.py:221
 msgid "label_listing_collection_limit"
-msgstr ""
+msgstr "每頁物件數量"
 
 #. Default: "MLS Listing ID"
 #: ./../content/listing.py:41
 msgid "label_listing_listing_id"
-msgstr ""
+msgstr "ＭＬＳ房地產物件編號"
 
 #. Default: "'Listing Search' Configuration"
 #: ./../browser/listing_search.py:325
 msgid "label_listing_search_configuration"
-msgstr ""
+msgstr "房地產物件搜尋配製設定"
 
 #. Default: "Geographic Type"
 #: ./../browser/listing_collection.py:176 ./../browser/listing_search.py:125
 msgid "label_listing_search_geographic_type"
-msgstr ""
+msgstr "地理位置類型"
 
 #. Default: "Items per Page"
 #: ./../browser/listing_search.py:314
 msgid "label_listing_search_limit"
-msgstr ""
+msgstr "每頁物件數量"
 
 #. Default: "Listing Type"
 #: ./../browser/listing_collection.py:126 ./../browser/listing_search.py:70
 msgid "label_listing_search_listing_type"
-msgstr ""
+msgstr "房地產物件類型"
 
 #. Default: "Location Type"
 #: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:114
 msgid "label_listing_search_location_type"
-msgstr ""
+msgstr "地理位置類型"
 
 #. Default: "Object Type"
 #: ./../browser/listing_collection.py:198 ./../browser/listing_search.py:147
 msgid "label_listing_search_object_type"
-msgstr ""
+msgstr "物件類別"
 
 #. Default: "Ownership Type"
 #: ./../browser/listing_collection.py:209 ./../browser/listing_search.py:158
 msgid "label_listing_search_ownership_type"
-msgstr ""
+msgstr "所有權類別"
 
 #. Default: "View Type"
 #: ./../browser/listing_collection.py:187 ./../browser/listing_search.py:136
 msgid "label_listing_search_view_type"
-msgstr ""
+msgstr "景觀類別"
 
 #. Default: "Title"
 #: ./../content/listing.py:34
 msgid "label_listing_title"
-msgstr ""
+msgstr "房地產物件名稱"
 
 #. Default: "'Recent Listings' Configuration"
 #: ./../browser/recent_listings.py:174
 msgid "label_recent_listings_configuration"
-msgstr ""
+msgstr "配製設定最新房地產物件"
 
 #. Default: "Items per Page"
 #: ./../browser/recent_listings.py:162
 msgid "label_recent_listings_limit"
-msgstr ""
+msgstr "每頁物件數量"
 
 #. Default: "Listing Type"
 #: ./../browser/recent_listings.py:124
 msgid "label_recent_listings_listing_type"
-msgstr ""
+msgstr "房地產物件類別"
 
 #. Default: "Maximum Price"
 #: ./../browser/recent_listings.py:153
 msgid "label_recent_listings_price_max"
-msgstr ""
+msgstr "最高價位"
 
 #. Default: "Minimum Price"
 #: ./../browser/recent_listings.py:140
 msgid "label_recent_listings_price_min"
-msgstr ""
+msgstr "最低價位"
 
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
-msgstr ""
+msgstr "全部"
 
 #: ./../browser/valuerange/widget.py:44
 msgid "select a value ..."
-msgstr ""
+msgstr "選擇"
 
 #. Default: "'Listing Collection' viewlet activated."
 #: ./../browser/listing_collection.py:303
 msgid "text_listing_collection_activated"
-msgstr ""
+msgstr "房地產物件收集功能viewlet已啓用。"
 
 #. Default: "'Listing Collection' viewlet deactivated."
 #: ./../browser/listing_collection.py:297
 msgid "text_listing_collection_deactivated"
-msgstr ""
+msgstr "房地產物件收集功能viewlet已停用。"
 
 #. Default: "The 'Listing Collection' viewlet does't work with this content
 #. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
@@ -276,39 +278,40 @@ msgstr ""
 #: ./../browser/listing_collection.py:308
 msgid "text_listing_collection_toggle_error"
 msgstr ""
+"房地產物件收集功能viewlet無法在此內容類型使用。加入IPossibleListingCollection 至已提供的界面來啓用此功能。"
 
 #. Default: "'Listing Search' viewlet activated."
 #: ./../browser/listing_search.py:393
 msgid "text_listing_search_activated"
-msgstr ""
+msgstr "房地產物件搜尋viewlet已啓用。"
 
 #. Default: "'Listing Search' viewlet deactivated."
 #: ./../browser/listing_search.py:387
 msgid "text_listing_search_deactivated"
-msgstr ""
+msgstr "房地產物件搜尋viewlet已停用。"
 
 #. Default: "The 'Listing Search' viewlet does't work with this content type.
 #. Add 'IPossibleListingSearch' to the provided interfaces to enable this
 #. feature."
 #: ./../browser/listing_search.py:398
 msgid "text_listing_search_toggle_error"
-msgstr ""
+msgstr "房地產物件搜尋viewlet無法在此內容類型使用。加入IPossibleListingSearch 至已提供的界面來啓用此功能。"
 
 #. Default: "'Recent Listings' viewlet activated."
 #: ./../browser/recent_listings.py:238
 msgid "text_recent_listings_activated"
-msgstr ""
+msgstr "最新房地產物件viewlet已啓用。"
 
 #. Default: "'Recent Listings' viewlet deactivated."
 #: ./../browser/recent_listings.py:232
 msgid "text_recent_listings_deactivated"
-msgstr ""
+msgstr "最新房地產物件viewlet已停用。"
 
 #. Default: "The 'Recent Listings' viewlet does't work with this content type.
 #. Add 'IPossibleRecentListings' to the provided interfaces to enable this
 #. feature."
 #: ./../browser/recent_listings.py:243
 msgid "text_recent_listings_toggle_error"
-msgstr ""
+msgstr "最新房地產物件搜尋viewlet無法在此內容類型使用。加入IPossibleRecentListings 至已提供的界面來啓用此功能。"
 
 
