@@ -1,6 +1,16 @@
 Changelog
 =========
 
+0.3 (2012-02-11)
+----------------
+
+- I18N updates merged.
+  [thomas]
+
+- Added SearchOptions cache objects for listing search categories. Defaults to 1 hour ram cache.
+  [thomas]
+
+
 0.2 (2012-02-05)
 ----------------
 
