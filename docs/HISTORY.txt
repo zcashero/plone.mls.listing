@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2 (2012-02-02)
+0.2 (2012-02-05)
 ----------------
 
 - Use plone.app.testing for tests.
