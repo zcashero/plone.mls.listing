@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2012-02-02 22:51+0000\n"
-"PO-Revision-Date: 2012-02-05 15:48+0000\n"
+"POT-Creation-Date: 2012-02-11 14:35+0000\n"
+"PO-Revision-Date: 2012-02-11 14:36+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Chinese (http://www.transifex.net/projects/p/MLS_Plone/team/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "啓動最新房地產物件viewlet"
 msgid "Agent Information"
 msgstr "仲介人資訊"
 
-#: ./../browser/listing_collection.py:262 ./../browser/listing_search.py:351
+#: ./../browser/listing_collection.py:277 ./../browser/listing_search.py:384
 #: ./../browser/recent_listings.py:197
 msgid "Cancel"
 msgstr "取消"
@@ -108,12 +108,12 @@ msgstr "停用最新房地產物件搜尋"
 msgid "Listing"
 msgstr "房地產物件"
 
-#: ./../browser/listing_collection.py:252 ./../browser/listing_search.py:339
+#: ./../browser/listing_collection.py:267 ./../browser/listing_search.py:372
 #: ./../browser/recent_listings.py:188
 msgid "Save"
 msgstr "儲存"
 
-#: ./../browser/listing_search.py:225
+#: ./../browser/listing_search.py:258
 msgid "Search"
 msgstr "搜尋"
 
@@ -143,12 +143,12 @@ msgid "help_article_listings"
 msgstr "ＭＬＳ房地產物件清單"
 
 #. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
-#: ./../browser/listing_collection.py:242
+#: ./../browser/listing_collection.py:257
 msgid "help_listing_collection_configuration"
 msgstr "調整房地產物件收集功能viewlet"
 
 #. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
-#: ./../browser/listing_search.py:329
+#: ./../browser/listing_search.py:362
 msgid "help_listing_search_configuration"
 msgstr "調整房地產物件搜尋viewlet"
 
@@ -170,57 +170,111 @@ msgid "help_recent_listings_price_min"
 msgstr "輸入房地產物件的最低價位。若未填入任何金額，所有價位的房地產物件皆會顯示。"
 
 #. Default: "'Listing Collection' Configuration"
-#: ./../browser/listing_collection.py:238
+#: ./../browser/listing_collection.py:253
 msgid "label_listing_collection_configuration"
 msgstr "配製設定房地產物件收集功能"
-
-#. Default: "Items per Page"
-#: ./../browser/listing_collection.py:221
-msgid "label_listing_collection_limit"
-msgstr "每頁物件數量"
 
 #. Default: "MLS Listing ID"
 #: ./../content/listing.py:41
 msgid "label_listing_listing_id"
 msgstr "ＭＬＳ房地產物件編號"
 
+#. Default: "Air Condition"
+#: ./../browser/listing_search.py:213
+msgid "label_listing_search_air_condition"
+msgstr ""
+
+#. Default: "Bathrooms"
+#: ./../browser/listing_search.py:200
+msgid "label_listing_search_baths"
+msgstr ""
+
+#. Default: "Bedrooms"
+#: ./../browser/listing_search.py:188
+msgid "label_listing_search_beds"
+msgstr ""
+
 #. Default: "'Listing Search' Configuration"
-#: ./../browser/listing_search.py:325
+#: ./../browser/listing_search.py:358
 msgid "label_listing_search_configuration"
 msgstr "房地產物件搜尋配製設定"
 
 #. Default: "Geographic Type"
-#: ./../browser/listing_collection.py:176 ./../browser/listing_search.py:125
+#: ./../browser/listing_collection.py:191 ./../browser/listing_search.py:143
 msgid "label_listing_search_geographic_type"
 msgstr "地理位置類型"
 
+#. Default: "Jacuzzi"
+#: ./../browser/listing_search.py:233
+msgid "label_listing_search_jacuzzi"
+msgstr ""
+
 #. Default: "Items per Page"
-#: ./../browser/listing_search.py:314
+#: ./../browser/listing_collection.py:236 ./../browser/listing_search.py:347
+#: ./../browser/recent_listings.py:162
 msgid "label_listing_search_limit"
 msgstr "每頁物件數量"
 
 #. Default: "Listing Type"
 #: ./../browser/listing_collection.py:126 ./../browser/listing_search.py:70
+#: ./../browser/recent_listings.py:124
 msgid "label_listing_search_listing_type"
 msgstr "房地產物件類型"
 
+#. Default: "City/Town"
+#: ./../browser/listing_search.py:108
+msgid "label_listing_search_location_city"
+msgstr ""
+
+#. Default: "County"
+#: ./../browser/listing_collection.py:146 ./../browser/listing_search.py:90
+msgid "label_listing_search_location_county"
+msgstr ""
+
+#. Default: "District"
+#: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:99
+msgid "label_listing_search_location_district"
+msgstr ""
+
+#. Default: "State"
+#: ./../browser/listing_collection.py:137 ./../browser/listing_search.py:81
+msgid "label_listing_search_location_state"
+msgstr ""
+
 #. Default: "Location Type"
-#: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:114
+#: ./../browser/listing_collection.py:180 ./../browser/listing_search.py:132
 msgid "label_listing_search_location_type"
 msgstr "地理位置類型"
 
 #. Default: "Object Type"
-#: ./../browser/listing_collection.py:198 ./../browser/listing_search.py:147
+#: ./../browser/listing_collection.py:213 ./../browser/listing_search.py:165
 msgid "label_listing_search_object_type"
 msgstr "物件類別"
 
 #. Default: "Ownership Type"
-#: ./../browser/listing_collection.py:209 ./../browser/listing_search.py:158
+#: ./../browser/listing_collection.py:224 ./../browser/listing_search.py:176
 msgid "label_listing_search_ownership_type"
 msgstr "所有權類別"
 
+#. Default: "Pool"
+#: ./../browser/listing_search.py:223
+msgid "label_listing_search_pool"
+msgstr ""
+
+#. Default: "Price (Max)"
+#: ./../browser/listing_collection.py:172 ./../browser/listing_search.py:124
+#: ./../browser/recent_listings.py:153
+msgid "label_listing_search_price_max"
+msgstr ""
+
+#. Default: "Price (Min)"
+#: ./../browser/listing_collection.py:164 ./../browser/listing_search.py:116
+#: ./../browser/recent_listings.py:140
+msgid "label_listing_search_price_min"
+msgstr ""
+
 #. Default: "View Type"
-#: ./../browser/listing_collection.py:187 ./../browser/listing_search.py:136
+#: ./../browser/listing_collection.py:202 ./../browser/listing_search.py:154
 msgid "label_listing_search_view_type"
 msgstr "景觀類別"
 
@@ -234,26 +288,6 @@ msgstr "房地產物件名稱"
 msgid "label_recent_listings_configuration"
 msgstr "配製設定最新房地產物件"
 
-#. Default: "Items per Page"
-#: ./../browser/recent_listings.py:162
-msgid "label_recent_listings_limit"
-msgstr "每頁物件數量"
-
-#. Default: "Listing Type"
-#: ./../browser/recent_listings.py:124
-msgid "label_recent_listings_listing_type"
-msgstr "房地產物件類別"
-
-#. Default: "Maximum Price"
-#: ./../browser/recent_listings.py:153
-msgid "label_recent_listings_price_max"
-msgstr "最高價位"
-
-#. Default: "Minimum Price"
-#: ./../browser/recent_listings.py:140
-msgid "label_recent_listings_price_min"
-msgstr "最低價位"
-
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
 msgstr "全部"
@@ -263,37 +297,37 @@ msgid "select a value ..."
 msgstr "選擇"
 
 #. Default: "'Listing Collection' viewlet activated."
-#: ./../browser/listing_collection.py:303
+#: ./../browser/listing_collection.py:318
 msgid "text_listing_collection_activated"
 msgstr "房地產物件收集功能viewlet已啓用。"
 
 #. Default: "'Listing Collection' viewlet deactivated."
-#: ./../browser/listing_collection.py:297
+#: ./../browser/listing_collection.py:312
 msgid "text_listing_collection_deactivated"
 msgstr "房地產物件收集功能viewlet已停用。"
 
 #. Default: "The 'Listing Collection' viewlet does't work with this content
 #. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
 #. this feature."
-#: ./../browser/listing_collection.py:308
+#: ./../browser/listing_collection.py:323
 msgid "text_listing_collection_toggle_error"
 msgstr ""
 "房地產物件收集功能viewlet無法在此內容類型使用。加入IPossibleListingCollection 至已提供的界面來啓用此功能。"
 
 #. Default: "'Listing Search' viewlet activated."
-#: ./../browser/listing_search.py:393
+#: ./../browser/listing_search.py:426
 msgid "text_listing_search_activated"
 msgstr "房地產物件搜尋viewlet已啓用。"
 
 #. Default: "'Listing Search' viewlet deactivated."
-#: ./../browser/listing_search.py:387
+#: ./../browser/listing_search.py:420
 msgid "text_listing_search_deactivated"
 msgstr "房地產物件搜尋viewlet已停用。"
 
 #. Default: "The 'Listing Search' viewlet does't work with this content type.
 #. Add 'IPossibleListingSearch' to the provided interfaces to enable this
 #. feature."
-#: ./../browser/listing_search.py:398
+#: ./../browser/listing_search.py:431
 msgid "text_listing_search_toggle_error"
 msgstr "房地產物件搜尋viewlet無法在此內容類型使用。加入IPossibleListingSearch 至已提供的界面來啓用此功能。"
 

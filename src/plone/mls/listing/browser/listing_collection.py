@@ -124,8 +124,8 @@ class IListingCollectionConfiguration(Interface):
         default=('cl', 'cs', 'll', 'rl', 'rs', ),
         required=False,
         title=_(
-            u"label_listing_search_listing_type",
-            default=u"Listing Type",
+            u'label_listing_search_listing_type',
+            default=u'Listing Type',
         ),
         value_type=schema.Choice(
             source='plone.mls.listing.ListingTypes'
@@ -134,37 +134,52 @@ class IListingCollectionConfiguration(Interface):
 
     location_state = schema.Choice(
         required=False,
-        title=u'State',
+        title=_(
+            u'label_listing_search_location_state',
+            default=u'State',
+        ),
         source='plone.mls.listing.LocationStates',
     )
 
     location_county = schema.Choice(
         required=False,
-        title=u'County',
+        title=_(
+            u'label_listing_search_location_county',
+            default=u'County',
+        ),
         source='plone.mls.listing.LocationCounties',
     )
 
     location_district = schema.Choice(
         required=False,
-        title=u'District',
+        title=_(
+            u'label_listing_search_location_district',
+            default=u'District',
+        ),
         source='plone.mls.listing.LocationDistricts',
     )
 
     price_min = schema.Int(
         required=False,
-        title=u'Price (Min)',
+        title=_(
+            u'label_listing_search_price_min',
+            default=u'Price (Min)',
+        ),
     )
 
     price_max = schema.Int(
         required=False,
-        title=u'Price (Max)',
+        title=_(
+            u'label_listing_search_price_max',
+            default=u'Price (Max)',
+       ),
     )
 
     location_type = schema.Tuple(
         required=False,
         title=_(
-            u"label_listing_search_location_type",
-            default=u"Location Type",
+            u'label_listing_search_location_type',
+            default=u'Location Type',
         ),
         value_type=schema.Choice(
             source='plone.mls.listing.LocationTypes'
@@ -174,8 +189,8 @@ class IListingCollectionConfiguration(Interface):
     geographic_type = schema.Tuple(
         required=False,
         title=_(
-            u"label_listing_search_geographic_type",
-            default=u"Geographic Type",
+            u'label_listing_search_geographic_type',
+            default=u'Geographic Type',
         ),
         value_type=schema.Choice(
             source='plone.mls.listing.GeographicTypes'
@@ -185,8 +200,8 @@ class IListingCollectionConfiguration(Interface):
     view_type = schema.Tuple(
         required=False,
         title=_(
-            u"label_listing_search_view_type",
-            default=u"View Type",
+            u'label_listing_search_view_type',
+            default=u'View Type',
         ),
         value_type=schema.Choice(
             source='plone.mls.listing.ViewTypes'
@@ -196,8 +211,8 @@ class IListingCollectionConfiguration(Interface):
     object_type = schema.Tuple(
         required=False,
         title=_(
-            u"label_listing_search_object_type",
-            default=u"Object Type",
+            u'label_listing_search_object_type',
+            default=u'Object Type',
         ),
         value_type=schema.Choice(
             source='plone.mls.listing.ObjectTypes'
@@ -207,8 +222,8 @@ class IListingCollectionConfiguration(Interface):
     ownership_type = schema.Tuple(
         required=False,
         title=_(
-            u"label_listing_search_ownership_type",
-            default=u"Ownership Type",
+            u'label_listing_search_ownership_type',
+            default=u'Ownership Type',
         ),
         value_type=schema.Choice(
             source='plone.mls.listing.OwnershipTypes'
@@ -219,8 +234,8 @@ class IListingCollectionConfiguration(Interface):
         default=25,
         required=False,
         title=_(
-            u"label_listing_collection_limit",
-            default=u"Items per Page"
+            u'label_listing_search_limit',
+            default=u'Items per Page',
         ),
     )
 
@@ -236,11 +251,11 @@ class ListingCollectionConfiguration(form.Form):
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     label = _(
-        u"label_listing_collection_configuration",
+        u'label_listing_collection_configuration',
         default=u"'Listing Collection' Configuration",
     )
     description = _(
-        u"help_listing_collection_configuration",
+        u'help_listing_collection_configuration',
         default=u"Adjust the behaviour for this 'Listing Collection' viewlet.",
     )
 
@@ -295,18 +310,18 @@ class ListingCollectionToggle(object):
             # Deactivate ListingCollection viewlet.
             noLongerProvides(self.context, IListingCollection)
             msg = _(
-                u"text_listing_collection_deactivated",
+                u'text_listing_collection_deactivated',
                 default=u"'Listing Collection' viewlet deactivated.",
             )
         elif IPossibleListingCollection.providedBy(self.context):
             alsoProvides(self.context, IListingCollection)
             msg = _(
-                u"text_listing_collection_activated",
+                u'text_listing_collection_activated',
                 default=u"'Listing Collection' viewlet activated.",
             )
         else:
             msg = _(
-                u"text_listing_collection_toggle_error",
+                u'text_listing_collection_toggle_error',
                 default=u"The 'Listing Collection' viewlet does't work with " \
                          "this content type. Add " \
                          "'IPossibleListingCollection' to the provided " \
