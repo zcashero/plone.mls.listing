@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-02-11 14:35+0000\n"
-"PO-Revision-Date: 2012-02-11 14:36+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
-"Language-Team: Japanese (http://www.transifex.net/projects/p/MLS_Plone/team/ja/)\n"
+"PO-Revision-Date: 2012-02-11 16:19+0000\n"
+"Last-Translator: BryanAllen <bryan@propertyshelf.com>\n"
+"Language-Team: Japanese (http://www.transifex.net/projects/p/MLS_Plone/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -181,17 +181,17 @@ msgstr "不動産仲介ID"
 #. Default: "Air Condition"
 #: ./../browser/listing_search.py:213
 msgid "label_listing_search_air_condition"
-msgstr ""
+msgstr "調査冷暖房"
 
 #. Default: "Bathrooms"
 #: ./../browser/listing_search.py:200
 msgid "label_listing_search_baths"
-msgstr ""
+msgstr "調査風呂"
 
 #. Default: "Bedrooms"
 #: ./../browser/listing_search.py:188
 msgid "label_listing_search_beds"
-msgstr ""
+msgstr "調査寝台"
 
 #. Default: "'Listing Search' Configuration"
 #: ./../browser/listing_search.py:358
@@ -206,7 +206,7 @@ msgstr "種類"
 #. Default: "Jacuzzi"
 #: ./../browser/listing_search.py:233
 msgid "label_listing_search_jacuzzi"
-msgstr ""
+msgstr "調査ジャクジ"
 
 #. Default: "Items per Page"
 #: ./../browser/listing_collection.py:236 ./../browser/listing_search.py:347
@@ -223,22 +223,22 @@ msgstr "探す不動産仲介種類"
 #. Default: "City/Town"
 #: ./../browser/listing_search.py:108
 msgid "label_listing_search_location_city"
-msgstr ""
+msgstr "調査場所町"
 
 #. Default: "County"
 #: ./../browser/listing_collection.py:146 ./../browser/listing_search.py:90
 msgid "label_listing_search_location_county"
-msgstr ""
+msgstr "調査場所郡"
 
 #. Default: "District"
 #: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:99
 msgid "label_listing_search_location_district"
-msgstr ""
+msgstr "調査場所地区"
 
 #. Default: "State"
 #: ./../browser/listing_collection.py:137 ./../browser/listing_search.py:81
 msgid "label_listing_search_location_state"
-msgstr ""
+msgstr "調査場所スタイト"
 
 #. Default: "Location Type"
 #: ./../browser/listing_collection.py:180 ./../browser/listing_search.py:132
@@ -258,19 +258,19 @@ msgstr "所有権類"
 #. Default: "Pool"
 #: ./../browser/listing_search.py:223
 msgid "label_listing_search_pool"
-msgstr ""
+msgstr "調査プール"
 
 #. Default: "Price (Max)"
 #: ./../browser/listing_collection.py:172 ./../browser/listing_search.py:124
 #: ./../browser/recent_listings.py:153
 msgid "label_listing_search_price_max"
-msgstr ""
+msgstr "最大絵暖"
 
 #. Default: "Price (Min)"
 #: ./../browser/listing_collection.py:164 ./../browser/listing_search.py:116
 #: ./../browser/recent_listings.py:140
 msgid "label_listing_search_price_min"
-msgstr ""
+msgstr "最低絵暖"
 
 #. Default: "View Type"
 #: ./../browser/listing_collection.py:202 ./../browser/listing_search.py:154
@@ -345,5 +345,3 @@ msgstr "不動産仲介deactivated"
 #: ./../browser/recent_listings.py:243
 msgid "text_recent_listings_toggle_error"
 msgstr "タガルエエラ"
-
-

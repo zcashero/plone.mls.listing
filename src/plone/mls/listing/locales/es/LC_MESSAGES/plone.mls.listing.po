@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-02-11 14:35+0000\n"
-"PO-Revision-Date: 2012-02-11 14:36+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
-"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/MLS_Plone/team/es/)\n"
+"PO-Revision-Date: 2012-02-13 20:06+0000\n"
+"Last-Translator: Juan Salazar <juancarlos@propertyshelf.com>\n"
+"Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +41,7 @@ msgstr "Activar viewlet de la colección de listados"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Listing Search viewlet."
-msgstr "Activar viewlet de busqueda de listados"
+msgstr "Activar viewlet de búsqueda de listados"
 
 #: ./../profiles/default/actions.xml
 msgid "Activate the Recent Listings viewlet."
@@ -161,17 +161,13 @@ msgstr "Ajustar el comportamiento para este viewlet \"Listados recientes\""
 #. listings to the highest price are shown."
 #: ./../browser/recent_listings.py:147
 msgid "help_recent_listings_price_max"
-msgstr ""
-"Ingrese el precio maximo para los listados. Si no se da el precio, se "
-"muestran todos los listados con el precio mas alto."
+msgstr "Ingrese el precio máximo para los listados. Si no se da el precio, se muestran todos los listados con el precio mas alto."
 
 #. Default: "Enter the minimum price for listings. If no price is given, all
 #. listings from the lowest price are shown."
 #: ./../browser/recent_listings.py:134
 msgid "help_recent_listings_price_min"
-msgstr ""
-"Ingrese el precio minimo para los listados. Si no se da el precio, se "
-"muestran todos los listados con el precio mas bajo."
+msgstr "Ingrese el precio minimo para los listados. Si no se da el precio, se muestran todos los listados con el precio mas bajo."
 
 #. Default: "'Listing Collection' Configuration"
 #: ./../browser/listing_collection.py:253
@@ -186,17 +182,17 @@ msgstr "ID del Listado en el MLS"
 #. Default: "Air Condition"
 #: ./../browser/listing_search.py:213
 msgid "label_listing_search_air_condition"
-msgstr ""
+msgstr "Aire Acondicionado"
 
 #. Default: "Bathrooms"
 #: ./../browser/listing_search.py:200
 msgid "label_listing_search_baths"
-msgstr ""
+msgstr "Baños"
 
 #. Default: "Bedrooms"
 #: ./../browser/listing_search.py:188
 msgid "label_listing_search_beds"
-msgstr ""
+msgstr "Habitaciones"
 
 #. Default: "'Listing Search' Configuration"
 #: ./../browser/listing_search.py:358
@@ -211,7 +207,7 @@ msgstr "Tipo de Geografía-Clima"
 #. Default: "Jacuzzi"
 #: ./../browser/listing_search.py:233
 msgid "label_listing_search_jacuzzi"
-msgstr ""
+msgstr "Jacuzzi"
 
 #. Default: "Items per Page"
 #: ./../browser/listing_collection.py:236 ./../browser/listing_search.py:347
@@ -228,22 +224,22 @@ msgstr "Tipo de Listado"
 #. Default: "City/Town"
 #: ./../browser/listing_search.py:108
 msgid "label_listing_search_location_city"
-msgstr ""
+msgstr "Ciudad/Localidad"
 
 #. Default: "County"
 #: ./../browser/listing_collection.py:146 ./../browser/listing_search.py:90
 msgid "label_listing_search_location_county"
-msgstr ""
+msgstr "Canton"
 
 #. Default: "District"
 #: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:99
 msgid "label_listing_search_location_district"
-msgstr ""
+msgstr "Distrito"
 
 #. Default: "State"
 #: ./../browser/listing_collection.py:137 ./../browser/listing_search.py:81
 msgid "label_listing_search_location_state"
-msgstr ""
+msgstr "Provincia"
 
 #. Default: "Location Type"
 #: ./../browser/listing_collection.py:180 ./../browser/listing_search.py:132
@@ -263,19 +259,19 @@ msgstr "Tipo de Dueño"
 #. Default: "Pool"
 #: ./../browser/listing_search.py:223
 msgid "label_listing_search_pool"
-msgstr ""
+msgstr "Piscina"
 
 #. Default: "Price (Max)"
 #: ./../browser/listing_collection.py:172 ./../browser/listing_search.py:124
 #: ./../browser/recent_listings.py:153
 msgid "label_listing_search_price_max"
-msgstr ""
+msgstr "\"Precio (Max)\"\n "
 
 #. Default: "Price (Min)"
 #: ./../browser/listing_collection.py:164 ./../browser/listing_search.py:116
 #: ./../browser/recent_listings.py:140
 msgid "label_listing_search_price_min"
-msgstr ""
+msgstr "\"Precio (Min)\""
 
 #. Default: "View Type"
 #: ./../browser/listing_collection.py:202 ./../browser/listing_search.py:154
@@ -315,10 +311,7 @@ msgstr "Viewlet de Colección de Listados desactivado"
 #. this feature."
 #: ./../browser/listing_collection.py:323
 msgid "text_listing_collection_toggle_error"
-msgstr ""
-"El viewlet de la colección de listados no trabaja con este tipo de "
-"contenido. Agregar I Colección de listados posibles a las interfaces "
-"proporcionadas para permitir esta característica "
+msgstr "El viewlet de la colección de listados no trabaja con este tipo de contenido. Agregar I Colección de listados posibles a las interfaces proporcionadas para permitir esta característica "
 
 #. Default: "'Listing Search' viewlet activated."
 #: ./../browser/listing_search.py:426
@@ -335,10 +328,7 @@ msgstr "Viewlet de Búsqueda de Listados desactivado"
 #. feature."
 #: ./../browser/listing_search.py:431
 msgid "text_listing_search_toggle_error"
-msgstr ""
-"El viewlet de Busqueda de Listados no trabaja con este tipo de contenido. "
-"Agregar I Busqueda de Listados posibles a las interfaces proporcionadas para"
-" permitir esta característica "
+msgstr "El viewlet de Busqueda de Listados no trabaja con este tipo de contenido. Agregar I Busqueda de Listados posibles a las interfaces proporcionadas para permitir esta característica "
 
 #. Default: "'Recent Listings' viewlet activated."
 #: ./../browser/recent_listings.py:238
@@ -355,9 +345,4 @@ msgstr "Viewlet de Listados recientes desactivado"
 #. feature."
 #: ./../browser/recent_listings.py:243
 msgid "text_recent_listings_toggle_error"
-msgstr ""
-"El viewlet de Listados Recientes no trabaja con este tipo de contenido. "
-"Agregar I Listado Reciente  posible a las interfaces proporcionadas para "
-"permitir esta característica "
-
-
+msgstr "El viewlet de Listados Recientes no trabaja con este tipo de contenido. Agregar I Listado Reciente  posible a las interfaces proporcionadas para permitir esta característica "
