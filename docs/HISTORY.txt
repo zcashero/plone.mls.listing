@@ -1,6 +1,16 @@
 Changelog
 =========
 
+0.5 (2012-02-14)
+----------------
+
+- Added missing i18n ids (#1744).
+  [thomas]
+
+- I18N updates (es, ja).
+  [thomas]
+
+
 0.4 (2012-02-11)
 ----------------
 

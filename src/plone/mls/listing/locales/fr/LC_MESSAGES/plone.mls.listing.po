@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2012-02-02 22:51+0000\n"
-"PO-Revision-Date: 2012-02-02 22:52+0000\n"
+"POT-Creation-Date: 2012-02-11 14:35+0000\n"
+"PO-Revision-Date: 2012-02-11 14:36+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: French (http://www.transifex.net/projects/p/MLS_Plone/team/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Agent Information"
 msgstr ""
 
-#: ./../browser/listing_collection.py:262 ./../browser/listing_search.py:351
+#: ./../browser/listing_collection.py:277 ./../browser/listing_search.py:384
 #: ./../browser/recent_listings.py:197
 msgid "Cancel"
 msgstr ""
@@ -106,12 +106,12 @@ msgstr ""
 msgid "Listing"
 msgstr ""
 
-#: ./../browser/listing_collection.py:252 ./../browser/listing_search.py:339
+#: ./../browser/listing_collection.py:267 ./../browser/listing_search.py:372
 #: ./../browser/recent_listings.py:188
 msgid "Save"
 msgstr ""
 
-#: ./../browser/listing_search.py:225
+#: ./../browser/listing_search.py:258
 msgid "Search"
 msgstr ""
 
@@ -141,12 +141,12 @@ msgid "help_article_listings"
 msgstr ""
 
 #. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
-#: ./../browser/listing_collection.py:242
+#: ./../browser/listing_collection.py:257
 msgid "help_listing_collection_configuration"
 msgstr ""
 
 #. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
-#: ./../browser/listing_search.py:329
+#: ./../browser/listing_search.py:362
 msgid "help_listing_search_configuration"
 msgstr ""
 
@@ -168,13 +168,8 @@ msgid "help_recent_listings_price_min"
 msgstr ""
 
 #. Default: "'Listing Collection' Configuration"
-#: ./../browser/listing_collection.py:238
+#: ./../browser/listing_collection.py:253
 msgid "label_listing_collection_configuration"
-msgstr ""
-
-#. Default: "Items per Page"
-#: ./../browser/listing_collection.py:221
-msgid "label_listing_collection_limit"
 msgstr ""
 
 #. Default: "MLS Listing ID"
@@ -182,43 +177,102 @@ msgstr ""
 msgid "label_listing_listing_id"
 msgstr ""
 
+#. Default: "Air Condition"
+#: ./../browser/listing_search.py:213
+msgid "label_listing_search_air_condition"
+msgstr ""
+
+#. Default: "Bathrooms"
+#: ./../browser/listing_search.py:200
+msgid "label_listing_search_baths"
+msgstr ""
+
+#. Default: "Bedrooms"
+#: ./../browser/listing_search.py:188
+msgid "label_listing_search_beds"
+msgstr ""
+
 #. Default: "'Listing Search' Configuration"
-#: ./../browser/listing_search.py:325
+#: ./../browser/listing_search.py:358
 msgid "label_listing_search_configuration"
 msgstr ""
 
 #. Default: "Geographic Type"
-#: ./../browser/listing_collection.py:176 ./../browser/listing_search.py:125
+#: ./../browser/listing_collection.py:191 ./../browser/listing_search.py:143
 msgid "label_listing_search_geographic_type"
 msgstr ""
 
+#. Default: "Jacuzzi"
+#: ./../browser/listing_search.py:233
+msgid "label_listing_search_jacuzzi"
+msgstr ""
+
 #. Default: "Items per Page"
-#: ./../browser/listing_search.py:314
+#: ./../browser/listing_collection.py:236 ./../browser/listing_search.py:347
+#: ./../browser/recent_listings.py:162
 msgid "label_listing_search_limit"
 msgstr ""
 
 #. Default: "Listing Type"
 #: ./../browser/listing_collection.py:126 ./../browser/listing_search.py:70
+#: ./../browser/recent_listings.py:124
 msgid "label_listing_search_listing_type"
 msgstr ""
 
+#. Default: "City/Town"
+#: ./../browser/listing_search.py:108
+msgid "label_listing_search_location_city"
+msgstr ""
+
+#. Default: "County"
+#: ./../browser/listing_collection.py:146 ./../browser/listing_search.py:90
+msgid "label_listing_search_location_county"
+msgstr ""
+
+#. Default: "District"
+#: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:99
+msgid "label_listing_search_location_district"
+msgstr ""
+
+#. Default: "State"
+#: ./../browser/listing_collection.py:137 ./../browser/listing_search.py:81
+msgid "label_listing_search_location_state"
+msgstr ""
+
 #. Default: "Location Type"
-#: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:114
+#: ./../browser/listing_collection.py:180 ./../browser/listing_search.py:132
 msgid "label_listing_search_location_type"
 msgstr ""
 
 #. Default: "Object Type"
-#: ./../browser/listing_collection.py:198 ./../browser/listing_search.py:147
+#: ./../browser/listing_collection.py:213 ./../browser/listing_search.py:165
 msgid "label_listing_search_object_type"
 msgstr ""
 
 #. Default: "Ownership Type"
-#: ./../browser/listing_collection.py:209 ./../browser/listing_search.py:158
+#: ./../browser/listing_collection.py:224 ./../browser/listing_search.py:176
 msgid "label_listing_search_ownership_type"
 msgstr ""
 
+#. Default: "Pool"
+#: ./../browser/listing_search.py:223
+msgid "label_listing_search_pool"
+msgstr ""
+
+#. Default: "Price (Max)"
+#: ./../browser/listing_collection.py:172 ./../browser/listing_search.py:124
+#: ./../browser/recent_listings.py:153
+msgid "label_listing_search_price_max"
+msgstr ""
+
+#. Default: "Price (Min)"
+#: ./../browser/listing_collection.py:164 ./../browser/listing_search.py:116
+#: ./../browser/recent_listings.py:140
+msgid "label_listing_search_price_min"
+msgstr ""
+
 #. Default: "View Type"
-#: ./../browser/listing_collection.py:187 ./../browser/listing_search.py:136
+#: ./../browser/listing_collection.py:202 ./../browser/listing_search.py:154
 msgid "label_listing_search_view_type"
 msgstr ""
 
@@ -232,26 +286,6 @@ msgstr ""
 msgid "label_recent_listings_configuration"
 msgstr ""
 
-#. Default: "Items per Page"
-#: ./../browser/recent_listings.py:162
-msgid "label_recent_listings_limit"
-msgstr ""
-
-#. Default: "Listing Type"
-#: ./../browser/recent_listings.py:124
-msgid "label_recent_listings_listing_type"
-msgstr ""
-
-#. Default: "Maximum Price"
-#: ./../browser/recent_listings.py:153
-msgid "label_recent_listings_price_max"
-msgstr ""
-
-#. Default: "Minimum Price"
-#: ./../browser/recent_listings.py:140
-msgid "label_recent_listings_price_min"
-msgstr ""
-
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
 msgstr ""
@@ -261,36 +295,36 @@ msgid "select a value ..."
 msgstr ""
 
 #. Default: "'Listing Collection' viewlet activated."
-#: ./../browser/listing_collection.py:303
+#: ./../browser/listing_collection.py:318
 msgid "text_listing_collection_activated"
 msgstr ""
 
 #. Default: "'Listing Collection' viewlet deactivated."
-#: ./../browser/listing_collection.py:297
+#: ./../browser/listing_collection.py:312
 msgid "text_listing_collection_deactivated"
 msgstr ""
 
 #. Default: "The 'Listing Collection' viewlet does't work with this content
 #. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
 #. this feature."
-#: ./../browser/listing_collection.py:308
+#: ./../browser/listing_collection.py:323
 msgid "text_listing_collection_toggle_error"
 msgstr ""
 
 #. Default: "'Listing Search' viewlet activated."
-#: ./../browser/listing_search.py:393
+#: ./../browser/listing_search.py:426
 msgid "text_listing_search_activated"
 msgstr ""
 
 #. Default: "'Listing Search' viewlet deactivated."
-#: ./../browser/listing_search.py:387
+#: ./../browser/listing_search.py:420
 msgid "text_listing_search_deactivated"
 msgstr ""
 
 #. Default: "The 'Listing Search' viewlet does't work with this content type.
 #. Add 'IPossibleListingSearch' to the provided interfaces to enable this
 #. feature."
-#: ./../browser/listing_search.py:398
+#: ./../browser/listing_search.py:431
 msgid "text_listing_search_toggle_error"
 msgstr ""
 
