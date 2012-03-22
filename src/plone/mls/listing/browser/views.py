@@ -84,6 +84,11 @@ class ListingDetails(BrowserView):
             return self.data.get('description', None)
 
     @property
+    def agent_quote(self):
+        if self.data is not None:
+            return self.data.get('agent_quote', None)
+
+    @property
     def long_description(self):
         if self.data is not None:
             return self.data.get('long_description', None)

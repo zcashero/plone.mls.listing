@@ -64,6 +64,57 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   clear: both;
 }
 
+.listing a#agentquote {
+  background: transparent url('++resource++plone.mls.listing.images/icon_talk.png') no-repeat 0% 50%;
+  border: none;
+  color: #999;
+  display: inline-block;
+  line-height: 2em;
+  padding-left: 3em;
+}
+
+.listing #sec-agent-quote {
+  background: #f9f7ee url('++resource++plone.mls.listing.images/quotation_left.png') no-repeat 0.5em 1.5em;
+  border: 2px solid #f2f1f1;
+  margin-bottom: 2em;
+  padding: 2em 0 1em 2em;
+}
+
+.listing #sec-agent-quote h2 {
+  border-bottom: 1px dotted #666;
+  line-height: 1.25em;
+  margin-left: 1em;
+  margin-right: 2.5em;
+  padding-bottom: 0.5em;
+}
+
+.listing #sec-agent-quote blockquote {
+  color: #666;
+  font-style: normal;
+  margin: 0 3.5em 1em 1.5em;
+}
+
+.listing #sec-listing-long-description {
+  background: transparent url('++resource++plone.mls.listing.images/quotation_right.png') no-repeat 100% 100%;
+  margin-left: 1.5em;
+}
+
+.listing #sec-listing-long-description h3 {
+  border-top: 1px dotted #666;
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+  margin-right: 3.5em;
+  padding-top: 1em;
+}
+
+.listing #sec-listing-long-description p {
+  margin-bottom: 0;
+  margin-right: 3.5em;
+  text-align: justify;
+}
+
+
+
 /* Table-like listing summary.
    ===========================
 */
