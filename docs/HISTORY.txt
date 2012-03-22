@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.6 (2012-03-22)
+----------------
+
+- Added agent quote section (incl. images and styles).
+  [thomas]
+
+
 0.5 (2012-02-14)
 ----------------
 
