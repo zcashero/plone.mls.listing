@@ -5,9 +5,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2012-02-11 14:35+0000\n"
-"PO-Revision-Date: 2012-02-13 20:06+0000\n"
-"Last-Translator: Juan Salazar <juancarlos@propertyshelf.com>\n"
+"POT-Creation-Date: 2012-03-28 13:18+0000\n"
+"PO-Revision-Date: 2012-03-28 13:18+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,12 +123,12 @@ msgid "heading_article_listings"
 msgstr "Listados de MLS"
 
 #. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:86
+#: ./../browser/templates/listing_details.pt:84
 msgid "heading_listing_images"
 msgstr "Imágenes del listado"
 
 #. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:32
+#: ./../browser/templates/listing_details.pt:30
 msgid "heading_listing_information_basic"
 msgstr "Información básica del listado"
 
@@ -288,6 +288,11 @@ msgstr "Título"
 msgid "label_recent_listings_configuration"
 msgstr "Configuración de los Listados Recientes"
 
+#. Default: "Long Description"
+#: ./../browser/templates/listing_details.pt:111
+msgid "listing_long_description"
+msgstr ""
+
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
 msgstr "todos"
@@ -295,6 +300,12 @@ msgstr "todos"
 #: ./../browser/valuerange/widget.py:44
 msgid "select a value ..."
 msgstr "seleccione un valor ..."
+
+#. Default: "See what the agent says about this listing (original title and
+#. description):"
+#: ./../browser/templates/listing_details.pt:103
+msgid "text_agent_quote"
+msgstr ""
 
 #. Default: "'Listing Collection' viewlet activated."
 #: ./../browser/listing_collection.py:318

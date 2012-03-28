@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-02-11 14:35+0000\n"
+"POT-Creation-Date: 2012-03-28 13:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,12 +123,12 @@ msgid "heading_article_listings"
 msgstr ""
 
 #. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:86
+#: ./../browser/templates/listing_details.pt:84
 msgid "heading_listing_images"
 msgstr ""
 
 #. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:32
+#: ./../browser/templates/listing_details.pt:30
 msgid "heading_listing_information_basic"
 msgstr ""
 
@@ -298,12 +298,22 @@ msgstr ""
 msgid "label_recent_listings_configuration"
 msgstr ""
 
+#. Default: "Long Description"
+#: ./../browser/templates/listing_details.pt:111
+msgid "listing_long_description"
+msgstr ""
+
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
 msgstr ""
 
 #: ./../browser/valuerange/widget.py:44
 msgid "select a value ..."
+msgstr ""
+
+#. Default: "See what the agent says about this listing (original title and description):"
+#: ./../browser/templates/listing_details.pt:103
+msgid "text_agent_quote"
 msgstr ""
 
 #. Default: "'Listing Collection' viewlet activated."

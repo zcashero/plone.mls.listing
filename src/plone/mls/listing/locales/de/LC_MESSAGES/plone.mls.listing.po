@@ -4,10 +4,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2012-02-11 14:35+0000\n"
-"PO-Revision-Date: 2012-02-11 14:39+0000\n"
+"POT-Creation-Date: 2012-03-28 13:18+0000\n"
+"PO-Revision-Date: 2012-03-28 13:18+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
-"Language-Team: German (http://www.transifex.net/projects/p/MLS_Plone/team/de/)\n"
+"Language-Team: German (http://www.transifex.net/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -122,12 +122,12 @@ msgid "heading_article_listings"
 msgstr "MLS Immobilien"
 
 #. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:86
+#: ./../browser/templates/listing_details.pt:84
 msgid "heading_listing_images"
 msgstr "Immobilien Bilder"
 
 #. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:32
+#: ./../browser/templates/listing_details.pt:30
 msgid "heading_listing_information_basic"
 msgstr "Basis-Informationen der Immobilie"
 
@@ -144,8 +144,7 @@ msgstr "Liste von enthaltenen MLS Immobilien."
 #. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
 #: ./../browser/listing_collection.py:257
 msgid "help_listing_collection_configuration"
-msgstr ""
-"Passen Sie die Einstellungen für das 'Immobilien-Kollektion' viewlets an."
+msgstr "Passen Sie die Einstellungen für das 'Immobilien-Kollektion' viewlets an."
 
 #. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
 #: ./../browser/listing_search.py:362
@@ -288,6 +287,11 @@ msgstr "Titel"
 msgid "label_recent_listings_configuration"
 msgstr "Konfiguration der 'Neuesten Immobilien'"
 
+#. Default: "Long Description"
+#: ./../browser/templates/listing_details.pt:111
+msgid "listing_long_description"
+msgstr ""
+
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
 msgstr "Alle"
@@ -295,6 +299,12 @@ msgstr "Alle"
 #: ./../browser/valuerange/widget.py:44
 msgid "select a value ..."
 msgstr "---"
+
+#. Default: "See what the agent says about this listing (original title and
+#. description):"
+#: ./../browser/templates/listing_details.pt:103
+msgid "text_agent_quote"
+msgstr ""
 
 #. Default: "'Listing Collection' viewlet activated."
 #: ./../browser/listing_collection.py:318
@@ -311,10 +321,7 @@ msgstr "Die Immobilien-Kollektion wurde deaktiviert."
 #. this feature."
 #: ./../browser/listing_collection.py:323
 msgid "text_listing_collection_toggle_error"
-msgstr ""
-"Die Immobilien-Kollektion konnte für diesen Inhaltstyp nicht aktiviert "
-"werden. Fügen Sie 'IPossibleListingCollection' zu den unterstützten "
-"Interfaces hinzu um dieses Feature zu aktivieren."
+msgstr "Die Immobilien-Kollektion konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleListingCollection' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
 
 #. Default: "'Listing Search' viewlet activated."
 #: ./../browser/listing_search.py:426
@@ -331,10 +338,7 @@ msgstr "Die Immobilien-Suche wurde deaktiviert."
 #. feature."
 #: ./../browser/listing_search.py:431
 msgid "text_listing_search_toggle_error"
-msgstr ""
-"Die Immobilien-Suche konnte für diesen Inhaltstyp nicht aktiviert werden. "
-"Fügen Sie 'IPossibleListingSearch' zu den unterstützten Interfaces hinzu um "
-"dieses Feature zu aktivieren."
+msgstr "Die Immobilien-Suche konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleListingSearch' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
 
 #. Default: "'Recent Listings' viewlet activated."
 #: ./../browser/recent_listings.py:238
@@ -351,9 +355,4 @@ msgstr "Die neuesten Immobilien wurden deaktiviert."
 #. feature."
 #: ./../browser/recent_listings.py:243
 msgid "text_recent_listings_toggle_error"
-msgstr ""
-"Die neuesten Immobilien konnten für diesen Inhaltstyp nicht aktiviert "
-"werden. Fügen Sie 'IPossibleRecentListings' zu den unterstützten Interfaces "
-"hinzu um dieses Feature zu aktivieren."
-
-
+msgstr "Die neuesten Immobilien konnten für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleRecentListings' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
