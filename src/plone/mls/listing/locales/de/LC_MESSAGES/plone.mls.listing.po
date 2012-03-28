@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-03-28 13:18+0000\n"
-"PO-Revision-Date: 2012-03-28 13:18+0000\n"
+"PO-Revision-Date: 2012-03-28 13:22+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +290,7 @@ msgstr "Konfiguration der 'Neuesten Immobilien'"
 #. Default: "Long Description"
 #: ./../browser/templates/listing_details.pt:111
 msgid "listing_long_description"
-msgstr ""
+msgstr "Ausführliche Beschreibung"
 
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
@@ -304,7 +304,7 @@ msgstr "---"
 #. description):"
 #: ./../browser/templates/listing_details.pt:103
 msgid "text_agent_quote"
-msgstr ""
+msgstr "Sehen Sie, was der Makler über diese Immobilie sagt (Original-Titel und -Beschreibung):"
 
 #. Default: "'Listing Collection' viewlet activated."
 #: ./../browser/listing_collection.py:318

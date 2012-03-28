@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-03-28 13:18+0000\n"
-"PO-Revision-Date: 2012-03-28 13:18+0000\n"
+"PO-Revision-Date: 2012-03-28 13:21+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -291,7 +291,7 @@ msgstr "Configuración de los Listados Recientes"
 #. Default: "Long Description"
 #: ./../browser/templates/listing_details.pt:111
 msgid "listing_long_description"
-msgstr ""
+msgstr "Descripción Larga"
 
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
@@ -305,7 +305,7 @@ msgstr "seleccione un valor ..."
 #. description):"
 #: ./../browser/templates/listing_details.pt:103
 msgid "text_agent_quote"
-msgstr ""
+msgstr "Vea lo que dice el corredor sobre este listado (título original y descripción):"
 
 #. Default: "'Listing Collection' viewlet activated."
 #: ./../browser/listing_collection.py:318
