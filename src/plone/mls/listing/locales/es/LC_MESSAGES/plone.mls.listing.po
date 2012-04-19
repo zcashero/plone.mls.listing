@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-03-28 13:18+0000\n"
-"PO-Revision-Date: 2012-03-28 13:21+0000\n"
+"PO-Revision-Date: 2012-04-19 20:00+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Spanish (Castilian) (http://www.transifex.net/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -265,13 +265,13 @@ msgstr "Piscina"
 #: ./../browser/listing_collection.py:172 ./../browser/listing_search.py:124
 #: ./../browser/recent_listings.py:153
 msgid "label_listing_search_price_max"
-msgstr "\"Precio (Max)\"\n "
+msgstr "Precio (Max)"
 
 #. Default: "Price (Min)"
 #: ./../browser/listing_collection.py:164 ./../browser/listing_search.py:116
 #: ./../browser/recent_listings.py:140
 msgid "label_listing_search_price_min"
-msgstr "\"Precio (Min)\""
+msgstr "Precio (Min)"
 
 #. Default: "View Type"
 #: ./../browser/listing_collection.py:202 ./../browser/listing_search.py:154
