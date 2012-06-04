@@ -21,7 +21,6 @@
 
 # zope imports
 from Acquisition import aq_inner
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
@@ -266,14 +265,9 @@ class ListingSearchForm(form.Form):
 
 class ListingSearchViewlet(ViewletBase):
     """Search for listings in the MLS."""
-    index = ViewPageTemplateFile('templates/listing_search_viewlet.pt')
 
     _listings = None
     _batching = None
-
-    def __call__(self):
-        self.update()
-        return self.index()
 
     @property
     def available(self):
@@ -289,8 +283,6 @@ class ListingSearchViewlet(ViewletBase):
     def update(self):
         """Prepare view related data."""
         super(ListingSearchViewlet, self).update()
-        self.portal_state = queryMultiAdapter((self.context, self.request),
-                                              name='plone_portal_state')
         self.context_state = queryMultiAdapter((self.context, self.request),
                                                name='plone_context_state')
 

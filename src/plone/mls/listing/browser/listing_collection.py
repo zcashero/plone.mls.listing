@@ -20,7 +20,6 @@
 """MLS Listing collection."""
 
 # zope imports
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
@@ -53,14 +52,9 @@ class IListingCollection(IBaseListingItems):
 
 class ListingCollectionViewlet(ViewletBase):
     """Dynamic collection of MLS listings."""
-    index = ViewPageTemplateFile('templates/listing_collection_viewlet.pt')
 
     _listings = None
     _batching = None
-
-    def __call__(self):
-        self.update()
-        return self.index()
 
     @property
     def available(self):
@@ -75,8 +69,7 @@ class ListingCollectionViewlet(ViewletBase):
 
     def update(self):
         """Prepare view related data."""
-        self.portal_state = queryMultiAdapter((self.context, self.request),
-                                              name='plone_portal_state')
+        super(ListingCollectionViewlet, self).update()
         self.context_state = queryMultiAdapter((self.context, self.request),
                                                name='plone_context_state')
 

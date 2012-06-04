@@ -14,6 +14,7 @@
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       name="plone.mls.listing.listing_collection"
       permission="zope2.View"
+      template="templates/listing_collection_viewlet.pt"
       />
 
   <browser:page
@@ -50,6 +51,7 @@
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       name="plone.mls.listing.listing_search"
       permission="zope2.View"
+      template="templates/listing_search_viewlet.pt"
       />
 
   <browser:page
@@ -86,6 +88,7 @@
       manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
       name="plone.mls.listing.recent_listings"
       permission="zope2.View"
+      template="templates/recent_listings_viewlet.pt"
       />
 
   <browser:page
@@ -174,6 +177,21 @@
       directory="stylesheets"
       layer=".interfaces.IListingSpecific"
       name="plone.mls.listing.stylesheets"
+      />
+
+  <adapter
+      factory=".adapter.PleaseSelectLCC"
+      name="noValueMessage"
+      />
+
+  <adapter
+      factory=".adapter.PleaseSelectLSF"
+      name="noValueMessage"
+      />
+
+  <adapter
+      factory=".adapter.PleaseSelectRLC"
+      name="noValueMessage"
       />
 
 </configure>
