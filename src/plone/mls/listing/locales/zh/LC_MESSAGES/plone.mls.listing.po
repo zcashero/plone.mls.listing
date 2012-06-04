@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-03-28 13:18+0000\n"
-"PO-Revision-Date: 2012-03-28 13:18+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
+"PO-Revision-Date: 2012-05-12 04:11+0000\n"
+"Last-Translator: yuhaha <meiyu@propertyshelf.com>\n"
 "Language-Team: Chinese (http://www.transifex.net/projects/p/MLS_Plone/language/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,7 +291,7 @@ msgstr "配製設定最新房地產物件"
 #. Default: "Long Description"
 #: ./../browser/templates/listing_details.pt:111
 msgid "listing_long_description"
-msgstr ""
+msgstr "完整詳細說明"
 
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
@@ -305,7 +305,7 @@ msgstr "選擇"
 #. description):"
 #: ./../browser/templates/listing_details.pt:103
 msgid "text_agent_quote"
-msgstr ""
+msgstr "查看仲介商如何形容此房地產 - 原標題及原說明文"
 
 #. Default: "'Listing Collection' viewlet activated."
 #: ./../browser/listing_collection.py:318
