@@ -121,6 +121,7 @@
       layer=".interfaces.IListingSpecific"
       name="view"
       permission="zope2.View"
+      template="templates/listing_details.pt"
       />
 
   <browser:page
@@ -129,6 +130,7 @@
       layer=".interfaces.IListingSpecific"
       name="listing-detail"
       permission="zope2.View"
+      template="templates/listing_details.pt"
       />
 
 

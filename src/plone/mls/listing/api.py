@@ -37,7 +37,7 @@ from plone.mls.listing import PRODUCT_NAME
 
 logger = logging.getLogger(PRODUCT_NAME)
 # Store the options here (which means in RAM)
-OPTIONS_CACHE = {} # language_category: ({date, language, category, itemlist})
+OPTIONS_CACHE = {}  # language_category: ({date, language, category, itemlist})
 
 
 def prepare_search_params(data):
@@ -70,7 +70,8 @@ def prepare_search_params(data):
 class SearchOptions(object):
     """Cached search options."""
 
-    FAILURE_DELAY = 10  # time in minutes after which we retry to load it after a failure
+    # time in minutes after which we retry to load it after a failure
+    FAILURE_DELAY = 10
     category = None
     language = None
     timeout = 100
@@ -81,10 +82,10 @@ class SearchOptions(object):
         self.timeout = timeout
 
         self._items = []
-        self._loaded = False # Is the category already loaded?
-        self._failed = False # Does it fail with the last update?
-        self._last_update_time_in_minutes = 0 # When was the last update?
-        self._last_update_time = None # Time as DateTime or Now.
+        self._loaded = False  # Is the category already loaded?
+        self._failed = False  # Does it fail with the last update?
+        self._last_update_time_in_minutes = 0  # When was the last update?
+        self._last_update_time = None  # Time as DateTime or Now.
 
     @property
     def last_update_time_in_minutes(self):
@@ -113,7 +114,7 @@ class SearchOptions(object):
     def needs_update(self):
         """check if this feed needs updating"""
         now = time.time() / 60
-        return (self.last_update_time_in_minutes+self.timeout) < now
+        return (self.last_update_time_in_minutes + self.timeout) < now
 
     def update(self):
         """update this feed"""
@@ -135,7 +136,7 @@ class SearchOptions(object):
     def _retrieveCategory(self):
         """do the actual work and try to retrieve the feed"""
         if self.category != None:
-            self._last_update_time_in_minutes = time.time()/60
+            self._last_update_time_in_minutes = time.time() / 60
             self._last_update_time = DateTime()
             registry = getUtility(IRegistry)
             settings = registry.forInterface(IMLSSettings)
@@ -146,7 +147,7 @@ class SearchOptions(object):
             try:
                 results = resource.category(self.category, self.language)
             except MLSError, e:
-                self._loaded = True # we tried at least but have a failed load
+                self._loaded = True  # we tried at least but have a failed load
                 self._failed = True
                 logger.warn(e)
                 return False
@@ -155,8 +156,8 @@ class SearchOptions(object):
             self._failed = False
             return True
         self._loaded = True
-        self._failed = True # no url set means failed
-        return False # no url set, although that actually should not really happen
+        self._failed = True  # no url set means failed
+        return False  # no url set, although that should not really happen
 
     @property
     def items(self):

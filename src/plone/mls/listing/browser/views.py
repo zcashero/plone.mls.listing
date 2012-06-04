@@ -20,11 +20,11 @@
 """Various browser views for listings."""
 
 # zope imports
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.memoize.view import memoize
 from zope.component import queryMultiAdapter
 from zope.interface import implements
-from zope.publisher.browser import BrowserView
+from Products.Five import BrowserView
+#from zope.publisher.browser import BrowserView
 
 # local imports
 from plone.mls.listing.api import listing_details
@@ -34,15 +34,13 @@ from plone.mls.listing.browser.interfaces import IListingDetails
 class ListingDetails(BrowserView):
     implements(IListingDetails)
 
-    index = ViewPageTemplateFile('templates/listing_details.pt')
-
     _error = {}
     _data = None
     listing_id = None
 
-    def __call__(self):
+    def __init__(self, context, request):
+        super(ListingDetails, self).__init__(context, request)
         self.update()
-        return self.index()
 
     def update(self):
         self.portal_state = queryMultiAdapter((self.context, self.request),
