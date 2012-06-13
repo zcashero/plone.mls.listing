@@ -32,6 +32,7 @@ from plone.mls.listing.browser.interfaces import IListingSpecific
 LISTING_TYPE = 'plone.mls.listing.listing'
 PROFILE_ID = 'profile-plone.mls.listing:default'
 
+
 def migrate_to_1001(context):
     """Migrate from 1000 to 1001.
 
@@ -87,6 +88,7 @@ def migrate_to_1002(context):
     # 2. Add versioning behavior.
     try:
         import plone.app.versioningbehavior
+        plone.app.versioningbehavior  # pyflakes
     except ImportError:
         pass
     else:

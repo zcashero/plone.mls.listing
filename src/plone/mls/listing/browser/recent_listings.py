@@ -20,7 +20,6 @@
 """Recent MLS Listings."""
 
 # zope imports
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
@@ -52,14 +51,9 @@ class IRecentListings(IBaseListingItems):
 
 class RecentListingsViewlet(ViewletBase):
     """Show recent MLS listings."""
-    index = ViewPageTemplateFile('templates/recent_listings_viewlet.pt')
 
     _listings = None
     _batching = None
-
-    def __call__(self):
-        self.update()
-        return self.index()
 
     @property
     def available(self):
@@ -74,8 +68,7 @@ class RecentListingsViewlet(ViewletBase):
 
     def update(self):
         """Prepare view related data."""
-        self.portal_state = queryMultiAdapter((self.context, self.request),
-                                              name='plone_portal_state')
+        super(RecentListingsViewlet, self).update()
         self.context_state = queryMultiAdapter((self.context, self.request),
                                                name='plone_context_state')
 

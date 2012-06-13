@@ -1,17 +1,18 @@
-# 
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
 # Translators:
 #   <bryan@propertyshelf.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2012-02-11 14:35+0000\n"
-"PO-Revision-Date: 2012-02-11 16:19+0000\n"
-"Last-Translator: BryanAllen <bryan@propertyshelf.com>\n"
+"POT-Creation-Date: 2012-06-04 19:03+0000\n"
+"PO-Revision-Date: 2012-06-04 19:05+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Japanese (http://www.transifex.net/projects/p/MLS_Plone/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Domain: DOMAIN\n"
+"Domain: plone.mls.listing\n"
 "Language: ja\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
@@ -50,8 +51,12 @@ msgstr "不動産仲介；最近ヴレト動かす"
 msgid "Agent Information"
 msgstr "アゲント情報"
 
-#: ./../browser/listing_collection.py:277 ./../browser/listing_search.py:384
-#: ./../browser/recent_listings.py:197
+#: ./../browser/adapter.py:29
+msgid "All"
+msgstr ""
+
+#: ./../browser/listing_collection.py:270 ./../browser/listing_search.py:376
+#: ./../browser/recent_listings.py:190
 msgid "Cancel"
 msgstr "取り消す"
 
@@ -107,12 +112,12 @@ msgstr "最近不動産仲介；deactivateコレクションヴレトヴレト"
 msgid "Listing"
 msgstr "不動産仲介"
 
-#: ./../browser/listing_collection.py:267 ./../browser/listing_search.py:372
-#: ./../browser/recent_listings.py:188
+#: ./../browser/listing_collection.py:260 ./../browser/listing_search.py:364
+#: ./../browser/recent_listings.py:181
 msgid "Save"
 msgstr "保存"
 
-#: ./../browser/listing_search.py:258
+#: ./../browser/listing_search.py:257
 msgid "Search"
 msgstr "探す"
 
@@ -122,12 +127,12 @@ msgid "heading_article_listings"
 msgstr "不動産仲介"
 
 #. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:86
+#: ./../browser/templates/listing_details.pt:84
 msgid "heading_listing_images"
 msgstr "写真"
 
 #. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:32
+#: ./../browser/templates/listing_details.pt:30
 msgid "heading_listing_information_basic"
 msgstr "バイシク情報"
 
@@ -142,34 +147,34 @@ msgid "help_article_listings"
 msgstr "不動産仲介"
 
 #. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
-#: ./../browser/listing_collection.py:257
+#: ./../browser/listing_collection.py:250
 msgid "help_listing_collection_configuration"
 msgstr "コンフィグコレクション"
 
 #. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
-#: ./../browser/listing_search.py:362
+#: ./../browser/listing_search.py:354
 msgid "help_listing_search_configuration"
 msgstr "探すコンフィグ"
 
 #. Default: "Adjust the behaviour for this 'Recent Listings' viewlet."
-#: ./../browser/recent_listings.py:178
+#: ./../browser/recent_listings.py:171
 msgid "help_recent_listings_configuration"
 msgstr "コンフィグ最近不動産仲介"
 
 #. Default: "Enter the maximum price for listings. If no price is given, all
 #. listings to the highest price are shown."
-#: ./../browser/recent_listings.py:147
+#: ./../browser/recent_listings.py:140
 msgid "help_recent_listings_price_max"
 msgstr "最大絵暖"
 
 #. Default: "Enter the minimum price for listings. If no price is given, all
 #. listings from the lowest price are shown."
-#: ./../browser/recent_listings.py:134
+#: ./../browser/recent_listings.py:127
 msgid "help_recent_listings_price_min"
 msgstr "最低絵暖"
 
 #. Default: "'Listing Collection' Configuration"
-#: ./../browser/listing_collection.py:253
+#: ./../browser/listing_collection.py:246
 msgid "label_listing_collection_configuration"
 msgstr "コンフィグコレクション"
 
@@ -179,101 +184,101 @@ msgid "label_listing_listing_id"
 msgstr "不動産仲介ID"
 
 #. Default: "Air Condition"
-#: ./../browser/listing_search.py:213
+#: ./../browser/listing_search.py:212
 msgid "label_listing_search_air_condition"
 msgstr "調査冷暖房"
 
 #. Default: "Bathrooms"
-#: ./../browser/listing_search.py:200
+#: ./../browser/listing_search.py:199
 msgid "label_listing_search_baths"
 msgstr "調査風呂"
 
 #. Default: "Bedrooms"
-#: ./../browser/listing_search.py:188
+#: ./../browser/listing_search.py:187
 msgid "label_listing_search_beds"
 msgstr "調査寝台"
 
 #. Default: "'Listing Search' Configuration"
-#: ./../browser/listing_search.py:358
+#: ./../browser/listing_search.py:350
 msgid "label_listing_search_configuration"
 msgstr "探すコンフィグ"
 
 #. Default: "Geographic Type"
-#: ./../browser/listing_collection.py:191 ./../browser/listing_search.py:143
+#: ./../browser/listing_collection.py:184 ./../browser/listing_search.py:142
 msgid "label_listing_search_geographic_type"
 msgstr "種類"
 
 #. Default: "Jacuzzi"
-#: ./../browser/listing_search.py:233
+#: ./../browser/listing_search.py:232
 msgid "label_listing_search_jacuzzi"
 msgstr "調査ジャクジ"
 
 #. Default: "Items per Page"
-#: ./../browser/listing_collection.py:236 ./../browser/listing_search.py:347
-#: ./../browser/recent_listings.py:162
+#: ./../browser/listing_collection.py:229 ./../browser/listing_search.py:339
+#: ./../browser/recent_listings.py:155
 msgid "label_listing_search_limit"
 msgstr "探す限界"
 
 #. Default: "Listing Type"
-#: ./../browser/listing_collection.py:126 ./../browser/listing_search.py:70
-#: ./../browser/recent_listings.py:124
+#: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:69
+#: ./../browser/recent_listings.py:117
 msgid "label_listing_search_listing_type"
 msgstr "探す不動産仲介種類"
 
 #. Default: "City/Town"
-#: ./../browser/listing_search.py:108
+#: ./../browser/listing_search.py:107
 msgid "label_listing_search_location_city"
 msgstr "調査場所町"
 
 #. Default: "County"
-#: ./../browser/listing_collection.py:146 ./../browser/listing_search.py:90
+#: ./../browser/listing_collection.py:139 ./../browser/listing_search.py:89
 msgid "label_listing_search_location_county"
 msgstr "調査場所郡"
 
 #. Default: "District"
-#: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:99
+#: ./../browser/listing_collection.py:148 ./../browser/listing_search.py:98
 msgid "label_listing_search_location_district"
 msgstr "調査場所地区"
 
 #. Default: "State"
-#: ./../browser/listing_collection.py:137 ./../browser/listing_search.py:81
+#: ./../browser/listing_collection.py:130 ./../browser/listing_search.py:80
 msgid "label_listing_search_location_state"
 msgstr "調査場所スタイト"
 
 #. Default: "Location Type"
-#: ./../browser/listing_collection.py:180 ./../browser/listing_search.py:132
+#: ./../browser/listing_collection.py:173 ./../browser/listing_search.py:131
 msgid "label_listing_search_location_type"
 msgstr "場所種類"
 
 #. Default: "Object Type"
-#: ./../browser/listing_collection.py:213 ./../browser/listing_search.py:165
+#: ./../browser/listing_collection.py:206 ./../browser/listing_search.py:164
 msgid "label_listing_search_object_type"
 msgstr "物種類"
 
 #. Default: "Ownership Type"
-#: ./../browser/listing_collection.py:224 ./../browser/listing_search.py:176
+#: ./../browser/listing_collection.py:217 ./../browser/listing_search.py:175
 msgid "label_listing_search_ownership_type"
 msgstr "所有権類"
 
 #. Default: "Pool"
-#: ./../browser/listing_search.py:223
+#: ./../browser/listing_search.py:222
 msgid "label_listing_search_pool"
 msgstr "調査プール"
 
 #. Default: "Price (Max)"
-#: ./../browser/listing_collection.py:172 ./../browser/listing_search.py:124
-#: ./../browser/recent_listings.py:153
+#: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:123
+#: ./../browser/recent_listings.py:146
 msgid "label_listing_search_price_max"
 msgstr "最大絵暖"
 
 #. Default: "Price (Min)"
-#: ./../browser/listing_collection.py:164 ./../browser/listing_search.py:116
-#: ./../browser/recent_listings.py:140
+#: ./../browser/listing_collection.py:157 ./../browser/listing_search.py:115
+#: ./../browser/recent_listings.py:133
 msgid "label_listing_search_price_min"
 msgstr "最低絵暖"
 
 #. Default: "View Type"
-#: ./../browser/listing_collection.py:202 ./../browser/listing_search.py:154
+#: ./../browser/listing_collection.py:195 ./../browser/listing_search.py:153
 msgid "label_listing_search_view_type"
 msgstr "種類"
 
@@ -283,9 +288,14 @@ msgid "label_listing_title"
 msgstr "不動産仲介権原"
 
 #. Default: "'Recent Listings' Configuration"
-#: ./../browser/recent_listings.py:174
+#: ./../browser/recent_listings.py:167
 msgid "label_recent_listings_configuration"
 msgstr "最近不動産仲介コンフィグ"
+
+#. Default: "Long Description"
+#: ./../browser/templates/listing_details.pt:111
+msgid "listing_long_description"
+msgstr ""
 
 #: ./../browser/valuerange/widget.py:43
 msgid "no value"
@@ -295,53 +305,59 @@ msgstr "何もない"
 msgid "select a value ..."
 msgstr "選ぶ"
 
+#. Default: "See what the agent says about this listing (original title and
+#. description):"
+#: ./../browser/templates/listing_details.pt:103
+msgid "text_agent_quote"
+msgstr ""
+
 #. Default: "'Listing Collection' viewlet activated."
-#: ./../browser/listing_collection.py:318
+#: ./../browser/listing_collection.py:311
 msgid "text_listing_collection_activated"
 msgstr "コレクションactivate"
 
 #. Default: "'Listing Collection' viewlet deactivated."
-#: ./../browser/listing_collection.py:312
+#: ./../browser/listing_collection.py:305
 msgid "text_listing_collection_deactivated"
 msgstr "コレクションdeactivated"
 
 #. Default: "The 'Listing Collection' viewlet does't work with this content
 #. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
 #. this feature."
-#: ./../browser/listing_collection.py:323
+#: ./../browser/listing_collection.py:316
 msgid "text_listing_collection_toggle_error"
 msgstr "コレクションタガルエエラ"
 
 #. Default: "'Listing Search' viewlet activated."
-#: ./../browser/listing_search.py:426
+#: ./../browser/listing_search.py:418
 msgid "text_listing_search_activated"
 msgstr "探すactivated"
 
 #. Default: "'Listing Search' viewlet deactivated."
-#: ./../browser/listing_search.py:420
+#: ./../browser/listing_search.py:412
 msgid "text_listing_search_deactivated"
 msgstr "探すdeactivated"
 
 #. Default: "The 'Listing Search' viewlet does't work with this content type.
 #. Add 'IPossibleListingSearch' to the provided interfaces to enable this
 #. feature."
-#: ./../browser/listing_search.py:431
+#: ./../browser/listing_search.py:423
 msgid "text_listing_search_toggle_error"
 msgstr "タガルエエラ"
 
 #. Default: "'Recent Listings' viewlet activated."
-#: ./../browser/recent_listings.py:238
+#: ./../browser/recent_listings.py:231
 msgid "text_recent_listings_activated"
 msgstr "最近不動産仲介activated"
 
 #. Default: "'Recent Listings' viewlet deactivated."
-#: ./../browser/recent_listings.py:232
+#: ./../browser/recent_listings.py:225
 msgid "text_recent_listings_deactivated"
 msgstr "不動産仲介deactivated"
 
 #. Default: "The 'Recent Listings' viewlet does't work with this content type.
 #. Add 'IPossibleRecentListings' to the provided interfaces to enable this
 #. feature."
-#: ./../browser/recent_listings.py:243
+#: ./../browser/recent_listings.py:236
 msgid "text_recent_listings_toggle_error"
 msgstr "タガルエエラ"

@@ -1,6 +1,19 @@
 Changelog
 =========
 
+0.7 (2012-06-13)
+----------------
+
+- Adjusted viewlets so they can be customized through the ZMI.
+  [thomas]
+
+- Added noValueMessage adapter for listing forms.
+  [thomas]
+
+- I18N updates.
+  [thomas]
+
+
 0.6 (2012-03-22)
 ----------------
 
