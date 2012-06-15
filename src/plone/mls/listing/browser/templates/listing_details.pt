@@ -26,6 +26,8 @@
 
         <tal:listing tal:condition="view/data | nothing">
 
+          <p tal:content="info"></p>
+
           <div id="listing-info" tal:condition="info">
             <h2 i18n:translate="heading_listing_information_basic">Basic Listing Information</h2>
             <dl class="price">
@@ -51,19 +53,19 @@
                 <dd><span tal:replace="item/value">[Value]</span></dd>
               </tal:item>
       
-              <tal:item tal:define="item info/wf_status | nothing" tal:condition="item">
+              <tal:item tal:define="item info/workflow_status | nothing" tal:condition="item">
                 <dt><span tal:replace="item/label">[Label]</span>:</dt>
                 <dd tal:attributes="class item/value"><span tal:replace="item/value">[Value]</span></dd>
               </tal:item>
       
-              <tal:item tal:define="item info/images | nothing" tal:condition="item">
+              <tal:item tal:define="item info/image_count | nothing" tal:condition="item">
                 <dt><span tal:replace="item/label">[Label]</span>:</dt>
                 <dd><span tal:replace="item/value">[Value]</span></dd>
               </tal:item>
             </dl>
       
             <dl>
-              <tal:item tal:define="item info/bath_bed | nothing" tal:condition="item">
+              <tal:item tal:define="item info/beds_baths | nothing" tal:condition="item">
                 <dt><span tal:replace="item/label">[Label]</span>:</dt>
                 <dd><span tal:replace="item/value">[Value]</span></dd>
               </tal:item>
