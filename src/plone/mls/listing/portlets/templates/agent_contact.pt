@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      i18n:domain="plone.mls.listing"
+      tal:omit-tag="">
+  <dl class="portlet portletAgentInformation"
+      tal:define="contact view/view/contact | nothing">
+    <dt class="portletHeader">
+      <span class="portletTopLeft"></span>
+      <span tal:omit-tag="" i18n:translate="">Agent Contact</span>
+      <span class="portletTopRight"></span>
+    </dt>
+  </dl>
+</html>

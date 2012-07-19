@@ -163,3 +163,13 @@ def migrate_to_1005(context):
     setup.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
     setup.runImportStepFromProfile(PROFILE_ID, 'actions')
     setup.runImportStepFromProfile(PROFILE_ID, 'portlets')
+
+
+def migrate_to_1006(context):
+    """Migrate from 1005 to 1006.
+
+    * Register 'Agent Contact' portlet.
+    """
+    site = getUtility(IPloneSiteRoot)
+    setup = getToolByName(site, 'portal_setup')
+    setup.runImportStepFromProfile(PROFILE_ID, 'portlets')

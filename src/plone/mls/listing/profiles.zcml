@@ -60,7 +60,7 @@
       source="1001"
       destination="1002"
       handler=".migration.migrate_to_1002"
-      sortkey="2"
+      sortkey="1"
       profile="plone.mls.listing:default"
       /> 
 
@@ -70,7 +70,7 @@
       source="1002"
       destination="1003"
       handler=".migration.migrate_to_1003"
-      sortkey="3"
+      sortkey="1"
       profile="plone.mls.listing:default"
       /> 
 
@@ -80,7 +80,7 @@
       source="1003"
       destination="1004"
       handler=".migration.migrate_to_1004"
-      sortkey="4"
+      sortkey="1"
       profile="plone.mls.listing:default"
       /> 
 
@@ -90,7 +90,17 @@
       source="1004"
       destination="1005"
       handler=".migration.migrate_to_1005"
-      sortkey="5"
+      sortkey="1"
+      profile="plone.mls.listing:default"
+      /> 
+
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Add portlets."
+      source="1005"
+      destination="1006"
+      handler=".migration.migrate_to_1006"
+      sortkey="1"
       profile="plone.mls.listing:default"
       /> 
 
