@@ -8,6 +8,7 @@
   <plone:portlet
       addview=".agent_information.AddForm"
       assignment=".agent_information.Assignment"
+      editview=".agent_information.EditForm"
       interface=".agent_information.IAgentInformationPortlet"
       name="portlets.AgentInformation"
       renderer=".agent_information.Renderer"

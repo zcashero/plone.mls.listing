@@ -23,25 +23,46 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
-from zope.interface import implements
+from zope import schema
+from zope.formlib import form
+from zope.interface import implementer
+from zope.schema.fieldproperty import FieldProperty
 
 # local imports
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.mls.listing.i18n import _
 
 
+MSG_PORTLET_DESCRIPTION = _(
+    u"This portlet shows the corresponding agent information for a given " \
+    u"listing. Note that this portlet is only available for the detail view " \
+    u"of a listing.")
+
+
 class IAgentInformationPortlet(IPortletDataProvider):
     """A portlet displaying agent information for a listing."""
 
+    heading = schema.TextLine(
+        description=_(
+            u"Custom title for the Agent Information portlet. If no title " \
+            u"is provided, the default title ('Agent Information') is used."),
+        required=False,
+        title=_(u"Portlet Title"),
+    )
 
+
+@implementer(IAgentInformationPortlet)
 class Assignment(base.Assignment):
     """Agent Information Portlet Assignment."""
-    implements(IAgentInformationPortlet)
 
+    heading = FieldProperty(IAgentInformationPortlet['heading'])
     title = _(
         u'heading_portlet_agent_information',
         default=u'Agent Information',
     )
+
+    def __init__(self, heading=None):
+        self.heading = heading
 
 
 class Renderer(base.Renderer):
@@ -55,8 +76,20 @@ class Renderer(base.Renderer):
                getattr(self.view, 'listing_id', None) is not None
 
 
-class AddForm(base.NullAddForm):
+class AddForm(base.AddForm):
     """Add the content immediately, without presenting a form."""
+    form_fields = form.Fields(IAgentInformationPortlet)
+    label = _(u"Add Agent Information portlet")
+    description = MSG_PORTLET_DESCRIPTION
 
-    def create(self):
-        return Assignment()
+    def create(self, data):
+        assignment = Assignment()
+        form.applyChanges(assignment, self.form_fields, data)
+        return assignment
+
+
+class EditForm(base.EditForm):
+    """"""
+    form_fields = form.Fields(IAgentInformationPortlet)
+    label = _(u"Edit Agent Information portlet")
+    description = MSG_PORTLET_DESCRIPTION
