@@ -22,7 +22,7 @@
 # zope imports
 from zope.component import queryMultiAdapter
 from zope.globalrequest import getRequest
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
@@ -45,8 +45,8 @@ ROOM_VALUES = [
 ]
 
 
+@implementer(IVocabularyFactory)
 class GeographicTypesVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -63,8 +63,8 @@ class GeographicTypesVocabulary(object):
 GeographicTypesVocabularyFactory = GeographicTypesVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class ListingTypesVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -81,8 +81,8 @@ class ListingTypesVocabulary(object):
 ListingTypesVocabularyFactory = ListingTypesVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class LocationCountyVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -99,8 +99,8 @@ class LocationCountyVocabulary(object):
 LocationCountyVocabularyFactory = LocationCountyVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class LocationDistrictVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -117,8 +117,8 @@ class LocationDistrictVocabulary(object):
 LocationDistrictVocabularyFactory = LocationDistrictVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class LocationStateVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -135,8 +135,8 @@ class LocationStateVocabulary(object):
 LocationStateVocabularyFactory = LocationStateVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class LocationTypesVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -153,8 +153,8 @@ class LocationTypesVocabulary(object):
 LocationTypesVocabularyFactory = LocationTypesVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class ObjectTypesVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -171,8 +171,8 @@ class ObjectTypesVocabulary(object):
 ObjectTypesVocabularyFactory = ObjectTypesVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class OwnershipTypesVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -189,8 +189,8 @@ class OwnershipTypesVocabulary(object):
 OwnershipTypesVocabularyFactory = OwnershipTypesVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class RoomsVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         items = []
@@ -202,8 +202,8 @@ class RoomsVocabulary(object):
 RoomsVocabularyFactory = RoomsVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class ViewTypesVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
@@ -220,8 +220,8 @@ class ViewTypesVocabulary(object):
 ViewTypesVocabularyFactory = ViewTypesVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class YesNoAllVocabulary(object):
-    implements(IVocabularyFactory)
 
     def __call__(self, context):
         items = []
