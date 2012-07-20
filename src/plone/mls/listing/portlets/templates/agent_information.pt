@@ -10,7 +10,7 @@
       tal:define="contact view/view/contact | nothing">
     <dt class="portletHeader">
       <span class="portletTopLeft"></span>
-      <span tal:omit-tag="" i18n:translate="">Agent Information</span>
+      <span tal:omit-tag="" tal:content="view/title | nothing"></span>
       <span class="portletTopRight"></span>
     </dt>
     <dd class="portletItem"

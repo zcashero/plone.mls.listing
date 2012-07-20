@@ -19,31 +19,205 @@
 ###############################################################################
 """Agent Contact Portlet."""
 
+#python imports
+from email import message_from_string
+from email.Header import Header
+import re
+
 # zope imports
+from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.portlets import base
+from plone.directives import form
 from plone.portlets.interfaces import IPortletDataProvider
-from zope.formlib import form
-from zope.interface import implementer
+from plone.z3cform import z2
+from z3c.form import button, field
+from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
+from zope import formlib
+from zope.interface import Interface, Invalid, alsoProvides, implementer
+from zope import schema
+from zope.schema.fieldproperty import FieldProperty
 
 # local imports
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.mls.listing.i18n import _
 
+# starting from 0.6.0 version plone.z3cform has IWrappedForm interface
+try:
+    from plone.z3cform.interfaces import IWrappedForm
+    HAS_WRAPPED_FORM = True
+except ImportError:
+    HAS_WRAPPED_FORM = False
+
 
 MSG_PORTLET_DESCRIPTION = _(
-    u"This portlet shows a form to contact the corresponding agent for a " \
-    u"given listing via email."
+    u'This portlet shows a form to contact the corresponding agent for a ' \
+    u'given listing via email.'
 )
+
+EMAIL_TEMPLATE = """\
+Enquiry from: %(name)s <%(sender_from_address)s>
+Listing URL: %(url)s
+
+Message:
+%(message)s
+"""
+
+check_email = re.compile(
+    r"[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}").match
+
+
+def validate_email(value):
+    if not check_email(value):
+        raise Invalid(_(u'Invalid email address'))
+    return True
+
+
+class IEmailForm(Interface):
+    """Email Form schema."""
+
+    subject = schema.TextLine(
+        required=False,
+        title=PMF(u'label_subject', default=u'Subject')
+    )
+
+    name = schema.TextLine(
+        description=PMF(
+            u'help_sender_fullname',
+            default=u'Please enter your full name',
+        ),
+        required=True,
+        title=PMF(u'label_name', default=u"Name"),
+    )
+
+    sender_from_address = schema.TextLine(
+        constraint=validate_email,
+        description=PMF(
+            u'help_sender_from_address',
+            default=u'Please enter your e-mail address',
+        ),
+        required=True,
+        title=PMF(u'label_sender_from_address', default=u'E-Mail'),
+    )
+
+    message = schema.Text(
+        description=PMF(
+            u'help_message',
+            default=u'Please enter the message you want to send.',
+        ),
+        max_length=1000,
+        required=True,
+        title=PMF(u'label_message', default=u'Message'),
+    )
+
+
+class EmailForm(form.Form):
+    """Email Form."""
+    fields = field.Fields(IEmailForm)
+    ignoreContext = True
+    method = 'post'
+    _email_sent = False
+
+    def __init__(self, context, request, portlet_hash=None, info=None):
+        super(EmailForm, self).__init__(context, request)
+        self.listing_info = info
+        if portlet_hash:
+            self.prefix = portlet_hash + '.' + self.prefix
+
+    @property
+    def already_sent(self):
+        return self._email_sent
+
+    def updateWidgets(self):
+        super(EmailForm, self).updateWidgets()
+        urltool = getToolByName(self.context, 'portal_url')
+        portal = urltool.getPortalObject()
+        subject = '%(portal_title)s: %(title)s (%(lid)s)' % dict(
+            lid=self.listing_info['listing_id'],
+            portal_title=portal.getProperty('title'),
+            title=self.listing_info['listing_title'],
+        )
+        self.widgets['subject'].mode = HIDDEN_MODE
+        self.widgets['subject'].value = subject
+
+    @button.buttonAndHandler(PMF(u'label_send', default='Send'), name='send')
+    def handle_send(self, action):
+        """Send button for sending the email."""
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        if not self.already_sent:
+            self.send_email(data)
+            self._email_sent = True
+
+    def send_email(self, data):
+        mailhost = getToolByName(self.context, 'MailHost')
+        urltool = getToolByName(self.context, 'portal_url')
+        portal = urltool.getPortalObject()
+        email_charset = portal.getProperty('email_charset')
+
+        # Construct and send a message.
+        from_address = portal.getProperty('email_from_address')
+        try:
+            rcp = self.listing_info['agent'].get('agent_email').get('value')
+        except:
+            rcp = from_address
+        source = "%s <%s>" % (data['name'], data['sender_from_address'])
+        subject = data['subject']
+        data['url'] = self.request.getURL()
+        message = EMAIL_TEMPLATE % data
+        message = message_from_string(message.encode(email_charset))
+        message['CC'] = Header(str(source))
+        message['Reply-to'] = Header(str(source))
+
+        mailhost.send(message, mto=rcp, mfrom=from_address,
+                      subject=subject, encode=None, immediate=True,
+                      charset=email_charset, msg_type=None)
+        return
 
 
 class IAgentContactPortlet(IPortletDataProvider):
     """A portlet which sends an email to the agent."""
 
+    heading = schema.TextLine(
+        description=_(
+            u'Custom title for the portlet. If no title is provided, the ' \
+            u'default title is used.'),
+        required=False,
+        title=_(u'Portlet Title'),
+    )
+
+    description = schema.Text(
+        description=_(u'Additional description for the portlet.'),
+        required=False,
+        title=_('Description'),
+    )
+
+    mail_sent_msg = schema.Text(
+        description=_(
+            u'"Thank you" message that is shown after the mail was sent.'
+        ),
+        required=False,
+        title=_(u'Mail Sent Message'),
+    )
+
 
 @implementer(IAgentContactPortlet)
 class Assignment(base.Assignment):
     """Agent Contact Portlet Assignment."""
+
+    heading = FieldProperty(IAgentContactPortlet['heading'])
+    description = FieldProperty(IAgentContactPortlet['description'])
+    mail_sent_msg = FieldProperty(IAgentContactPortlet['mail_sent_msg'])
+    title = _(u'Agent Contact')
+
+    def __init__(self, heading=None, description=None, mail_sent_msg=None):
+        self.heading = heading
+        self.description = description
+        self.mail_sent_msg = mail_sent_msg
 
 
 class Renderer(base.Renderer):
@@ -52,25 +226,56 @@ class Renderer(base.Renderer):
     render = ViewPageTemplateFile('templates/agent_contact.pt')
 
     @property
+    def already_sent(self):
+        return self.form.already_sent
+
+    @property
     def available(self):
         return IListingDetails.providedBy(self.view) and \
                getattr(self.view, 'listing_id', None) is not None
 
+    @property
+    def description(self):
+        return self.data.description
+
+    @property
+    def mail_sent_msg(self):
+        return self.data.mail_sent_msg or PMF(u"Mail sent.")
+
+    @property
+    def title(self):
+        return self.data.heading or self.data.title
+
+    def update(self):
+        listing_info = {
+            'listing_id': self.view.info.get('id').get('value'),
+            'listing_title': self.view.info.get('title').get('value'),
+            'agent': self.view.contact.get('agent'),
+        }
+
+        z2.switch_on(self, request_layer=IFormLayer)
+        portlet_hash = self.__portlet_metadata__.get('hash')
+        self.form = EmailForm(aq_inner(self.context), self.request,
+                              portlet_hash, listing_info)
+        if HAS_WRAPPED_FORM:
+            alsoProvides(self.form, IWrappedForm)
+        self.form.update()
+
 
 class AddForm(base.AddForm):
-    """Add the content immediately, without presenting a form."""
-    form_fields = form.Fields(IAgentContactPortlet)
-    label = _(u"Add Agent Information portlet")
+    """Add form for the Agent Contact portlet."""
+    form_fields = formlib.form.Fields(IAgentContactPortlet)
+    label = _(u'Add Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION
 
     def create(self, data):
         assignment = Assignment()
-        form.applyChanges(assignment, self.form_fields, data)
+        formlib.form.applyChanges(assignment, self.form_fields, data)
         return assignment
 
 
 class EditForm(base.EditForm):
-    """"""
-    form_fields = form.Fields(IAgentContactPortlet)
-    label = _(u"Edit Agent Information portlet")
+    """Edit form for the Agent Contact portlet"""
+    form_fields = formlib.form.Fields(IAgentContactPortlet)
+    label = _(u'Edit Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION

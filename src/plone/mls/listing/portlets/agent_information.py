@@ -34,9 +34,10 @@ from plone.mls.listing.i18n import _
 
 
 MSG_PORTLET_DESCRIPTION = _(
-    u"This portlet shows the corresponding agent information for a given " \
-    u"listing. Note that this portlet is only available for the detail view " \
-    u"of a listing.")
+    u'This portlet shows the corresponding agent information for a given ' \
+    u'listing. Note that this portlet is only available for the detail view ' \
+    u'of a listing.'
+)
 
 
 class IAgentInformationPortlet(IPortletDataProvider):
@@ -44,8 +45,8 @@ class IAgentInformationPortlet(IPortletDataProvider):
 
     heading = schema.TextLine(
         description=_(
-            u"Custom title for the Agent Information portlet. If no title " \
-            u"is provided, the default title ('Agent Information') is used."),
+            u'Custom title for the portlet. If no title is provided, the ' \
+            u'default title is used.'),
         required=False,
         title=_(u"Portlet Title"),
     )
@@ -56,10 +57,7 @@ class Assignment(base.Assignment):
     """Agent Information Portlet Assignment."""
 
     heading = FieldProperty(IAgentInformationPortlet['heading'])
-    title = _(
-        u'heading_portlet_agent_information',
-        default=u'Agent Information',
-    )
+    title = _(u'Agent Information')
 
     def __init__(self, heading=None):
         self.heading = heading
@@ -75,11 +73,17 @@ class Renderer(base.Renderer):
         return IListingDetails.providedBy(self.view) and \
                getattr(self.view, 'listing_id', None) is not None
 
+    @property
+    def title(self):
+        if self.data.heading is not None:
+            return self.data.heading
+        return self.data.title
+
 
 class AddForm(base.AddForm):
-    """Add the content immediately, without presenting a form."""
+    """Add form for the Agent Information portlet."""
     form_fields = form.Fields(IAgentInformationPortlet)
-    label = _(u"Add Agent Information portlet")
+    label = _(u'Add Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION
 
     def create(self, data):
@@ -89,7 +93,7 @@ class AddForm(base.AddForm):
 
 
 class EditForm(base.EditForm):
-    """"""
+    """Edit form for the Agent Information portlet."""
     form_fields = form.Fields(IAgentInformationPortlet)
-    label = _(u"Edit Agent Information portlet")
+    label = _(u'Edit Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION
