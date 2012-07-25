@@ -170,12 +170,14 @@ class EmailForm(form.Form):
         data['url'] = self.request.getURL()
         message = EMAIL_TEMPLATE % data
         message = message_from_string(message.encode(email_charset))
-        message['CC'] = Header(str(source))
-        message['Reply-to'] = Header(str(source))
+        message['To'] = rcp
+        message['From'] = from_address
+        message['Cc'] = source
+        message['Bcc'] = from_address
+        message['Reply-to'] = source
+        message['Subject'] = subject
 
-        mailhost.send(message, mto=rcp, mfrom=from_address,
-                      subject=subject, encode=None, immediate=True,
-                      charset=email_charset, msg_type=None)
+        mailhost.send(message, immediate=True)
         return
 
 
