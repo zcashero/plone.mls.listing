@@ -4,10 +4,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2012-06-04 19:03+0000\n"
-"PO-Revision-Date: 2012-06-04 19:05+0000\n"
+"POT-Creation-Date: 2012-07-25 21:25+0000\n"
+"PO-Revision-Date: 2012-07-25 21:25+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
-"Language-Team: French (http://www.transifex.net/projects/p/MLS_Plone/language/fr/)\n"
+"Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,12 +46,28 @@ msgstr ""
 msgid "Activate the Recent Listings viewlet."
 msgstr ""
 
-#: ./../portlets/templates/agent_information.pt:13
+#: ./../portlets/agent_contact.py:289 ./../portlets/agent_information.py:86
+msgid "Add Agent Information portlet"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:204
+msgid "Additional description for the portlet."
+msgstr ""
+
+#: ./../portlets/agent_contact.py:234
+msgid "Agent Contact"
+msgstr ""
+
+#: ./../portlets/agent_information.py:60
 msgid "Agent Information"
 msgstr ""
 
 #: ./../browser/adapter.py:29
 msgid "All"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:222
+msgid "BCC Recipients"
 msgstr ""
 
 #: ./../browser/listing_collection.py:270 ./../browser/listing_search.py:376
@@ -83,6 +99,12 @@ msgstr ""
 msgid "Configure the Recent Listings viewlet."
 msgstr ""
 
+#: ./../portlets/agent_contact.py:196 ./../portlets/agent_information.py:47
+msgid ""
+"Custom title for the portlet. If no title is provided, the default title is "
+"used."
+msgstr ""
+
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Listing Collection"
 msgstr ""
@@ -107,8 +129,32 @@ msgstr ""
 msgid "Deactivate the Recent Listings viewlet."
 msgstr ""
 
+#: ./../portlets/agent_contact.py:206
+msgid "Description"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:218
+msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
+msgstr ""
+
+#: ./../portlets/agent_contact.py:301 ./../portlets/agent_information.py:98
+msgid "Edit Agent Information portlet"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:74
+msgid "Invalid email address"
+msgstr ""
+
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:214
+msgid "Mail Sent Message"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:200 ./../portlets/agent_information.py:51
+msgid "Portlet Title"
 msgstr ""
 
 #: ./../browser/listing_collection.py:260 ./../browser/listing_search.py:364
@@ -118,6 +164,22 @@ msgstr ""
 
 #: ./../browser/listing_search.py:257
 msgid "Search"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:210
+msgid "Thank you message that is shown after the mail was sent."
+msgstr ""
+
+#: ./../portlets/agent_contact.py:55
+msgid ""
+"This portlet shows a form to contact the corresponding agent for a given "
+"listing via email."
+msgstr ""
+
+#: ./../portlets/agent_information.py:36
+msgid ""
+"This portlet shows the corresponding agent information for a given listing. "
+"Note that this portlet is only available for the detail view of a listing."
 msgstr ""
 
 #. Default: "MLS Listings"
@@ -133,11 +195,6 @@ msgstr ""
 #. Default: "Basic Listing Information"
 #: ./../browser/templates/listing_details.pt:30
 msgid "heading_listing_information_basic"
-msgstr ""
-
-#. Default: "Agent Information"
-#: ./../portlets/agent_information.py:41
-msgid "heading_portlet_agent_information"
 msgstr ""
 
 #. Default: "List of the contained MLS Listings."

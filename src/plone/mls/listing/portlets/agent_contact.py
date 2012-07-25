@@ -208,7 +208,7 @@ class IAgentContactPortlet(IPortletDataProvider):
 
     mail_sent_msg = schema.Text(
         description=_(
-            u'"Thank you" message that is shown after the mail was sent.'
+            u'Thank you message that is shown after the mail was sent.'
         ),
         required=False,
         title=_(u'Mail Sent Message'),
