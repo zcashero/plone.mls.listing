@@ -120,9 +120,11 @@ class EmailForm(form.Form):
     method = 'post'
     _email_sent = False
 
-    def __init__(self, context, request, portlet_hash=None, info=None):
+    def __init__(self, context, request, portlet_hash=None, info=None,
+                 data=None):
         super(EmailForm, self).__init__(context, request)
         self.listing_info = info
+        self.data = data
         if portlet_hash:
             self.prefix = portlet_hash + '.' + self.prefix
 
@@ -161,23 +163,29 @@ class EmailForm(form.Form):
 
         # Construct and send a message.
         from_address = portal.getProperty('email_from_address')
+        from_name = portal.getProperty('email_from_name')
+        if from_name is not None:
+            from_address = '%s <%s>' % (from_name, from_address)
+
         try:
             rcp = self.listing_info['agent'].get('agent_email').get('value')
         except:
             rcp = from_address
-        source = "%s <%s>" % (data['name'], data['sender_from_address'])
+
+        sender = '%s <%s>' % (data['name'], data['sender_from_address'])
         subject = data['subject']
         data['url'] = self.request.getURL()
         message = EMAIL_TEMPLATE % data
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
         message['From'] = from_address
-        message['Cc'] = source
-        message['Bcc'] = from_address
-        message['Reply-to'] = source
+        message['Cc'] = sender
+        if getattr(self.data, 'bcc', None) is not None:
+            message['Bcc'] = self.data.bcc
+        message['Reply-to'] = sender
         message['Subject'] = subject
 
-        mailhost.send(message, immediate=True)
+        mailhost.send(message, immediate=True, charset=email_charset)
         return
 
 
@@ -206,6 +214,14 @@ class IAgentContactPortlet(IPortletDataProvider):
         title=_(u'Mail Sent Message'),
     )
 
+    bcc = schema.TextLine(
+        description=_(
+            u'E-mail addresses which receive a blind carbon copy (comma ' \
+            u'separated).'),
+        required=False,
+        title=_(u'BCC Recipients'),
+    )
+
 
 @implementer(IAgentContactPortlet)
 class Assignment(base.Assignment):
@@ -214,12 +230,15 @@ class Assignment(base.Assignment):
     heading = FieldProperty(IAgentContactPortlet['heading'])
     description = FieldProperty(IAgentContactPortlet['description'])
     mail_sent_msg = FieldProperty(IAgentContactPortlet['mail_sent_msg'])
+    bcc = FieldProperty(IAgentContactPortlet['bcc'])
     title = _(u'Agent Contact')
 
-    def __init__(self, heading=None, description=None, mail_sent_msg=None):
+    def __init__(self, heading=None, description=None, mail_sent_msg=None,
+                 bcc=None):
         self.heading = heading
         self.description = description
         self.mail_sent_msg = mail_sent_msg
+        self.bcc = bcc
 
 
 class Renderer(base.Renderer):
@@ -258,7 +277,7 @@ class Renderer(base.Renderer):
         z2.switch_on(self, request_layer=IFormLayer)
         portlet_hash = self.__portlet_metadata__.get('hash')
         self.form = EmailForm(aq_inner(self.context), self.request,
-                              portlet_hash, listing_info)
+                              portlet_hash, listing_info, self.data)
         if HAS_WRAPPED_FORM:
             alsoProvides(self.form, IWrappedForm)
         self.form.update()
