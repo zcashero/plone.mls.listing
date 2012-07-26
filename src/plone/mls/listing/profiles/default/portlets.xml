@@ -11,4 +11,11 @@
       title="Agent Information"
       description="A portlet displaying agent information for a listing."
   />
+
+  <portlet
+      addview="portlets.QuickSearch"
+      title="Listing Quick Search"
+      description="A portlet displaying a search form for listings."
+  />
+
 </portlets>

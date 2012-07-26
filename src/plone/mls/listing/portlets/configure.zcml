@@ -2,6 +2,8 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:plone="http://namespaces.plone.org/plone">
 
+  <include package="plone.app.portlets" />
+
   <!-- Agent Contact Portlet. -->
   <!-- ====================== -->
   <plone:portlet
@@ -11,6 +13,12 @@
       interface=".agent_contact.IAgentContactPortlet"
       name="portlets.AgentContact"
       renderer=".agent_contact.Renderer"
+      />
+
+  <plone:portletRenderer
+      layer="..browser.interfaces.IListingSpecific"
+      portlet=".agent_contact.IAgentContactPortlet"
+      template="templates/agent_contact.pt"
       />
 
 
@@ -23,6 +31,29 @@
       interface=".agent_information.IAgentInformationPortlet"
       name="portlets.AgentInformation"
       renderer=".agent_information.Renderer"
+      />
+
+  <plone:portletRenderer
+      layer="..browser.interfaces.IListingSpecific"
+      portlet=".agent_information.IAgentInformationPortlet"
+      template="templates/agent_information.pt"
+      />
+
+  <!-- Listing Quick Search Portlet. -->
+  <!-- ============================= -->
+  <plone:portlet
+      addview=".quick_search.AddForm"
+      assignment=".quick_search.Assignment"
+      editview=".quick_search.EditForm"
+      interface=".quick_search.IQuickSearchPortlet"
+      name="portlets.QuickSearch"
+      renderer=".quick_search.Renderer"
+      />
+
+  <plone:portletRenderer
+      layer="..browser.interfaces.IListingSpecific"
+      portlet=".quick_search.IQuickSearchPortlet"
+      template="templates/quick_search.pt"
       />
 
 </configure>

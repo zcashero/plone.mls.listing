@@ -32,15 +32,11 @@ from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.mls.listing.i18n import _
 
 
-MSG_PORTLET_DESCRIPTION = _(
-    u'This portlet shows the corresponding agent information for a given ' \
-    u'listing. Note that this portlet is only available for the detail view ' \
-    u'of a listing.'
-)
+MSG_PORTLET_DESCRIPTION = _(u'This portlet shows a listing quick search form.')
 
 
-class IAgentInformationPortlet(IPortletDataProvider):
-    """A portlet displaying agent information for a listing."""
+class IQuickSearchPortlet(IPortletDataProvider):
+    """A portlet displaying a listing quick search form."""
 
     heading = schema.TextLine(
         description=_(
@@ -51,12 +47,12 @@ class IAgentInformationPortlet(IPortletDataProvider):
     )
 
 
-@implementer(IAgentInformationPortlet)
+@implementer(IQuickSearchPortlet)
 class Assignment(base.Assignment):
-    """Agent Information Portlet Assignment."""
+    """Quick Search Portlet Assignment."""
 
-    heading = FieldProperty(IAgentInformationPortlet['heading'])
-    title = _(u'Agent Information')
+    heading = FieldProperty(IQuickSearchPortlet['heading'])
+    title = _(u'Listing Search')
 
     def __init__(self, heading=None):
         self.heading = heading
@@ -79,7 +75,7 @@ class Renderer(base.Renderer):
 
 class AddForm(base.AddForm):
     """Add form for the Agent Information portlet."""
-    form_fields = form.Fields(IAgentInformationPortlet)
+    form_fields = form.Fields(IQuickSearchPortlet)
     label = _(u'Add Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION
 
@@ -91,6 +87,6 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
     """Edit form for the Agent Information portlet."""
-    form_fields = form.Fields(IAgentInformationPortlet)
+    form_fields = form.Fields(IQuickSearchPortlet)
     label = _(u'Edit Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION
