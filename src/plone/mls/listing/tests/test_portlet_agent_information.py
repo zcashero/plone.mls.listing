@@ -91,3 +91,27 @@ class TestRenderer(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ('Manager', ))
+
+    def renderer(self, context=None, request=None, view=None, manager=None,
+                 assignment=None):
+        context = context or self.portal
+        request = request or self.layer['request']
+        view = view or self.portal.restrictedTraverse('@@plone')
+        manager = manager or getUtility(interfaces.IPortletManager,
+                                        name='plone.rightcolumn',
+                                        context=self.portal)
+        assignment = assignment or agent_information.Assignment()
+
+        return getMultiAdapter((context, request, view, manager, assignment),
+                               interfaces.IPortletRenderer)
+
+    def test_title(self):
+        r = self.renderer(
+            context=self.portal, assignment=agent_information.Assignment())
+        self.assertEqual('Agent Information', r.title)
+
+    def test_custom_title(self):
+        r = self.renderer(
+            context=self.portal, assignment=agent_information.Assignment(
+                heading=u'My Title'))
+        self.assertEqual('My Title', r.title)

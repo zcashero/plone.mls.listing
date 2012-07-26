@@ -61,10 +61,10 @@ class Assignment(base.Assignment):
 class Renderer(base.Renderer):
     """Agent Information Portlet Renderer."""
 
-    @property
-    def available(self):
-        return IListingDetails.providedBy(self.view) and \
-               getattr(self.view, 'listing_id', None) is not None
+    # @property
+    # def available(self):
+    #     return IListingDetails.providedBy(self.view) and \
+    #            getattr(self.view, 'listing_id', None) is not None
 
     @property
     def title(self):
