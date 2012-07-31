@@ -87,10 +87,11 @@ class BasePriorityVocabulary(object):
 
     def _sort(self, data, priority):
         """Sort list of tuple by keys in priority list or value otherwise."""
+
         def get_key(item):
             if item[0] in priority:
-                return '__%03d' % priority.index(item[0])
-            return item[1]
+                return '__0%03d' % priority.index(item[0])
+            return '__1%s' % item[1]
 
         if len(priority) > 0:
             data.sort(key=get_key)
@@ -109,7 +110,9 @@ class BasePriorityVocabulary(object):
         except KeyError:
             priority_list = []
         else:
-            priority_list = getattr(settings, self.priority, [])
+            value = getattr(settings, self.priority, '')
+            priority_list = [item.strip() for item in value.split(',') \
+                             if len(item.strip()) > 0]
 
         if priority_list is None:
             priority_list = []
