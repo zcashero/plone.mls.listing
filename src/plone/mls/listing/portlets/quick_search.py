@@ -21,7 +21,9 @@
 
 # zope imports
 from Acquisition import aq_inner
+from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
+from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.directives import form
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.z3cform import z2
@@ -53,6 +55,7 @@ class QuickSearchForm(form.Form):
     fields = field.Fields(IListingSearchForm)
     ignoreContext = True
     method = 'get'
+    search_url = ''
 
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
@@ -68,11 +71,13 @@ class QuickSearchForm(form.Form):
     fields['jacuzzi'].widgetFactory = radio.RadioFieldWidget
     fields['pool'].widgetFactory = radio.RadioFieldWidget
 
-    def __init__(self, context, request, portlet_hash=None, data=None):
+    def __init__(self, context, request, data=None):
         super(QuickSearchForm, self).__init__(context, request)
         self.data = data
-        # if portlet_hash:
-        #     self.prefix = portlet_hash + '.' + self.prefix
+
+    def update(self):
+        """Form update method. Will change the available fields."""
+        super(QuickSearchForm, self).update()
 
     @button.buttonAndHandler(_(u"Search"), name='search')
     def handle_search(self, action):
@@ -80,6 +85,13 @@ class QuickSearchForm(form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
+
+    @property
+    def action(self):
+        """See interfaces.IInputForm."""
+        p_state = self.context.unrestrictedTraverse("@@plone_portal_state")
+        navigation_root_url = p_state.navigation_root_url()
+        return '/'.join([navigation_root_url, self.search_url])
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
@@ -103,6 +115,16 @@ class IQuickSearchPortlet(IPortletDataProvider):
         title=_(u'Portlet Title (Filter)'),
     )
 
+    target_search = schema.Choice(
+        description=_(u"Find the search page which will be shown for the results."),
+        required=True,
+        source=SearchableTextSourceBinder({
+            'object_provides': 'plone.mls.listing.browser.listing_search.' \
+                               'IListingSearch',
+            }, default_query='path:'),
+        title=_(u"Search Page"),
+    )
+
 
 @implementer(IQuickSearchPortlet)
 class Assignment(base.Assignment):
@@ -110,13 +132,16 @@ class Assignment(base.Assignment):
 
     heading = FieldProperty(IQuickSearchPortlet['heading'])
     heading_filter = FieldProperty(IQuickSearchPortlet['heading_filter'])
+    target_search = None
+
     title = _(u'Search Listings')
     title_filter = _(u'Filter Results')
     mode = 'SEARCH'
 
-    def __init__(self, heading=None, heading_filter=None):
+    def __init__(self, heading=None, heading_filter=None, target_search=None):
         self.heading = heading
         self.heading_filter = heading_filter
+        self.target_search = target_search
 
 
 class Renderer(base.Renderer):
@@ -135,9 +160,7 @@ class Renderer(base.Renderer):
 
     def update(self):
         z2.switch_on(self, request_layer=IFormLayer)
-        portlet_hash = self.__portlet_metadata__.get('hash')
-        self.form = QuickSearchForm(aq_inner(self.context), self.request,
-                              portlet_hash)
+        self.form = QuickSearchForm(aq_inner(self.context), self.request)
         if HAS_WRAPPED_FORM:
             alsoProvides(self.form, IWrappedForm)
         self.form.update()
@@ -146,17 +169,22 @@ class Renderer(base.Renderer):
 class AddForm(base.AddForm):
     """Add form for the Agent Information portlet."""
     form_fields = formlib.form.Fields(IQuickSearchPortlet)
+    form_fields['target_search'].custom_widget = UberSelectionWidget
+
     label = _(u'Add Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION
 
     def create(self, data):
-        assignment = Assignment()
-        formlib.form.applyChanges(assignment, self.form_fields, data)
-        return assignment
+        return Assignment(**data)
+        # assignment = Assignment()
+        # formlib.form.applyChanges(assignment, self.form_fields, data)
+        # return assignment
 
 
 class EditForm(base.EditForm):
     """Edit form for the Agent Information portlet."""
     form_fields = formlib.form.Fields(IQuickSearchPortlet)
+    form_fields['target_search'].custom_widget = UberSelectionWidget
+
     label = _(u'Edit Agent Information portlet')
     description = MSG_PORTLET_DESCRIPTION
