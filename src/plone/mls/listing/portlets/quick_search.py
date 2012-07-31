@@ -25,7 +25,7 @@ from plone.app.portlets.portlets import base
 from plone.directives import form
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.z3cform import z2
-from z3c.form import field
+from z3c.form import button, field
 from z3c.form.browser import checkbox, radio
 from z3c.form.interfaces import IFormLayer
 from zope import formlib, schema
@@ -52,6 +52,7 @@ class QuickSearchForm(form.Form):
     """Quick Search Form."""
     fields = field.Fields(IListingSearchForm)
     ignoreContext = True
+    method = 'get'
 
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
@@ -70,8 +71,15 @@ class QuickSearchForm(form.Form):
     def __init__(self, context, request, portlet_hash=None, data=None):
         super(QuickSearchForm, self).__init__(context, request)
         self.data = data
-        if portlet_hash:
-            self.prefix = portlet_hash + '.' + self.prefix
+        # if portlet_hash:
+        #     self.prefix = portlet_hash + '.' + self.prefix
+
+    @button.buttonAndHandler(_(u"Search"), name='search')
+    def handle_search(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
