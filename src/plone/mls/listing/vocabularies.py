@@ -111,11 +111,10 @@ class BasePriorityVocabulary(object):
             priority_list = []
         else:
             value = getattr(settings, self.priority, '')
+            if value is None:
+                value = ''
             priority_list = [item.strip() for item in value.split(',') \
                              if len(item.strip()) > 0]
-
-        if priority_list is None:
-            priority_list = []
 
         types = search_options(self.vocabulary_name, portal_state.language())
         terms = []

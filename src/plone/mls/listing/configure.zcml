@@ -6,7 +6,9 @@
     i18n_domain="plone.mls.listing">
 
   <!-- Register i18n support. -->
+  <!-- ====================== -->
   <i18n:registerTranslations directory="locales" />
+
 
   <!-- Include package dependencies. -->
   <!-- ============================= -->
@@ -15,6 +17,7 @@
   <include package=".content" />
   <include package=".portlets" />
   <include file="profiles.zcml" />
+
 
   <!-- Include optional package dependencies. -->
   <!-- ====================================== -->
@@ -26,6 +29,9 @@
     <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
   </class>
 
+
+  <!-- Vocabularies for listing searches. -->
+  <!-- ================================== -->
   <utility
       component=".vocabularies.GeographicTypesVocabularyFactory"
       name="plone.mls.listing.GeographicTypes"
