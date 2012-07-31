@@ -90,8 +90,7 @@ class QuickSearchForm(form.Form):
     def action(self):
         """See interfaces.IInputForm."""
         p_state = self.context.unrestrictedTraverse("@@plone_portal_state")
-        navigation_root_url = p_state.navigation_root_url()
-        return '/'.join([navigation_root_url, self.search_url])
+        return '/'.join([p_state.portal_url(), self.data.target_search])
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
@@ -160,7 +159,8 @@ class Renderer(base.Renderer):
 
     def update(self):
         z2.switch_on(self, request_layer=IFormLayer)
-        self.form = QuickSearchForm(aq_inner(self.context), self.request)
+        self.form = QuickSearchForm(aq_inner(self.context), self.request,
+                                    self.data)
         if HAS_WRAPPED_FORM:
             alsoProvides(self.form, IWrappedForm)
         self.form.update()
@@ -175,10 +175,9 @@ class AddForm(base.AddForm):
     description = MSG_PORTLET_DESCRIPTION
 
     def create(self, data):
-        return Assignment(**data)
-        # assignment = Assignment()
-        # formlib.form.applyChanges(assignment, self.form_fields, data)
-        # return assignment
+        assignment = Assignment()
+        formlib.form.applyChanges(assignment, self.form_fields, data)
+        return assignment
 
 
 class EditForm(base.EditForm):
