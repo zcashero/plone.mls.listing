@@ -13,6 +13,7 @@
       <span class="portletTopRight"></span>
     </dt>
     <dd class="portletItem">
+      <div tal:replace="structure view/form | nothing"></div>
     </dd>
     <div class="visualClear"></div>
   </dl>
