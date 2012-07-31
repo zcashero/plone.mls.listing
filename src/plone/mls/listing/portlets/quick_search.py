@@ -79,10 +79,20 @@ class IQuickSearchPortlet(IPortletDataProvider):
 
     heading = schema.TextLine(
         description=_(
-            u'Custom title for the portlet. If no title is provided, the ' \
-            u'default title is used.'),
+            u'Custom title for the portlet (search mode). If no title is ' \
+            u'provided, the default title is used.'
+        ),
         required=False,
-        title=_(u"Portlet Title"),
+        title=_(u"Portlet Title (Search)"),
+    )
+
+    heading_filter = schema.TextLine(
+        description=_(
+            u'Custom title for the portlet (filter mode). If no title is ' \
+            u'provided, the default title is used.'
+        ),
+        required=False,
+        title=_(u'Portlet Title (Filter)'),
     )
 
 
@@ -91,10 +101,14 @@ class Assignment(base.Assignment):
     """Quick Search Portlet Assignment."""
 
     heading = FieldProperty(IQuickSearchPortlet['heading'])
-    title = _(u'Listing Search')
+    heading_filter = FieldProperty(IQuickSearchPortlet['heading_filter'])
+    title = _(u'Search Listings')
+    title_filter = _(u'Filter Results')
+    mode = 'SEARCH'
 
-    def __init__(self, heading=None):
+    def __init__(self, heading=None, heading_filter=None):
         self.heading = heading
+        self.heading_filter = heading_filter
 
 
 class Renderer(base.Renderer):
@@ -102,9 +116,14 @@ class Renderer(base.Renderer):
 
     @property
     def title(self):
-        if self.data.heading is not None:
-            return self.data.heading
-        return self.data.title
+        if self.data.mode == 'SEARCH':
+            if self.data.heading is not None:
+                return self.data.heading
+            return self.data.title
+        if self.data.mode == 'FILTER':
+            if self.data.heading_filter is not None:
+                return self.data.heading_filter
+            return self.data.title_filter
 
     def update(self):
         z2.switch_on(self, request_layer=IFormLayer)
