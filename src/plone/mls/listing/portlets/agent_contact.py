@@ -33,9 +33,8 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.z3cform import z2
 from z3c.form import button, field
 from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
-from zope import formlib
+from zope import formlib, schema
 from zope.interface import Interface, Invalid, alsoProvides, implementer
-from zope import schema
 from zope.schema.fieldproperty import FieldProperty
 
 # local imports
