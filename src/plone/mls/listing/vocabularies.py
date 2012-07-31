@@ -20,7 +20,9 @@
 """Vocabulary definitions."""
 
 # zope imports
-from zope.component import queryMultiAdapter
+from plone.registry.interfaces import IRegistry
+
+from zope.component import getUtility, queryMultiAdapter
 from zope.globalrequest import getRequest
 from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
@@ -28,7 +30,7 @@ from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 # local imports
 from plone.mls.listing.api import search_options
-
+from plone.mls.listing.interfaces import IMLSVocabularySettings
 
 ROOM_VALUES = [
     ('--MINVALUE--', 'Min'),
@@ -46,145 +48,145 @@ ROOM_VALUES = [
 
 
 @implementer(IVocabularyFactory)
-class GeographicTypesVocabulary(object):
+class BasePriorityVocabulary(object):
+    """Vocabulary factory with optional priority list.
+
+    data = [
+        ('x1', 'a1'),
+        ('x3', 'a3'),
+        ('x4', 'a4'),
+        ('x2', 'a2'),
+        ('x5', 'a5'),
+    ]
+
+    priority = ['x5', 'x3']
+
+    data_sorted = [
+        ('x5', 'a5'),
+        ('x3', 'a3'),
+        ('x1', 'a1'),
+        ('x2', 'a2'),
+        ('x4', 'a4'),
+    ]
+
+    def sort_data(data_arg, priority_arg):
+        def get_key(item):
+            if item[0] in priority_arg:
+                return '__%03d' % priority_arg.index(item[0])
+            return item[1]
+
+        data_arg.sort(key=get_key)
+
+        print data_arg
+        assert data_arg == data_sorted
+
+    sort_data(data, priority)
+    """
+    priority = ''
+    vocabulary_name = None
+
+    def _sort(self, data, priority):
+        """Sort list of tuple by keys in priority list or value otherwise."""
+        def get_key(item):
+            if item[0] in priority:
+                return '__%03d' % priority.index(item[0])
+            return item[1]
+
+        if len(priority) > 0:
+            data.sort(key=get_key)
+        else:
+            data.sort(key=lambda item: item[1])
+
+        return data
 
     def __call__(self, context):
         portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
+                                         name='plone_portal_state')
+        registry = getUtility(IRegistry)
+        try:
+            settings = registry.forInterface(IMLSVocabularySettings,
+                                             check=False)
+        except KeyError:
+            priority_list = []
+        else:
+            priority_list = getattr(settings, self.priority, [])
 
-        types = search_options('geographic_types', portal_state.language())
-        items = []
+        if priority_list is None:
+            priority_list = []
+
+        types = search_options(self.vocabulary_name, portal_state.language())
+        terms = []
         if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
+            types = self._sort(types, priority_list)
+            terms = [SimpleTerm(item[0], item[0], item[1]) for item in types]
+        return SimpleVocabulary(terms)
 
+
+class GeographicTypesVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'geographic_types'."""
+
+    vocabulary_name = 'geographic_types'
+    priority = 'geographic_types_priority'
 
 GeographicTypesVocabularyFactory = GeographicTypesVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class ListingTypesVocabulary(object):
+class ListingTypesVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'listing_types'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('listing_types', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'listing_types'
+    priority = 'listing_types_priority'
 
 ListingTypesVocabularyFactory = ListingTypesVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class LocationCountyVocabulary(object):
+class LocationCountyVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'location_county'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('location_county', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'location_county'
 
 LocationCountyVocabularyFactory = LocationCountyVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class LocationDistrictVocabulary(object):
+class LocationDistrictVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'location_district'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('location_district', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'location_district'
 
 LocationDistrictVocabularyFactory = LocationDistrictVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class LocationStateVocabulary(object):
+class LocationStateVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'location_state'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('location_state', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'location_state'
 
 LocationStateVocabularyFactory = LocationStateVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class LocationTypesVocabulary(object):
+class LocationTypesVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'location_types'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('location_types', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'location_types'
+    priority = 'location_types_priority'
 
 LocationTypesVocabularyFactory = LocationTypesVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class ObjectTypesVocabulary(object):
+class ObjectTypesVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'object_types'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('object_types', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'object_types'
+    priority = 'object_types_priority'
 
 ObjectTypesVocabularyFactory = ObjectTypesVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class OwnershipTypesVocabulary(object):
+class OwnershipTypesVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'ownership_types'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('ownership_types', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'ownership_types'
+    priority = 'ownership_types_priority'
 
 OwnershipTypesVocabularyFactory = OwnershipTypesVocabulary()
 
@@ -198,24 +200,14 @@ class RoomsVocabulary(object):
             items.append(SimpleTerm(item[0], item[0], item[1]))
         return SimpleVocabulary(items)
 
-
 RoomsVocabularyFactory = RoomsVocabulary()
 
 
-@implementer(IVocabularyFactory)
-class ViewTypesVocabulary(object):
+class ViewTypesVocabulary(BasePriorityVocabulary):
+    """Priority sortable vocabulary factory for 'view_types'."""
 
-    def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                          name='plone_portal_state')
-
-        types = search_options('view_types', portal_state.language())
-        items = []
-        if types is not None:
-            for item in types:
-                items.append(SimpleTerm(item[0], item[0], item[1]))
-        return SimpleVocabulary(items)
-
+    vocabulary_name = 'view_types'
+    priority = 'view_types_priority'
 
 ViewTypesVocabularyFactory = ViewTypesVocabulary()
 
@@ -229,6 +221,5 @@ class YesNoAllVocabulary(object):
         items.append(SimpleTerm('0', '0', u'No'))
         items.append(SimpleTerm('--NOVALUE--', '--NOVALUE--', u'All'))
         return SimpleVocabulary(items)
-
 
 YesNoAllVocabularyFactory = YesNoAllVocabulary()
