@@ -17,10 +17,11 @@
 # EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 ###############################################################################
-"""Agent Information Portlet."""
+"""Listing Quick Search Portlet."""
 
 # zope imports
 from Acquisition import aq_inner
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
@@ -35,7 +36,7 @@ from zope.interface import alsoProvides, implementer
 from zope.schema.fieldproperty import FieldProperty
 
 # local imports
-from plone.mls.listing.browser.listing_search import IListingSearchForm
+from plone.mls.listing.browser import listing_search
 from plone.mls.listing.browser.valuerange.widget import ValueRangeFieldWidget
 from plone.mls.listing.i18n import _
 
@@ -49,20 +50,53 @@ except ImportError:
 
 MSG_PORTLET_DESCRIPTION = _(u'This portlet shows a listing quick search form.')
 
+#: Definition of available fields in the given ``rows``.
+FIELD_ORDER = {
+    'row_listing_type': [
+        'listing_type',
+    ],
+    'row_location': [
+        'location_state',
+        'location_city',
+    ],
+    'row_beds_baths': [
+        'beds',
+        'baths',
+    ],
+    'row_object_type': [
+        'object_type',
+    ],
+    'row_price': [
+        'price_min',
+        'price_max',
+    ],
+    'row_filter': [
+        'air_condition',
+        'pool',
+        'jacuzzi',
+        'location_type',
+        'geographic_type',
+    ],
+}
+
+
+OMITTED_FIELDS = ['location_county', 'location_district']
+
 
 class QuickSearchForm(form.Form):
     """Quick Search Form."""
-    fields = field.Fields(IListingSearchForm)
+    fields = field.Fields(listing_search.IListingSearchForm)
+    template = ViewPageTemplateFile('templates/search_form.pt')
     ignoreContext = True
     method = 'get'
-    search_url = ''
 
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['baths'].widgetFactory = ValueRangeFieldWidget
     fields['beds'].widgetFactory = ValueRangeFieldWidget
-    #additional fields for filtering
+
+    # Additional fields for filtering.
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
@@ -72,15 +106,18 @@ class QuickSearchForm(form.Form):
     fields['pool'].widgetFactory = radio.RadioFieldWidget
 
     def __init__(self, context, request, data=None):
+        """Customized form constructor.
+
+        This one also takes an optional ``data`` attribute so it can be
+        instantiated from within a portlet without loosing access to the
+        portlet data.
+        """
         super(QuickSearchForm, self).__init__(context, request)
         self.data = data
 
-    def update(self):
-        """Form update method. Will change the available fields."""
-        super(QuickSearchForm, self).update()
-
     @button.buttonAndHandler(_(u"Search"), name='search')
     def handle_search(self, action):
+        """Search button."""
         data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
@@ -90,7 +127,54 @@ class QuickSearchForm(form.Form):
     def action(self):
         """See interfaces.IInputForm."""
         p_state = self.context.unrestrictedTraverse("@@plone_portal_state")
-        return '/'.join([p_state.portal_url(), self.data.target_search])
+        search_path = self.data.target_search
+        if search_path.startswith('/'):
+            search_path = search_path[1:]
+        return '/'.join([p_state.portal_url(), search_path])
+
+    def _widgets(self, row):
+        """Return a list of widgets that should be shown for a given row."""
+        widget_data = dict(self.widgets.items())
+        available_fields = FIELD_ORDER.get(row, [])
+        return [widget_data.get(field, None) for field in available_fields]
+
+    @property
+    def show_filter(self):
+        """Decides if the filter should be shown or not."""
+        form = self.request.form
+        return listing_search.IListingSearch.providedBy(self.context) and \
+            'form.buttons.search' in form.keys()
+
+    def widgets_listing_type(self):
+        """Return the widgets for the row ``row_listing_type``."""
+        return self._widgets('row_listing_type')
+
+    def widgets_location(self):
+        """Return the widgets for the row ``row_location``."""
+        return self._widgets('row_location')
+
+    def widgets_beds_baths(self):
+        """Return the widgets for the row ``row_beds_baths``."""
+        return self._widgets('row_beds_baths')
+
+    def widgets_object_type(self):
+        """Return the widgets for the row ``row_object_type``."""
+        return self._widgets('row_object_type')
+
+    def widgets_price(self):
+        """Return the widgets for the row ``row_price``."""
+        return self._widgets('row_price')
+
+    def widgets_filter(self):
+        """Return the widgets for the row ``row_filter``."""
+        return self._widgets('row_filter')
+
+    def widgets_filter_other(self):
+        """Return all other widgets that have not been shown until now."""
+        return [widget for field_name, widget in self.widgets.items() if not \
+                    field_name in OMITTED_FIELDS and not \
+                    field_name in [shown_field for field_lists in \
+                    FIELD_ORDER.itervalues() for shown_field in field_lists]]
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
@@ -115,7 +199,7 @@ class IQuickSearchPortlet(IPortletDataProvider):
     )
 
     target_search = schema.Choice(
-        description=_(u"Find the search page which will be shown for the results."),
+        description=_(u"Find the search page which will be used to show the results."),
         required=True,
         source=SearchableTextSourceBinder({
             'object_provides': 'plone.mls.listing.browser.listing_search.' \
@@ -144,18 +228,47 @@ class Assignment(base.Assignment):
 
 
 class Renderer(base.Renderer):
-    """Agent Information Portlet Renderer."""
+    """Listing Quick Search Portlet Renderer."""
+
+    @property
+    def available(self):
+        """Check the portlet availability."""
+        search_path = self.data.target_search
+
+        if search_path is None:
+            return False
+
+        if search_path.startswith('/'):
+            search_path = search_path[1:]
+
+        search_view = self.context.restrictedTraverse(search_path)
+        return listing_search.IListingSearch.providedBy(search_view)
 
     @property
     def title(self):
-        if self.data.mode == 'SEARCH':
+        """Return the title dependend on the mode that we are in."""
+        if self.mode == 'SEARCH':
             if self.data.heading is not None:
                 return self.data.heading
             return self.data.title
-        if self.data.mode == 'FILTER':
+        if self.mode == 'FILTER':
             if self.data.heading_filter is not None:
                 return self.data.heading_filter
             return self.data.title_filter
+
+    @property
+    def mode(self):
+        """Return the mode that we are in.
+
+        This can be either ``FILTER`` if a search was already performed and we
+        are on a search page or ``SEARCH`` otherwise.
+        """
+        form = self.request.form
+        if listing_search.IListingSearch.providedBy(self.context) and \
+            'form.buttons.search' in form.keys():
+            return 'FILTER'
+        else:
+            return 'SEARCH'
 
     def update(self):
         z2.switch_on(self, request_layer=IFormLayer)
@@ -167,11 +280,11 @@ class Renderer(base.Renderer):
 
 
 class AddForm(base.AddForm):
-    """Add form for the Agent Information portlet."""
+    """Add form for the Listing Quick Search portlet."""
     form_fields = formlib.form.Fields(IQuickSearchPortlet)
     form_fields['target_search'].custom_widget = UberSelectionWidget
 
-    label = _(u'Add Agent Information portlet')
+    label = _(u'Add Listing Quick Search portlet')
     description = MSG_PORTLET_DESCRIPTION
 
     def create(self, data):
@@ -181,9 +294,9 @@ class AddForm(base.AddForm):
 
 
 class EditForm(base.EditForm):
-    """Edit form for the Agent Information portlet."""
+    """Edit form for the Listing Quick Search portlet."""
     form_fields = formlib.form.Fields(IQuickSearchPortlet)
     form_fields['target_search'].custom_widget = UberSelectionWidget
 
-    label = _(u'Edit Agent Information portlet')
+    label = _(u'Edit Listing Quick Search portlet')
     description = MSG_PORTLET_DESCRIPTION
