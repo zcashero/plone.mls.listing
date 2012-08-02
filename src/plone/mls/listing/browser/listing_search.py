@@ -409,12 +409,14 @@ class ListingSearchToggle(object):
         if IListingSearch.providedBy(self.context):
             # Deactivate ListingSearch viewlet.
             noLongerProvides(self.context, IListingSearch)
+            self.context.reindexObject(idxs=['object_provides', ])
             msg = _(
                 u'text_listing_search_deactivated',
                 default=u"'Listing Search' viewlet deactivated.",
             )
         elif IPossibleListingSearch.providedBy(self.context):
             alsoProvides(self.context, IListingSearch)
+            self.context.reindexObject(idxs=['object_provides', ])
             msg = _(
                 u'text_listing_search_activated',
                 default=u"'Listing Search' viewlet activated.",

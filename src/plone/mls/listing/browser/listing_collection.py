@@ -302,12 +302,14 @@ class ListingCollectionToggle(object):
         if IListingCollection.providedBy(self.context):
             # Deactivate ListingCollection viewlet.
             noLongerProvides(self.context, IListingCollection)
+            self.context.reindexObject(idxs=['object_provides', ])
             msg = _(
                 u'text_listing_collection_deactivated',
                 default=u"'Listing Collection' viewlet deactivated.",
             )
         elif IPossibleListingCollection.providedBy(self.context):
             alsoProvides(self.context, IListingCollection)
+            self.context.reindexObject(idxs=['object_provides', ])
             msg = _(
                 u'text_listing_collection_activated',
                 default=u"'Listing Collection' viewlet activated.",

@@ -222,12 +222,14 @@ class RecentListingsToggle(object):
         if IRecentListings.providedBy(self.context):
             # Deactivate RecentListings viewlet.
             noLongerProvides(self.context, IRecentListings)
+            self.context.reindexObject(idxs=['object_provides', ])
             msg = _(
                 u'text_recent_listings_deactivated',
                 default=u"'Recent Listings' viewlet deactivated.",
             )
         elif IPossibleRecentListings.providedBy(self.context):
             alsoProvides(self.context, IRecentListings)
+            self.context.reindexObject(idxs=['object_provides', ])
             msg = _(
                 u'text_recent_listings_activated',
                 default=u"'Recent Listings' viewlet activated.",
