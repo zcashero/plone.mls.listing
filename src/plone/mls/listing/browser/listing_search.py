@@ -24,13 +24,14 @@ from Acquisition import aq_inner
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
+from plone.portlets.interfaces import IPortletManager, IPortletRetriever
 from plone.z3cform import z2
 from z3c.form import field, button
 from z3c.form.browser import checkbox, radio
 from z3c.form.interfaces import IFormLayer
 from zope import schema
 from zope.annotation.interfaces import IAnnotations
-from zope.component import queryMultiAdapter
+from zope.component import getUtility, queryMultiAdapter
 from zope.interface import Interface, alsoProvides, noLongerProvides
 from zope.traversing.browser.absoluteurl import absoluteURL
 
@@ -280,6 +281,21 @@ class ListingSearchViewlet(ViewletBase):
         annotations = IAnnotations(self.context)
         return annotations.get(CONFIGURATION_KEY, {})
 
+    @property
+    def hide_form(self):
+        if self.config.get('hide_form', False) == False:
+            return False
+
+        from plone.mls.listing.portlets.quick_search import IQuickSearchPortlet
+        portlets = []
+        for column in ["plone.leftcolumn", "plone.rightcolumn"]:
+            manager = manager = getUtility(IPortletManager, name=column)
+            retriever = queryMultiAdapter((self.context, manager),
+                                          IPortletRetriever)
+            portlets.extend(retriever.getPortlets())
+        return len([portlet for portlet in portlets if \
+            IQuickSearchPortlet.providedBy(portlet['assignment'])]) > 0
+
     def update(self):
         """Prepare view related data."""
         super(ListingSearchViewlet, self).update()
@@ -339,6 +355,14 @@ class IListingSearchConfiguration(Interface):
         title=_(
             u'label_listing_search_limit',
             default=u'Items per Page',
+        ),
+    )
+
+    hide_form = schema.Bool(
+        default=True,
+        required=False,
+        title=_(
+            u'Hide the search form when Quick Search Portlet is available?'
         ),
     )
 

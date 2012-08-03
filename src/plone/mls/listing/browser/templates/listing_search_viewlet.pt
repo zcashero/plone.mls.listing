@@ -18,7 +18,7 @@
                        b_start request/b_start | python: 0;">
 
     <div id="search-form"
-         tal:condition="view/form | nothing"
+         tal:condition="python: not view.hide_form or not listings"
          tal:attributes="class python: results and 'results' or ''">
       <p id="show-form" i18n:domain="plone" style="display: none;"><a href=""
          i18n:translate="edit_your_search_options">Edit your search options</a></p>
