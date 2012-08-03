@@ -107,7 +107,7 @@ class TestRenderer(unittest.TestCase):
 
     def test_title(self):
         r = self.renderer(context=self.portal, assignment=quick_search.Assignment())
-        self.assertEqual('Listing Search', r.title)
+        self.assertEqual('Search Listings', r.title)
 
     def test_custom_title(self):
         r = self.renderer(context=self.portal, assignment=quick_search.Assignment(heading=u'My Title'))
