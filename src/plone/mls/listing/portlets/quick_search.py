@@ -171,10 +171,11 @@ class QuickSearchForm(form.Form):
 
     def widgets_filter_other(self):
         """Return all other widgets that have not been shown until now."""
+        used_fields = FIELD_ORDER.values()
         return [widget for field_name, widget in self.widgets.items() if not \
                     field_name in OMITTED_FIELDS and not \
                     field_name in [shown_field for field_lists in \
-                    FIELD_ORDER.itervalues() for shown_field in field_lists]]
+                    used_fields for shown_field in field_lists]]
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
