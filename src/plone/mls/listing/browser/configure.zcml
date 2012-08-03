@@ -193,4 +193,19 @@
       name="noValueMessage"
       />
 
+  <adapter
+      factory=".adapter.PleaseSelectState"
+      name="noValueMessage"
+      />
+
+  <adapter
+      factory=".adapter.PleaseSelectCounty"
+      name="noValueMessage"
+      />
+
+  <adapter
+      factory=".adapter.PleaseSelectDistrict"
+      name="noValueMessage"
+      />
+
 </configure>
