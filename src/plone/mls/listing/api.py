@@ -164,9 +164,11 @@ class SearchOptions(object):
         return self._items
 
 
-def search_options(category, lang=None):
+def search_options(mls_url, category, lang=None):
     timeout = 60
-    key = category + '_' + lang
+    if mls_url is None or len(mls_url) < 1:
+        return
+    key = mls_url + category + '_' + lang
     options = OPTIONS_CACHE.get(key, None)
     if options is None:
         options = OPTIONS_CACHE[key] = SearchOptions(category, lang, timeout)
