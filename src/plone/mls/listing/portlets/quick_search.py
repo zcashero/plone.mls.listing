@@ -242,7 +242,8 @@ class Renderer(base.Renderer):
             search_path = search_path[1:]
 
         search_view = self.context.restrictedTraverse(search_path)
-        return listing_search.IListingSearch.providedBy(search_view)
+        return listing_search.IListingSearch.providedBy(search_view) and \
+            self.mode != 'HIDDEN'
 
     @property
     def title(self):
@@ -267,6 +268,9 @@ class Renderer(base.Renderer):
         if listing_search.IListingSearch.providedBy(self.context) and \
             'form.buttons.search' in form.keys():
             return 'FILTER'
+        elif listing_search.IListingSearch.providedBy(self.context) and \
+            not 'form.buttons.search' in form.keys():
+            return 'HIDDEN'
         else:
             return 'SEARCH'
 
