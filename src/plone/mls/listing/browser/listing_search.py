@@ -21,6 +21,7 @@
 
 # zope imports
 from Acquisition import aq_inner
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
 from plone.memoize.view import memoize
@@ -51,6 +52,38 @@ from plone.mls.listing.browser.valuerange.widget import ValueRangeFieldWidget
 from plone.mls.listing.i18n import _
 
 CONFIGURATION_KEY = 'plone.mls.listing.listingsearch'
+
+FIELD_ORDER = {
+    'row_listing_type': [
+        'listing_type',
+    ],
+    'row_location': [
+        'location_state',
+        'location_county',
+        'location_district',
+    ],
+    'row_price': [
+        'location_city',
+        'price_min',
+        'price_max',
+    ],
+    'row_beds_baths': [
+        'beds',
+        'baths',
+    ],
+    'row_other': [
+        'air_condition',
+        'pool',
+        'jacuzzi',
+    ],
+    'row_tabbed': [
+        'location_type',
+        'geographic_type',
+        'view_type',
+        'object_type',
+        'ownership_type'
+    ],
+}
 
 
 class IPossibleListingSearch(Interface):
@@ -240,6 +273,11 @@ class IListingSearchForm(Interface):
 class ListingSearchForm(form.Form):
     """Listing Search Form."""
     fields = field.Fields(IListingSearchForm)
+    template = ViewPageTemplateFile('templates/search_form.pt')
+    ignoreContext = True
+    method = 'get'
+    search_params = None
+
     fields['air_condition'].widgetFactory = radio.RadioFieldWidget
     fields['baths'].widgetFactory = ValueRangeFieldWidget
     fields['beds'].widgetFactory = ValueRangeFieldWidget
@@ -251,9 +289,9 @@ class ListingSearchForm(form.Form):
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['pool'].widgetFactory = radio.RadioFieldWidget
     fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    ignoreContext = True
-    method = 'get'
-    search_params = None
+
+    def update(self):
+        return super(ListingSearchForm, self).update()
 
     @button.buttonAndHandler(_(u"Search"), name='search')
     def handle_search(self, action):
@@ -262,6 +300,44 @@ class ListingSearchForm(form.Form):
             self.status = self.formErrorsMessage
             return
         self.search_params = prepare_search_params(data)
+
+    def _widgets(self, row):
+        """Return a list of widgets that should be shown for a given row."""
+        widget_data = dict(self.widgets.items())
+        available_fields = FIELD_ORDER.get(row, [])
+        return [widget_data.get(field, None) for field in available_fields]
+
+    def widgets_listing_type(self):
+        """Return the widgets for the row ``row_listing_type``."""
+        return self._widgets('row_listing_type')
+
+    def widgets_location(self):
+        """Return the widgets for the row ``row_location``."""
+        return self._widgets('row_location')
+
+    def widgets_price(self):
+        """Return the widgets for the row ``row_price``."""
+        return self._widgets('row_price')
+
+    def widgets_beds_baths(self):
+        """Return the widgets for the row ``row_beds_baths``."""
+        return self._widgets('row_beds_baths')
+
+    def widgets_other(self):
+        """Return the widgets for the row ``row_other``."""
+        return self._widgets('row_other')
+
+    def widgets_outstanding(self):
+        """Return all other widgets that have not been shown until now."""
+        defined_fields = FIELD_ORDER.values()
+        shown_fields = [shown_field for field_lists in defined_fields for \
+                        shown_field in field_lists]
+        return [widget for field_name, widget in self.widgets.items() if not \
+                    field_name in shown_fields]
+
+    def widgets_tabbed(self):
+        """Return the widgets for the row ``row_tabbed``."""
+        return self._widgets('row_tabbed')
 
 
 class ListingSearchViewlet(ViewletBase):
