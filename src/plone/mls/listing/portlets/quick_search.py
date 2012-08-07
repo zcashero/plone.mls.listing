@@ -57,6 +57,8 @@ FIELD_ORDER = {
     ],
     'row_location': [
         'location_state',
+        'location_county',  # Hide in search form
+        'location_district',  # Hide in search form
         'location_city',
     ],
     'row_beds_baths': [
@@ -78,9 +80,6 @@ FIELD_ORDER = {
         'geographic_type',
     ],
 }
-
-
-OMITTED_FIELDS = ['location_county', 'location_district']
 
 
 class QuickSearchForm(form.Form):
@@ -171,11 +170,11 @@ class QuickSearchForm(form.Form):
 
     def widgets_filter_other(self):
         """Return all other widgets that have not been shown until now."""
-        used_fields = FIELD_ORDER.values()
+        defined_fields = FIELD_ORDER.values()
+        shown_fields = [shown_field for field_lists in defined_fields for \
+                        shown_field in field_lists]
         return [widget for field_name, widget in self.widgets.items() if not \
-                    field_name in OMITTED_FIELDS and not \
-                    field_name in [shown_field for field_lists in \
-                    used_fields for shown_field in field_lists]]
+                    field_name in shown_fields]
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
