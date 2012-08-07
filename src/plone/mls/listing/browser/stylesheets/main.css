@@ -19,6 +19,49 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   overflow: hidden;
 }
 
+.listing-summary #search-form .form-rows {
+  clear: both;
+  margin-bottom: 1em;
+  overflow: hidden;
+  padding: 0 0.25em;
+}
+
+.listing-summary #search-form .form-rows .field {
+  padding: 0 1%;
+  width: 98%;
+}
+
+.listing-summary #search-form .form-row-location .field,
+.listing-summary #search-form .form-row-price .field,
+.listing-summary #search-form .form-row-beds-baths .field,
+.listing-summary #search-form .form-row-other .field {
+  clear: none;
+  float: left;
+  padding: 0 1%;
+  width: 31%;
+}
+
+.listing-summary #search-form .form-rows .field select,
+.listing-summary #search-form .form-rows .field input[type=text] {
+  width: 90%;
+}
+
+.listing-summary #search-form .form-row-beds-baths .field select {
+  width: 40%;
+}
+
+.listing-summary #search-form .form-row-beds-baths .field .separator {
+  display: inline-block;
+  text-align: center;
+  width: 10%;
+}
+
+#content .listing-summary #search-form dd {
+  float: none;
+  width: auto;
+}
+
+
 /* Listing Detail page.
    ====================
 */
