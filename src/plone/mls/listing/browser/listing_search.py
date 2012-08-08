@@ -21,6 +21,7 @@
 
 # zope imports
 from Acquisition import aq_inner
+from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.directives import form
@@ -86,6 +87,18 @@ FIELD_ORDER = {
 }
 
 
+def encode_dict(in_dict):
+    out_dict = {}
+    for k, v in in_dict.iteritems():
+        if isinstance(v, unicode):
+            v = v.encode('utf8')
+        elif isinstance(v, str):
+            # Must be encoded in UTF-8
+            v.decode('utf8')
+        out_dict[k] = v
+    return out_dict
+
+
 class IPossibleListingSearch(Interface):
     """Marker interface for possible ListingSearch viewlet."""
 
@@ -98,7 +111,6 @@ class IListingSearchForm(Interface):
     """Listing search form schema definition."""
 
     listing_type = schema.Tuple(
-        default=('cl', 'cs', 'll', 'rl', 'rs', ),
         required=False,
         title=_(
             u'label_listing_search_listing_type',
@@ -276,7 +288,6 @@ class ListingSearchForm(form.Form):
     template = ViewPageTemplateFile('templates/search_form.pt')
     ignoreContext = True
     method = 'get'
-    search_params = None
 
     fields['air_condition'].widgetFactory = radio.RadioFieldWidget
     fields['baths'].widgetFactory = ValueRangeFieldWidget
@@ -293,13 +304,13 @@ class ListingSearchForm(form.Form):
     def update(self):
         return super(ListingSearchForm, self).update()
 
-    @button.buttonAndHandler(_(u"Search"), name='search')
+    @button.buttonAndHandler(PMF(u'label_search', default=u'Search'),
+                             name='search')
     def handle_search(self, action):
         data, errors = self.extractData()
         if errors:
             self.status = self.formErrorsMessage
             return
-        self.search_params = prepare_search_params(data)
 
     def _widgets(self, row):
         """Return a list of widgets that should be shown for a given row."""
@@ -386,8 +397,12 @@ class ListingSearchViewlet(ViewletBase):
             alsoProvides(self.form, IWrappedForm)
         self.form.update()
 
-        if self.form.search_params is not None:
-            self._get_listings(self.form.search_params)
+        if len(self.request.form) > 0:
+            data, errors = self.form.extractData()
+            if not errors:
+                self._get_listings(prepare_search_params(data))
+
+            self.request.form = encode_dict(self.request.form)
 
     def _get_listings(self, params):
         """Query the recent listings from the MLS."""
