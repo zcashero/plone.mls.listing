@@ -263,6 +263,8 @@ class Renderer(base.Renderer):
         return self.data.heading or self.data.title
 
     def update(self):
+        if self.view.info is None:
+            return
         listing_info = {
             'listing_id': self.view.info.get('id').get('value'),
             'listing_title': self.view.info.get('title').get('value'),
