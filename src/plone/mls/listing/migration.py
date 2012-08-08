@@ -174,3 +174,4 @@ def migrate_to_1006(context):
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(PROFILE_ID, 'portlets')
     setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.registry')
+    setup.runImportStepFromProfile(PROFILE_ID, 'controlpanel')

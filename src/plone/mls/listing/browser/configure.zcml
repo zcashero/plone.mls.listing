@@ -5,6 +5,16 @@
 
   <include package=".valuerange" />
 
+
+  <browser:page
+      class=".controlpanel.MLSAgencyContactInfoSettingsControlPanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      layer=".interfaces.IListingSpecific"
+      name="mls-agency-contact-info"
+      permission="plone.app.controlpanel.Site"
+      />
+
+
   <!-- Listing Collection. -->
   <!-- =================== -->
   <browser:viewlet
