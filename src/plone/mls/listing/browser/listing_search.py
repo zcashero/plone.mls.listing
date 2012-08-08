@@ -397,7 +397,7 @@ class ListingSearchViewlet(ViewletBase):
             alsoProvides(self.form, IWrappedForm)
         self.form.update()
 
-        if len(self.request.form) > 0:
+        if self.available and len(self.request.form) > 0:
             data, errors = self.form.extractData()
             if not errors:
                 self._get_listings(prepare_search_params(data))
