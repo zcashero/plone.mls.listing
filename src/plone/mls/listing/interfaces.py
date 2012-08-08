@@ -107,3 +107,69 @@ class IMLSVocabularySettings(Interface):
         required=False,
         title=_(u"'View Types' priority list"),
     )
+
+
+class IMLSAgencyContactInformation(Interface):
+    """Propertyshelf MLS settings for custom contact information.
+
+    This describes records stored in the configuration registry and obtainable
+    via plone.registry.
+    """
+
+    use_custom_info = schema.Bool(
+        default=False,
+        required=False,
+        title=_(
+            u'Update agent information when showing a third party listing?'
+        ),
+    )
+
+    agency_name = schema.TextLine(
+        required=True,
+        title=_(u'Agency Name'),
+    )
+
+    agency_logo_url = schema.TextLine(
+        required=False,
+        title=_(u'Agency Logo'),
+    )
+
+    agency_office_phone = schema.TextLine(
+        required=False,
+        title=_(u'Agency Office Phone'),
+    )
+
+    agency_website = schema.TextLine(
+        required=False,
+        title=_(u'Agency Website'),
+    )
+
+    agent_name = schema.TextLine(
+        required=True,
+        title=_(u'Agent Name'),
+    )
+
+    agent_title = schema.TextLine(
+        required=False,
+        title=_(u'Agent Title'),
+    )
+
+    agent_office_phone = schema.TextLine(
+        required=False,
+        title=_('Agent Office Phone'),
+    )
+
+    agent_cell_phone = schema.TextLine(
+        required=False,
+        title=_(u'Agent Cell Phone'),
+    )
+
+    agent_fax = schema.TextLine(
+        required=False,
+        title=_(u'Agent Fax'),
+    )
+
+    agent_email = schema.TextLine(
+        required=True,
+        title=_(u'Agent Email'),
+    )
