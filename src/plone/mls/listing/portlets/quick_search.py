@@ -20,7 +20,9 @@
 """Listing Quick Search Portlet."""
 
 # zope imports
+from AccessControl import Unauthorized
 from Acquisition import aq_inner
+from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
@@ -57,8 +59,8 @@ FIELD_ORDER = {
     ],
     'row_location': [
         'location_state',
-        'location_county',  # Hide in search form
-        'location_district',  # Hide in search form
+        'location_county',  # TODO: Hide in search form
+        'location_district',  # TODO: Hide in search form
         'location_city',
     ],
     'row_beds_baths': [
@@ -114,7 +116,8 @@ class QuickSearchForm(form.Form):
         super(QuickSearchForm, self).__init__(context, request)
         self.data = data
 
-    @button.buttonAndHandler(_(u"Search"), name='search')
+    @button.buttonAndHandler(PMF(u'label_search', default=u'Search'),
+                             name='search')
     def handle_search(self, action):
         """Search button."""
         data, errors = self.extractData()
@@ -241,7 +244,11 @@ class Renderer(base.Renderer):
         if search_path.startswith('/'):
             search_path = search_path[1:]
 
-        search_view = self.context.restrictedTraverse(search_path)
+        try:
+            search_view = self.context.restrictedTraverse(search_path)
+        except Unauthorized:
+            return False
+
         return listing_search.IListingSearch.providedBy(search_view) and \
             self.mode != 'HIDDEN'
 
