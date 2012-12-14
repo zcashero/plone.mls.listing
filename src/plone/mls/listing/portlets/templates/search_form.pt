@@ -46,32 +46,50 @@
           </tal:block>
         </div>
 
-        <div class="form-row-listing-type form-rows">
-          <tal:block tal:repeat="widget view/widgets_listing_type | nothing">
+        <div class="form-row-listing-type form-rows"
+             tal:define="widgets view/widgets_listing_type | nothing"
+             tal:condition="widgets">
+          <tal:block tal:repeat="widget widgets">
             <metal:field use-macro="context/@@ploneform-macros/field" />
           </tal:block>
         </div>
 
-        <div class="form-row-location form-rows">
-          <tal:block tal:repeat="widget view/widgets_location | nothing">
+        <div class="form-row-location form-rows"
+             tal:define="widgets view/widgets_location | nothing"
+             tal:condition="widgets">
+          <tal:block tal:repeat="widget widgets">
             <metal:field use-macro="context/@@ploneform-macros/field" />
           </tal:block>
         </div>
 
-        <div class="form-row-beds-baths form-rows">
-          <tal:block tal:repeat="widget view/widgets_beds_baths | nothing">
+        <div class="form-row-beds-baths form-rows"
+             tal:define="widgets view/widgets_beds_baths | nothing"
+             tal:condition="widgets">
+          <tal:block tal:repeat="widget widgets">
             <metal:field use-macro="context/@@ploneform-macros/field" />
           </tal:block>
         </div>
 
-        <div class="form-row-object-type form-rows">
-          <tal:block tal:repeat="widget view/widgets_object_type | nothing">
+        <div class="form-row-object-type form-rows"
+             tal:define="widgets view/widgets_object_type | nothing"
+             tal:condition="widgets">
+          <tal:block tal:repeat="widget widgets">
             <metal:field use-macro="template/macros/collapsible_field" />
           </tal:block>
         </div>
 
-        <div class="form-row-price form-rows">
-          <tal:block tal:repeat="widget view/widgets_price | nothing">
+        <div class="form-row-price form-rows"
+             tal:define="widgets view/widgets_price | nothing"
+             tal:condition="widgets">
+          <tal:block tal:repeat="widget widgets">
+            <metal:field use-macro="context/@@ploneform-macros/field" />
+          </tal:block>
+        </div>
+
+        <div class="form-row-sizes form-rows"
+             tal:define="widgets view/widgets_sizes | nothing"
+             tal:condition="widgets">
+          <tal:block tal:repeat="widget widgets">
             <metal:field use-macro="context/@@ploneform-macros/field" />
           </tal:block>
         </div>
@@ -79,14 +97,18 @@
         <div class="filter-options"
              tal:condition="view/show_filter | nothing">
 
-          <div class="form-row-filter form-rows">
-            <tal:block tal:repeat="widget view/widgets_filter | nothing">
+          <div class="form-row-filter form-rows"
+               tal:define="widgets view/widgets_filter | nothing"
+               tal:condition="widgets">
+            <tal:block tal:repeat="widget widgets">
               <metal:field use-macro="template/macros/collapsible_field" />
             </tal:block>
           </div>
 
-          <div class="form-row-filter-other form-rows">
-            <tal:block tal:repeat="widget view/widgets_filter_other | nothing">
+          <div class="form-row-filter-other form-rows"
+               tal:define="widgets view/widgets_filter_other | nothing"
+               tal:condition="widgets">
+            <tal:block tal:repeat="widget widgets">
               <metal:field use-macro="template/macros/collapsible_field" />
             </tal:block>
           </div>
