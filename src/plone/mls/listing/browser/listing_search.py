@@ -72,6 +72,10 @@ FIELD_ORDER = {
         'beds',
         'baths',
     ],
+    'row_sizes': [
+        'lot_size',
+        'interior_area',
+    ],
     'row_other': [
         'air_condition',
         'pool',
@@ -281,6 +285,24 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    lot_size = schema.Tuple(
+        default=('--MINVALUE--', '--MAXVALUE--'),
+        required=False,
+        title=_(u'Lot Size'),
+        value_type=schema.Choice(
+            source='plone.mls.listing.LotSizes',
+        ),
+    )
+
+    interior_area = schema.Tuple(
+        default=('--MINVALUE--', '--MAXVALUE--'),
+        required=False,
+        title=_(u'Interior Area'),
+        value_type=schema.Choice(
+            source='plone.mls.listing.InteriorAreaSizes',
+        ),
+    )
+
 
 class ListingSearchForm(form.Form):
     """Listing Search Form."""
@@ -291,6 +313,8 @@ class ListingSearchForm(form.Form):
 
     fields['air_condition'].widgetFactory = radio.RadioFieldWidget
     fields['baths'].widgetFactory = ValueRangeFieldWidget
+    fields['lot_size'].widgetFactory = ValueRangeFieldWidget
+    fields['interior_area'].widgetFactory = ValueRangeFieldWidget
     fields['beds'].widgetFactory = ValueRangeFieldWidget
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['jacuzzi'].widgetFactory = radio.RadioFieldWidget
@@ -333,6 +357,10 @@ class ListingSearchForm(form.Form):
     def widgets_beds_baths(self):
         """Return the widgets for the row ``row_beds_baths``."""
         return self._widgets('row_beds_baths')
+
+    def widgets_sizes(self):
+        """Return the widgets for the row ``row_sizes``."""
+        return self._widgets('row_sizes')
 
     def widgets_other(self):
         """Return the widgets for the row ``row_other``."""

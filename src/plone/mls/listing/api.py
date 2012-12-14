@@ -45,7 +45,7 @@ def prepare_search_params(data):
     params = {}
 
     for item in data:
-        if item in ['baths', 'beds', ]:
+        if item in ['baths', 'beds', 'lot_size', 'interior_area']:
             min_max = data[item]
             if isinstance(min_max, (list, tuple, )):
                 if len(min_max) > 0 and min_max[0] != '--MINVALUE--':
