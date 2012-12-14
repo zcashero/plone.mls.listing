@@ -74,6 +74,10 @@ FIELD_ORDER = {
         'price_min',
         'price_max',
     ],
+    'row_sizes': [
+        'lot_size',
+        'interior_area',
+    ],
     'row_filter': [
         'air_condition',
         'pool',
@@ -96,6 +100,8 @@ class QuickSearchForm(form.Form):
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['baths'].widgetFactory = ValueRangeFieldWidget
     fields['beds'].widgetFactory = ValueRangeFieldWidget
+    fields['lot_size'].widgetFactory = ValueRangeFieldWidget
+    fields['interior_area'].widgetFactory = ValueRangeFieldWidget
 
     # Additional fields for filtering.
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
@@ -166,6 +172,10 @@ class QuickSearchForm(form.Form):
     def widgets_price(self):
         """Return the widgets for the row ``row_price``."""
         return self._widgets('row_price')
+
+    def widgets_sizes(self):
+        """Return the widgets for the row ``row_sizes``."""
+        return self._widgets('row_sizes')
 
     def widgets_filter(self):
         """Return the widgets for the row ``row_filter``."""
