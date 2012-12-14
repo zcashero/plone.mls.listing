@@ -34,6 +34,7 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
 .listing-summary #search-form .form-row-location .field,
 .listing-summary #search-form .form-row-price .field,
 .listing-summary #search-form .form-row-beds-baths .field,
+.listing-summary #search-form .form-row-sizes .field,
 .listing-summary #search-form .form-row-other .field {
   clear: none;
   float: left;
@@ -46,11 +47,13 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   width: 90%;
 }
 
-.listing-summary #search-form .form-row-beds-baths .field select {
+.listing-summary #search-form .form-row-beds-baths .field select,
+.listing-summary #search-form .form-row-sizes .field select {
   width: 40%;
 }
 
-.listing-summary #search-form .form-row-beds-baths .field .separator {
+.listing-summary #search-form .form-row-beds-baths .field .separator,
+.listing-summary #search-form .form-row-sizes .field .separator {
   display: inline-block;
   text-align: center;
   width: 10%;
