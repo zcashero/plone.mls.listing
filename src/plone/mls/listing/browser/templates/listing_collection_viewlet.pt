@@ -85,6 +85,11 @@
               <dt class="row"><span tal:replace="item/label">[Label]</span>:</dt>
               <dd class="full"><span tal:replace="item/value">[Value]</span></dd>
             </tal:item>
+
+            <tal:item tal:define="item listing/lot_size | nothing" tal:condition="item">
+              <dt class="row"><span tal:replace="item/label">Label</span>:</dt>
+              <dd class="full"><span tal:replace="structure item/value">Value</span></dd>
+            </tal:item>
           </dl>
         </section>
 
