@@ -87,4 +87,14 @@
       name="plone.mls.listing.YesNoAll"
       />
 
+  <utility
+      component=".vocabularies.LotSizeVocabularyFactory"
+      name="plone.mls.listing.LotSizes"
+      />
+
+  <utility
+      component=".vocabularies.InteriorAreaVocabularyFactory"
+      name="plone.mls.listing.InteriorAreaSizes"
+      />
+
 </configure>

@@ -47,6 +47,34 @@ ROOM_VALUES = [
     ('--MAXVALUE--', 'Max'),
 ]
 
+LOT_SIZE_VALUES = [
+    ('--MINVALUE--', 'Min'),
+    (500, u'500 m²'),
+    (1000, u'1000 m²'),
+    (2000, u'2000 m²'),
+    (4000, u'4000 m²'),
+    (6000, u'6000 m²'),
+    (8000, u'8000 m²'),
+    (10000, u'1 hec'),
+    (20000, u'2 hec'),
+    (100000, u'10 hec'),
+    ('--MAXVALUE--', 'Max'),
+]
+
+INTERIOR_AREA_VALUES = [
+    ('--MINVALUE--', 'Min'),
+    (50, u'50 m²'),
+    (100, u'100 m²'),
+    (150, u'150 m²'),
+    (250, u'250 m²'),
+    (500, u'500 m²'),
+    (750, u'750 m²'),
+    (1000, u'1000 m²'),
+    (1250, u'1250 m²'),
+    (1500, u'1500 m²'),
+    ('--MAXVALUE--', 'Max'),
+]
+
 
 @implementer(IVocabularyFactory)
 class BasePriorityVocabulary(object):
@@ -234,3 +262,27 @@ class YesNoAllVocabulary(object):
         return SimpleVocabulary(items)
 
 YesNoAllVocabularyFactory = YesNoAllVocabulary()
+
+
+@implementer(IVocabularyFactory)
+class LotSizeVocabulary(object):
+
+    def __call__(self, context):
+        items = []
+        for item in LOT_SIZE_VALUES:
+            items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+LotSizeVocabularyFactory = LotSizeVocabulary()
+
+
+@implementer(IVocabularyFactory)
+class InteriorAreaVocabulary(object):
+
+    def __call__(self, context):
+        items = []
+        for item in INTERIOR_AREA_VALUES:
+            items.append(SimpleTerm(item[0], item[0], item[1]))
+        return SimpleVocabulary(items)
+
+InteriorAreaVocabularyFactory = InteriorAreaVocabulary()
