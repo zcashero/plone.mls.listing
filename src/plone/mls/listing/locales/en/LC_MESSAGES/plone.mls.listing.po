@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 12:22+0000\n"
+"POT-Creation-Date: 2013-03-06 12:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -251,6 +251,10 @@ msgstr ""
 
 #: ./../browser/listing_search.py:291
 msgid "Lot Size"
+msgstr ""
+
+#: ./../profiles/default/controlpanel.xml
+msgid "MLS Agency Contact Info"
 msgstr ""
 
 #: ./../portlets/agent_contact.py:211

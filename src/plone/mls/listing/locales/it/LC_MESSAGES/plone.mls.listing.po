@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 12:22+0000\n"
-"PO-Revision-Date: 2013-03-06 12:23+0000\n"
+"POT-Creation-Date: 2013-03-06 12:46+0000\n"
+"PO-Revision-Date: 2013-03-06 12:47+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/MLS_Plone/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -258,6 +258,10 @@ msgstr ""
 
 #: ./../browser/listing_search.py:291
 msgid "Lot Size"
+msgstr ""
+
+#: ./../profiles/default/controlpanel.xml
+msgid "MLS Agency Contact Info"
 msgstr ""
 
 #: ./../portlets/agent_contact.py:211
