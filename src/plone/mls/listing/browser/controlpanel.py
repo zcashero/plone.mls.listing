@@ -23,7 +23,7 @@
 from plone.app.registry.browser import controlpanel
 
 # local imports
-from plone.mls.listing.i18n import _
+# from plone.mls.listing.i18n import _
 from plone.mls.listing.interfaces import IMLSAgencyContactInformation
 
 
@@ -31,7 +31,7 @@ class MLSAgencyContactInfoSettingsEditForm(controlpanel.RegistryEditForm):
     """MLS Agency Contact Info Settings Form."""
 
     schema = IMLSAgencyContactInformation
-    label = _(u'')
+    label = u''
 
     def updateFields(self):
         super(MLSAgencyContactInfoSettingsEditForm, self).updateFields()

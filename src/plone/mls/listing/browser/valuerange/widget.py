@@ -40,12 +40,12 @@ class ValueRangeWidget(HTMLTextInputWidget, SequenceWidget):
     klass = u'value-range-widget'
     prompt = False
 
-    noValueMessage = _('no value')
-    promptMessage = _('select a value ...')
+    noValueMessage = _('All')
+    promptMessage = _('Select a value...')
 
     # Internal attributes
-    _adapterValueAttributes = SequenceWidget._adapterValueAttributes + (
-                              'noValueMessage', 'promptMessage', 'prompt')
+    _adapterValueAttributes = SequenceWidget._adapterValueAttributes + \
+        ('noValueMessage', 'promptMessage', 'prompt')
 
     def update(self):
         super(ValueRangeWidget, self).update()
@@ -144,7 +144,7 @@ class ValueRangeWidget(HTMLTextInputWidget, SequenceWidget):
         if min_ == default and max_ == default:
             return default
 
-        if min_ == None and max_ == None:
+        if min_ is None and max_ is None:
             return default
 
         return (min_, max_)
