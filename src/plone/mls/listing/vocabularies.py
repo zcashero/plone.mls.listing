@@ -30,11 +30,12 @@ from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 # local imports
 from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.listing.i18n import _
 from plone.mls.listing.api import search_options
 from plone.mls.listing.interfaces import IMLSVocabularySettings
 
 ROOM_VALUES = [
-    ('--MINVALUE--', 'Min'),
+    ('--MINVALUE--', _(u'Min')),
     (1, '1'),
     (2, '2'),
     (3, '3'),
@@ -44,11 +45,11 @@ ROOM_VALUES = [
     (7, '7'),
     (8, '8'),
     (9, '9'),
-    ('--MAXVALUE--', 'Max'),
+    ('--MAXVALUE--', _(u'Max')),
 ]
 
 LOT_SIZE_VALUES = [
-    ('--MINVALUE--', 'Min'),
+    ('--MINVALUE--', _(u'Min')),
     (500, u'500 m²'),
     (1000, u'1000 m²'),
     (2000, u'2000 m²'),
@@ -58,11 +59,11 @@ LOT_SIZE_VALUES = [
     (10000, u'1 hec'),
     (20000, u'2 hec'),
     (100000, u'10 hec'),
-    ('--MAXVALUE--', 'Max'),
+    ('--MAXVALUE--', _(u'Max')),
 ]
 
 INTERIOR_AREA_VALUES = [
-    ('--MINVALUE--', 'Min'),
+    ('--MINVALUE--', _(u'Min')),
     (50, u'50 m²'),
     (100, u'100 m²'),
     (150, u'150 m²'),
@@ -72,7 +73,7 @@ INTERIOR_AREA_VALUES = [
     (1000, u'1000 m²'),
     (1250, u'1250 m²'),
     (1500, u'1500 m²'),
-    ('--MAXVALUE--', 'Max'),
+    ('--MAXVALUE--', _(u'Max')),
 ]
 
 
@@ -142,7 +143,7 @@ class BasePriorityVocabulary(object):
             value = getattr(settings, self.priority, '')
             if value is None:
                 value = ''
-            priority_list = [item.strip() for item in value.split(',') \
+            priority_list = [item.strip() for item in value.split(',')
                              if len(item.strip()) > 0]
 
         try:
@@ -256,9 +257,9 @@ class YesNoAllVocabulary(object):
 
     def __call__(self, context):
         items = []
-        items.append(SimpleTerm('1', '1', u'Yes'))
-        items.append(SimpleTerm('0', '0', u'No'))
-        items.append(SimpleTerm('--NOVALUE--', '--NOVALUE--', u'All'))
+        items.append(SimpleTerm('1', '1', _(u'Yes')))
+        items.append(SimpleTerm('0', '0', _(u'No')))
+        items.append(SimpleTerm('--NOVALUE--', '--NOVALUE--', _(u'All')))
         return SimpleVocabulary(items)
 
 YesNoAllVocabularyFactory = YesNoAllVocabulary()
