@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-06 11:00+0000\n"
+"POT-Creation-Date: 2013-03-06 12:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -245,7 +245,7 @@ msgid "Invalid email address"
 msgstr ""
 
 #: ./../interfaces.py:29
-msgid "Items in this vocabulary are sorted by priority key (if available) and value otherwise.Enter one item per line. Possible values are: %s"
+msgid "Items in this vocabulary are sorted by priority key (if available) and value otherwise. Enter one item per line. Possible values are: %s"
 msgstr ""
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml

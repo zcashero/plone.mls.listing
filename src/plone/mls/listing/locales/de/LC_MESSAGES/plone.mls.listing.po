@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 11:00+0000\n"
-"PO-Revision-Date: 2013-03-06 11:03+0000\n"
+"POT-Creation-Date: 2013-03-06 12:22+0000\n"
+"PO-Revision-Date: 2013-03-06 12:27+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -21,27 +21,27 @@ msgstr ""
 
 #: ./../interfaces.py:78
 msgid "'Geographic Types' priority list"
-msgstr ""
+msgstr "Prioritätsliste für 'Art des Standorts'"
 
 #: ./../interfaces.py:84
 msgid "'Listing Types' priority list"
-msgstr ""
+msgstr "Prioritätsliste für 'Art der Immobilie'"
 
 #: ./../interfaces.py:90
 msgid "'Location Types' priority list"
-msgstr ""
+msgstr "Prioritätsliste für 'Lage'"
 
 #: ./../interfaces.py:96
 msgid "'Object Types' priority list"
-msgstr ""
+msgstr "Prioritätsliste für 'Art des Objektes'"
 
 #: ./../interfaces.py:102
 msgid "'Ownership Types' priority list"
-msgstr ""
+msgstr "Prioritätsliste für 'Eigentumstyp'"
 
 #: ./../interfaces.py:108
 msgid "'View Types' priority list"
-msgstr ""
+msgstr "Prioritätsliste für 'Art der Aussicht'"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "A single MLS Listing"
@@ -73,47 +73,47 @@ msgstr "Das Viewlet für die neuesten Immobilien aktivieren."
 
 #: ./../portlets/agent_contact.py:286 ./../portlets/agent_information.py:83
 msgid "Add Agent Information portlet"
-msgstr ""
+msgstr "Portlet für Makler-Informationen hinzufügen"
 
 #: ./../portlets/quick_search.py:308
 msgid "Add Listing Quick Search portlet"
-msgstr ""
+msgstr "Immobilien-Schnellsuche hinzufügen"
 
 #: ./../portlets/agent_contact.py:201
 msgid "Additional description for the portlet."
-msgstr ""
+msgstr "Zusätzliche Beschreibung."
 
 #: ./../interfaces.py:134
 msgid "Agency Logo"
-msgstr ""
+msgstr "Agentur, Logo"
 
 #: ./../interfaces.py:129
 msgid "Agency Name"
-msgstr ""
+msgstr "Agentur, Name"
 
 #: ./../interfaces.py:139
 msgid "Agency Office Phone"
-msgstr ""
+msgstr "Agentur, Telefon"
 
 #: ./../interfaces.py:144
 msgid "Agency Website"
-msgstr ""
+msgstr "Agentur, Webseite"
 
 #: ./../interfaces.py:164
 msgid "Agent Cell Phone"
-msgstr ""
+msgstr "Makler, Mobiltelefon"
 
 #: ./../portlets/agent_contact.py:231
 msgid "Agent Contact"
-msgstr ""
+msgstr "Makler-Kontakt"
 
 #: ./../interfaces.py:174
 msgid "Agent Email"
-msgstr ""
+msgstr "Makler, E-Mail"
 
 #: ./../interfaces.py:169
 msgid "Agent Fax"
-msgstr ""
+msgstr "Makler, Fax"
 
 #: ./../portlets/agent_information.py:59
 msgid "Agent Information"
@@ -121,15 +121,15 @@ msgstr "Makler-Informationen"
 
 #: ./../interfaces.py:149
 msgid "Agent Name"
-msgstr ""
+msgstr "Makler, Name"
 
 #: ./../interfaces.py:159
 msgid "Agent Office Phone"
-msgstr ""
+msgstr "Makler, Telefon"
 
 #: ./../interfaces.py:154
 msgid "Agent Title"
-msgstr ""
+msgstr "Makler, Titel"
 
 #: ./../browser/adapter.py:29 ./../browser/valuerange/widget.py:43
 #: ./../vocabularies.py:262
@@ -138,7 +138,7 @@ msgstr "Alle"
 
 #: ./../portlets/agent_contact.py:219
 msgid "BCC Recipients"
-msgstr ""
+msgstr "BCC Empfänger"
 
 #: ./../browser/listing_collection.py:270 ./../browser/listing_search.py:519
 #: ./../browser/recent_listings.py:190
@@ -173,19 +173,19 @@ msgstr "Konfiguration des Viewlets für neueste Immobilien."
 msgid ""
 "Custom title for the portlet (filter mode). If no title is provided, the "
 "default title is used."
-msgstr ""
+msgstr "Angepasster Titel für das Portlet (Such-Filter). Wenn kein Titel angegeben wird, dann wird der Standard-Titel verwendet."
 
 #: ./../portlets/quick_search.py:197
 msgid ""
 "Custom title for the portlet (search mode). If no title is provided, the "
 "default title is used."
-msgstr ""
+msgstr "Angepasster Titel für das Portlet (Suche). Wenn kein Titel angegeben wird, dann wird der Standard-Titel verwendet."
 
 #: ./../portlets/agent_contact.py:193 ./../portlets/agent_information.py:46
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
 "used."
-msgstr ""
+msgstr "Angepasster Titel für das Portlet. Wenn kein Titel angegeben wird, dann wird der Standard-Titel verwendet."
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Listing Collection"
@@ -213,45 +213,45 @@ msgstr "Neueste Immobilien Viewlet deaktivieren."
 
 #: ./../portlets/agent_contact.py:203
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: ./../portlets/agent_contact.py:215
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
-msgstr ""
+msgstr "Liste von E-Mail-Adressen (Komma-separiert), die eine Blindkopie erhalten sollen."
 
 #: ./../portlets/agent_contact.py:298 ./../portlets/agent_information.py:95
 msgid "Edit Agent Information portlet"
-msgstr ""
+msgstr "Portlet für Makler-Informationen bearbeiten"
 
 #: ./../portlets/quick_search.py:322
 msgid "Edit Listing Quick Search portlet"
-msgstr ""
+msgstr "Immobilien-Schnellsuche bearbeiten"
 
 #: ./../portlets/quick_search.py:234
 msgid "Filter Results"
-msgstr ""
+msgstr "Suchergebnisse einschränken"
 
 #: ./../portlets/quick_search.py:215
 msgid "Find the search page which will be used to show the results."
-msgstr ""
+msgstr "Suchseite auswählen, die für die Anzeige der Suchergebnisse verwendet wird."
 
 #: ./../browser/listing_search.py:483
 msgid "Hide the search form when Quick Search Portlet is available?"
-msgstr ""
+msgstr "Such-Formular ausblenden, wenn das Portlet für die Immobilien-Schnellsuche verfügbar ist?"
 
 #: ./../browser/listing_search.py:300
 msgid "Interior Area"
-msgstr ""
+msgstr "Gesamtfläche Innenbereich"
 
 #: ./../portlets/agent_contact.py:71
 msgid "Invalid email address"
-msgstr ""
+msgstr "Ungültige E-Mail-Adresse"
 
 #: ./../interfaces.py:29
 msgid ""
 "Items in this vocabulary are sorted by priority key (if available) and value"
-" otherwise.Enter one item per line. Possible values are: %s"
-msgstr ""
+" otherwise. Enter one item per line. Possible values are: %s"
+msgstr "Einträge in diesem Vokabular sind nach Priorität sortiert (sofern verfügbar), andernfalls alphabetisch. Geben Sie einen Eintrag pro Zeile ein. Die möglichen Werte sind: %s"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
@@ -259,11 +259,11 @@ msgstr "Immobilie"
 
 #: ./../browser/listing_search.py:291
 msgid "Lot Size"
-msgstr ""
+msgstr "Gesamtfläche des Grundstücks"
 
 #: ./../portlets/agent_contact.py:211
 msgid "Mail Sent Message"
-msgstr ""
+msgstr "'E-Mail gesendet' Nachricht"
 
 #: ./../vocabularies.py:48
 msgid "Max"
@@ -279,15 +279,15 @@ msgstr "Nein"
 
 #: ./../portlets/agent_contact.py:197 ./../portlets/agent_information.py:50
 msgid "Portlet Title"
-msgstr ""
+msgstr "Portlet Titel"
 
 #: ./../portlets/quick_search.py:211
 msgid "Portlet Title (Filter)"
-msgstr ""
+msgstr "Portlet Titel (Filter)"
 
 #: ./../portlets/quick_search.py:202
 msgid "Portlet Title (Search)"
-msgstr ""
+msgstr "Portlet Titel (Suche)"
 
 #: ./../browser/listing_collection.py:260 ./../browser/listing_search.py:507
 #: ./../browser/recent_listings.py:181
@@ -296,11 +296,11 @@ msgstr "Speichern"
 
 #: ./../portlets/quick_search.py:233
 msgid "Search Listings"
-msgstr ""
+msgstr "Immobilien Suchen"
 
 #: ./../portlets/quick_search.py:221
 msgid "Search Page"
-msgstr ""
+msgstr "Suchseite"
 
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
@@ -308,27 +308,27 @@ msgstr "Bitte wählen Sie..."
 
 #: ./../portlets/agent_contact.py:207
 msgid "Thank you message that is shown after the mail was sent."
-msgstr ""
+msgstr "Dankesnachricht, die angezeigt wird nachdem die E-Mail verschickt wurde."
 
 #: ./../portlets/agent_contact.py:52
 msgid ""
 "This portlet shows a form to contact the corresponding agent for a given "
 "listing via email."
-msgstr ""
+msgstr "Dieses Portlet fügt ein Kontaktformular hinzu, wodurch der zuständige Makler direkt via E-Mail kontaktiert werden kann."
 
 #: ./../portlets/quick_search.py:53
 msgid "This portlet shows a listing quick search form."
-msgstr ""
+msgstr "Dieses Portlet fügt eine Immobilien-Schnellsuche hinzu."
 
 #: ./../portlets/agent_information.py:35
 msgid ""
 "This portlet shows the corresponding agent information for a given listing. "
 "Note that this portlet is only available for the detail view of a listing."
-msgstr ""
+msgstr "Dieses Portlet zeigt die zugehörigen Makler-Informationen zu einer Immobilie. Beachten Sie dass dieses Portlet nur bei der Detail-Ansicht von Immobilien sichtbar ist."
 
 #: ./../interfaces.py:122
 msgid "Update agent information when showing a third party listing?"
-msgstr ""
+msgstr "Makler-Informationen überschreiben, wenn Immobilie von Drittanbietern angezeigt wird?"
 
 #: ./../vocabularies.py:260
 msgid "Yes"

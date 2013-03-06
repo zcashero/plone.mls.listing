@@ -27,8 +27,8 @@ from zope.interface import Interface
 from plone.mls.listing.i18n import _
 
 MSG_PRIORITY_DESCRIPTION = _(
-    u'Items in this vocabulary are sorted by priority key (if available) ' \
-    u'and value otherwise.Enter one item per line. Possible values are: %s'
+    u'Items in this vocabulary are sorted by priority key (if available) '
+    u'and value otherwise. Enter one item per line. Possible values are: %s'
 )
 
 POSSIBLE_GEOGRAPHIC_TYPES = ', '.join([
