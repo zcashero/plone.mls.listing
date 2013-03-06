@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2012-07-25 21:25+0000\n"
-"PO-Revision-Date: 2012-07-25 21:25+0000\n"
+"POT-Creation-Date: 2013-03-06 11:00+0000\n"
+"PO-Revision-Date: 2013-03-06 11:01+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/MLS_Plone/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,30 @@ msgstr ""
 "Language-Name: English\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Preferred-Encodings: utf-8 latin1\n"
+
+#: ./../interfaces.py:78
+msgid "'Geographic Types' priority list"
+msgstr ""
+
+#: ./../interfaces.py:84
+msgid "'Listing Types' priority list"
+msgstr ""
+
+#: ./../interfaces.py:90
+msgid "'Location Types' priority list"
+msgstr ""
+
+#: ./../interfaces.py:96
+msgid "'Object Types' priority list"
+msgstr ""
+
+#: ./../interfaces.py:102
+msgid "'Ownership Types' priority list"
+msgstr ""
+
+#: ./../interfaces.py:108
+msgid "'View Types' priority list"
+msgstr ""
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "A single MLS Listing"
@@ -46,31 +70,76 @@ msgstr ""
 msgid "Activate the Recent Listings viewlet."
 msgstr ""
 
-#: ./../portlets/agent_contact.py:289 ./../portlets/agent_information.py:86
+#: ./../portlets/agent_contact.py:286 ./../portlets/agent_information.py:83
 msgid "Add Agent Information portlet"
 msgstr ""
 
-#: ./../portlets/agent_contact.py:204
+#: ./../portlets/quick_search.py:308
+msgid "Add Listing Quick Search portlet"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:201
 msgid "Additional description for the portlet."
 msgstr ""
 
-#: ./../portlets/agent_contact.py:234
+#: ./../interfaces.py:134
+msgid "Agency Logo"
+msgstr ""
+
+#: ./../interfaces.py:129
+msgid "Agency Name"
+msgstr ""
+
+#: ./../interfaces.py:139
+msgid "Agency Office Phone"
+msgstr ""
+
+#: ./../interfaces.py:144
+msgid "Agency Website"
+msgstr ""
+
+#: ./../interfaces.py:164
+msgid "Agent Cell Phone"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:231
 msgid "Agent Contact"
 msgstr ""
 
-#: ./../portlets/agent_information.py:60
+#: ./../interfaces.py:174
+msgid "Agent Email"
+msgstr ""
+
+#: ./../interfaces.py:169
+msgid "Agent Fax"
+msgstr ""
+
+#: ./../portlets/agent_information.py:59
 msgid "Agent Information"
 msgstr ""
 
-#: ./../browser/adapter.py:29
+#: ./../interfaces.py:149
+msgid "Agent Name"
+msgstr ""
+
+#: ./../interfaces.py:159
+msgid "Agent Office Phone"
+msgstr ""
+
+#: ./../interfaces.py:154
+msgid "Agent Title"
+msgstr ""
+
+#: ./../browser/adapter.py:29 ./../browser/valuerange/widget.py:43
+#: ./../vocabularies.py:262
 msgid "All"
 msgstr ""
 
-#: ./../portlets/agent_contact.py:222
+#: ./../portlets/agent_contact.py:219
 msgid "BCC Recipients"
 msgstr ""
 
-#: ./../browser/listing_collection.py:270 ./../browser/listing_search.py:376
+#: ./../browser/listing_collection.py:270 ./../browser/listing_search.py:519
 #: ./../browser/recent_listings.py:190
 msgid "Cancel"
 msgstr ""
@@ -99,7 +168,19 @@ msgstr ""
 msgid "Configure the Recent Listings viewlet."
 msgstr ""
 
-#: ./../portlets/agent_contact.py:196 ./../portlets/agent_information.py:47
+#: ./../portlets/quick_search.py:206
+msgid ""
+"Custom title for the portlet (filter mode). If no title is provided, the "
+"default title is used."
+msgstr ""
+
+#: ./../portlets/quick_search.py:197
+msgid ""
+"Custom title for the portlet (search mode). If no title is provided, the "
+"default title is used."
+msgstr ""
+
+#: ./../portlets/agent_contact.py:193 ./../portlets/agent_information.py:46
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
 "used."
@@ -129,57 +210,127 @@ msgstr ""
 msgid "Deactivate the Recent Listings viewlet."
 msgstr ""
 
-#: ./../portlets/agent_contact.py:206
+#: ./../portlets/agent_contact.py:203
 msgid "Description"
 msgstr ""
 
-#: ./../portlets/agent_contact.py:218
+#: ./../portlets/agent_contact.py:215
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr ""
 
-#: ./../portlets/agent_contact.py:301 ./../portlets/agent_information.py:98
+#: ./../portlets/agent_contact.py:298 ./../portlets/agent_information.py:95
 msgid "Edit Agent Information portlet"
 msgstr ""
 
-#: ./../portlets/agent_contact.py:74
+#: ./../portlets/quick_search.py:322
+msgid "Edit Listing Quick Search portlet"
+msgstr ""
+
+#: ./../portlets/quick_search.py:234
+msgid "Filter Results"
+msgstr ""
+
+#: ./../portlets/quick_search.py:215
+msgid "Find the search page which will be used to show the results."
+msgstr ""
+
+#: ./../browser/listing_search.py:483
+msgid "Hide the search form when Quick Search Portlet is available?"
+msgstr ""
+
+#: ./../browser/listing_search.py:300
+msgid "Interior Area"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:71
 msgid "Invalid email address"
+msgstr ""
+
+#: ./../interfaces.py:29
+msgid ""
+"Items in this vocabulary are sorted by priority key (if available) and value"
+" otherwise.Enter one item per line. Possible values are: %s"
 msgstr ""
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
 msgstr ""
 
-#: ./../portlets/agent_contact.py:214
+#: ./../browser/listing_search.py:291
+msgid "Lot Size"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:211
 msgid "Mail Sent Message"
 msgstr ""
 
-#: ./../portlets/agent_contact.py:200 ./../portlets/agent_information.py:51
+#: ./../vocabularies.py:48
+msgid "Max"
+msgstr ""
+
+#: ./../vocabularies.py:38
+msgid "Min"
+msgstr ""
+
+#: ./../vocabularies.py:261
+msgid "No"
+msgstr ""
+
+#: ./../portlets/agent_contact.py:197 ./../portlets/agent_information.py:50
 msgid "Portlet Title"
 msgstr ""
 
-#: ./../browser/listing_collection.py:260 ./../browser/listing_search.py:364
+#: ./../portlets/quick_search.py:211
+msgid "Portlet Title (Filter)"
+msgstr ""
+
+#: ./../portlets/quick_search.py:202
+msgid "Portlet Title (Search)"
+msgstr ""
+
+#: ./../browser/listing_collection.py:260 ./../browser/listing_search.py:507
 #: ./../browser/recent_listings.py:181
 msgid "Save"
 msgstr ""
 
-#: ./../browser/listing_search.py:257
-msgid "Search"
+#: ./../portlets/quick_search.py:233
+msgid "Search Listings"
 msgstr ""
 
-#: ./../portlets/agent_contact.py:210
+#: ./../portlets/quick_search.py:221
+msgid "Search Page"
+msgstr ""
+
+#: ./../browser/valuerange/widget.py:44
+msgid "Select a value..."
+msgstr ""
+
+#: ./../portlets/agent_contact.py:207
 msgid "Thank you message that is shown after the mail was sent."
 msgstr ""
 
-#: ./../portlets/agent_contact.py:55
+#: ./../portlets/agent_contact.py:52
 msgid ""
 "This portlet shows a form to contact the corresponding agent for a given "
 "listing via email."
 msgstr ""
 
-#: ./../portlets/agent_information.py:36
+#: ./../portlets/quick_search.py:53
+msgid "This portlet shows a listing quick search form."
+msgstr ""
+
+#: ./../portlets/agent_information.py:35
 msgid ""
 "This portlet shows the corresponding agent information for a given listing. "
 "Note that this portlet is only available for the detail view of a listing."
+msgstr ""
+
+#: ./../interfaces.py:122
+msgid "Update agent information when showing a third party listing?"
+msgstr ""
+
+#: ./../vocabularies.py:260
+msgid "Yes"
 msgstr ""
 
 #. Default: "MLS Listings"
@@ -188,7 +339,7 @@ msgid "heading_article_listings"
 msgstr ""
 
 #. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:84
+#: ./../browser/templates/listing_details.pt:89
 msgid "heading_listing_images"
 msgstr ""
 
@@ -208,7 +359,7 @@ msgid "help_listing_collection_configuration"
 msgstr ""
 
 #. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
-#: ./../browser/listing_search.py:354
+#: ./../browser/listing_search.py:497
 msgid "help_listing_search_configuration"
 msgstr ""
 
@@ -240,101 +391,101 @@ msgid "label_listing_listing_id"
 msgstr ""
 
 #. Default: "Air Condition"
-#: ./../browser/listing_search.py:212
+#: ./../browser/listing_search.py:262
 msgid "label_listing_search_air_condition"
 msgstr ""
 
 #. Default: "Bathrooms"
-#: ./../browser/listing_search.py:199
+#: ./../browser/listing_search.py:249
 msgid "label_listing_search_baths"
 msgstr ""
 
 #. Default: "Bedrooms"
-#: ./../browser/listing_search.py:187
+#: ./../browser/listing_search.py:237
 msgid "label_listing_search_beds"
 msgstr ""
 
 #. Default: "'Listing Search' Configuration"
-#: ./../browser/listing_search.py:350
+#: ./../browser/listing_search.py:493
 msgid "label_listing_search_configuration"
 msgstr ""
 
 #. Default: "Geographic Type"
-#: ./../browser/listing_collection.py:184 ./../browser/listing_search.py:142
+#: ./../browser/listing_collection.py:184 ./../browser/listing_search.py:192
 msgid "label_listing_search_geographic_type"
 msgstr ""
 
 #. Default: "Jacuzzi"
-#: ./../browser/listing_search.py:232
+#: ./../browser/listing_search.py:282
 msgid "label_listing_search_jacuzzi"
 msgstr ""
 
 #. Default: "Items per Page"
-#: ./../browser/listing_collection.py:229 ./../browser/listing_search.py:339
+#: ./../browser/listing_collection.py:229 ./../browser/listing_search.py:474
 #: ./../browser/recent_listings.py:155
 msgid "label_listing_search_limit"
 msgstr ""
 
 #. Default: "Listing Type"
-#: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:69
+#: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
 #: ./../browser/recent_listings.py:117
 msgid "label_listing_search_listing_type"
 msgstr ""
 
 #. Default: "City/Town"
-#: ./../browser/listing_search.py:107
+#: ./../browser/listing_search.py:157
 msgid "label_listing_search_location_city"
 msgstr ""
 
 #. Default: "County"
-#: ./../browser/listing_collection.py:139 ./../browser/listing_search.py:89
+#: ./../browser/listing_collection.py:139 ./../browser/listing_search.py:139
 msgid "label_listing_search_location_county"
 msgstr ""
 
 #. Default: "District"
-#: ./../browser/listing_collection.py:148 ./../browser/listing_search.py:98
+#: ./../browser/listing_collection.py:148 ./../browser/listing_search.py:148
 msgid "label_listing_search_location_district"
 msgstr ""
 
 #. Default: "State"
-#: ./../browser/listing_collection.py:130 ./../browser/listing_search.py:80
+#: ./../browser/listing_collection.py:130 ./../browser/listing_search.py:130
 msgid "label_listing_search_location_state"
 msgstr ""
 
 #. Default: "Location Type"
-#: ./../browser/listing_collection.py:173 ./../browser/listing_search.py:131
+#: ./../browser/listing_collection.py:173 ./../browser/listing_search.py:181
 msgid "label_listing_search_location_type"
 msgstr ""
 
 #. Default: "Object Type"
-#: ./../browser/listing_collection.py:206 ./../browser/listing_search.py:164
+#: ./../browser/listing_collection.py:206 ./../browser/listing_search.py:214
 msgid "label_listing_search_object_type"
 msgstr ""
 
 #. Default: "Ownership Type"
-#: ./../browser/listing_collection.py:217 ./../browser/listing_search.py:175
+#: ./../browser/listing_collection.py:217 ./../browser/listing_search.py:225
 msgid "label_listing_search_ownership_type"
 msgstr ""
 
 #. Default: "Pool"
-#: ./../browser/listing_search.py:222
+#: ./../browser/listing_search.py:272
 msgid "label_listing_search_pool"
 msgstr ""
 
 #. Default: "Price (Max)"
-#: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:123
+#: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:173
 #: ./../browser/recent_listings.py:146
 msgid "label_listing_search_price_max"
 msgstr ""
 
 #. Default: "Price (Min)"
-#: ./../browser/listing_collection.py:157 ./../browser/listing_search.py:115
+#: ./../browser/listing_collection.py:157 ./../browser/listing_search.py:165
 #: ./../browser/recent_listings.py:133
 msgid "label_listing_search_price_min"
 msgstr ""
 
 #. Default: "View Type"
-#: ./../browser/listing_collection.py:195 ./../browser/listing_search.py:153
+#: ./../browser/listing_collection.py:195 ./../browser/listing_search.py:203
 msgid "label_listing_search_view_type"
 msgstr ""
 
@@ -349,71 +500,63 @@ msgid "label_recent_listings_configuration"
 msgstr ""
 
 #. Default: "Long Description"
-#: ./../browser/templates/listing_details.pt:111
+#: ./../browser/templates/listing_details.pt:116
 msgid "listing_long_description"
-msgstr ""
-
-#: ./../browser/valuerange/widget.py:43
-msgid "no value"
-msgstr ""
-
-#: ./../browser/valuerange/widget.py:44
-msgid "select a value ..."
 msgstr ""
 
 #. Default: "See what the agent says about this listing (original title and
 #. description):"
-#: ./../browser/templates/listing_details.pt:103
+#: ./../browser/templates/listing_details.pt:108
 msgid "text_agent_quote"
 msgstr ""
 
 #. Default: "'Listing Collection' viewlet activated."
-#: ./../browser/listing_collection.py:311
+#: ./../browser/listing_collection.py:313
 msgid "text_listing_collection_activated"
 msgstr ""
 
 #. Default: "'Listing Collection' viewlet deactivated."
-#: ./../browser/listing_collection.py:305
+#: ./../browser/listing_collection.py:306
 msgid "text_listing_collection_deactivated"
 msgstr ""
 
 #. Default: "The 'Listing Collection' viewlet does't work with this content
 #. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
 #. this feature."
-#: ./../browser/listing_collection.py:316
+#: ./../browser/listing_collection.py:318
 msgid "text_listing_collection_toggle_error"
 msgstr ""
 
 #. Default: "'Listing Search' viewlet activated."
-#: ./../browser/listing_search.py:418
+#: ./../browser/listing_search.py:563
 msgid "text_listing_search_activated"
 msgstr ""
 
 #. Default: "'Listing Search' viewlet deactivated."
-#: ./../browser/listing_search.py:412
+#: ./../browser/listing_search.py:556
 msgid "text_listing_search_deactivated"
 msgstr ""
 
 #. Default: "The 'Listing Search' viewlet does't work with this content type.
 #. Add 'IPossibleListingSearch' to the provided interfaces to enable this
 #. feature."
-#: ./../browser/listing_search.py:423
+#: ./../browser/listing_search.py:568
 msgid "text_listing_search_toggle_error"
 msgstr ""
 
 #. Default: "'Recent Listings' viewlet activated."
-#: ./../browser/recent_listings.py:231
+#: ./../browser/recent_listings.py:233
 msgid "text_recent_listings_activated"
 msgstr ""
 
 #. Default: "'Recent Listings' viewlet deactivated."
-#: ./../browser/recent_listings.py:225
+#: ./../browser/recent_listings.py:226
 msgid "text_recent_listings_deactivated"
 msgstr ""
 
 #. Default: "The 'Recent Listings' viewlet does't work with this content type.
 #. Add 'IPossibleRecentListings' to the provided interfaces to enable this
 #. feature."
-#: ./../browser/recent_listings.py:236
+#: ./../browser/recent_listings.py:238
 msgid "text_recent_listings_toggle_error"
 msgstr ""
