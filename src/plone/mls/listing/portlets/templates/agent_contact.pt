@@ -14,7 +14,8 @@
       <span tal:omit-tag="" tal:content="view/title | nothing"></span>
       <span class="portletTopRight"></span>
     </dt>
-    <dd tal:condition="not: email_from_address"
+    <dd class="portletItem"
+        tal:condition="not: email_from_address"
         i18n:domain="plone"
         i18n:translate="text_no_email_setup">This site doesn't have a valid email setup, so you cannot use any contact forms.</dd>
     <dd tal:define="already_sent view/already_sent | nothing"
