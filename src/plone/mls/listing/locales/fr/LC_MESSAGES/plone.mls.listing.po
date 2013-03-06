@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 13:33+0000\n"
-"PO-Revision-Date: 2013-03-06 14:26+0000\n"
+"POT-Creation-Date: 2013-03-06 14:49+0000\n"
+"PO-Revision-Date: 2013-03-06 14:54+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -193,6 +193,10 @@ msgstr "Tout"
 msgid "BCC Recipients"
 msgstr "Destinataires de BCC"
 
+#: ./../browser/templates/listing_details.pt:30
+msgid "Basic Listing Information"
+msgstr "Informations Élémentaires de la Propriété"
+
 #: ./../browser/listing_search.py:210
 msgid "Bathrooms"
 msgstr "Salles de Bains"
@@ -359,6 +363,10 @@ msgstr "Liste des MLS propriétés contenues."
 msgid "Listing"
 msgstr "Propriété"
 
+#: ./../browser/templates/listing_details.pt:89
+msgid "Listing Images"
+msgstr "Images de la Propriété"
+
 #: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
 #: ./../browser/recent_listings.py:117
 msgid "Listing Type"
@@ -367,6 +375,10 @@ msgstr "Type de la Propriété"
 #: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:160
 msgid "Location Type"
 msgstr "Type d'Emplacement"
+
+#: ./../browser/templates/listing_details.pt:116
+msgid "Long Description"
+msgstr "Description Longue"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
@@ -447,6 +459,11 @@ msgstr ""
 msgid "Search Page"
 msgstr ""
 
+#: ./../browser/templates/listing_details.pt:108
+msgid ""
+"See what the agent says about this listing (original title and description):"
+msgstr "Voyez ce que dit l'agent à propos de cette propriété (titre original et description):"
+
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
 msgstr ""
@@ -509,24 +526,3 @@ msgstr "Type de la Vue"
 #: ./../vocabularies.py:260
 msgid "Yes"
 msgstr ""
-
-#. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:89
-msgid "heading_listing_images"
-msgstr "Images de la propriété"
-
-#. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:30
-msgid "heading_listing_information_basic"
-msgstr "Informations élémentaires de la propriété"
-
-#. Default: "Long Description"
-#: ./../browser/templates/listing_details.pt:116
-msgid "listing_long_description"
-msgstr "Description longue"
-
-#. Default: "See what the agent says about this listing (original title and
-#. description):"
-#: ./../browser/templates/listing_details.pt:108
-msgid "text_agent_quote"
-msgstr "Voyez ce que dit l'agent à propos de cette propriété (titre original et description):"

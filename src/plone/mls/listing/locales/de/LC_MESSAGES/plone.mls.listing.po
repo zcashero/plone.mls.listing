@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 13:33+0000\n"
-"PO-Revision-Date: 2013-03-06 13:54+0000\n"
+"POT-Creation-Date: 2013-03-06 14:49+0000\n"
+"PO-Revision-Date: 2013-03-06 14:51+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -192,6 +192,10 @@ msgstr "Alle"
 msgid "BCC Recipients"
 msgstr "BCC Empfänger"
 
+#: ./../browser/templates/listing_details.pt:30
+msgid "Basic Listing Information"
+msgstr "Basis-Informationen der Immobilie"
+
 #: ./../browser/listing_search.py:210
 msgid "Bathrooms"
 msgstr "Badezimmer"
@@ -358,6 +362,10 @@ msgstr "Liste von enthaltenen MLS Immobilien."
 msgid "Listing"
 msgstr "Immobilie"
 
+#: ./../browser/templates/listing_details.pt:89
+msgid "Listing Images"
+msgstr "Immobilien-Bilder"
+
 #: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
 #: ./../browser/recent_listings.py:117
 msgid "Listing Type"
@@ -366,6 +374,10 @@ msgstr "Art der Immobilie"
 #: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:160
 msgid "Location Type"
 msgstr "Lage"
+
+#: ./../browser/templates/listing_details.pt:116
+msgid "Long Description"
+msgstr "Ausführliche Beschreibung"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
@@ -446,6 +458,11 @@ msgstr "Immobilien Suchen"
 msgid "Search Page"
 msgstr "Suchseite"
 
+#: ./../browser/templates/listing_details.pt:108
+msgid ""
+"See what the agent says about this listing (original title and description):"
+msgstr "Sehen Sie, was der Makler über diese Immobilie sagt (Original-Titel und -Beschreibung):"
+
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
 msgstr "Bitte wählen Sie..."
@@ -508,24 +525,3 @@ msgstr "Art der Aussicht"
 #: ./../vocabularies.py:260
 msgid "Yes"
 msgstr "Ja"
-
-#. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:89
-msgid "heading_listing_images"
-msgstr "Immobilien Bilder"
-
-#. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:30
-msgid "heading_listing_information_basic"
-msgstr "Basis-Informationen der Immobilie"
-
-#. Default: "Long Description"
-#: ./../browser/templates/listing_details.pt:116
-msgid "listing_long_description"
-msgstr "Ausführliche Beschreibung"
-
-#. Default: "See what the agent says about this listing (original title and
-#. description):"
-#: ./../browser/templates/listing_details.pt:108
-msgid "text_agent_quote"
-msgstr "Sehen Sie, was der Makler über diese Immobilie sagt (Original-Titel und -Beschreibung):"

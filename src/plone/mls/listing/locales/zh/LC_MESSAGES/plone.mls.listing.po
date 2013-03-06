@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 13:33+0000\n"
-"PO-Revision-Date: 2013-03-06 14:42+0000\n"
+"POT-Creation-Date: 2013-03-06 14:49+0000\n"
+"PO-Revision-Date: 2013-03-06 14:55+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/MLS_Plone/language/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -193,6 +193,10 @@ msgstr ""
 msgid "BCC Recipients"
 msgstr ""
 
+#: ./../browser/templates/listing_details.pt:30
+msgid "Basic Listing Information"
+msgstr "基本資料"
+
 #: ./../browser/listing_search.py:210
 msgid "Bathrooms"
 msgstr "衛浴"
@@ -359,6 +363,10 @@ msgstr "ＭＬＳ房地產物件清單"
 msgid "Listing"
 msgstr "房地產物件"
 
+#: ./../browser/templates/listing_details.pt:89
+msgid "Listing Images"
+msgstr "房地產物件照片"
+
 #: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
 #: ./../browser/recent_listings.py:117
 msgid "Listing Type"
@@ -367,6 +375,10 @@ msgstr "房地產物件類型"
 #: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:160
 msgid "Location Type"
 msgstr "地理位置類型"
+
+#: ./../browser/templates/listing_details.pt:116
+msgid "Long Description"
+msgstr "完整詳細說明"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
@@ -447,6 +459,11 @@ msgstr ""
 msgid "Search Page"
 msgstr ""
 
+#: ./../browser/templates/listing_details.pt:108
+msgid ""
+"See what the agent says about this listing (original title and description):"
+msgstr "查看仲介商如何形容此房地產 - 原標題及原說明文"
+
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
 msgstr ""
@@ -509,24 +526,3 @@ msgstr "景觀類別"
 #: ./../vocabularies.py:260
 msgid "Yes"
 msgstr ""
-
-#. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:89
-msgid "heading_listing_images"
-msgstr "房地產物件照片"
-
-#. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:30
-msgid "heading_listing_information_basic"
-msgstr "基本資料"
-
-#. Default: "Long Description"
-#: ./../browser/templates/listing_details.pt:116
-msgid "listing_long_description"
-msgstr "完整詳細說明"
-
-#. Default: "See what the agent says about this listing (original title and
-#. description):"
-#: ./../browser/templates/listing_details.pt:108
-msgid "text_agent_quote"
-msgstr "查看仲介商如何形容此房地產 - 原標題及原說明文"

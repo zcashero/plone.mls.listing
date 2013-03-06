@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 13:33+0000\n"
-"PO-Revision-Date: 2013-03-06 14:34+0000\n"
+"POT-Creation-Date: 2013-03-06 14:49+0000\n"
+"PO-Revision-Date: 2013-03-06 14:54+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/MLS_Plone/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -193,6 +193,10 @@ msgstr "全部"
 msgid "BCC Recipients"
 msgstr "BCC受信者名"
 
+#: ./../browser/templates/listing_details.pt:30
+msgid "Basic Listing Information"
+msgstr "基本情報"
+
 #: ./../browser/listing_search.py:210
 msgid "Bathrooms"
 msgstr "浴室"
@@ -359,6 +363,10 @@ msgstr ""
 msgid "Listing"
 msgstr "物件"
 
+#: ./../browser/templates/listing_details.pt:89
+msgid "Listing Images"
+msgstr "写真"
+
 #: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
 #: ./../browser/recent_listings.py:117
 msgid "Listing Type"
@@ -367,6 +375,10 @@ msgstr "物件種類"
 #: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:160
 msgid "Location Type"
 msgstr "場所種類"
+
+#: ./../browser/templates/listing_details.pt:116
+msgid "Long Description"
+msgstr "説明"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
@@ -447,6 +459,11 @@ msgstr ""
 msgid "Search Page"
 msgstr ""
 
+#: ./../browser/templates/listing_details.pt:108
+msgid ""
+"See what the agent says about this listing (original title and description):"
+msgstr ""
+
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
 msgstr ""
@@ -509,24 +526,3 @@ msgstr "景観種類"
 #: ./../vocabularies.py:260
 msgid "Yes"
 msgstr "有"
-
-#. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:89
-msgid "heading_listing_images"
-msgstr "写真"
-
-#. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:30
-msgid "heading_listing_information_basic"
-msgstr "基本情報"
-
-#. Default: "Long Description"
-#: ./../browser/templates/listing_details.pt:116
-msgid "listing_long_description"
-msgstr "説明"
-
-#. Default: "See what the agent says about this listing (original title and
-#. description):"
-#: ./../browser/templates/listing_details.pt:108
-msgid "text_agent_quote"
-msgstr "エージェントのコメント"

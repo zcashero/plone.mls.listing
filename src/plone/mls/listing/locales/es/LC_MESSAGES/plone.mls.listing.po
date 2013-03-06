@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 13:33+0000\n"
-"PO-Revision-Date: 2013-03-06 14:07+0000\n"
+"POT-Creation-Date: 2013-03-06 14:49+0000\n"
+"PO-Revision-Date: 2013-03-06 14:52+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -193,6 +193,10 @@ msgstr "Todos"
 msgid "BCC Recipients"
 msgstr "Destinatarios en CCO"
 
+#: ./../browser/templates/listing_details.pt:30
+msgid "Basic Listing Information"
+msgstr "Información Básica del Listado"
+
 #: ./../browser/listing_search.py:210
 msgid "Bathrooms"
 msgstr "Baños"
@@ -359,6 +363,10 @@ msgstr "Lista de listados contenidos en el MLS."
 msgid "Listing"
 msgstr "Listados"
 
+#: ./../browser/templates/listing_details.pt:89
+msgid "Listing Images"
+msgstr "Imágenes del Listado"
+
 #: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
 #: ./../browser/recent_listings.py:117
 msgid "Listing Type"
@@ -367,6 +375,10 @@ msgstr "Tipo de Listado"
 #: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:160
 msgid "Location Type"
 msgstr "Tipo de Ubicación"
+
+#: ./../browser/templates/listing_details.pt:116
+msgid "Long Description"
+msgstr "Descripción Larga"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
@@ -447,6 +459,11 @@ msgstr ""
 msgid "Search Page"
 msgstr ""
 
+#: ./../browser/templates/listing_details.pt:108
+msgid ""
+"See what the agent says about this listing (original title and description):"
+msgstr "Vea lo que dice el corredor sobre este listado (título original y descripción):"
+
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
 msgstr "Seleccione un valor..."
@@ -509,24 +526,3 @@ msgstr "Tipo de Vista"
 #: ./../vocabularies.py:260
 msgid "Yes"
 msgstr "Sí"
-
-#. Default: "Listing Images"
-#: ./../browser/templates/listing_details.pt:89
-msgid "heading_listing_images"
-msgstr "Imágenes del listado"
-
-#. Default: "Basic Listing Information"
-#: ./../browser/templates/listing_details.pt:30
-msgid "heading_listing_information_basic"
-msgstr "Información básica del listado"
-
-#. Default: "Long Description"
-#: ./../browser/templates/listing_details.pt:116
-msgid "listing_long_description"
-msgstr "Descripción Larga"
-
-#. Default: "See what the agent says about this listing (original title and
-#. description):"
-#: ./../browser/templates/listing_details.pt:108
-msgid "text_agent_quote"
-msgstr "Vea lo que dice el corredor sobre este listado (título original y descripción):"

@@ -27,7 +27,7 @@
         <tal:listing tal:condition="view/data | nothing">
 
           <div id="listing-info" tal:condition="info">
-            <h2 i18n:translate="heading_listing_information_basic">Basic Listing Information</h2>
+            <h2 i18n:translate="">Basic Listing Information</h2>
             <dl class="price">
               <tal:item tal:define="item info/price | nothing" tal:condition="item">
                 <dt><span tal:replace="item/label">[Label]</span>:</dt>
@@ -86,7 +86,7 @@
           </div>
 
           <div id="listing-images">
-            <h2 class="hiddenStructure" i18n:translate="heading_listing_images">Listing Images</h2>
+            <h2 class="hiddenStructure" i18n:translate="">Listing Images</h2>
             <a href="" rel="prettyPhoto[listing]" class="preview"
                tal:define="image view/lead_image | nothing"
                tal:condition="image"
@@ -105,7 +105,7 @@
 
           <div class="visualClear">
             <p class="documentDescription" tal:content="view/description | nothing" />
-            <p><a i18n:translate="text_agent_quote" id="agentquote" href="#">See what the agent says about this listing (original title and description):</a></p>
+            <p><a i18n:translate="" id="agentquote" href="#">See what the agent says about this listing (original title and description):</a></p>
           </div>
 
           <div class="visualClear" id="sec-agent-quote" tal:define="quote view/agent_quote | nothing" tal:condition="quote">
@@ -113,7 +113,7 @@
             <blockquote tal:content="quote/description | nothing">[description]</blockquote>
 
             <div id="sec-listing-long-description" tal:define="description view/long_description | nothing" tal:condition="description">
-              <h3 i18n:translate="listing_long_description">Long Description</h3>
+              <h3 i18n:translate="">Long Description</h3>
               <p tal:content="description">Long Description</p>
             </div>
           </div>
