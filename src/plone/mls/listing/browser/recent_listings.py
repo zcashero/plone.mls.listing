@@ -114,10 +114,7 @@ class IRecentListingsConfiguration(Interface):
 
     listing_type = schema.List(
         required=False,
-        title=_(
-            u'label_listing_search_listing_type',
-            default=u'Listing Type',
-        ),
+        title=_(u'Listing Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.ListingTypes'
         ),
@@ -125,37 +122,26 @@ class IRecentListingsConfiguration(Interface):
 
     price_min = schema.Int(
         description=_(
-            u'help_recent_listings_price_min',
-            default=u'Enter the minimum price for listings. If no price is ' \
-                     'given, all listings from the lowest price are shown.',
+            u'Enter the minimum price for listings. If no price is given, all '
+            u'listings from the lowest price are shown.'
         ),
         required=False,
-        title=_(
-            u'label_listing_search_price_min',
-            default=u'Price (Min)',
-        ),
+        title=_(u'Price (Min)'),
     )
 
     price_max = schema.Int(
         description=_(
-            u"help_recent_listings_price_max",
-            default=u'Enter the maximum price for listings. If no price is ' \
-                     'given, all listings to the highest price are shown.',
+            u'Enter the maximum price for listings. If no price is given, all '
+            u'listings to the highest price are shown.'
         ),
         required=False,
-        title=_(
-            u'label_listing_search_price_max',
-            default=u'Price (Max)',
-       ),
+        title=_(u'Price (Max)'),
     )
 
     limit = schema.Int(
         default=25,
         required=False,
-        title=_(
-            u'label_listing_search_limit',
-            default=u'Items per Page',
-        ),
+        title=_(u'Items per Page'),
     )
 
 
@@ -164,13 +150,9 @@ class RecentListingsConfiguration(form.Form):
 
     fields = field.Fields(IRecentListingsConfiguration)
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    label = _(
-        u'label_recent_listings_configuration',
-        default=u"'Recent Listings' Configuration",
-    )
+    label = _(u"'Recent Listings' Configuration")
     description = _(
-        u'help_recent_listings_configuration',
-        default=u"Adjust the behaviour for this 'Recent Listings' viewlet.",
+        u"Adjust the behaviour for this 'Recent Listings' viewlet."
     )
 
     def getContent(self):
@@ -178,7 +160,7 @@ class RecentListingsConfiguration(form.Form):
         return annotations.get(CONFIGURATION_KEY,
                                annotations.setdefault(CONFIGURATION_KEY, {}))
 
-    @button.buttonAndHandler(_(u"Save"))
+    @button.buttonAndHandler(_(u'Save'))
     def handle_save(self, action):
         data, errors = self.extractData()
         if not errors:
@@ -187,7 +169,7 @@ class RecentListingsConfiguration(form.Form):
             self.request.response.redirect(absoluteURL(self.context,
                                                        self.request))
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_(u'Cancel'))
     def handle_cancel(self, action):
         self.request.response.redirect(absoluteURL(self.context, self.request))
 
@@ -202,7 +184,7 @@ class RecentListingsStatus(object):
     @property
     def can_activate(self):
         return IPossibleRecentListings.providedBy(self.context) and \
-               not IRecentListings.providedBy(self.context)
+            not IRecentListings.providedBy(self.context)
 
     @property
     def active(self):
@@ -223,23 +205,16 @@ class RecentListingsToggle(object):
             # Deactivate RecentListings viewlet.
             noLongerProvides(self.context, IRecentListings)
             self.context.reindexObject(idxs=['object_provides', ])
-            msg = _(
-                u'text_recent_listings_deactivated',
-                default=u"'Recent Listings' viewlet deactivated.",
-            )
+            msg = _(u"'Recent Listings' viewlet deactivated.")
         elif IPossibleRecentListings.providedBy(self.context):
             alsoProvides(self.context, IRecentListings)
             self.context.reindexObject(idxs=['object_provides', ])
-            msg = _(
-                u'text_recent_listings_activated',
-                default=u"'Recent Listings' viewlet activated.",
-            )
+            msg = _(u"'Recent Listings' viewlet activated.")
         else:
             msg = _(
-                u'text_recent_listings_toggle_error',
-                default=u"The 'Recent Listings' viewlet does't work with " \
-                         "this content type. Add 'IPossibleRecentListings' " \
-                         "to the provided interfaces to enable this feature.",
+                u"The 'Recent Listings' viewlet does't work with this content "
+                u"type. Add 'IPossibleRecentListings' to the provided "
+                u"interfaces to enable this feature."
             )
             msg_type = 'error'
 

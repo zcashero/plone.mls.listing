@@ -116,10 +116,7 @@ class IListingCollectionConfiguration(Interface):
     listing_type = schema.Tuple(
         default=('cl', 'cs', 'll', 'rl', 'rs', ),
         required=False,
-        title=_(
-            u'label_listing_search_listing_type',
-            default=u'Listing Type',
-        ),
+        title=_(u'Listing Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.ListingTypes'
         ),
@@ -127,53 +124,35 @@ class IListingCollectionConfiguration(Interface):
 
     location_state = schema.Choice(
         required=False,
-        title=_(
-            u'label_listing_search_location_state',
-            default=u'State',
-        ),
+        title=_(u'State'),
         source='plone.mls.listing.LocationStates',
     )
 
     location_county = schema.Choice(
         required=False,
-        title=_(
-            u'label_listing_search_location_county',
-            default=u'County',
-        ),
+        title=_(u'County'),
         source='plone.mls.listing.LocationCounties',
     )
 
     location_district = schema.Choice(
         required=False,
-        title=_(
-            u'label_listing_search_location_district',
-            default=u'District',
-        ),
+        title=_(u'District'),
         source='plone.mls.listing.LocationDistricts',
     )
 
     price_min = schema.Int(
         required=False,
-        title=_(
-            u'label_listing_search_price_min',
-            default=u'Price (Min)',
-        ),
+        title=_(u'Price (Min)'),
     )
 
     price_max = schema.Int(
         required=False,
-        title=_(
-            u'label_listing_search_price_max',
-            default=u'Price (Max)',
-       ),
+        title=_(u'Price (Max)'),
     )
 
     location_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_location_type',
-            default=u'Location Type',
-        ),
+        title=_(u'Location Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.LocationTypes'
         ),
@@ -181,10 +160,7 @@ class IListingCollectionConfiguration(Interface):
 
     geographic_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_geographic_type',
-            default=u'Geographic Type',
-        ),
+        title=_(u'Geographic Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.GeographicTypes'
         ),
@@ -192,10 +168,7 @@ class IListingCollectionConfiguration(Interface):
 
     view_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_view_type',
-            default=u'View Type',
-        ),
+        title=_(u'View Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.ViewTypes'
         ),
@@ -203,10 +176,7 @@ class IListingCollectionConfiguration(Interface):
 
     object_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_object_type',
-            default=u'Object Type',
-        ),
+        title=_(u'Object Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.ObjectTypes'
         ),
@@ -214,10 +184,7 @@ class IListingCollectionConfiguration(Interface):
 
     ownership_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_ownership_type',
-            default=u'Ownership Type',
-        ),
+        title=_(u'Ownership Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.OwnershipTypes'
         ),
@@ -226,10 +193,7 @@ class IListingCollectionConfiguration(Interface):
     limit = schema.Int(
         default=25,
         required=False,
-        title=_(
-            u'label_listing_search_limit',
-            default=u'Items per Page',
-        ),
+        title=_(u'Items per Page'),
     )
 
 
@@ -243,13 +207,9 @@ class ListingCollectionConfiguration(form.Form):
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    label = _(
-        u'label_listing_collection_configuration',
-        default=u"'Listing Collection' Configuration",
-    )
+    label = _(u"'Listing Collection' Configuration")
     description = _(
-        u'help_listing_collection_configuration',
-        default=u"Adjust the behaviour for this 'Listing Collection' viewlet.",
+        u"Adjust the behaviour for this 'Listing Collection' viewlet."
     )
 
     def getContent(self):
@@ -257,7 +217,7 @@ class ListingCollectionConfiguration(form.Form):
         return annotations.get(CONFIGURATION_KEY,
                                annotations.setdefault(CONFIGURATION_KEY, {}))
 
-    @button.buttonAndHandler(_(u"Save"))
+    @button.buttonAndHandler(_(u'Save'))
     def handle_save(self, action):
         data, errors = self.extractData()
         if errors:
@@ -267,7 +227,7 @@ class ListingCollectionConfiguration(form.Form):
         annotations[CONFIGURATION_KEY] = data
         self.request.response.redirect(absoluteURL(self.context, self.request))
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_(u'Cancel'))
     def handle_cancel(self, action):
         self.request.response.redirect(absoluteURL(self.context, self.request))
 
@@ -282,7 +242,7 @@ class ListingCollectionStatus(object):
     @property
     def can_activate(self):
         return IPossibleListingCollection.providedBy(self.context) and \
-               not IListingCollection.providedBy(self.context)
+            not IListingCollection.providedBy(self.context)
 
     @property
     def active(self):
@@ -303,24 +263,16 @@ class ListingCollectionToggle(object):
             # Deactivate ListingCollection viewlet.
             noLongerProvides(self.context, IListingCollection)
             self.context.reindexObject(idxs=['object_provides', ])
-            msg = _(
-                u'text_listing_collection_deactivated',
-                default=u"'Listing Collection' viewlet deactivated.",
-            )
+            msg = _(u"'Listing Collection' viewlet deactivated.")
         elif IPossibleListingCollection.providedBy(self.context):
             alsoProvides(self.context, IListingCollection)
             self.context.reindexObject(idxs=['object_provides', ])
-            msg = _(
-                u'text_listing_collection_activated',
-                default=u"'Listing Collection' viewlet activated.",
-            )
+            msg = _(u"'Listing Collection' viewlet activated.")
         else:
             msg = _(
-                u'text_listing_collection_toggle_error',
-                default=u"The 'Listing Collection' viewlet does't work with " \
-                         "this content type. Add " \
-                         "'IPossibleListingCollection' to the provided " \
-                         "interfaces to enable this feature.",
+                u"The 'Listing Collection' viewlet does't work with this "
+                u"content type. Add 'IPossibleListingCollection' to the "
+                u"provided interfaces to enable this feature."
             )
             msg_type = 'error'
 

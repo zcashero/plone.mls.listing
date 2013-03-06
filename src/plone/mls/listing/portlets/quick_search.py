@@ -184,10 +184,10 @@ class QuickSearchForm(form.Form):
     def widgets_filter_other(self):
         """Return all other widgets that have not been shown until now."""
         defined_fields = FIELD_ORDER.values()
-        shown_fields = [shown_field for field_lists in defined_fields for \
+        shown_fields = [shown_field for field_lists in defined_fields for
                         shown_field in field_lists]
-        return [widget for field_name, widget in self.widgets.items() if not \
-                    field_name in shown_fields]
+        return [widget for field_name, widget in self.widgets.items() if not
+                field_name in shown_fields]
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
@@ -195,16 +195,16 @@ class IQuickSearchPortlet(IPortletDataProvider):
 
     heading = schema.TextLine(
         description=_(
-            u'Custom title for the portlet (search mode). If no title is ' \
+            u'Custom title for the portlet (search mode). If no title is '
             u'provided, the default title is used.'
         ),
         required=False,
-        title=_(u"Portlet Title (Search)"),
+        title=_(u'Portlet Title (Search)'),
     )
 
     heading_filter = schema.TextLine(
         description=_(
-            u'Custom title for the portlet (filter mode). If no title is ' \
+            u'Custom title for the portlet (filter mode). If no title is '
             u'provided, the default title is used.'
         ),
         required=False,
@@ -212,13 +212,15 @@ class IQuickSearchPortlet(IPortletDataProvider):
     )
 
     target_search = schema.Choice(
-        description=_(u"Find the search page which will be used to show the results."),
+        description=_(
+            u'Find the search page which will be used to show the results.'
+        ),
         required=True,
         source=SearchableTextSourceBinder({
-            'object_provides': 'plone.mls.listing.browser.listing_search.' \
+            'object_provides': 'plone.mls.listing.browser.listing_search.'
                                'IListingSearch',
-            }, default_query='path:'),
-        title=_(u"Search Page"),
+        }, default_query='path:'),
+        title=_(u'Search Page'),
     )
 
 
@@ -283,10 +285,10 @@ class Renderer(base.Renderer):
         """
         form = self.request.form
         if listing_search.IListingSearch.providedBy(self.context) and \
-            'form.buttons.search' in form.keys():
+                'form.buttons.search' in form.keys():
             return 'FILTER'
         elif listing_search.IListingSearch.providedBy(self.context) and \
-            not 'form.buttons.search' in form.keys():
+                not 'form.buttons.search' in form.keys():
             return 'HIDDEN'
         else:
             return 'SEARCH'

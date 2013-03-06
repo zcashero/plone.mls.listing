@@ -116,10 +116,7 @@ class IListingSearchForm(Interface):
 
     listing_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_listing_type',
-            default=u'Listing Type',
-        ),
+        title=_(u'Listing Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.ListingTypes'
         ),
@@ -127,61 +124,40 @@ class IListingSearchForm(Interface):
 
     location_state = schema.Choice(
         required=False,
-        title=_(
-            u'label_listing_search_location_state',
-            default=u'State',
-        ),
+        title=_(u'State'),
         source='plone.mls.listing.LocationStates',
     )
 
     location_county = schema.Choice(
         required=False,
-        title=_(
-            u'label_listing_search_location_county',
-            default=u'County',
-        ),
+        title=_(u'County'),
         source='plone.mls.listing.LocationCounties',
     )
 
     location_district = schema.Choice(
         required=False,
-        title=_(
-            u'label_listing_search_location_district',
-            default=u'District',
-        ),
+        title=_(u'District'),
         source='plone.mls.listing.LocationDistricts',
     )
 
     location_city = schema.TextLine(
         required=False,
-        title=_(
-            u'label_listing_search_location_city',
-            default=u'City/Town',
-        ),
+        title=_(u'City/Town'),
     )
 
     price_min = schema.Int(
         required=False,
-        title=_(
-            u'label_listing_search_price_min',
-            default=u'Price (Min)',
-        ),
+        title=_(u'Price (Min)'),
     )
 
     price_max = schema.Int(
         required=False,
-        title=_(
-            u'label_listing_search_price_max',
-            default=u'Price (Max)',
-       ),
+        title=_(u'Price (Max)'),
     )
 
     location_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_location_type',
-            default=u'Location Type',
-        ),
+        title=_(u'Location Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.LocationTypes'
         ),
@@ -189,10 +165,7 @@ class IListingSearchForm(Interface):
 
     geographic_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_geographic_type',
-            default=u'Geographic Type',
-        ),
+        title=_(u'Geographic Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.GeographicTypes'
         ),
@@ -200,10 +173,7 @@ class IListingSearchForm(Interface):
 
     view_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_view_type',
-            default=u'View Type',
-        ),
+        title=_(u'View Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.ViewTypes'
         ),
@@ -211,10 +181,7 @@ class IListingSearchForm(Interface):
 
     object_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_object_type',
-            default=u'Object Type',
-        ),
+        title=_(u'Object Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.ObjectTypes'
         ),
@@ -222,10 +189,7 @@ class IListingSearchForm(Interface):
 
     ownership_type = schema.Tuple(
         required=False,
-        title=_(
-            u'label_listing_search_ownership_type',
-            default=u'Ownership Type',
-        ),
+        title=_(u'Ownership Type'),
         value_type=schema.Choice(
             source='plone.mls.listing.OwnershipTypes'
         ),
@@ -234,10 +198,7 @@ class IListingSearchForm(Interface):
     beds = schema.Tuple(
         default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
-        title=_(
-            u'label_listing_search_beds',
-            default=u'Bedrooms',
-        ),
+        title=_(u'Bedrooms'),
         value_type=schema.Choice(
             source='plone.mls.listing.Rooms',
         ),
@@ -246,10 +207,7 @@ class IListingSearchForm(Interface):
     baths = schema.Tuple(
         default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
-        title=_(
-            u'label_listing_search_baths',
-            default=u'Bathrooms',
-        ),
+        title=_(u'Bathrooms'),
         value_type=schema.Choice(
             source='plone.mls.listing.Rooms',
         ),
@@ -259,30 +217,21 @@ class IListingSearchForm(Interface):
         default='--NOVALUE--',
         required=False,
         source='plone.mls.listing.YesNoAll',
-        title=_(
-            u'label_listing_search_air_condition',
-            default=u'Air Condition',
-        ),
+        title=_(u'Air Condition'),
     )
 
     pool = schema.Choice(
         default='--NOVALUE--',
         required=False,
         source='plone.mls.listing.YesNoAll',
-        title=_(
-            u'label_listing_search_pool',
-            default=u'Pool',
-        ),
+        title=_(u'Pool'),
     )
 
     jacuzzi = schema.Choice(
         default='--NOVALUE--',
         required=False,
         source='plone.mls.listing.YesNoAll',
-        title=_(
-            u'label_listing_search_jacuzzi',
-            default=u'Jacuzzi',
-        ),
+        title=_(u'Jacuzzi'),
     )
 
     lot_size = schema.Tuple(
@@ -471,10 +420,7 @@ class IListingSearchConfiguration(Interface):
     limit = schema.Int(
         default=25,
         required=False,
-        title=_(
-            u'label_listing_search_limit',
-            default=u'Items per Page',
-        ),
+        title=_(u'Items per Page'),
     )
 
     hide_form = schema.Bool(
@@ -490,21 +436,15 @@ class ListingSearchConfiguration(form.Form):
     """Listing Search Configuration Form."""
 
     fields = field.Fields(IListingSearchConfiguration)
-    label = _(
-        u'label_listing_search_configuration',
-        default=u"'Listing Search' Configuration",
-    )
-    description = _(
-        u'help_listing_search_configuration',
-        default=u"Adjust the behaviour for this 'Listing Search' viewlet.",
-    )
+    label = _(u"'Listing Search' Configuration")
+    description = _(u"Adjust the behaviour for this 'Listing Search' viewlet.")
 
     def getContent(self):
         annotations = IAnnotations(self.context)
         return annotations.get(CONFIGURATION_KEY,
                                annotations.setdefault(CONFIGURATION_KEY, {}))
 
-    @button.buttonAndHandler(_(u"Save"))
+    @button.buttonAndHandler(_(u'Save'))
     def handle_save(self, action):
         data, errors = self.extractData()
         if errors:
@@ -516,7 +456,7 @@ class ListingSearchConfiguration(form.Form):
         self.request.response.redirect(absoluteURL(self.context, self.request))
         return u''
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_(u'Cancel'))
     def handle_cancel(self, action):
         self.request.response.redirect(absoluteURL(self.context, self.request))
         return u''
@@ -532,7 +472,7 @@ class ListingSearchStatus(object):
     @property
     def can_activate(self):
         return IPossibleListingSearch.providedBy(self.context) and \
-               not IListingSearch.providedBy(self.context)
+            not IListingSearch.providedBy(self.context)
 
     @property
     def active(self):
@@ -553,23 +493,16 @@ class ListingSearchToggle(object):
             # Deactivate ListingSearch viewlet.
             noLongerProvides(self.context, IListingSearch)
             self.context.reindexObject(idxs=['object_provides', ])
-            msg = _(
-                u'text_listing_search_deactivated',
-                default=u"'Listing Search' viewlet deactivated.",
-            )
+            msg = _(u"'Listing Search' viewlet deactivated.")
         elif IPossibleListingSearch.providedBy(self.context):
             alsoProvides(self.context, IListingSearch)
             self.context.reindexObject(idxs=['object_provides', ])
-            msg = _(
-                u'text_listing_search_activated',
-                default=u"'Listing Search' viewlet activated.",
-            )
+            msg = _(u"'Listing Search' viewlet activated.")
         else:
             msg = _(
-                u'text_listing_search_toggle_error',
-                default=u"The 'Listing Search' viewlet does't work with " \
-                         "this content type. Add 'IPossibleListingSearch' " \
-                         "to the provided interfaces to enable this feature.",
+                u"The 'Listing Search' viewlet does't work with this content "
+                u"type. Add 'IPossibleListingSearch' to the provided "
+                u"interfaces to enable this feature."
             )
             msg_type = 'error'
 

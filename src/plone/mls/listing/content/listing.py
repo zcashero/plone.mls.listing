@@ -31,15 +31,9 @@ class IListing(form.Schema):
     """A single MLS Listing."""
 
     title = schema.TextLine(
-        title=_(
-            u"label_listing_title",
-            default=u"Title",
-        ),
+        title=_(u'Title'),
     )
 
     listing_id = schema.TextLine(
-        title=_(
-            u"label_listing_listing_id",
-            default=u"MLS Listing ID",
-        ),
+        title=_(u'MLS Listing ID'),
     )

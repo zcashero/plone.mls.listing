@@ -3,7 +3,7 @@
     xmlns:article="http://namespaces.zope.org/article"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.mls.listing">
-      
+
   <!-- Include package dependencies. -->
   <!-- ============================= -->
   <include package="raptus.article.core" zcml:condition="installed raptus.article.core" />

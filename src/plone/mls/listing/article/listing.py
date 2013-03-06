@@ -30,8 +30,12 @@ from zope import interface, component
 from raptus.article.core import interfaces
 
 # local imports
-from plone.mls.core.utils import (get_language, get_listing,
-    MLSConnectionError, MLSDataError)
+from plone.mls.core.utils import (
+    get_language,
+    get_listing,
+    MLSConnectionError,
+    MLSDataError,
+)
 from plone.mls.listing.article.interfaces import IListingLists
 from plone.mls.listing.i18n import _
 
@@ -45,14 +49,8 @@ class ListingsComponent(object):
     interface.implements(interfaces.IComponent)
     component.adapts(interfaces.IArticle)
 
-    title = _(
-        u"heading_article_listings",
-        default=u"MLS Listings",
-    )
-    description = _(
-        u"help_article_listings",
-        default=u"List of the contained MLS Listings.",
-    )
+    title = _(u'MLS Listings')
+    description = _(u'List of the contained MLS Listings.')
     image = '++resource++listing_left.gif'
     interface = IListings
     viewlet = 'plone.mls.listing.article.listings'
