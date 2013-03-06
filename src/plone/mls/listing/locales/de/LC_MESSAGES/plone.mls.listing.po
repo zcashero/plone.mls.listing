@@ -16,7 +16,7 @@ msgstr ""
 "Language: de\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml

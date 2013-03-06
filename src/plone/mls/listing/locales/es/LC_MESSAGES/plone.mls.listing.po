@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2012-07-25 21:25+0000\n"
-"PO-Revision-Date: 2012-07-25 21:25+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
+"PO-Revision-Date: 2012-10-26 16:23+0000\n"
+"Last-Translator: Juan Salazar <juancarlos@propertyshelf.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: es\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
@@ -50,15 +50,15 @@ msgstr "Activar viewlet de los listados recientes"
 
 #: ./../portlets/agent_contact.py:289 ./../portlets/agent_information.py:86
 msgid "Add Agent Information portlet"
-msgstr ""
+msgstr "Añadir un portlet  de Información del Agente"
 
 #: ./../portlets/agent_contact.py:204
 msgid "Additional description for the portlet."
-msgstr ""
+msgstr "Descripciones adicionales para el portlet"
 
 #: ./../portlets/agent_contact.py:234
 msgid "Agent Contact"
-msgstr ""
+msgstr "Contacto del Agente"
 
 #: ./../portlets/agent_information.py:60
 msgid "Agent Information"
@@ -70,7 +70,7 @@ msgstr "Todos"
 
 #: ./../portlets/agent_contact.py:222
 msgid "BCC Recipients"
-msgstr ""
+msgstr "Destinatarios en CCO"
 
 #: ./../browser/listing_collection.py:270 ./../browser/listing_search.py:376
 #: ./../browser/recent_listings.py:190
@@ -105,7 +105,7 @@ msgstr "Configurar viewlet de listados recientes"
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
 "used."
-msgstr ""
+msgstr "Título personalizado para el portlet. Si no se proporciona título, se utiliza el título por defecto. "
 
 #: ./../profiles/default/actions.xml
 msgid "Deactivate Listing Collection"
@@ -133,19 +133,19 @@ msgstr "Desactivar viewlet de listados recientes"
 
 #: ./../portlets/agent_contact.py:206
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: ./../portlets/agent_contact.py:218
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
-msgstr ""
+msgstr "Direcciones de correo electrónico que reciben una copia oculta (separadas por comas)."
 
 #: ./../portlets/agent_contact.py:301 ./../portlets/agent_information.py:98
 msgid "Edit Agent Information portlet"
-msgstr ""
+msgstr "Editar portlet de Información del Agente"
 
 #: ./../portlets/agent_contact.py:74
 msgid "Invalid email address"
-msgstr ""
+msgstr "Dirección de correo electrónico invalida."
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
@@ -153,11 +153,11 @@ msgstr "Listados"
 
 #: ./../portlets/agent_contact.py:214
 msgid "Mail Sent Message"
-msgstr ""
+msgstr "Mensaje de correos enviados"
 
 #: ./../portlets/agent_contact.py:200 ./../portlets/agent_information.py:51
 msgid "Portlet Title"
-msgstr ""
+msgstr "Titulo del Portlet"
 
 #: ./../browser/listing_collection.py:260 ./../browser/listing_search.py:364
 #: ./../browser/recent_listings.py:181
@@ -170,19 +170,19 @@ msgstr "Buscar"
 
 #: ./../portlets/agent_contact.py:210
 msgid "Thank you message that is shown after the mail was sent."
-msgstr ""
+msgstr "Mensaje de agradecimiento que se muestra después de que el correo ha sido enviado."
 
 #: ./../portlets/agent_contact.py:55
 msgid ""
 "This portlet shows a form to contact the corresponding agent for a given "
 "listing via email."
-msgstr ""
+msgstr "Este portlet muestra un formulario para contactar con el agente correspondiente en determinado listado a través de correo electrónico."
 
 #: ./../portlets/agent_information.py:36
 msgid ""
 "This portlet shows the corresponding agent information for a given listing. "
 "Note that this portlet is only available for the detail view of a listing."
-msgstr ""
+msgstr "Este portlet muestra la información del agente correspondiente a determinado listado. Note que este portlet esta disponible solamente para la vista detallada del listado"
 
 #. Default: "MLS Listings"
 #: ./../article/listing.py:48
