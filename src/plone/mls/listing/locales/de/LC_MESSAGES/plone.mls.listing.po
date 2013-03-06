@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2013-03-06 12:46+0000\n"
-"PO-Revision-Date: 2013-03-06 12:48+0000\n"
+"POT-Creation-Date: 2013-03-06 13:33+0000\n"
+"PO-Revision-Date: 2013-03-06 13:54+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,30 @@ msgstr ""
 msgid "'Geographic Types' priority list"
 msgstr "Prioritätsliste für 'Art des Standorts'"
 
+#: ./../browser/listing_collection.py:210
+msgid "'Listing Collection' Configuration"
+msgstr "Konfiguration der 'Immobilien-Kollektion'"
+
+#: ./../browser/listing_collection.py:270
+msgid "'Listing Collection' viewlet activated."
+msgstr "Die Immobilien-Kollektion wurde aktiviert."
+
+#: ./../browser/listing_collection.py:266
+msgid "'Listing Collection' viewlet deactivated."
+msgstr "Die Immobilien-Kollektion wurde deaktiviert."
+
+#: ./../browser/listing_search.py:439
+msgid "'Listing Search' Configuration"
+msgstr "Konfiguration der 'Immobilien-Suche'"
+
+#: ./../browser/listing_search.py:500
+msgid "'Listing Search' viewlet activated."
+msgstr "Die Immobilien-Suche wurde aktiviert."
+
+#: ./../browser/listing_search.py:496
+msgid "'Listing Search' viewlet deactivated."
+msgstr "Die Immobilien-Suche wurde deaktiviert."
+
 #: ./../interfaces.py:84
 msgid "'Listing Types' priority list"
 msgstr "Prioritätsliste für 'Art der Immobilie'"
@@ -38,6 +62,18 @@ msgstr "Prioritätsliste für 'Art des Objektes'"
 #: ./../interfaces.py:102
 msgid "'Ownership Types' priority list"
 msgstr "Prioritätsliste für 'Eigentumstyp'"
+
+#: ./../browser/recent_listings.py:153
+msgid "'Recent Listings' Configuration"
+msgstr "Konfiguration der 'Neuesten Immobilien'"
+
+#: ./../browser/recent_listings.py:212
+msgid "'Recent Listings' viewlet activated."
+msgstr "Die neuesten Immobilien wurden aktiviert."
+
+#: ./../browser/recent_listings.py:208
+msgid "'Recent Listings' viewlet deactivated."
+msgstr "Die neuesten Immobilien wurden deaktiviert."
 
 #: ./../interfaces.py:108
 msgid "'View Types' priority list"
@@ -75,13 +111,25 @@ msgstr "Das Viewlet für die neuesten Immobilien aktivieren."
 msgid "Add Agent Information portlet"
 msgstr "Portlet für Makler-Informationen hinzufügen"
 
-#: ./../portlets/quick_search.py:308
+#: ./../portlets/quick_search.py:310
 msgid "Add Listing Quick Search portlet"
 msgstr "Immobilien-Schnellsuche hinzufügen"
 
 #: ./../portlets/agent_contact.py:201
 msgid "Additional description for the portlet."
 msgstr "Zusätzliche Beschreibung."
+
+#: ./../browser/listing_collection.py:211
+msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
+msgstr "Passen Sie die Einstellungen für das 'Immobilien-Kollektion' viewlets an."
+
+#: ./../browser/listing_search.py:440
+msgid "Adjust the behaviour for this 'Listing Search' viewlet."
+msgstr "Passen Sie die Einstellungen für das 'Immobilien-Suche' viewlet an."
+
+#: ./../browser/recent_listings.py:154
+msgid "Adjust the behaviour for this 'Recent Listings' viewlet."
+msgstr "Passen Sie die Einstellungen für das 'Neueste Immobilien' viewlet an."
 
 #: ./../interfaces.py:134
 msgid "Agency Logo"
@@ -131,7 +179,11 @@ msgstr "Makler, Telefon"
 msgid "Agent Title"
 msgstr "Makler, Titel"
 
-#: ./../browser/adapter.py:29 ./../browser/valuerange/widget.py:43
+#: ./../browser/listing_search.py:220
+msgid "Air Condition"
+msgstr "Klimaanlage"
+
+#: ./../browser/adapter.py:30 ./../browser/valuerange/widget.py:43
 #: ./../vocabularies.py:262
 msgid "All"
 msgstr "Alle"
@@ -140,10 +192,22 @@ msgstr "Alle"
 msgid "BCC Recipients"
 msgstr "BCC Empfänger"
 
-#: ./../browser/listing_collection.py:270 ./../browser/listing_search.py:519
-#: ./../browser/recent_listings.py:190
+#: ./../browser/listing_search.py:210
+msgid "Bathrooms"
+msgstr "Badezimmer"
+
+#: ./../browser/listing_search.py:201
+msgid "Bedrooms"
+msgstr "Schlafzimmer"
+
+#: ./../browser/listing_collection.py:230 ./../browser/listing_search.py:459
+#: ./../browser/recent_listings.py:172
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: ./../browser/listing_search.py:145
+msgid "City/Town"
+msgstr "Ort/Stadt"
 
 #: ./../profiles/default/actions.xml
 msgid "Configure Listing Collection"
@@ -168,6 +232,10 @@ msgstr "Konfiguration des Viewlets für Immobilien-Suchen."
 #: ./../profiles/default/actions.xml
 msgid "Configure the Recent Listings viewlet."
 msgstr "Konfiguration des Viewlets für neueste Immobilien."
+
+#: ./../browser/listing_collection.py:133 ./../browser/listing_search.py:133
+msgid "County"
+msgstr "Landkreis"
 
 #: ./../portlets/quick_search.py:206
 msgid ""
@@ -215,6 +283,10 @@ msgstr "Neueste Immobilien Viewlet deaktivieren."
 msgid "Description"
 msgstr "Beschreibung"
 
+#: ./../browser/listing_collection.py:139 ./../browser/listing_search.py:139
+msgid "District"
+msgstr "Bezirk"
+
 #: ./../portlets/agent_contact.py:215
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr "Liste von E-Mail-Adressen (Komma-separiert), die eine Blindkopie erhalten sollen."
@@ -223,11 +295,23 @@ msgstr "Liste von E-Mail-Adressen (Komma-separiert), die eine Blindkopie erhalte
 msgid "Edit Agent Information portlet"
 msgstr "Portlet für Makler-Informationen bearbeiten"
 
-#: ./../portlets/quick_search.py:322
+#: ./../portlets/quick_search.py:324
 msgid "Edit Listing Quick Search portlet"
 msgstr "Immobilien-Schnellsuche bearbeiten"
 
-#: ./../portlets/quick_search.py:234
+#: ./../browser/recent_listings.py:133
+msgid ""
+"Enter the maximum price for listings. If no price is given, all listings to "
+"the highest price are shown."
+msgstr "Geben Sie den maximalen Preis für Immobilien an."
+
+#: ./../browser/recent_listings.py:124
+msgid ""
+"Enter the minimum price for listings. If no price is given, all listings "
+"from the lowest price are shown."
+msgstr "Geben Sie den Mindestpreis für Immobilien an."
+
+#: ./../portlets/quick_search.py:236
 msgid "Filter Results"
 msgstr "Suchergebnisse einschränken"
 
@@ -235,11 +319,15 @@ msgstr "Suchergebnisse einschränken"
 msgid "Find the search page which will be used to show the results."
 msgstr "Suchseite auswählen, die für die Anzeige der Suchergebnisse verwendet wird."
 
-#: ./../browser/listing_search.py:483
+#: ./../browser/listing_collection.py:163 ./../browser/listing_search.py:168
+msgid "Geographic Type"
+msgstr "Art des Standortes"
+
+#: ./../browser/listing_search.py:429
 msgid "Hide the search form when Quick Search Portlet is available?"
 msgstr "Such-Formular ausblenden, wenn das Portlet für die Immobilien-Schnellsuche verfügbar ist?"
 
-#: ./../browser/listing_search.py:300
+#: ./../browser/listing_search.py:249
 msgid "Interior Area"
 msgstr "Gesamtfläche Innenbereich"
 
@@ -253,17 +341,47 @@ msgid ""
 " otherwise. Enter one item per line. Possible values are: %s"
 msgstr "Einträge in diesem Vokabular sind nach Priorität sortiert (sofern verfügbar), andernfalls alphabetisch. Geben Sie einen Eintrag pro Zeile ein. Die möglichen Werte sind: %s"
 
+#: ./../browser/listing_collection.py:196 ./../browser/listing_search.py:423
+#: ./../browser/recent_listings.py:144
+msgid "Items per Page"
+msgstr "Suchergebnisse pro Seite"
+
+#: ./../browser/listing_search.py:234
+msgid "Jacuzzi"
+msgstr "Whirlpool"
+
+#: ./../article/listing.py:53
+msgid "List of the contained MLS Listings."
+msgstr "Liste von enthaltenen MLS Immobilien."
+
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
 msgstr "Immobilie"
 
-#: ./../browser/listing_search.py:291
+#: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
+#: ./../browser/recent_listings.py:117
+msgid "Listing Type"
+msgstr "Art der Immobilie"
+
+#: ./../browser/listing_collection.py:155 ./../browser/listing_search.py:160
+msgid "Location Type"
+msgstr "Lage"
+
+#: ./../browser/listing_search.py:240
 msgid "Lot Size"
 msgstr "Gesamtfläche des Grundstücks"
 
 #: ./../profiles/default/controlpanel.xml
 msgid "MLS Agency Contact Info"
 msgstr "MLS: Kontakt-Informationen der Agentur"
+
+#: ./../content/listing.py:38
+msgid "MLS Listing ID"
+msgstr "MLS Immobilien-ID"
+
+#: ./../article/listing.py:52
+msgid "MLS Listings"
+msgstr "MLS Immobilien"
 
 #: ./../portlets/agent_contact.py:211
 msgid "Mail Sent Message"
@@ -281,6 +399,18 @@ msgstr "Min"
 msgid "No"
 msgstr "Nein"
 
+#: ./../browser/listing_collection.py:179 ./../browser/listing_search.py:184
+msgid "Object Type"
+msgstr "Art des Objektes"
+
+#: ./../browser/listing_collection.py:187 ./../browser/listing_search.py:192
+msgid "Ownership Type"
+msgstr "Eigentumstyp"
+
+#: ./../browser/listing_search.py:227
+msgid "Pool"
+msgstr "Pool"
+
 #: ./../portlets/agent_contact.py:197 ./../portlets/agent_information.py:50
 msgid "Portlet Title"
 msgstr "Portlet Titel"
@@ -293,16 +423,26 @@ msgstr "Portlet Titel (Filter)"
 msgid "Portlet Title (Search)"
 msgstr "Portlet Titel (Suche)"
 
-#: ./../browser/listing_collection.py:260 ./../browser/listing_search.py:507
-#: ./../browser/recent_listings.py:181
+#: ./../browser/listing_collection.py:150 ./../browser/listing_search.py:155
+#: ./../browser/recent_listings.py:138
+msgid "Price (Max)"
+msgstr "Preis (Max)"
+
+#: ./../browser/listing_collection.py:145 ./../browser/listing_search.py:150
+#: ./../browser/recent_listings.py:129
+msgid "Price (Min)"
+msgstr "Preis (Min)"
+
+#: ./../browser/listing_collection.py:220 ./../browser/listing_search.py:447
+#: ./../browser/recent_listings.py:163
 msgid "Save"
 msgstr "Speichern"
 
-#: ./../portlets/quick_search.py:233
+#: ./../portlets/quick_search.py:235
 msgid "Search Listings"
 msgstr "Immobilien Suchen"
 
-#: ./../portlets/quick_search.py:221
+#: ./../portlets/quick_search.py:223
 msgid "Search Page"
 msgstr "Suchseite"
 
@@ -310,9 +450,32 @@ msgstr "Suchseite"
 msgid "Select a value..."
 msgstr "Bitte wählen Sie..."
 
+#: ./../browser/listing_collection.py:127 ./../browser/listing_search.py:127
+msgid "State"
+msgstr "Staat"
+
 #: ./../portlets/agent_contact.py:207
 msgid "Thank you message that is shown after the mail was sent."
 msgstr "Dankesnachricht, die angezeigt wird nachdem die E-Mail verschickt wurde."
+
+#: ./../browser/listing_collection.py:272
+msgid ""
+"The 'Listing Collection' viewlet does't work with this content type. Add "
+"'IPossibleListingCollection' to the provided interfaces to enable this "
+"feature."
+msgstr "Die Immobilien-Kollektion konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleListingCollection' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
+
+#: ./../browser/listing_search.py:502
+msgid ""
+"The 'Listing Search' viewlet does't work with this content type. Add "
+"'IPossibleListingSearch' to the provided interfaces to enable this feature."
+msgstr "Die Immobilien-Suche konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleListingSearch' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
+
+#: ./../browser/recent_listings.py:214
+msgid ""
+"The 'Recent Listings' viewlet does't work with this content type. Add "
+"'IPossibleRecentListings' to the provided interfaces to enable this feature."
+msgstr "Die neuesten Immobilien konnten für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleRecentListings' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
 
 #: ./../portlets/agent_contact.py:52
 msgid ""
@@ -330,18 +493,21 @@ msgid ""
 "Note that this portlet is only available for the detail view of a listing."
 msgstr "Dieses Portlet zeigt die zugehörigen Makler-Informationen zu einer Immobilie. Beachten Sie dass dieses Portlet nur bei der Detail-Ansicht von Immobilien sichtbar ist."
 
+#: ./../content/listing.py:34
+msgid "Title"
+msgstr "Titel"
+
 #: ./../interfaces.py:122
 msgid "Update agent information when showing a third party listing?"
 msgstr "Makler-Informationen überschreiben, wenn Immobilie von Drittanbietern angezeigt wird?"
 
+#: ./../browser/listing_collection.py:171 ./../browser/listing_search.py:176
+msgid "View Type"
+msgstr "Art der Aussicht"
+
 #: ./../vocabularies.py:260
 msgid "Yes"
 msgstr "Ja"
-
-#. Default: "MLS Listings"
-#: ./../article/listing.py:48
-msgid "heading_article_listings"
-msgstr "MLS Immobilien"
 
 #. Default: "Listing Images"
 #: ./../browser/templates/listing_details.pt:89
@@ -353,157 +519,6 @@ msgstr "Immobilien Bilder"
 msgid "heading_listing_information_basic"
 msgstr "Basis-Informationen der Immobilie"
 
-#. Default: "List of the contained MLS Listings."
-#: ./../article/listing.py:52
-msgid "help_article_listings"
-msgstr "Liste von enthaltenen MLS Immobilien."
-
-#. Default: "Adjust the behaviour for this 'Listing Collection' viewlet."
-#: ./../browser/listing_collection.py:250
-msgid "help_listing_collection_configuration"
-msgstr "Passen Sie die Einstellungen für das 'Immobilien-Kollektion' viewlets an."
-
-#. Default: "Adjust the behaviour for this 'Listing Search' viewlet."
-#: ./../browser/listing_search.py:497
-msgid "help_listing_search_configuration"
-msgstr "Passen Sie die Einstellungen für das 'Immobilien-Suche' viewlet an."
-
-#. Default: "Adjust the behaviour for this 'Recent Listings' viewlet."
-#: ./../browser/recent_listings.py:171
-msgid "help_recent_listings_configuration"
-msgstr "Passen Sie die Einstellungen für das 'Neueste Immobilien' viewlet an."
-
-#. Default: "Enter the maximum price for listings. If no price is given, all
-#. listings to the highest price are shown."
-#: ./../browser/recent_listings.py:140
-msgid "help_recent_listings_price_max"
-msgstr "Geben Sie den maximalen Preis für Immobilien an."
-
-#. Default: "Enter the minimum price for listings. If no price is given, all
-#. listings from the lowest price are shown."
-#: ./../browser/recent_listings.py:127
-msgid "help_recent_listings_price_min"
-msgstr "Geben Sie den Mindestpreis für Immobilien an."
-
-#. Default: "'Listing Collection' Configuration"
-#: ./../browser/listing_collection.py:246
-msgid "label_listing_collection_configuration"
-msgstr "Konfiguration der 'Immobilien-Kollektion'"
-
-#. Default: "MLS Listing ID"
-#: ./../content/listing.py:41
-msgid "label_listing_listing_id"
-msgstr "MLS Immobilien-ID"
-
-#. Default: "Air Condition"
-#: ./../browser/listing_search.py:262
-msgid "label_listing_search_air_condition"
-msgstr "Klimaanlage"
-
-#. Default: "Bathrooms"
-#: ./../browser/listing_search.py:249
-msgid "label_listing_search_baths"
-msgstr "Badezimmer"
-
-#. Default: "Bedrooms"
-#: ./../browser/listing_search.py:237
-msgid "label_listing_search_beds"
-msgstr "Schlafzimmer"
-
-#. Default: "'Listing Search' Configuration"
-#: ./../browser/listing_search.py:493
-msgid "label_listing_search_configuration"
-msgstr "Konfiguration der 'Immobilien-Suche'"
-
-#. Default: "Geographic Type"
-#: ./../browser/listing_collection.py:184 ./../browser/listing_search.py:192
-msgid "label_listing_search_geographic_type"
-msgstr "Art des Standortes"
-
-#. Default: "Jacuzzi"
-#: ./../browser/listing_search.py:282
-msgid "label_listing_search_jacuzzi"
-msgstr "Whirlpool"
-
-#. Default: "Items per Page"
-#: ./../browser/listing_collection.py:229 ./../browser/listing_search.py:474
-#: ./../browser/recent_listings.py:155
-msgid "label_listing_search_limit"
-msgstr "Suchergebnisse pro Seite"
-
-#. Default: "Listing Type"
-#: ./../browser/listing_collection.py:119 ./../browser/listing_search.py:119
-#: ./../browser/recent_listings.py:117
-msgid "label_listing_search_listing_type"
-msgstr "Art der Immobilie"
-
-#. Default: "City/Town"
-#: ./../browser/listing_search.py:157
-msgid "label_listing_search_location_city"
-msgstr "Ort/Stadt"
-
-#. Default: "County"
-#: ./../browser/listing_collection.py:139 ./../browser/listing_search.py:139
-msgid "label_listing_search_location_county"
-msgstr "Landkreis"
-
-#. Default: "District"
-#: ./../browser/listing_collection.py:148 ./../browser/listing_search.py:148
-msgid "label_listing_search_location_district"
-msgstr "Bezirk"
-
-#. Default: "State"
-#: ./../browser/listing_collection.py:130 ./../browser/listing_search.py:130
-msgid "label_listing_search_location_state"
-msgstr "Staat"
-
-#. Default: "Location Type"
-#: ./../browser/listing_collection.py:173 ./../browser/listing_search.py:181
-msgid "label_listing_search_location_type"
-msgstr "Lage"
-
-#. Default: "Object Type"
-#: ./../browser/listing_collection.py:206 ./../browser/listing_search.py:214
-msgid "label_listing_search_object_type"
-msgstr "Art des Objektes"
-
-#. Default: "Ownership Type"
-#: ./../browser/listing_collection.py:217 ./../browser/listing_search.py:225
-msgid "label_listing_search_ownership_type"
-msgstr "Eigentumstyp"
-
-#. Default: "Pool"
-#: ./../browser/listing_search.py:272
-msgid "label_listing_search_pool"
-msgstr "Pool"
-
-#. Default: "Price (Max)"
-#: ./../browser/listing_collection.py:165 ./../browser/listing_search.py:173
-#: ./../browser/recent_listings.py:146
-msgid "label_listing_search_price_max"
-msgstr "Preis (Max)"
-
-#. Default: "Price (Min)"
-#: ./../browser/listing_collection.py:157 ./../browser/listing_search.py:165
-#: ./../browser/recent_listings.py:133
-msgid "label_listing_search_price_min"
-msgstr "Preis (Min)"
-
-#. Default: "View Type"
-#: ./../browser/listing_collection.py:195 ./../browser/listing_search.py:203
-msgid "label_listing_search_view_type"
-msgstr "Art der Aussicht"
-
-#. Default: "Title"
-#: ./../content/listing.py:34
-msgid "label_listing_title"
-msgstr "Titel"
-
-#. Default: "'Recent Listings' Configuration"
-#: ./../browser/recent_listings.py:167
-msgid "label_recent_listings_configuration"
-msgstr "Konfiguration der 'Neuesten Immobilien'"
-
 #. Default: "Long Description"
 #: ./../browser/templates/listing_details.pt:116
 msgid "listing_long_description"
@@ -514,54 +529,3 @@ msgstr "Ausführliche Beschreibung"
 #: ./../browser/templates/listing_details.pt:108
 msgid "text_agent_quote"
 msgstr "Sehen Sie, was der Makler über diese Immobilie sagt (Original-Titel und -Beschreibung):"
-
-#. Default: "'Listing Collection' viewlet activated."
-#: ./../browser/listing_collection.py:313
-msgid "text_listing_collection_activated"
-msgstr "Die Immobilien-Kollektion wurde aktiviert."
-
-#. Default: "'Listing Collection' viewlet deactivated."
-#: ./../browser/listing_collection.py:306
-msgid "text_listing_collection_deactivated"
-msgstr "Die Immobilien-Kollektion wurde deaktiviert."
-
-#. Default: "The 'Listing Collection' viewlet does't work with this content
-#. type. Add 'IPossibleListingCollection' to the provided interfaces to enable
-#. this feature."
-#: ./../browser/listing_collection.py:318
-msgid "text_listing_collection_toggle_error"
-msgstr "Die Immobilien-Kollektion konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleListingCollection' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
-
-#. Default: "'Listing Search' viewlet activated."
-#: ./../browser/listing_search.py:563
-msgid "text_listing_search_activated"
-msgstr "Die Immobilien-Suche wurde aktiviert."
-
-#. Default: "'Listing Search' viewlet deactivated."
-#: ./../browser/listing_search.py:556
-msgid "text_listing_search_deactivated"
-msgstr "Die Immobilien-Suche wurde deaktiviert."
-
-#. Default: "The 'Listing Search' viewlet does't work with this content type.
-#. Add 'IPossibleListingSearch' to the provided interfaces to enable this
-#. feature."
-#: ./../browser/listing_search.py:568
-msgid "text_listing_search_toggle_error"
-msgstr "Die Immobilien-Suche konnte für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleListingSearch' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
-
-#. Default: "'Recent Listings' viewlet activated."
-#: ./../browser/recent_listings.py:233
-msgid "text_recent_listings_activated"
-msgstr "Die neuesten Immobilien wurden aktiviert."
-
-#. Default: "'Recent Listings' viewlet deactivated."
-#: ./../browser/recent_listings.py:226
-msgid "text_recent_listings_deactivated"
-msgstr "Die neuesten Immobilien wurden deaktiviert."
-
-#. Default: "The 'Recent Listings' viewlet does't work with this content type.
-#. Add 'IPossibleRecentListings' to the provided interfaces to enable this
-#. feature."
-#: ./../browser/recent_listings.py:238
-msgid "text_recent_listings_toggle_error"
-msgstr "Die neuesten Immobilien konnten für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleRecentListings' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
