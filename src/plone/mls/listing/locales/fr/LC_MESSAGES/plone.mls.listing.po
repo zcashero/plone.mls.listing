@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2013-03-06 14:49+0000\n"
-"PO-Revision-Date: 2013-03-06 14:54+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
+"PO-Revision-Date: 2013-03-07 15:45+0000\n"
+"Last-Translator: claudiapropertyshelf <c.oberbeck@gmx.de>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ./../interfaces.py:78
 msgid "'Geographic Types' priority list"
-msgstr ""
+msgstr "Liste des priorités des 'Types Geographiques'"
 
 #: ./../browser/listing_collection.py:210
 msgid "'Listing Collection' Configuration"
@@ -50,19 +50,19 @@ msgstr "Viewlet de la 'Recherche de Propriété' désactivé."
 
 #: ./../interfaces.py:84
 msgid "'Listing Types' priority list"
-msgstr ""
+msgstr "Liste des priorités des 'Types des Propriétés'"
 
 #: ./../interfaces.py:90
 msgid "'Location Types' priority list"
-msgstr ""
+msgstr "Liste des priorités des 'Types des Emplacements'"
 
 #: ./../interfaces.py:96
 msgid "'Object Types' priority list"
-msgstr ""
+msgstr "Liste des priorités des 'Types des Objets'"
 
 #: ./../interfaces.py:102
 msgid "'Ownership Types' priority list"
-msgstr ""
+msgstr "Liste des priorités des 'Types de la Possession'"
 
 #: ./../browser/recent_listings.py:153
 msgid "'Recent Listings' Configuration"
@@ -78,7 +78,7 @@ msgstr "Viewlet des 'Propriétés Récentes' désactivé."
 
 #: ./../interfaces.py:108
 msgid "'View Types' priority list"
-msgstr ""
+msgstr "Liste des priorités des 'Types de la Vue'"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "A single MLS Listing"
@@ -114,7 +114,7 @@ msgstr "Ajouter portlet de la Information du Agent"
 
 #: ./../portlets/quick_search.py:310
 msgid "Add Listing Quick Search portlet"
-msgstr ""
+msgstr "Ajouter portlet de la Recherche Rapide des Propriétés"
 
 #: ./../portlets/agent_contact.py:201
 msgid "Additional description for the portlet."
@@ -134,23 +134,23 @@ msgstr "Régler le comportement pour ce viewlet de 'Propriétés Récentes'."
 
 #: ./../interfaces.py:134
 msgid "Agency Logo"
-msgstr ""
+msgstr "Logo de la Agence"
 
 #: ./../interfaces.py:129
 msgid "Agency Name"
-msgstr ""
+msgstr "Nom de la Agence"
 
 #: ./../interfaces.py:139
 msgid "Agency Office Phone"
-msgstr ""
+msgstr "Téléphone au Bureau de la Agence"
 
 #: ./../interfaces.py:144
 msgid "Agency Website"
-msgstr ""
+msgstr "Sit Web de la Agence"
 
 #: ./../interfaces.py:164
 msgid "Agent Cell Phone"
-msgstr ""
+msgstr "Portable d'Agent"
 
 #: ./../portlets/agent_contact.py:231
 msgid "Agent Contact"
@@ -158,11 +158,11 @@ msgstr "Contact d'Agent"
 
 #: ./../interfaces.py:174
 msgid "Agent Email"
-msgstr ""
+msgstr "Courriel d'Agent"
 
 #: ./../interfaces.py:169
 msgid "Agent Fax"
-msgstr ""
+msgstr "Télécopie d'Agent"
 
 #: ./../portlets/agent_information.py:59
 msgid "Agent Information"
@@ -170,15 +170,15 @@ msgstr "Information du Agent"
 
 #: ./../interfaces.py:149
 msgid "Agent Name"
-msgstr ""
+msgstr "Nom d'Agent"
 
 #: ./../interfaces.py:159
 msgid "Agent Office Phone"
-msgstr ""
+msgstr "Téléphone au Bureau d'Agent"
 
 #: ./../interfaces.py:154
 msgid "Agent Title"
-msgstr ""
+msgstr "Titre d'Agent"
 
 #: ./../browser/listing_search.py:220
 msgid "Air Condition"
@@ -246,13 +246,13 @@ msgstr "Arrondissement"
 msgid ""
 "Custom title for the portlet (filter mode). If no title is provided, the "
 "default title is used."
-msgstr ""
+msgstr "Titre personnalisé pour le portlet (mode de filtre). Si aucun titre n'est fourni, le titre par défaut est utilisé."
 
 #: ./../portlets/quick_search.py:197
 msgid ""
 "Custom title for the portlet (search mode). If no title is provided, the "
 "default title is used."
-msgstr ""
+msgstr "Titre personnalisé pour le portlet (mode de recherche). Si aucun titre n'est fourni, le titre par défaut est utilisé."
 
 #: ./../portlets/agent_contact.py:193 ./../portlets/agent_information.py:46
 msgid ""
@@ -302,7 +302,7 @@ msgstr "Éditer portlet de la Information du Agent"
 
 #: ./../portlets/quick_search.py:324
 msgid "Edit Listing Quick Search portlet"
-msgstr ""
+msgstr "Éditer portlet de la Recherche Rapide des Propriétés"
 
 #: ./../browser/recent_listings.py:133
 msgid ""
@@ -318,11 +318,11 @@ msgstr "Entrer le prix minimum pour la propriété. Si aucun prix n'est indiqué
 
 #: ./../portlets/quick_search.py:236
 msgid "Filter Results"
-msgstr ""
+msgstr "Filtrer les Résultats"
 
 #: ./../portlets/quick_search.py:215
 msgid "Find the search page which will be used to show the results."
-msgstr ""
+msgstr "Trouvez la page de la recherche qui sera utilisée pour afficher les résultats."
 
 #: ./../browser/listing_collection.py:163 ./../browser/listing_search.py:168
 msgid "Geographic Type"
@@ -330,11 +330,11 @@ msgstr "Type Géographique"
 
 #: ./../browser/listing_search.py:429
 msgid "Hide the search form when Quick Search Portlet is available?"
-msgstr ""
+msgstr "Cacher le formulaire de la recherche quand Portlet de la Recherche Rapide est disponible?"
 
 #: ./../browser/listing_search.py:249
 msgid "Interior Area"
-msgstr ""
+msgstr "Superficie Intérieure"
 
 #: ./../portlets/agent_contact.py:71
 msgid "Invalid email address"
@@ -344,7 +344,7 @@ msgstr "Adresse e-mail périmée"
 msgid ""
 "Items in this vocabulary are sorted by priority key (if available) and value"
 " otherwise. Enter one item per line. Possible values are: %s"
-msgstr ""
+msgstr "Les articles de ce vocabulaire sont triés par une clé de priorité (le cas échéant) et autrement de la valeur. Entrez un article par ligne. Les valeurs possibles sont:% s"
 
 #: ./../browser/listing_collection.py:196 ./../browser/listing_search.py:423
 #: ./../browser/recent_listings.py:144
@@ -382,11 +382,11 @@ msgstr "Description Longue"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
-msgstr ""
+msgstr "Superficie du Terrain"
 
 #: ./../profiles/default/controlpanel.xml
 msgid "MLS Agency Contact Info"
-msgstr ""
+msgstr "Info du Contact de la MLS Agence"
 
 #: ./../content/listing.py:38
 msgid "MLS Listing ID"
@@ -402,15 +402,15 @@ msgstr "Message envoyé"
 
 #: ./../vocabularies.py:48
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 #: ./../vocabularies.py:38
 msgid "Min"
-msgstr ""
+msgstr "Mi"
 
 #: ./../vocabularies.py:261
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: ./../browser/listing_collection.py:179 ./../browser/listing_search.py:184
 msgid "Object Type"
@@ -430,11 +430,11 @@ msgstr "Titre du Portlet"
 
 #: ./../portlets/quick_search.py:211
 msgid "Portlet Title (Filter)"
-msgstr ""
+msgstr "Titre du Portlet (Filtre)"
 
 #: ./../portlets/quick_search.py:202
 msgid "Portlet Title (Search)"
-msgstr ""
+msgstr "Titre du Portlet (Recherche)"
 
 #: ./../browser/listing_collection.py:150 ./../browser/listing_search.py:155
 #: ./../browser/recent_listings.py:138
@@ -453,11 +453,11 @@ msgstr "Enregistrer"
 
 #: ./../portlets/quick_search.py:235
 msgid "Search Listings"
-msgstr ""
+msgstr "Rechercher Propriétés"
 
 #: ./../portlets/quick_search.py:223
 msgid "Search Page"
-msgstr ""
+msgstr "Rechercher Page"
 
 #: ./../browser/templates/listing_details.pt:108
 msgid ""
@@ -466,7 +466,7 @@ msgstr "Voyez ce que dit l'agent à propos de cette propriété (titre original 
 
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
-msgstr ""
+msgstr "Sélectionnez une valeur..."
 
 #: ./../browser/listing_collection.py:127 ./../browser/listing_search.py:127
 msgid "State"
@@ -481,19 +481,19 @@ msgid ""
 "The 'Listing Collection' viewlet does't work with this content type. Add "
 "'IPossibleListingCollection' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "Le viewlet de la «Collection de la Propriété« ne fonctionne pas avec ce type de contenu. Ajouter \"Collection possible des Propriétés\" aux interfaces fournies pour activer cette fonction."
 
 #: ./../browser/listing_search.py:502
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
-msgstr ""
+msgstr "Le viewlet  de la 'Recherche de Propriété' ne fonctionne pas avec ce type de contenu. Ajouter 'Recherche Possible de Propriété' pour les interfaces fournies pour activer cette fonction."
 
 #: ./../browser/recent_listings.py:214
 msgid ""
 "The 'Recent Listings' viewlet does't work with this content type. Add "
 "'IPossibleRecentListings' to the provided interfaces to enable this feature."
-msgstr ""
+msgstr "Le viewlet des \"Propriétés Récentes\" ne fonctionne pas avec ce type de contenu. Ajouter \"Propriétés Récentes Possibles» aux interfaces fournies pour activer cette fonction."
 
 #: ./../portlets/agent_contact.py:52
 msgid ""
@@ -503,7 +503,7 @@ msgstr "Ce portlet affiche un formulaire pour contacter l'agent correspondant po
 
 #: ./../portlets/quick_search.py:53
 msgid "This portlet shows a listing quick search form."
-msgstr ""
+msgstr "Ce portlet affiche un formulaire de la recherche rapide des propriétés."
 
 #: ./../portlets/agent_information.py:35
 msgid ""
@@ -517,7 +517,7 @@ msgstr "Titre"
 
 #: ./../interfaces.py:122
 msgid "Update agent information when showing a third party listing?"
-msgstr ""
+msgstr "Mettre à jour les informations d'agent affichant la propriété à quelqu'un d'autre?"
 
 #: ./../browser/listing_collection.py:171 ./../browser/listing_search.py:176
 msgid "View Type"
@@ -525,4 +525,4 @@ msgstr "Type de la Vue"
 
 #: ./../vocabularies.py:260
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
