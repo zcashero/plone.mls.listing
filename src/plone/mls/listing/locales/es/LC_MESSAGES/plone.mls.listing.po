@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2013-03-06 14:49+0000\n"
-"PO-Revision-Date: 2013-03-06 14:52+0000\n"
+"PO-Revision-Date: 2013-03-27 09:16+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -334,7 +334,7 @@ msgstr ""
 
 #: ./../browser/listing_search.py:249
 msgid "Interior Area"
-msgstr ""
+msgstr "Área Interior"
 
 #: ./../portlets/agent_contact.py:71
 msgid "Invalid email address"
@@ -382,7 +382,7 @@ msgstr "Descripción Larga"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
-msgstr ""
+msgstr "Tamaño del Lote"
 
 #: ./../profiles/default/controlpanel.xml
 msgid "MLS Agency Contact Info"
@@ -402,11 +402,11 @@ msgstr "Mensaje de Correos Enviados"
 
 #: ./../vocabularies.py:48
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 #: ./../vocabularies.py:38
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 #: ./../vocabularies.py:261
 msgid "No"
