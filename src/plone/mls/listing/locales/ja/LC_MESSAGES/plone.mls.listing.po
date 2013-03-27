@@ -1,14 +1,15 @@
 # --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
 # SOME DESCRIPTIVE TITLE.
 # Translators:
+#  <bryan@propertyshelf.com>, 2013.
 #   <bryan@propertyshelf.com>, 2012.
 # Thomas Massmann <thomas.massmann@inqbus.de>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2013-03-06 14:49+0000\n"
-"PO-Revision-Date: 2013-03-06 14:54+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@inqbus.de>\n"
+"PO-Revision-Date: 2013-03-26 16:52+0000\n"
+"Last-Translator: BryanAllen <bryan@propertyshelf.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/MLS_Plone/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,63 +23,63 @@ msgstr ""
 
 #: ./../interfaces.py:78
 msgid "'Geographic Types' priority list"
-msgstr ""
+msgstr "\"地理型\"優先順位リスト"
 
 #: ./../browser/listing_collection.py:210
 msgid "'Listing Collection' Configuration"
-msgstr ""
+msgstr "'リストコレクション\"構成"
 
 #: ./../browser/listing_collection.py:270
 msgid "'Listing Collection' viewlet activated."
-msgstr ""
+msgstr "'リストコレクション \"ビューレットが作動した。"
 
 #: ./../browser/listing_collection.py:266
 msgid "'Listing Collection' viewlet deactivated."
-msgstr ""
+msgstr "'リストコレクション \"ビューレットは無効になりました。"
 
 #: ./../browser/listing_search.py:439
 msgid "'Listing Search' Configuration"
-msgstr ""
+msgstr "'リストの検索\"構成"
 
 #: ./../browser/listing_search.py:500
 msgid "'Listing Search' viewlet activated."
-msgstr ""
+msgstr "'リストの検索\"ビューレットが作動した。"
 
 #: ./../browser/listing_search.py:496
 msgid "'Listing Search' viewlet deactivated."
-msgstr ""
+msgstr "'リストの検索\"ビューレットは無効になりました。"
 
 #: ./../interfaces.py:84
 msgid "'Listing Types' priority list"
-msgstr ""
+msgstr "物件タイプ'優先順位リスト "
 
 #: ./../interfaces.py:90
 msgid "'Location Types' priority list"
-msgstr ""
+msgstr "\"場所·タイプ\"の優先順位リスト "
 
 #: ./../interfaces.py:96
 msgid "'Object Types' priority list"
-msgstr ""
+msgstr "\"オブジェクト·タイプの優先順位リスト"
 
 #: ./../interfaces.py:102
 msgid "'Ownership Types' priority list"
-msgstr ""
+msgstr "\"所有型\"優先順位リスト"
 
 #: ./../browser/recent_listings.py:153
 msgid "'Recent Listings' Configuration"
-msgstr ""
+msgstr "'最近の掲載'設定"
 
 #: ./../browser/recent_listings.py:212
 msgid "'Recent Listings' viewlet activated."
-msgstr ""
+msgstr "'最近の掲載\"ビューレットが作動した。"
 
 #: ./../browser/recent_listings.py:208
 msgid "'Recent Listings' viewlet deactivated."
-msgstr ""
+msgstr "'最近の掲載\"ビューレットは無効になりました。"
 
 #: ./../interfaces.py:108
 msgid "'View Types' priority list"
-msgstr ""
+msgstr "\"表示タイプ\"優先順位リスト"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "A single MLS Listing"
@@ -114,7 +115,7 @@ msgstr "エージェント情報ポートレット追加"
 
 #: ./../portlets/quick_search.py:310
 msgid "Add Listing Quick Search portlet"
-msgstr ""
+msgstr "物件検索ポートレットを追加 "
 
 #: ./../portlets/agent_contact.py:201
 msgid "Additional description for the portlet."
@@ -122,35 +123,35 @@ msgstr "ポートレット追加説明"
 
 #: ./../browser/listing_collection.py:211
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
-msgstr ""
+msgstr "この \"リスト·コレクション\"ビューレットのために行動を調整します。"
 
 #: ./../browser/listing_search.py:440
 msgid "Adjust the behaviour for this 'Listing Search' viewlet."
-msgstr ""
+msgstr "この \"リスト検索\"ビューレットの振る舞いを調整します。"
 
 #: ./../browser/recent_listings.py:154
 msgid "Adjust the behaviour for this 'Recent Listings' viewlet."
-msgstr ""
+msgstr "この\"最近の掲載'ビューレットの振る舞いを調整します。"
 
 #: ./../interfaces.py:134
 msgid "Agency Logo"
-msgstr ""
+msgstr "代理店ロゴ"
 
 #: ./../interfaces.py:129
 msgid "Agency Name"
-msgstr ""
+msgstr "代理店名"
 
 #: ./../interfaces.py:139
 msgid "Agency Office Phone"
-msgstr ""
+msgstr "会社代理店電話"
 
 #: ./../interfaces.py:144
 msgid "Agency Website"
-msgstr ""
+msgstr "代理店のウェブサイト"
 
 #: ./../interfaces.py:164
 msgid "Agent Cell Phone"
-msgstr ""
+msgstr "代理人携帯電話"
 
 #: ./../portlets/agent_contact.py:231
 msgid "Agent Contact"
@@ -158,11 +159,11 @@ msgstr "エージェント連絡先"
 
 #: ./../interfaces.py:174
 msgid "Agent Email"
-msgstr ""
+msgstr "代理人eメール "
 
 #: ./../interfaces.py:169
 msgid "Agent Fax"
-msgstr ""
+msgstr "代理人ファックスで"
 
 #: ./../portlets/agent_information.py:59
 msgid "Agent Information"
@@ -170,15 +171,15 @@ msgstr "エージェント情報"
 
 #: ./../interfaces.py:149
 msgid "Agent Name"
-msgstr ""
+msgstr "代理人名"
 
 #: ./../interfaces.py:159
 msgid "Agent Office Phone"
-msgstr ""
+msgstr "代理人会社電話"
 
 #: ./../interfaces.py:154
 msgid "Agent Title"
-msgstr ""
+msgstr "代理人肩書"
 
 #: ./../browser/listing_search.py:220
 msgid "Air Condition"
@@ -246,13 +247,13 @@ msgstr "郡"
 msgid ""
 "Custom title for the portlet (filter mode). If no title is provided, the "
 "default title is used."
-msgstr ""
+msgstr "ポートレットのカスタムタイトル（フィルタモード）。タイトルが提供されていない場合、デフォルトのタイトルが使用されます。"
 
 #: ./../portlets/quick_search.py:197
 msgid ""
 "Custom title for the portlet (search mode). If no title is provided, the "
 "default title is used."
-msgstr ""
+msgstr "ポートレット（検索モード）のカスタムタイトル。タイトルが提供されていない場合、デフォルトのタイトルが使用されます。"
 
 #: ./../portlets/agent_contact.py:193 ./../portlets/agent_information.py:46
 msgid ""
@@ -302,27 +303,27 @@ msgstr "エージェント情報ポートレットの修正"
 
 #: ./../portlets/quick_search.py:324
 msgid "Edit Listing Quick Search portlet"
-msgstr ""
+msgstr "リストクイック検索ポートレットを編集"
 
 #: ./../browser/recent_listings.py:133
 msgid ""
 "Enter the maximum price for listings. If no price is given, all listings to "
 "the highest price are shown."
-msgstr ""
+msgstr "リストのための上限価格を入力します。全く価格が指定されない場合は、最高価格にすべてのリストが表示されます。"
 
 #: ./../browser/recent_listings.py:124
 msgid ""
 "Enter the minimum price for listings. If no price is given, all listings "
 "from the lowest price are shown."
-msgstr ""
+msgstr "リストのための最低限の価格を入力します。全く価格が指定されない場合は、最低価格からのすべてのリストが表示されます。"
 
 #: ./../portlets/quick_search.py:236
 msgid "Filter Results"
-msgstr ""
+msgstr "フィルタ結果"
 
 #: ./../portlets/quick_search.py:215
 msgid "Find the search page which will be used to show the results."
-msgstr ""
+msgstr "結果を表示するために使用される検索ページを見つけてください。"
 
 #: ./../browser/listing_collection.py:163 ./../browser/listing_search.py:168
 msgid "Geographic Type"
@@ -330,11 +331,11 @@ msgstr "地形タイプ"
 
 #: ./../browser/listing_search.py:429
 msgid "Hide the search form when Quick Search Portlet is available?"
-msgstr ""
+msgstr "クイック検索ポートレットが利用可能であるときに検索フォームを非表示にするには？"
 
 #: ./../browser/listing_search.py:249
 msgid "Interior Area"
-msgstr ""
+msgstr "内部領域"
 
 #: ./../portlets/agent_contact.py:71
 msgid "Invalid email address"
@@ -344,7 +345,7 @@ msgstr "無効メールアドレス"
 msgid ""
 "Items in this vocabulary are sorted by priority key (if available) and value"
 " otherwise. Enter one item per line. Possible values are: %s"
-msgstr ""
+msgstr "この語彙内のアイテムは、優先キー(使用可能な場合)、それ以外の値でソートされています。 1行につき1つの項目を入力します。可能な値は以下の通りです %s"
 
 #: ./../browser/listing_collection.py:196 ./../browser/listing_search.py:423
 #: ./../browser/recent_listings.py:144
@@ -357,7 +358,7 @@ msgstr "ジャクジー"
 
 #: ./../article/listing.py:53
 msgid "List of the contained MLS Listings."
-msgstr ""
+msgstr "含まれているMLSのリストのリスト。"
 
 #: ./../profiles/default/types/plone.mls.listing.listing.xml
 msgid "Listing"
@@ -382,11 +383,11 @@ msgstr "説明"
 
 #: ./../browser/listing_search.py:240
 msgid "Lot Size"
-msgstr ""
+msgstr "地所寸法"
 
 #: ./../profiles/default/controlpanel.xml
 msgid "MLS Agency Contact Info"
-msgstr ""
+msgstr "MLS登録機関の連絡先情報"
 
 #: ./../content/listing.py:38
 msgid "MLS Listing ID"
@@ -402,15 +403,15 @@ msgstr "送信メールメッセージ"
 
 #: ./../vocabularies.py:48
 msgid "Max"
-msgstr ""
+msgstr "最大"
 
 #: ./../vocabularies.py:38
 msgid "Min"
-msgstr ""
+msgstr "最小"
 
 #: ./../vocabularies.py:261
 msgid "No"
-msgstr ""
+msgstr "いいえ"
 
 #: ./../browser/listing_collection.py:179 ./../browser/listing_search.py:184
 msgid "Object Type"
@@ -430,11 +431,11 @@ msgstr "ポートレットタイトル"
 
 #: ./../portlets/quick_search.py:211
 msgid "Portlet Title (Filter)"
-msgstr ""
+msgstr "ポートレットのタイトル（フィルタ）"
 
 #: ./../portlets/quick_search.py:202
 msgid "Portlet Title (Search)"
-msgstr ""
+msgstr "ポートレットのタイトル（検索）"
 
 #: ./../browser/listing_collection.py:150 ./../browser/listing_search.py:155
 #: ./../browser/recent_listings.py:138
@@ -453,20 +454,20 @@ msgstr "保存"
 
 #: ./../portlets/quick_search.py:235
 msgid "Search Listings"
-msgstr ""
+msgstr "検索不動産仲介"
 
 #: ./../portlets/quick_search.py:223
 msgid "Search Page"
-msgstr ""
+msgstr "検索ページ"
 
 #: ./../browser/templates/listing_details.pt:108
 msgid ""
 "See what the agent says about this listing (original title and description):"
-msgstr ""
+msgstr "代理人はこのリスト（オリジナルタイトルと説明）について言っていることを参照してください："
 
 #: ./../browser/valuerange/widget.py:44
 msgid "Select a value..."
-msgstr ""
+msgstr "値を選択してください..."
 
 #: ./../browser/listing_collection.py:127 ./../browser/listing_search.py:127
 msgid "State"
@@ -481,19 +482,19 @@ msgid ""
 "The 'Listing Collection' viewlet does't work with this content type. Add "
 "'IPossibleListingCollection' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "このコンテンツタイプを使用して、'リストコレクション \"ビューレットのdoes't作業。この機能を有効にするために提供されているインタフェースに 'IPossibleListingCollection'を追加します。"
 
 #: ./../browser/listing_search.py:502
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
-msgstr ""
+msgstr "このコンテンツタイプを使用して、'リストの検索\"ビューレットのdoes't作業。この機能を有効にするために提供されているインタフェースに 'IPossibleListingSearch'を追加します。"
 
 #: ./../browser/recent_listings.py:214
 msgid ""
 "The 'Recent Listings' viewlet does't work with this content type. Add "
 "'IPossibleRecentListings' to the provided interfaces to enable this feature."
-msgstr ""
+msgstr "このコンテンツタイプを使用して、\"最近の掲載\"ビューレットのdoes't作業。この機能を有効にするために提供されているインタフェースに 'IPossibleRecentListings'を追加します。"
 
 #: ./../portlets/agent_contact.py:52
 msgid ""
@@ -503,7 +504,7 @@ msgstr "このポートレットは物件に対応するするエージェント
 
 #: ./../portlets/quick_search.py:53
 msgid "This portlet shows a listing quick search form."
-msgstr ""
+msgstr "このポートレットには上場クイック検索フォームを示しています。"
 
 #: ./../portlets/agent_information.py:35
 msgid ""
@@ -517,7 +518,7 @@ msgstr "タイトル"
 
 #: ./../interfaces.py:122
 msgid "Update agent information when showing a third party listing?"
-msgstr ""
+msgstr "サードパーティのリストを示すエージェント情報を更新しますか？"
 
 #: ./../browser/listing_collection.py:171 ./../browser/listing_search.py:176
 msgid "View Type"
@@ -525,4 +526,4 @@ msgstr "景観種類"
 
 #: ./../vocabularies.py:260
 msgid "Yes"
-msgstr "有"
+msgstr "はい"
