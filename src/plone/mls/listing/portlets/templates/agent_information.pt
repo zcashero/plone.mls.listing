@@ -77,21 +77,23 @@
           <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
         </tal:item>
 
-        <tal:item tal:define="item contact/agent/agent_email | nothing"
-                  tal:condition="item">
-          <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-          <dd><a href=""
-                 tal:attributes="href string: mailto:${item/value | nothing}"><span
-                 tal:replace="item/value | nothing">[Value]</span></a></dd>
-        </tal:item>
+        <tal:contact tal:condition="not: view/agent_contact_portlet_available | nothing">
+          <tal:item tal:define="item contact/agent/agent_email | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><a href=""
+                   tal:attributes="href string: mailto:${item/value | nothing}"><span
+                   tal:replace="item/value | nothing">[Value]</span></a></dd>
+          </tal:item>
 
-        <tal:item tal:define="item contact/agency/website | nothing"
-                  tal:condition="item">
-          <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-          <dd><a href="" target="_blank"
-                 tal:attributes="href item/value | nothing"><span
-                 tal:replace="item/value | nothing">[Value]</span></a></dd>
-        </tal:item>
+          <tal:item tal:define="item contact/agency/website | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><a href="" target="_blank"
+                   tal:attributes="href item/value | nothing"><span
+                   tal:replace="item/value | nothing">[Value]</span></a></dd>
+          </tal:item>
+        </tal:contact>
       </dl>
     </dd>
     <div class="visualClear"></div>
