@@ -62,6 +62,20 @@ Message:
 %(message)s
 """
 
+EMAIL_TEMPLATE_RL = """\
+Enquiry from: %(name)s <%(sender_from_address)s>
+Listing URL: %(url)s
+
+Phone Number: %(phone)s
+Arrival Date: %(arrival_date)s
+Departure Date: %(departure_date)s
+Adults: %(adults)s
+Children: %(children)s
+
+Message:
+%(message)s
+"""
+
 check_email = re.compile(
     r"[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}").match
 
@@ -99,6 +113,36 @@ class IEmailForm(Interface):
         title=PMF(u'label_sender_from_address', default=u'E-Mail'),
     )
 
+    phone = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Phone Number'),
+    )
+
+    arrival_date = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Arrival Date'),
+    )
+
+    departure_date = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Departure Date'),
+    )
+
+    adults = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Adults'),
+    )
+
+    children = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Children'),
+    )
+
     message = schema.Text(
         description=PMF(
             u'help_message',
@@ -112,7 +156,9 @@ class IEmailForm(Interface):
 
 class EmailForm(form.Form):
     """Email Form."""
-    fields = field.Fields(IEmailForm)
+    fields = field.Fields(IEmailForm).omit(
+        'phone', 'arrival_date', 'departure_date', 'adults', 'children',
+    )
     ignoreContext = True
     method = 'post'
     _email_sent = False
@@ -128,6 +174,15 @@ class EmailForm(form.Form):
     @property
     def already_sent(self):
         return self._email_sent
+
+    @property
+    def is_residential_lease(self):
+        return self.listing_info.get('listing_id', '').lower().startswith('rl')
+
+    def update(self):
+        if self.is_residential_lease:
+            self.fields = field.Fields(IEmailForm)
+        super(EmailForm, self).update()
 
     def updateWidgets(self):
         super(EmailForm, self).updateWidgets()
@@ -172,7 +227,10 @@ class EmailForm(form.Form):
         sender = '%s <%s>' % (data['name'], data['sender_from_address'])
         subject = data['subject']
         data['url'] = self.request.getURL()
-        message = EMAIL_TEMPLATE % data
+        if self.is_residential_lease:
+            message = EMAIL_TEMPLATE_RL % data
+        else:
+            message = EMAIL_TEMPLATE % data
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
         message['From'] = from_address
