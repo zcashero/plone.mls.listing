@@ -2,7 +2,7 @@
 
 ###############################################################################
 #
-# Copyright (c) 2012 Propertyshelf, Inc. and its Contributors.
+# Copyright (c) Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AS IS AND ANY EXPRESSED OR
@@ -50,7 +50,7 @@ except ImportError:
 
 
 MSG_PORTLET_DESCRIPTION = _(
-    u'This portlet shows a form to contact the corresponding agent for a ' \
+    u'This portlet shows a form to contact the corresponding agent for a '
     u'given listing via email.'
 )
 
@@ -191,8 +191,9 @@ class IAgentContactPortlet(IPortletDataProvider):
 
     heading = schema.TextLine(
         description=_(
-            u'Custom title for the portlet. If no title is provided, the ' \
-            u'default title is used.'),
+            u'Custom title for the portlet. If no title is provided, the '
+            u'default title is used.'
+        ),
         required=False,
         title=_(u'Portlet Title'),
     )
@@ -213,8 +214,9 @@ class IAgentContactPortlet(IPortletDataProvider):
 
     bcc = schema.TextLine(
         description=_(
-            u'E-mail addresses which receive a blind carbon copy (comma ' \
-            u'separated).'),
+            u'E-mail addresses which receive a blind carbon copy (comma '
+            u'separated).'
+        ),
         required=False,
         title=_(u'BCC Recipients'),
     )
@@ -248,7 +250,7 @@ class Renderer(base.Renderer):
     @property
     def available(self):
         return IListingDetails.providedBy(self.view) and \
-               getattr(self.view, 'listing_id', None) is not None
+            getattr(self.view, 'listing_id', None) is not None
 
     @property
     def description(self):

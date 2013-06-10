@@ -2,7 +2,7 @@
 
 ###############################################################################
 #
-# Copyright (c) 2012 Propertyshelf, Inc. and its Contributors.
+# Copyright (c) Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AS IS AND ANY EXPRESSED OR
