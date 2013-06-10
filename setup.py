@@ -131,6 +131,7 @@ setup(
         'plone.app.referenceablebehavior',
         'plone.app.relationfield',
         'plone.app.versioningbehavior',
+        'plone.formwidget.captcha',
         'plone.mls.core >= 0.2',
     ],
     entry_points="""

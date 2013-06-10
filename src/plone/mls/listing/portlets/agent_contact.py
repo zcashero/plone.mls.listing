@@ -31,7 +31,7 @@ from plone.app.portlets.portlets import base
 from plone.directives import form
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.z3cform import z2
-from z3c.form import button, field
+from z3c.form import button, field, validator
 from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
 from zope import formlib, schema
 from zope.interface import Interface, Invalid, alsoProvides, implementer
@@ -48,6 +48,8 @@ try:
 except ImportError:
     HAS_WRAPPED_FORM = False
 
+from plone.formwidget.captcha.widget import CaptchaFieldWidget
+from plone.formwidget.captcha.validator import CaptchaValidator
 
 MSG_PORTLET_DESCRIPTION = _(
     u'This portlet shows a form to contact the corresponding agent for a '
@@ -153,12 +155,18 @@ class IEmailForm(Interface):
         title=PMF(u'label_message', default=u'Message'),
     )
 
+    captcha = schema.TextLine(
+        required=True,
+        title=_(u'Captcha'),
+    )
+
 
 class EmailForm(form.Form):
     """Email Form."""
     fields = field.Fields(IEmailForm).omit(
         'phone', 'arrival_date', 'departure_date', 'adults', 'children',
     )
+    fields['captcha'].widgetFactory = CaptchaFieldWidget
     ignoreContext = True
     method = 'post'
     _email_sent = False
@@ -203,9 +211,15 @@ class EmailForm(form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
-        if not self.already_sent:
-            self.send_email(data)
-            self._email_sent = True
+        if 'captcha' in data:
+            # Verify the user input against the captcha
+            captcha = CaptchaValidator(
+                self.context, self.request, None, IEmailForm['captcha'], None,
+            )
+            if not self.already_sent and captcha.validate(data['captcha']):
+                self.send_email(data)
+                self._email_sent = True
+        return
 
     def send_email(self, data):
         mailhost = getToolByName(self.context, 'MailHost')
@@ -242,6 +256,9 @@ class EmailForm(form.Form):
 
         mailhost.send(message, immediate=True, charset=email_charset)
         return
+
+# Register Captcha validator for the captcha field in the ICaptchaForm
+validator.WidgetValidatorDiscriminators(CaptchaValidator, field=IEmailForm['captcha'])
 
 
 class IAgentContactPortlet(IPortletDataProvider):

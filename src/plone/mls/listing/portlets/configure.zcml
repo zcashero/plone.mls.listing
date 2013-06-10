@@ -56,4 +56,9 @@
       template="templates/quick_search.pt"
       />
 
+    <!-- Captcha validator -->
+    <adapter
+        factory=".agent_contact.CaptchaValidator"
+        />
+
 </configure>
