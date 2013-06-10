@@ -32,7 +32,7 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.z3cform import z2
 from z3c.form import button, field
 from z3c.form.browser import checkbox, radio
-from z3c.form.interfaces import IFormLayer
+from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
 from zope import formlib, schema
 from zope.interface import alsoProvides, implementer
 from zope.schema.fieldproperty import FieldProperty
@@ -59,8 +59,8 @@ FIELD_ORDER = {
     ],
     'row_location': [
         'location_state',
-        'location_county',  # TODO: Hide in search form
-        'location_district',  # TODO: Hide in search form
+        'location_county',
+        'location_district',
         'location_city',
     ],
     'row_beds_baths': [
@@ -121,6 +121,14 @@ class QuickSearchForm(form.Form):
         """
         super(QuickSearchForm, self).__init__(context, request)
         self.data = data
+
+    def updateWidgets(self):
+        super(QuickSearchForm, self).updateWidgets()
+        # Temporary hide those 2 fields
+        if 'location_county' in self.widgets.keys():
+            self.widgets['location_county'].mode = HIDDEN_MODE
+        if 'location_district' in self.widgets.keys():
+            self.widgets['location_district'].mode = HIDDEN_MODE
 
     @button.buttonAndHandler(PMF(u'label_search', default=u'Search'),
                              name='search')
