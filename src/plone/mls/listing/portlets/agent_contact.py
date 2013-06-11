@@ -166,7 +166,6 @@ class EmailForm(form.Form):
     fields = field.Fields(IEmailForm).omit(
         'phone', 'arrival_date', 'departure_date', 'adults', 'children',
     )
-    fields['captcha'].widgetFactory = CaptchaFieldWidget
     ignoreContext = True
     method = 'post'
     _email_sent = False
@@ -190,6 +189,7 @@ class EmailForm(form.Form):
     def update(self):
         if self.is_residential_lease:
             self.fields = field.Fields(IEmailForm)
+        self.fields['captcha'].widgetFactory = CaptchaFieldWidget
         super(EmailForm, self).update()
 
     def updateWidgets(self):
