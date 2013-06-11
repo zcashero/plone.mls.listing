@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.9.2 (2013-06-11)
+------------------
+
+- [MLSPE-15] Hide contact info for agent info portlet if contact portlet is available.
+- [MLSPE-16] Added fields to agent contact form for residential lease.
+- [MLSPE-24] Use transparent background for galleria slideshow container.
+- [MLSPE-25] Hide county and district from quick search portlet.
+- [MLSPE-26] Add collective.captcha based captcha for agent contact form.
+
 0.9.1 (2013-03-27)
 ------------------
 
