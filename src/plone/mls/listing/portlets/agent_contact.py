@@ -2,7 +2,7 @@
 
 ###############################################################################
 #
-# Copyright (c) 2012 Propertyshelf, Inc. and its Contributors.
+# Copyright (c) Propertyshelf, Inc. and its Contributors.
 # All Rights Reserved.
 #
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AS IS AND ANY EXPRESSED OR
@@ -31,7 +31,7 @@ from plone.app.portlets.portlets import base
 from plone.directives import form
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.z3cform import z2
-from z3c.form import button, field
+from z3c.form import button, field, validator
 from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
 from zope import formlib, schema
 from zope.interface import Interface, Invalid, alsoProvides, implementer
@@ -48,15 +48,31 @@ try:
 except ImportError:
     HAS_WRAPPED_FORM = False
 
+from plone.formwidget.captcha.widget import CaptchaFieldWidget
+from plone.formwidget.captcha.validator import CaptchaValidator
 
 MSG_PORTLET_DESCRIPTION = _(
-    u'This portlet shows a form to contact the corresponding agent for a ' \
+    u'This portlet shows a form to contact the corresponding agent for a '
     u'given listing via email.'
 )
 
 EMAIL_TEMPLATE = """\
 Enquiry from: %(name)s <%(sender_from_address)s>
 Listing URL: %(url)s
+
+Message:
+%(message)s
+"""
+
+EMAIL_TEMPLATE_RL = """\
+Enquiry from: %(name)s <%(sender_from_address)s>
+Listing URL: %(url)s
+
+Phone Number: %(phone)s
+Arrival Date: %(arrival_date)s
+Departure Date: %(departure_date)s
+Adults: %(adults)s
+Children: %(children)s
 
 Message:
 %(message)s
@@ -99,6 +115,36 @@ class IEmailForm(Interface):
         title=PMF(u'label_sender_from_address', default=u'E-Mail'),
     )
 
+    phone = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Phone Number'),
+    )
+
+    arrival_date = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Arrival Date'),
+    )
+
+    departure_date = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Departure Date'),
+    )
+
+    adults = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Adults'),
+    )
+
+    children = schema.TextLine(
+        missing_value=u'-',
+        required=False,
+        title=_(u'Children'),
+    )
+
     message = schema.Text(
         description=PMF(
             u'help_message',
@@ -109,10 +155,18 @@ class IEmailForm(Interface):
         title=PMF(u'label_message', default=u'Message'),
     )
 
+    captcha = schema.TextLine(
+        required=True,
+        title=_(u'Captcha'),
+    )
+
 
 class EmailForm(form.Form):
     """Email Form."""
-    fields = field.Fields(IEmailForm)
+    fields = field.Fields(IEmailForm).omit(
+        'phone', 'arrival_date', 'departure_date', 'adults', 'children',
+    )
+    fields['captcha'].widgetFactory = CaptchaFieldWidget
     ignoreContext = True
     method = 'post'
     _email_sent = False
@@ -128,6 +182,15 @@ class EmailForm(form.Form):
     @property
     def already_sent(self):
         return self._email_sent
+
+    @property
+    def is_residential_lease(self):
+        return self.listing_info.get('listing_id', '').lower().startswith('rl')
+
+    def update(self):
+        if self.is_residential_lease:
+            self.fields = field.Fields(IEmailForm)
+        super(EmailForm, self).update()
 
     def updateWidgets(self):
         super(EmailForm, self).updateWidgets()
@@ -148,9 +211,15 @@ class EmailForm(form.Form):
         if errors:
             self.status = self.formErrorsMessage
             return
-        if not self.already_sent:
-            self.send_email(data)
-            self._email_sent = True
+        if 'captcha' in data:
+            # Verify the user input against the captcha
+            captcha = CaptchaValidator(
+                self.context, self.request, None, IEmailForm['captcha'], None,
+            )
+            if not self.already_sent and captcha.validate(data['captcha']):
+                self.send_email(data)
+                self._email_sent = True
+        return
 
     def send_email(self, data):
         mailhost = getToolByName(self.context, 'MailHost')
@@ -172,7 +241,10 @@ class EmailForm(form.Form):
         sender = '%s <%s>' % (data['name'], data['sender_from_address'])
         subject = data['subject']
         data['url'] = self.request.getURL()
-        message = EMAIL_TEMPLATE % data
+        if self.is_residential_lease:
+            message = EMAIL_TEMPLATE_RL % data
+        else:
+            message = EMAIL_TEMPLATE % data
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
         message['From'] = from_address
@@ -185,14 +257,18 @@ class EmailForm(form.Form):
         mailhost.send(message, immediate=True, charset=email_charset)
         return
 
+# Register Captcha validator for the captcha field in the ICaptchaForm
+validator.WidgetValidatorDiscriminators(CaptchaValidator, field=IEmailForm['captcha'])
+
 
 class IAgentContactPortlet(IPortletDataProvider):
     """A portlet which sends an email to the agent."""
 
     heading = schema.TextLine(
         description=_(
-            u'Custom title for the portlet. If no title is provided, the ' \
-            u'default title is used.'),
+            u'Custom title for the portlet. If no title is provided, the '
+            u'default title is used.'
+        ),
         required=False,
         title=_(u'Portlet Title'),
     )
@@ -213,8 +289,9 @@ class IAgentContactPortlet(IPortletDataProvider):
 
     bcc = schema.TextLine(
         description=_(
-            u'E-mail addresses which receive a blind carbon copy (comma ' \
-            u'separated).'),
+            u'E-mail addresses which receive a blind carbon copy (comma '
+            u'separated).'
+        ),
         required=False,
         title=_(u'BCC Recipients'),
     )
@@ -248,7 +325,7 @@ class Renderer(base.Renderer):
     @property
     def available(self):
         return IListingDetails.providedBy(self.view) and \
-               getattr(self.view, 'listing_id', None) is not None
+            getattr(self.view, 'listing_id', None) is not None
 
     @property
     def description(self):

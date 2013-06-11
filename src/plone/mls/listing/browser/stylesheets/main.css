@@ -105,6 +105,10 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   width: 412px;
 }
 
+.listing #listing-images .galleria-container {
+  background: transparent;
+}
+
 .listing #listing-details,
 .listing ul.formTabs {
   clear: both;
