@@ -44,7 +44,7 @@ jQuery(function($) {
       filter: '#content>*',
       formselector: '#content-core > form',
       noform: 'reload',
-      closeselector: '[name=form.buttons.cancel]'
+      closeselector: '[name="form.buttons.cancel"]'
     });
   }
 
@@ -55,7 +55,7 @@ jQuery(function($) {
       filter: '#content>*',
       formselector: '#content-core > form',
       noform: 'reload',
-      closeselector: '[name=form.buttons.cancel]'
+      closeselector: '[name="form.buttons.cancel"]'
     });
   }
 
@@ -66,7 +66,7 @@ jQuery(function($) {
       filter: '#content>*',
       formselector: '#content-core > form',
       noform: 'reload',
-      closeselector: '[name=form.buttons.cancel]'
+      closeselector: '[name="form.buttons.cancel"]'
     });
   }
 
