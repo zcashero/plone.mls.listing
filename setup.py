@@ -10,7 +10,7 @@ long_description = open("README.rst").read() + "\n" + open("CHANGES.rst").read()
 install_requires = [
     'setuptools',
     # -*- Extra requirements: -*-
-    'Plone',
+    'Pillow',
     'collective.autopermission',
     'collective.prettyphoto',
     'mls.apiclient',
