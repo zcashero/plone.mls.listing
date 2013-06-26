@@ -12,6 +12,7 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
 */
 .listing-summary #search-form form span.option {
   float: left;
+  margin-right: 0.5em;
 }
 
 .listing-summary #search-form form div.field {
