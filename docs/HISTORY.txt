@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.9.4 (2013-06-26)
+------------------
+
+- Fixed JS for configuration view overlays.
+- CSS fixes.
+
+
 0.9.3 (2013-06-11)
 ------------------
 
@@ -10,208 +17,147 @@ Changelog
 0.9.2 (2013-06-11)
 ------------------
 
-- [MLSPE-15] Hide contact info for agent info portlet if contact portlet is available.
-- [MLSPE-16] Added fields to agent contact form for residential lease.
-- [MLSPE-24] Use transparent background for galleria slideshow container.
-- [MLSPE-25] Hide county and district from quick search portlet.
-- [MLSPE-26] Add collective.captcha based captcha for agent contact form.
+- Hide contact info for agent info portlet if contact portlet is available.
+- Added fields to agent contact form for residential lease.
+- Use transparent background for galleria slideshow container.
+- Hide county and district from quick search portlet.
+- Add collective.captcha based captcha for agent contact form.
 
 
 0.9.1 (2013-03-27)
 ------------------
 
 - I18N updates.
-  [thomas]
 
 
 0.9 (2013-03-27)
 ----------------
 
 - Added lot size and interior size to listing search.
-  [thomas]
-
 - Made lookup values translatable.
-  [thomas]
-
 - I18N updates.
-  [thomas]
 
 
 0.8 (2012-08-20)
 ----------------
 
 - Added Agent Contact portlet.
-  [jens, thomas]
-
 - Added Quick Search portlet.
-  [jens, thomas]
-
 - Show custom agent info if 3rd party listing and option for showing custom info is selected.
-  [thomas]
 
 
 0.7.1 (2012-06-15)
 ------------------
 
 - Adjusted listing detail view to new api fields.
-  [thomas]
-
 - I18N updates.
-  [thomas]
 
 
 0.7 (2012-06-13)
 ----------------
 
 - Adjusted viewlets so they can be customized through the ZMI.
-  [thomas]
-
 - Added noValueMessage adapter for listing forms.
-  [thomas]
-
 - I18N updates.
-  [thomas]
 
 
 0.6 (2012-03-22)
 ----------------
 
 - Added agent quote section (incl. images and styles).
-  [thomas]
 
 
 0.5 (2012-02-14)
 ----------------
 
 - Added missing i18n ids (#1744).
-  [thomas]
-
 - I18N updates (es, ja).
-  [thomas]
 
 
 0.4 (2012-02-11)
 ----------------
 
 - Registered I18N locales folder.
-  [thomas]
 
 
 0.3 (2012-02-11)
 ----------------
 
 - I18N updates merged.
-  [thomas]
-
 - Added SearchOptions cache objects for listing search categories. Defaults to 1 hour ram cache.
-  [thomas]
 
 
 0.2 (2012-02-05)
 ----------------
 
 - Use plone.app.testing for tests.
-  [thomas]
-
 - Upgraded dexterity content types. Requires plone.app.dexterity >= 1.1.
-  [thomas]
-
 - Added 'Recent Listings' viewlet with configuration.
-  [thomas]
-
 - Added 'Listing Collection' viewlet with configuration.
-  [thomas]
-
 - Added 'Listing Search' viewlet with configuration.
-  [thomas]
-
 - Added API methods to access the MLS API. Requires mls.apiclient.
-  [thomas]
-
 - Added Infinite Ajax Scroll JavaScript (disabled by default) for Facebook like scroll and auto-load of next items.
-  [thomas]
-
 - Added I18N.
-  [thomas]
-
 - Adjusted raptus.article based views (don't use tables anymore).
-  [thomas]
 
 
 0.1.2 (2011-10-26)
 ------------------
 
 - Bugfix: Plone 4.1.x compatibility.
-  [thomas]
 
 
 0.1.1 (2011-09-07)
 ----------------
 
 - BUGFIX: Added missing get_language import.
-  [thomas]
 
 
 0.1 (2011-09-07)
 ----------------
 
 - Added language support.
-  [thomas]
 
 
 0.1rc3 (2011-06-04)
 -------------------
 
 - Fixed location info traceback if listing does not exist.
-  [thomas]
 
 
 0.1rc2 (2011-05-26)
 -------------------
 
 - Added missing lead image to list of images.
-  [thomas]
 - Updated css for listing slideshow.
-  [thomas]
-  
+
 
 0.1rc1 (2011-05-26)
 -------------------
 
 - Added custom browserlayer and custom css file.
-  [thomas]
 - Added migrations for browserlayer and css.
-  [thomas]
 - Added Galleria JS Slideshow.
-  [thomas]
 - Disable 'Link using UID's in TinyMCE.
-  [thomas]
 
 
 0.1b2 (2011-05-24)
 ------------------
 
 - Added versioning for dexterity content type.
-  [thomas]
 
 
 0.1b1 (2011-05-23)
 ------------------
 
 - Added description and long description to detail view.
-  [thomas]
 - Added listing to linkable types (TinyMCE and Kupu).
-  [thomas]
 - Moved images on top below the listing information.
-  [thomas]
 - Added configuration for raptus.article.
-  [thomas]
 - Added article integration.
-  [thomas]
 
 
 0.1dev (2011-05-18)
 -------------------
 
 - First Beta Release.
-  [thomas]

@@ -4,7 +4,7 @@
 import os
 from setuptools import setup, find_packages
 
-__version__ = '0.10dev'
+__version__ = '0.9.4'
 
 
 setup(
