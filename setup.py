@@ -57,7 +57,7 @@ setup(
     extras_require=dict(
         test=[
             'plone.app.testing',
-            'raptus.article.core',
+            # 'raptus.article.core',
         ],
     ),
     install_requires=install_requires,
