@@ -6,5 +6,5 @@
   <!-- Grok package. -->
   <!-- ============= -->
   <grok:grok package="." />
- 
+
 </configure>
