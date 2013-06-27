@@ -9,6 +9,7 @@ Changelog
 ------------------
 
 - CI with travis-ci.
+- Removed dependency to raptus.article.
 
 
 0.9.4 (2013-06-26)
