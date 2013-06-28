@@ -82,7 +82,7 @@
                     tal:condition="item">
             <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
             <dd><a href=""
-                   tal:attributes="href string: mailto:${item/value | nothing}"><span
+                   tal:attributes="href string: mailto:${item/value}"><span
                    tal:replace="item/value | nothing">[Value]</span></a></dd>
           </tal:item>
 
