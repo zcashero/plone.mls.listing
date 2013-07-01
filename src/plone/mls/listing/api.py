@@ -120,7 +120,7 @@ class SearchOptions(object):
 
     def _retrieveCategory(self):
         """do the actual work and try to retrieve the feed"""
-        if self.category != None:
+        if self.category is not None:
             self._last_update_time_in_minutes = time.time() / 60
             self._last_update_time = DateTime()
             registry = getUtility(IRegistry)
@@ -211,7 +211,8 @@ def listing_details(listing_id, lang=None):
 def search(params={}, batching=True):
     """Search for listings."""
     search_params = {
-        'sort_on': 'listing_id',
+        'sort_on': 'created',
+        'reverse': '1',
     }
     search_params.update(params)
     registry = getUtility(IRegistry)
