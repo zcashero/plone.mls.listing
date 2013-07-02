@@ -5,6 +5,12 @@ Changelog
 ----------------
 
 
+0.9.7 (2013-07-02)
+------------------
+
+- Changed default search result order to creation date (reversed).
+
+
 0.9.6 (2013-06-28)
 ------------------
 
