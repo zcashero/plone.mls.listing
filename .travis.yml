@@ -19,6 +19,9 @@ install:
   - mkdir -p buildout-cache/downloads
   - python bootstrap.py -c travis-$PLONE_VERSION.x.cfg
   - bin/buildout -N -t 5 -c travis-$PLONE_VERSION.x.cfg
+branches:
+  only:
+    - master
 script: bin/test
 notifications:
   irc: irc.freenode.org#propertyshelf
