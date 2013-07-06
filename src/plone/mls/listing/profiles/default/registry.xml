@@ -2,4 +2,10 @@
 <registry>
   <records interface="plone.mls.listing.interfaces.IMLSVocabularySettings" />
   <records interface="plone.mls.listing.interfaces.IMLSAgencyContactInformation" />
+
+  <record name="plone.app.tiles">
+    <value purge="false">
+      <element>plone.mls.listing.listing</element>
+    </value>
+  </record>
 </registry>

@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="collective.cover">
+
+<body tal:define="is_empty nocall:view/is_empty | nothing;
+                  toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+  <p tal:condition="is_empty" i18n:translate="">
+    Please drag&amp;drop some content here to populate the tile.
+  </p>
+
+  <div tal:condition="not: is_empty"
+       tal:define="description view/data/description|nothing">
+    <p tal:content="view/title">Test</p>
+  </div>
+</body>
+</html>
