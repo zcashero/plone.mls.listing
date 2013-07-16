@@ -20,7 +20,12 @@ class RecentListingsTraverser(DefaultPublishTraverse):
 
             # We store the listing_id parameter in the request.
             self.request.listing_id = name
-            listing_view = 'listing-detail'
+            if len(self.request.path) > 0:
+                listing_view = self.request.path.pop()
+                if listing_view.startswith('@@'):
+                    listing_view = listing_view[2:]
+            else:
+                listing_view = 'listing-detail'
             default_view = self.context.getDefaultLayout()
 
             # Let's call the listing view.
