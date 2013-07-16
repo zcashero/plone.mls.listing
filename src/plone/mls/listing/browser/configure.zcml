@@ -144,6 +144,15 @@
       template="templates/listing_details.pt"
       />
 
+  <browser:page
+      class=".views.ListingDetails"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="print-listing"
+      permission="zope2.View"
+      template="templates/print_listing_details.pt"
+      />
+
 
   <!-- Traversing Adapter. -->
   <!-- =================== -->
