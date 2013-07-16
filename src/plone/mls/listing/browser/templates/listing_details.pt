@@ -142,7 +142,8 @@
             </tal:groups>
           </dl>
         </tal:listing>
-
+        <p><a href="print-listing" onclick="return popitup(this.href)"
+              tal:attributes="href string:${request/listing_id}/print-listing">Print Listing</a></p>
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
       </div>
@@ -154,7 +155,16 @@
     event.preventDefault();
     $("#sec-agent-quote").slideToggle();
   })
-    </script>
+      </script>
+      <script language="javascript" type="text/javascript">
+  function popitup(url) {
+    newwindow = window.open(url, 'name', 'left=0');
+    if (window.focus) {
+      newwindow.focus();
+    }
+    return false;
+  }
+      </script>
     </metal:main>
   </body>
 </html>
