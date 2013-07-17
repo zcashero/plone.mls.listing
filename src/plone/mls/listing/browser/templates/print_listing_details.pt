@@ -6,6 +6,13 @@
       lang="en"
       i18n:domain="plone.mls.listing">
 
+  <head tal:define="navroot context/@@plone_portal_state/navigation_root_url">
+    <title tal:content="view/title | nothing"></title>
+    <link rel="stylesheet" type="text/css"
+      tal:attributes="href string:${navroot}/++resource++plone.mls.listing.stylesheets/print.css"
+      />
+  </head>
+
   <body onload="window.print();">
       <div class="listing detail" tal:define="info view/info | nothing">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
