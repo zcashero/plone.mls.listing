@@ -9,137 +9,201 @@
   <head tal:define="navroot context/@@plone_portal_state/navigation_root_url">
     <title tal:content="view/title | nothing"></title>
     <link rel="stylesheet" type="text/css"
-      tal:attributes="href string:${navroot}/++resource++plone.mls.listing.stylesheets/print.css"
+          tal:attributes="href string:${navroot}/++resource++plone.mls.listing.stylesheets/print.css"
       />
   </head>
 
-  <body onload="window.print();">
-      <div class="listing detail" tal:define="info view/info | nothing">
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
+  <body onload="window.print();" tal:define="info view/info | nothing">
 
-        <h1 class="documentFirstHeading"><span tal:replace="view/title | nothing">[Title]</span></h1>
-        <p tal:condition="info/location | nothing" tal:content="info/location/value | nothing">[Location]</p>
+    <h1 class="documentFirstHeading"><span tal:replace="view/title | nothing">[Title]</span></h1>
+    <p tal:condition="info/location | nothing" tal:content="info/location/value | nothing">[Location]</p>
 
-        <tal:error tal:define="error view/error | nothing" tal:condition="error">
-            <p><span tal:replace="error/standard | nothing">[Error]</span></p>
-            <div class="extended" tal:define="extended error/extended | nothing" tal:condition="extended" tal:content="structure extended"></div>
-        </tal:error>
+    <tal:listing tal:condition="view/data | nothing">
 
-        <tal:listing tal:condition="view/data | nothing">
+      <div id="listing-info" tal:condition="info">
+        <h2 i18n:translate="">Basic Listing Information</h2>
+        <img src=""
+             tal:define="image view/lead_image | nothing"
+             tal:condition="image"
+             tal:attributes="src image/preview" />
+        <dl class="price">
+          <tal:item tal:define="item info/price | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-          <div id="listing-info" tal:condition="info">
-            <h2 i18n:translate="">Basic Listing Information</h2>
-            <dl class="price">
-              <tal:item tal:define="item info/price | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
-            </dl>
+          <tal:item tal:define="item info/id | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-            <dl class="workflow">
-              <tal:item tal:define="item info/id | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
+          <tal:item tal:define="item info/object_type | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-              <tal:item tal:define="item info/object_type | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
+          <tal:item tal:define="item info/listing_type | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-              <tal:item tal:define="item info/listing_type | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
+          <tal:item tal:define="item info/workflow_status | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd tal:attributes="class item/value"><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-              <tal:item tal:define="item info/workflow_status | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd tal:attributes="class item/value"><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
+          <tal:item tal:define="item info/image_count | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-              <tal:item tal:define="item info/image_count | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
-            </dl>
+          <tal:item tal:define="item info/beds_baths | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-            <dl>
-              <tal:item tal:define="item info/beds_baths | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
+          <tal:item tal:define="item info/location_type | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-              <tal:item tal:define="item info/location_type | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
+          <tal:item tal:define="item info/view_type | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value">[Value]</span></dd>
+          </tal:item>
 
-              <tal:item tal:define="item info/view_type | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">[Label]</span>:</dt>
-                <dd><span tal:replace="item/value">[Value]</span></dd>
-              </tal:item>
-
-              <tal:item tal:define="item info/lot_size | nothing" tal:condition="item">
-                <dt><span tal:replace="item/label">Label</span>:</dt>
-                <dd><span tal:replace="structure item/value">Value</span></dd>
-              </tal:item>
-            </dl>
-          </div>
-
-          <div id="listing-images">
-            <h2 class="hiddenStructure" i18n:translate="">Listing Images</h2>
-            <a href="" rel="prettyPhoto[listing]" class="preview"
-               tal:define="image view/lead_image | nothing"
-               tal:condition="image"
-               tal:attributes="href image/url;
-                               title image/title | nothing;"><img src=""
-               tal:attributes="src image/preview" /></a>
-            <ul class="thumbnails" tal:define="images view/images | nothing" tal:condition="images" style="list-style: none; margin-left: 0;">
-              <li tal:repeat="image images" style="display: inline-block; padding: 0.5em;"><a href="" rel="prettyPhoto[listing]"
-                  tal:attributes="href image/url;
-                                  title image/title | nothing;"><img src="" alt="" title=""
-                  tal:attributes="src image/tile;
-                                  alt image/title | nothing;
-                                  title image/description | nothing" /></a></li>
-            </ul>
-          </div>
-
-          <div class="visualClear" id="sec-agent-quote" tal:define="quote view/agent_quote | nothing" tal:condition="quote">
-            <h2 tal:content="quote/title | nothing">[listing title]</h2>
-            <blockquote tal:content="view/description | nothing"> </blockquote>
-            <blockquote tal:content="quote/description | nothing">[description]</blockquote>
-
-            <div id="sec-listing-long-description" tal:define="description view/long_description | nothing" tal:condition="description">
-              <h3 i18n:translate="">Long Description</h3>
-              <p tal:content="description">Long Description</p>
-            </div>
-          </div>
-
-          <dl id="listing-details" class="enableFormTabbing" tal:define="groups view/groups | nothing" tal:condition="groups">
-            <tal:groups tal:repeat="group groups">
-              <tal:group tal:define="id group/id | nothing;
-                                     label group/label | nothing;
-                                     fields group/fields | nothing;"
-                         tal:condition="fields">
-                <dt tal:attributes="id string:fieldsetlegend-${id}"><span
-                    tal:replace="label">[Group]</span></dt>
-                <dd tal:attributes="id string:fieldset-${id}">
-                  <table class="listing vertical" style="width: 100%;">
-                    <tbody>
-                      <tal:field tal:repeat="field fields">
-                        <tr tal:condition="field/value">
-                          <th style="width: 200px;"><span tal:replace="field/label | nothing">[Label]</span>:</th>
-                          <td><span tal:replace="structure field/value | nothing">[Value]</span></td>
-                        </tr>
-                      </tal:field>
-                    </tbody>
-                  </table>
-                </dd>
-              </tal:group>
-            </tal:groups>
-          </dl>
-        </tal:listing>
-
+          <tal:item tal:define="item info/lot_size | nothing" tal:condition="item">
+            <dt><span tal:replace="item/label">Label</span>:</dt>
+            <dd><span tal:replace="structure item/value">Value</span></dd>
+          </tal:item>
+        </dl>
       </div>
+
+      <div class="contact-information visualClear"
+           tal:define="contact view/contact | nothing;
+                       agency_name contact/agency/name/value | nothing;
+                       agent_name contact/agent/name/value | nothing">
+        <h2 i18n:translate="">Contact Information</h2>
+        <figure class="agent_avatar"
+                tal:define="avatar contact/agent/avatar | nothing"
+                tal:condition="avatar">
+          <img src="" alt="" title=""
+               tal:attributes="src avatar;
+                               alt agent_name" />
+          <figcaption><span tal:replace="agent_name">[Agent Name]</span></figcaption>
+        </figure>
+
+        <figure class="agency_logo"
+                tal:define="logo contact/agency/logo | nothing"
+                tal:condition="logo">
+          <img src="" alt="" title=""
+               tal:attributes="src logo;
+                               alt agency_name" />
+          <figcaption><span tal:replace="agency_name">[Agency Name]</span></figcaption>
+        </figure>
+
+        <dl class="contact_details">
+          <tal:item tal:define="item contact/agency/name | nothing | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          </tal:item>
+
+          <tal:item tal:define="item contact/agent/name | nothing | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          </tal:item>
+
+          <tal:item tal:define="item contact/agent/languages | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          </tal:item>
+
+          <tal:item tal:define="item contact/agent/agent_office_phone | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          </tal:item>
+
+          <tal:item tal:define="item contact/agent/agent_cell_phone | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          </tal:item>
+
+          <tal:item tal:define="item contact/agent/agent_fax | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          </tal:item>
+
+          <tal:item tal:define="item contact/agency/office_phone | nothing"
+                    tal:condition="item">
+            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          </tal:item>
+
+          <tal:contact tal:condition="not: view/agent_contact_portlet_available | nothing">
+            <tal:item tal:define="item contact/agent/agent_email | nothing"
+                      tal:condition="item">
+              <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+              <dd><a href=""
+                     tal:attributes="href string: mailto:${item/value}"><span
+                     tal:replace="item/value | nothing">[Value]</span></a></dd>
+            </tal:item>
+
+            <tal:item tal:define="item contact/agency/website | nothing"
+                      tal:condition="item">
+              <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+              <dd><a href="" target="_blank"
+                     tal:attributes="href item/value | nothing"><span
+                     tal:replace="item/value | nothing">[Value]</span></a></dd>
+            </tal:item>
+          </tal:contact>
+        </dl>
+        <div class="visualClear"></div>
+      </div>
+
+      <hr />
+      <blockquote tal:content="view/description | nothing"> </blockquote>
+
+      <div id="listing-details" tal:define="groups view/groups | nothing" tal:condition="groups">
+        <tal:groups tal:repeat="group groups">
+          <tal:group tal:define="id group/id | nothing;
+                                 label group/label | nothing;
+                                 fields group/fields | nothing;"
+                     tal:condition="fields">
+            <h2 tal:content="label">[Group]</h2>
+            <dl>
+                <tal:field tal:repeat="field fields">
+                  <tal:item tal:condition="field/value">
+                    <dt><span tal:replace="field/label | nothing">[Label]</span>:</dt>
+                    <dd><span tal:replace="structure field/value | nothing">[Value]</span></dd>
+                  </tal:item>
+                </tal:field>
+            </dl>
+            <div class="visualClear"></div>
+          </tal:group>
+        </tal:groups>
+      </div>
+
+      <div id="sec-listing-long-description" tal:define="description view/long_description | nothing" tal:condition="description">
+        <h2 i18n:translate="">More about this property</h2>
+        <blockquote tal:content="description">Long Description</blockquote>
+      </div>
+
+      <div id="listing-images" tal:define="images view/images | nothing" tal:condition="images">
+        <h2 i18n:translate="">Listing Images</h2>
+        <ul>
+          <li tal:repeat="image images"><img src="" alt="" title=""
+              tal:attributes="src image/preview;
+                              alt image/title | nothing;
+                              title image/description | nothing" /></li>
+        </ul>
+      </div>
+
+    </tal:listing>
   </body>
 </html>
