@@ -196,6 +196,14 @@ msgstr ""
 msgid "Basic Listing Information"
 msgstr ""
 
+#: ./../browser/templates/print_listing_details.pt:86
+msgid "Contact Information"
+msgstr ""
+
+#: ./../browser/templates/print_listing_details.pt:193
+msgid "More about this property"
+msgstr ""
+
 #: ./../browser/listing_search.py:210
 msgid "Bathrooms"
 msgstr ""
