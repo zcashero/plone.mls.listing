@@ -87,6 +87,7 @@
       permission="cmf.ModifyPortalContent"
       />
 
+
   <!-- Recent Listings. -->
   <!-- ================ -->
   <browser:viewlet
@@ -164,6 +165,7 @@
       permission="zope2.View"
       />
 
+
   <!-- Breadcrumb Navigation. -->
   <!-- ====================== -->
   <browser:page
@@ -196,6 +198,9 @@
       name="plone.mls.listing.stylesheets"
       />
 
+
+  <!-- z3c.form adapter. -->
+  <!-- ================= -->
   <adapter
       factory=".adapter.PleaseSelectLCC"
       name="noValueMessage"
