@@ -6,7 +6,7 @@ from Products.Five import BrowserView
 from plone.memoize.view import memoize
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility, queryMultiAdapter
-from zope.interface import implements
+from zope.interface import implementer
 
 # local imports
 from plone.mls.core.interfaces import IMLSSettings
@@ -15,8 +15,8 @@ from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.mls.listing.interfaces import IMLSAgencyContactInformation
 
 
+@implementer(IListingDetails)
 class ListingDetails(BrowserView):
-    implements(IListingDetails)
 
     _error = {}
     _data = None
