@@ -203,3 +203,9 @@ class ListingDetails(BrowserView):
             # TODO: Adjust agent avatar.
 
         return contact_data
+
+    def base_url(self):
+        if getattr(self.request, 'listing_id', None) is not None:
+            return '/'.join([self.context.absolute_url(), self.listing_id])
+        else:
+            return self.context.absolute_url()

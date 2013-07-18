@@ -143,7 +143,7 @@
           </dl>
         </tal:listing>
         <p><a href="print-listing" onclick="return popitup(this.href)"
-              tal:attributes="href string:${request/listing_id}/print-listing">Print Listing</a></p>
+              tal:attributes="href string:${view/base_url}/print-listing">Print Listing</a></p>
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
       </div>
