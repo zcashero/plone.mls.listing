@@ -74,7 +74,7 @@ def validate_email(value):
 
 def contains_nuts(value):
     """Check for traces of nuts, like urls or other spammer fun things"""
-    if check_for_url(value):
+    if self.reject_links & check_for_url(value):
         raise Invalid(_(u'No Urls allowed'))
     return True
 
@@ -311,14 +311,17 @@ class Assignment(base.Assignment):
     description = FieldProperty(IAgentContactPortlet['description'])
     mail_sent_msg = FieldProperty(IAgentContactPortlet['mail_sent_msg'])
     bcc = FieldProperty(IAgentContactPortlet['bcc'])
+    reject_links = FieldProperty(IAgentContactPortlet['reject_links'])
+
     title = _(u'Agent Contact')
 
     def __init__(self, heading=None, description=None, mail_sent_msg=None,
-                 bcc=None):
+                 bcc=None, reject_links=None):
         self.heading = heading
         self.description = description
         self.mail_sent_msg = mail_sent_msg
         self.bcc = bcc
+        self.reject_links = reject_links
 
 
 class Renderer(base.Renderer):
