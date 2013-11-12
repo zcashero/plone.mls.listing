@@ -63,10 +63,19 @@ Message:
 check_email = re.compile(
     r"[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}").match
 
+check_for_url = re.compile(
+    r"http[s]?://").search
+
 
 def validate_email(value):
     if not check_email(value):
         raise Invalid(_(u'Invalid email address'))
+    return True
+
+def contains_nuts(value):
+    """Check for traces of nuts, like urls or other spammer fun things"""
+    if check_for_url(value):
+        raise Invalid(_(u'No Urls allowed'))
     return True
 
 
@@ -79,6 +88,7 @@ class IEmailForm(Interface):
     )
 
     name = schema.TextLine(
+        constraint=contains_nuts,
         description=PMF(
             u'help_sender_fullname',
             default=u'Please enter your full name',
@@ -98,6 +108,7 @@ class IEmailForm(Interface):
     )
 
     phone = schema.TextLine(
+        constraint=contains_nuts,
         missing_value=u'-',
         required=False,
         title=_(u'Phone Number'),
@@ -116,22 +127,26 @@ class IEmailForm(Interface):
     )
 
     adults = schema.TextLine(
+        constraint=contains_nuts,
         missing_value=u'-',
         required=False,
         title=_(u'Adults'),
     )
 
     children = schema.TextLine(
+        constraint=contains_nuts,
         missing_value=u'-',
         required=False,
         title=_(u'Children'),
     )
 
     message = schema.Text(
+        constraint=contains_nuts,
         description=PMF(
             u'help_message',
             default=u'Please enter the message you want to send.',
         ),
+        constraint=contains_nuts,
         max_length=1000,
         required=True,
         title=PMF(u'label_message', default=u'Message'),
@@ -277,6 +292,15 @@ class IAgentContactPortlet(IPortletDataProvider):
         required=False,
         title=_(u'BCC Recipients'),
     )
+    reject_links = schema.Bool(
+        default=True,
+        description=_(
+            u'Activate for Spam Protection. Any attempt to use a link inside this form will raise a validation error.'
+        ),
+        required=True,
+        title=_(u'Reject Text with Links?'),
+    )
+
 
 
 @implementer(IAgentContactPortlet)
