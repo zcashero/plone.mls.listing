@@ -146,7 +146,6 @@ class IEmailForm(Interface):
             u'help_message',
             default=u'Please enter the message you want to send.',
         ),
-        constraint=contains_nuts,
         max_length=1000,
         required=True,
         title=PMF(u'label_message', default=u'Message'),
