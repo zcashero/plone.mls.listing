@@ -74,7 +74,7 @@ def validate_email(value):
 
 def contains_nuts(value):
     """Check for traces of nuts, like urls or other spammer fun things"""
-    if self.reject_links & check_for_url(value):
+    if check_for_url(value):
         raise Invalid(_(u'No Urls allowed'))
     return True
 
@@ -88,7 +88,6 @@ class IEmailForm(Interface):
     )
 
     name = schema.TextLine(
-        constraint=contains_nuts,
         description=PMF(
             u'help_sender_fullname',
             default=u'Please enter your full name',
@@ -108,7 +107,6 @@ class IEmailForm(Interface):
     )
 
     phone = schema.TextLine(
-        constraint=contains_nuts,
         missing_value=u'-',
         required=False,
         title=_(u'Phone Number'),
@@ -127,14 +125,12 @@ class IEmailForm(Interface):
     )
 
     adults = schema.TextLine(
-        constraint=contains_nuts,
         missing_value=u'-',
         required=False,
         title=_(u'Adults'),
     )
 
     children = schema.TextLine(
-        constraint=contains_nuts,
         missing_value=u'-',
         required=False,
         title=_(u'Children'),
@@ -173,6 +169,7 @@ class EmailForm(form.Form):
         self.data = data
         if portlet_hash:
             self.prefix = portlet_hash + '.' + self.prefix
+        self.check_for_spam = data.reject_links
 
     @property
     def already_sent(self):
@@ -199,6 +196,9 @@ class EmailForm(form.Form):
         )
         self.widgets['subject'].mode = HIDDEN_MODE
         self.widgets['subject'].value = subject
+
+        if not self.check_for_spam:
+            self.widgets['message'].field.constraint = None
 
     @button.buttonAndHandler(PMF(u'label_send', default='Send'), name='send')
     def handle_send(self, action):
@@ -294,9 +294,10 @@ class IAgentContactPortlet(IPortletDataProvider):
     reject_links = schema.Bool(
         default=True,
         description=_(
-            u'Activate for Spam Protection. Any attempt to use a link inside this form will raise a validation error.'
+            u'Activate for Spam Protection. Any attempt to use a link inside '
+            u'this form will raise a validation error.'
         ),
-        required=True,
+        required=False,
         title=_(u'Reject Text with Links?'),
     )
 
