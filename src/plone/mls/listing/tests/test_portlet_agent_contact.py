@@ -97,3 +97,15 @@ class TestRenderer(unittest.TestCase):
             context=self.portal, assignment=agent_contact.Assignment(
                 heading=u'My Title'))
         self.assertEqual('My Title', r.title)
+
+    def test_spam_setting_true(self):
+        r = self.renderer(
+            context=self.portal, assignment=agent_contact.Assignment(
+            reject_links=True ))
+        self.assertTrue(r.data.reject_links)
+
+    def test_spam_setting_false(self):
+        r = self.renderer(
+            context=self.portal, assignment=agent_contact.Assignment(
+            reject_links=False ))
+        self.assertFalse(r.data.reject_links)
