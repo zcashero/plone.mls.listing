@@ -68,14 +68,16 @@ check_for_url = re.compile(
 
 
 def validate_email(value):
-    if not check_email(value):
-        raise Invalid(_(u'Invalid email address'))
+    if value:
+        if not check_email(value):
+            raise Invalid(_(u'Invalid email address'))
     return True
 
 def contains_nuts(value):
     """Check for traces of nuts, like urls or other spammer fun things"""
-    if check_for_url(value):
-        raise Invalid(_(u'No Urls allowed'))
+    if value:
+        if check_for_url(value):
+            raise Invalid(_(u'No Urls allowed'))
     return True
 
 

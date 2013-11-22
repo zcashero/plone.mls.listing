@@ -9,6 +9,7 @@ from plone.app.portlets.storage import PortletAssignmentMapping
 from plone.app.testing import TEST_USER_ID, setRoles
 from plone.portlets import interfaces
 from zope.component import getMultiAdapter, getUtility
+from zope.interface import Invalid
 
 # local imports
 from plone.mls.listing.portlets import agent_contact
@@ -98,14 +99,76 @@ class TestRenderer(unittest.TestCase):
                 heading=u'My Title'))
         self.assertEqual('My Title', r.title)
 
-    def test_spam_setting_true(self):
+    def test_spam_setting(self):
         r = self.renderer(
             context=self.portal, assignment=agent_contact.Assignment(
             reject_links=True ))
         self.assertTrue(r.data.reject_links)
 
-    def test_spam_setting_false(self):
         r = self.renderer(
             context=self.portal, assignment=agent_contact.Assignment(
             reject_links=False ))
         self.assertFalse(r.data.reject_links)
+        
+
+class TestValidators(unittest.TestCase):
+    """Test Case for validators."""
+
+    def _callFUT(self, value):
+        from plone.mls.listing.portlets.agent_contact import contains_nuts
+        return contains_nuts(value)
+
+    def _callFUTemail(self, value):
+        from plone.mls.listing.portlets.agent_contact import validate_email
+        return validate_email(value)
+
+    def test_no_value_spam(self):
+        self.assertTrue(self._callFUT(None))
+        self.assertTrue(self._callFUT(u''))
+
+    def test_no_urls(self):
+        value = "foobar"
+        self.assertTrue(self._callFUT(value))
+        value = """This is a multi line text.
+
+        Line 3.
+        Line 4.
+        Still no url.
+        """
+        self.assertTrue(self._callFUT(value))
+
+    def test_urls(self):
+        value = "Text with http://google.com url."
+        self.assertRaises(Invalid, self._callFUT, value)
+
+        value = """This is a multi line text.
+
+        Line 3.
+        Line 4.
+        Link to https://google.com.
+        Another line.
+        """
+        self.assertRaises(Invalid, self._callFUT, value)
+
+    def test_no_value_mail(self):
+        self.assertTrue(self._callFUTemail(None))
+        self.assertTrue(self._callFUTemail(u""))
+
+    def test_valid_emails(self):
+        value = "test@propertyshelf.com"
+        self.assertTrue(self._callFUTemail(value))
+        value = "test123.tester@propertyshelf.com"
+        self.assertTrue(self._callFUTemail(value))
+
+    def test_not_valid(self):
+        value = "t!st@propertyshelf.com"
+        self.assertRaises(Invalid, self._callFUTemail, value)
+
+        value = "test.propertyshelf.com"
+        self.assertRaises(Invalid, self._callFUTemail, value)
+
+        value = "@propertyshelf.com"
+        self.assertRaises(Invalid, self._callFUTemail, value)
+
+        
+
