@@ -9,6 +9,7 @@ import re
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.portlets import base
 from plone.directives import form
 from plone.portlets.interfaces import IPortletDataProvider
@@ -328,6 +329,8 @@ class Assignment(base.Assignment):
 
 class Renderer(base.Renderer):
     """Agent Information Portlet Renderer."""
+
+    render = ViewPageTemplateFile('templates/agent_contact.pt')
 
     @property
     def already_sent(self):
