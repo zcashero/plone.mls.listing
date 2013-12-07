@@ -18,7 +18,8 @@
         tal:condition="not: email_from_address"
         i18n:domain="plone"
         i18n:translate="text_no_email_setup">This site doesn't have a valid email setup, so you cannot use any contact forms.</dd>
-    <dd tal:define="already_sent view/already_sent | nothing"
+    <dd class="portletItem"
+        tal:define="already_sent view/already_sent | nothing"
         tal:condition="email_from_address">
       <p tal:condition="already_sent"
          tal:content="view/mail_sent_msg | nothing"></p>
