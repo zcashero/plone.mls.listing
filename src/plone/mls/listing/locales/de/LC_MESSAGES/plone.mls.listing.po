@@ -13,12 +13,12 @@
 # ############################################################################
 # Translators:
 # Thomas Massmann <thomas@propertyshelf.com>, 2012-2013
-# Thomas Massmann <thomas@propertyshelf.com>, 2013
+# Thomas Massmann <thomas@propertyshelf.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: Sat Jan 18 10:01:22 2014\n"
-"PO-Revision-Date: 2014-01-18 09:12+0000\n"
+"PO-Revision-Date: 2014-01-18 09:31+0000\n"
 "Last-Translator: Thomas Massmann <thomas@propertyshelf.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -293,7 +293,7 @@ msgstr "Agentur, Name"
 
 #: plone.mls.listing:/interfaces.py:115
 msgid "Enter the URL of the logo that should be used."
-msgstr ""
+msgstr "Geben Sie eine URL für das Logo ein."
 
 #: plone.mls.listing:/interfaces.py:117
 msgid "Agency Logo"
@@ -313,11 +313,11 @@ msgstr "Makler, Name"
 
 #: plone.mls.listing:/interfaces.py:136
 msgid "Enter the URL of the avatar that should be used."
-msgstr ""
+msgstr "Geben Sie eine URL für das Bild ein."
 
 #: plone.mls.listing:/interfaces.py:138
 msgid "Agent Avatar"
-msgstr ""
+msgstr "Makler Profilbild"
 
 #: plone.mls.listing:/interfaces.py:143
 msgid "Agent Title"
@@ -365,27 +365,27 @@ msgstr "Prioritätsliste für 'Art der Aussicht'"
 
 #: plone.mls.listing:/portlets/agent_contact.py:115
 msgid "Phone Number"
-msgstr ""
+msgstr "Telefon"
 
 #: plone.mls.listing:/portlets/agent_contact.py:121
 msgid "Arrival Date"
-msgstr ""
+msgstr "Tag der Ankunft"
 
 #: plone.mls.listing:/portlets/agent_contact.py:127
 msgid "Departure Date"
-msgstr ""
+msgstr "Tag der Abreise"
 
 #: plone.mls.listing:/portlets/agent_contact.py:133
 msgid "Adults"
-msgstr ""
+msgstr "Erwachsene"
 
 #: plone.mls.listing:/portlets/agent_contact.py:139
 msgid "Children"
-msgstr ""
+msgstr "Kinder"
 
 #: plone.mls.listing:/portlets/agent_contact.py:155
 msgid "Captcha"
-msgstr ""
+msgstr "Captcha"
 
 #: plone.mls.listing:/portlets/agent_contact.py:267
 #: plone.mls.listing:/portlets/agent_information.py:35
@@ -427,11 +427,11 @@ msgstr "BCC Empfänger"
 msgid ""
 "Activate for Spam Protection. Any attempt to use a link inside this form "
 "will raise a validation error."
-msgstr ""
+msgstr "Für die Spam-Abwehr aktivieren. Jeder Versuch einen Link in das Formular zu platzieren wird mit einem Fehler unterbunden."
 
 #: plone.mls.listing:/portlets/agent_contact.py:304
 msgid "Reject Text with Links?"
-msgstr ""
+msgstr "Texte mit Links zurückweisen?"
 
 #: plone.mls.listing:/portlets/agent_contact.py:319
 msgid "Agent Contact"
@@ -459,7 +459,7 @@ msgstr "Ungültige E-Mail-Adresse"
 
 #: plone.mls.listing:/portlets/agent_contact.py:81
 msgid "No Urls allowed"
-msgstr ""
+msgstr "Es sind keine URLs erlaubt."
 
 #: plone.mls.listing:/portlets/agent_information.py:24
 msgid ""
