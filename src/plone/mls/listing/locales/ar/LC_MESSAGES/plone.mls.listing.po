@@ -9,30 +9,27 @@
 # FOR A PARTICULAR PURPOSE.
 # 
 # Translators:
-# BryanAllen <bryan@propertyshelf.com>, 2013
-# BryanAllen <bryan@propertyshelf.com>, 2012
-# Thomas Massmann <thomas@propertyshelf.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: Sat Dec  7 15:25:19 2013\n"
-"PO-Revision-Date: 2013-12-07 20:30+0000\n"
+"PO-Revision-Date: 2014-01-14 14:53+0000\n"
 "Last-Translator: Thomas Massmann <thomas@propertyshelf.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/MLS_Plone/language/ja/)\n"
+"Language-Team: Arabic (http://www.transifex.com/projects/p/MLS_Plone/language/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: zope/app/locales/extract.py\n"
-"Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: plone.mls.listing:/article/listing.py:34
 msgid "MLS Listings"
-msgstr "物件"
+msgstr ""
 
 #: plone.mls.listing:/article/listing.py:35
 msgid "List of the contained MLS Listings."
-msgstr "含まれているMLSのリストのリスト。"
+msgstr ""
 
 #: plone.mls.listing:/browser/adapter.py:12
 #: plone.mls.listing:/browser/adapter.py:14
@@ -43,311 +40,311 @@ msgstr "含まれているMLSのリストのリスト。"
 #: plone.mls.listing:/browser/valuerange/widget.py:25
 #: plone.mls.listing:/vocabularies.py:244
 msgid "All"
-msgstr "全部"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:101
 #: plone.mls.listing:/browser/listing_search.py:101
 #: plone.mls.listing:/browser/recent_listings.py:99
 msgid "Listing Type"
-msgstr "物件種類"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:109
 #: plone.mls.listing:/browser/listing_search.py:109
 msgid "State"
-msgstr "州"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:115
 #: plone.mls.listing:/browser/listing_search.py:115
 msgid "County"
-msgstr "郡"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:121
 #: plone.mls.listing:/browser/listing_search.py:121
 msgid "District"
-msgstr "地区"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:127
 #: plone.mls.listing:/browser/listing_search.py:132
 #: plone.mls.listing:/browser/recent_listings.py:111
 msgid "Price (Min)"
-msgstr "最低額"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:132
 #: plone.mls.listing:/browser/listing_search.py:137
 #: plone.mls.listing:/browser/recent_listings.py:120
 msgid "Price (Max)"
-msgstr "最高額"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:137
 #: plone.mls.listing:/browser/listing_search.py:142
 msgid "Location Type"
-msgstr "場所種類"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:145
 #: plone.mls.listing:/browser/listing_search.py:150
 msgid "Geographic Type"
-msgstr "地形タイプ"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:153
 #: plone.mls.listing:/browser/listing_search.py:158
 msgid "View Type"
-msgstr "景観種類"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:161
 #: plone.mls.listing:/browser/listing_search.py:166
 msgid "Object Type"
-msgstr "物種類"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:169
 #: plone.mls.listing:/browser/listing_search.py:174
 msgid "Ownership Type"
-msgstr "所有権の種類"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:178
 #: plone.mls.listing:/browser/listing_search.py:405
 #: plone.mls.listing:/browser/recent_listings.py:126
 msgid "Items per Page"
-msgstr "検索限度"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:192
 msgid "'Listing Collection' Configuration"
-msgstr "'リストコレクション\"構成"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:193
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
-msgstr "この \"リスト·コレクション\"ビューレットのために行動を調整します。"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:202
 #: plone.mls.listing:/browser/listing_search.py:429
 #: plone.mls.listing:/browser/recent_listings.py:145
 msgid "Save"
-msgstr "保存"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:212
 #: plone.mls.listing:/browser/listing_search.py:441
 #: plone.mls.listing:/browser/recent_listings.py:154
 msgid "Cancel"
-msgstr "取り消し"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:248
 msgid "'Listing Collection' viewlet deactivated."
-msgstr "'リストコレクション \"ビューレットは無効になりました。"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:252
 msgid "'Listing Collection' viewlet activated."
-msgstr "'リストコレクション \"ビューレットが作動した。"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_collection.py:254
 msgid ""
 "The 'Listing Collection' viewlet does't work with this content type. Add "
 "'IPossibleListingCollection' to the provided interfaces to enable this "
 "feature."
-msgstr "このコンテンツタイプを使用して、'リストコレクション \"ビューレットのdoes't作業。この機能を有効にするために提供されているインタフェースに 'IPossibleListingCollection'を追加します。"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:127
 msgid "City/Town"
-msgstr "市"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:183
 msgid "Bedrooms"
-msgstr "寝室"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:192
 msgid "Bathrooms"
-msgstr "浴室"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:202
 msgid "Air Condition"
-msgstr "冷暖房"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:209
 msgid "Pool"
-msgstr "プール"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:216
 msgid "Jacuzzi"
-msgstr "ジャクジー"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:222
 msgid "Lot Size"
-msgstr "地所寸法"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:231
 msgid "Interior Area"
-msgstr "内部領域"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:411
 msgid "Hide the search form when Quick Search Portlet is available?"
-msgstr "クイック検索ポートレットが利用可能であるときに検索フォームを非表示にするには？"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:421
 msgid "'Listing Search' Configuration"
-msgstr "'リストの検索\"構成"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:422
 msgid "Adjust the behaviour for this 'Listing Search' viewlet."
-msgstr "この \"リスト検索\"ビューレットの振る舞いを調整します。"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:478
 msgid "'Listing Search' viewlet deactivated."
-msgstr "'リストの検索\"ビューレットは無効になりました。"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:482
 msgid "'Listing Search' viewlet activated."
-msgstr "'リストの検索\"ビューレットが作動した。"
+msgstr ""
 
 #: plone.mls.listing:/browser/listing_search.py:484
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
-msgstr "このコンテンツタイプを使用して、'リストの検索\"ビューレットのdoes't作業。この機能を有効にするために提供されているインタフェースに 'IPossibleListingSearch'を追加します。"
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:106
 msgid ""
 "Enter the minimum price for listings. If no price is given, all listings "
 "from the lowest price are shown."
-msgstr "リストのための最低限の価格を入力します。全く価格が指定されない場合は、最低価格からのすべてのリストが表示されます。"
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:115
 msgid ""
 "Enter the maximum price for listings. If no price is given, all listings to "
 "the highest price are shown."
-msgstr "リストのための上限価格を入力します。全く価格が指定されない場合は、最高価格にすべてのリストが表示されます。"
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:135
 msgid "'Recent Listings' Configuration"
-msgstr "'最近の掲載'設定"
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:136
 msgid "Adjust the behaviour for this 'Recent Listings' viewlet."
-msgstr "この\"最近の掲載'ビューレットの振る舞いを調整します。"
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:190
 msgid "'Recent Listings' viewlet deactivated."
-msgstr "'最近の掲載\"ビューレットは無効になりました。"
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:194
 msgid "'Recent Listings' viewlet activated."
-msgstr "'最近の掲載\"ビューレットが作動した。"
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:196
 msgid ""
 "The 'Recent Listings' viewlet does't work with this content type. Add "
 "'IPossibleRecentListings' to the provided interfaces to enable this feature."
-msgstr "このコンテンツタイプを使用して、\"最近の掲載\"ビューレットのdoes't作業。この機能を有効にするために提供されているインタフェースに 'IPossibleRecentListings'を追加します。"
+msgstr ""
 
 #: plone.mls.listing:/browser/templates/listing_details.pt:108
 msgid ""
 "See what the agent says about this listing (original title and description):"
-msgstr "代理人はこのリスト（オリジナルタイトルと説明）について言っていることを参照してください："
+msgstr ""
 
 #: plone.mls.listing:/browser/templates/listing_details.pt:116
 msgid "Long Description"
-msgstr "説明"
+msgstr ""
 
 #: plone.mls.listing:/browser/templates/listing_details.pt:30
 #: plone.mls.listing:/browser/templates/print_listing_details.pt:24
 msgid "Basic Listing Information"
-msgstr "基本情報"
+msgstr ""
 
 #: plone.mls.listing:/browser/templates/listing_details.pt:89
 #: plone.mls.listing:/browser/templates/print_listing_details.pt:198
 msgid "Listing Images"
-msgstr "写真"
+msgstr ""
 
 #: plone.mls.listing:/browser/templates/print_listing_details.pt:193
 msgid "More about this property"
-msgstr "不動産仲介、もと情報"
+msgstr ""
 
 #: plone.mls.listing:/browser/templates/print_listing_details.pt:86
 msgid "Contact Information"
-msgstr "连络叙穂"
+msgstr ""
 
 #: plone.mls.listing:/browser/valuerange/widget.py:26
 msgid "Select a value..."
-msgstr "値を選択してください..."
+msgstr ""
 
 #: plone.mls.listing:/content/listing.py:16
 msgid "Title"
-msgstr "タイトル"
+msgstr ""
 
 #: plone.mls.listing:/content/listing.py:20
 msgid "MLS Listing ID"
-msgstr "物件ID番号"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:104
 msgid "Update agent information when showing a third party listing?"
-msgstr "サードパーティのリストを示すエージェント情報を更新しますか？"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:11
 msgid ""
 "Items in this vocabulary are sorted by priority key (if available) and value"
 " otherwise. Enter one item per line. Possible values are: %s"
-msgstr "この語彙内のアイテムは、優先キー(使用可能な場合)、それ以外の値でソートされています。 1行につき1つの項目を入力します。可能な値は以下の通りです %s"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:111
 msgid "Agency Name"
-msgstr "代理店名"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:116
 msgid "Agency Logo"
-msgstr "代理店ロゴ"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:121
 msgid "Agency Office Phone"
-msgstr "会社代理店電話"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:126
 msgid "Agency Website"
-msgstr "代理店のウェブサイト"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:131
 msgid "Agent Name"
-msgstr "代理人名"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:136
 msgid "Agent Title"
-msgstr "代理人肩書"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:141
 msgid "Agent Office Phone"
-msgstr "代理人会社電話"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:146
 msgid "Agent Cell Phone"
-msgstr "代理人携帯電話"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:151
 msgid "Agent Fax"
-msgstr "代理人ファックスで"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:156
 msgid "Agent Email"
-msgstr "代理人eメール "
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:60
 msgid "'Geographic Types' priority list"
-msgstr "\"地理型\"優先順位リスト"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:66
 msgid "'Listing Types' priority list"
-msgstr "物件タイプ'優先順位リスト "
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:72
 msgid "'Location Types' priority list"
-msgstr "\"場所·タイプ\"の優先順位リスト "
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:78
 msgid "'Object Types' priority list"
-msgstr "\"オブジェクト·タイプの優先順位リスト"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:84
 msgid "'Ownership Types' priority list"
-msgstr "\"所有型\"優先順位リスト"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:90
 msgid "'View Types' priority list"
-msgstr "\"表示タイプ\"優先順位リスト"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:114
 msgid "Phone Number"
@@ -378,36 +375,36 @@ msgstr ""
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
 "used."
-msgstr "ポートレットタイトル　空欄の場合は初期入力時のタイトルを使用"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:271
 #: plone.mls.listing:/portlets/agent_information.py:38
 msgid "Portlet Title"
-msgstr "ポートレットタイトル"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:275
 msgid "Additional description for the portlet."
-msgstr "ポートレット追加説明"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:277
 msgid "Description"
-msgstr "説明"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:281
 msgid "Thank you message that is shown after the mail was sent."
-msgstr "メール送信後の礼文"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:285
 msgid "Mail Sent Message"
-msgstr "送信メールメッセージ"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:289
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
-msgstr "BCC受信者メールアドレス"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:294
 msgid "BCC Recipients"
-msgstr "BCC受信者名"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:298
 msgid ""
@@ -421,27 +418,27 @@ msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:318
 msgid "Agent Contact"
-msgstr "エージェント連絡先"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:36
 msgid ""
 "This portlet shows a form to contact the corresponding agent for a given "
 "listing via email."
-msgstr "このポートレットは物件に対応するするエージェントの電子メール問い合わせフォームを表示。"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:374
 #: plone.mls.listing:/portlets/agent_information.py:82
 msgid "Add Agent Information portlet"
-msgstr "エージェント情報ポートレット追加"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:386
 #: plone.mls.listing:/portlets/agent_information.py:94
 msgid "Edit Agent Information portlet"
-msgstr "エージェント情報ポートレットの修正"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:73
 msgid "Invalid email address"
-msgstr "無効メールアドレス"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_contact.py:80
 msgid "No Urls allowed"
@@ -451,74 +448,74 @@ msgstr ""
 msgid ""
 "This portlet shows the corresponding agent information for a given listing. "
 "Note that this portlet is only available for the detail view of a listing."
-msgstr "このポートレットは物件の対応エージェントの情報を表示。ただし物件詳細閲覧時に限る。"
+msgstr ""
 
 #: plone.mls.listing:/portlets/agent_information.py:47
 msgid "Agent Information"
-msgstr "エージェント情報"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:187
 msgid ""
 "Custom title for the portlet (search mode). If no title is provided, the "
 "default title is used."
-msgstr "ポートレット（検索モード）のカスタムタイトル。タイトルが提供されていない場合、デフォルトのタイトルが使用されます。"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:192
 msgid "Portlet Title (Search)"
-msgstr "ポートレットのタイトル（検索）"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:196
 msgid ""
 "Custom title for the portlet (filter mode). If no title is provided, the "
 "default title is used."
-msgstr "ポートレットのカスタムタイトル（フィルタモード）。タイトルが提供されていない場合、デフォルトのタイトルが使用されます。"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:201
 msgid "Portlet Title (Filter)"
-msgstr "ポートレットのタイトル（フィルタ）"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:205
 msgid "Find the search page which will be used to show the results."
-msgstr "結果を表示するために使用される検索ページを見つけてください。"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:213
 msgid "Search Page"
-msgstr "検索ページ"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:225
 msgid "Search Listings"
-msgstr "検索不動産仲介"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:226
 msgid "Filter Results"
-msgstr "フィルタ結果"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:300
 msgid "Add Listing Quick Search portlet"
-msgstr "物件検索ポートレットを追加 "
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:314
 msgid "Edit Listing Quick Search portlet"
-msgstr "リストクイック検索ポートレットを編集"
+msgstr ""
 
 #: plone.mls.listing:/portlets/quick_search.py:35
 msgid "This portlet shows a listing quick search form."
-msgstr "このポートレットには上場クイック検索フォームを示しています。"
+msgstr ""
 
 #: plone.mls.listing:/vocabularies.py:20 plone.mls.listing:/vocabularies.py:34
 #: plone.mls.listing:/vocabularies.py:48
 msgid "Min"
-msgstr "最小"
+msgstr ""
 
 #: plone.mls.listing:/vocabularies.py:242
 msgid "Yes"
-msgstr "はい"
+msgstr ""
 
 #: plone.mls.listing:/vocabularies.py:243
 msgid "No"
-msgstr "いいえ"
+msgstr ""
 
 #: plone.mls.listing:/vocabularies.py:30 plone.mls.listing:/vocabularies.py:44
 #: plone.mls.listing:/vocabularies.py:58
 msgid "Max"
-msgstr "最大"
+msgstr ""
