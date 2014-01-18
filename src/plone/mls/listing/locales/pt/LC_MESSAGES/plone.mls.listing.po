@@ -1,3 +1,5 @@
+# ############################################################################
+# 
 # Copyright (c) 2003-2004 Zope Foundation and Contributors.
 # All Rights Reserved.
 # 
@@ -8,12 +10,13 @@
 # WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
 # FOR A PARTICULAR PURPOSE.
 # 
+# ############################################################################
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: Sat Dec  7 15:25:19 2013\n"
-"PO-Revision-Date: 2014-01-14 14:53+0000\n"
+"POT-Creation-Date: Sat Jan 18 10:01:22 2014\n"
+"PO-Revision-Date: 2014-01-18 09:12+0000\n"
 "Last-Translator: Thomas Massmann <thomas@propertyshelf.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MLS_Plone/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -286,39 +289,51 @@ msgstr ""
 msgid "Agency Name"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:116
+#: plone.mls.listing:/interfaces.py:115
+msgid "Enter the URL of the logo that should be used."
+msgstr ""
+
+#: plone.mls.listing:/interfaces.py:117
 msgid "Agency Logo"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:121
+#: plone.mls.listing:/interfaces.py:122
 msgid "Agency Office Phone"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:126
+#: plone.mls.listing:/interfaces.py:127
 msgid "Agency Website"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:131
+#: plone.mls.listing:/interfaces.py:132
 msgid "Agent Name"
 msgstr ""
 
 #: plone.mls.listing:/interfaces.py:136
+msgid "Enter the URL of the avatar that should be used."
+msgstr ""
+
+#: plone.mls.listing:/interfaces.py:138
+msgid "Agent Avatar"
+msgstr ""
+
+#: plone.mls.listing:/interfaces.py:143
 msgid "Agent Title"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:141
+#: plone.mls.listing:/interfaces.py:148
 msgid "Agent Office Phone"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:146
+#: plone.mls.listing:/interfaces.py:153
 msgid "Agent Cell Phone"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:151
+#: plone.mls.listing:/interfaces.py:158
 msgid "Agent Fax"
 msgstr ""
 
-#: plone.mls.listing:/interfaces.py:156
+#: plone.mls.listing:/interfaces.py:163
 msgid "Agent Email"
 msgstr ""
 
@@ -346,111 +361,111 @@ msgstr ""
 msgid "'View Types' priority list"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:114
+#: plone.mls.listing:/portlets/agent_contact.py:115
 msgid "Phone Number"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:120
+#: plone.mls.listing:/portlets/agent_contact.py:121
 msgid "Arrival Date"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:126
+#: plone.mls.listing:/portlets/agent_contact.py:127
 msgid "Departure Date"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:132
+#: plone.mls.listing:/portlets/agent_contact.py:133
 msgid "Adults"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:138
+#: plone.mls.listing:/portlets/agent_contact.py:139
 msgid "Children"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:154
+#: plone.mls.listing:/portlets/agent_contact.py:155
 msgid "Captcha"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:266
-#: plone.mls.listing:/portlets/agent_information.py:34
+#: plone.mls.listing:/portlets/agent_contact.py:267
+#: plone.mls.listing:/portlets/agent_information.py:35
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
 "used."
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:271
-#: plone.mls.listing:/portlets/agent_information.py:38
+#: plone.mls.listing:/portlets/agent_contact.py:272
+#: plone.mls.listing:/portlets/agent_information.py:39
 msgid "Portlet Title"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:275
+#: plone.mls.listing:/portlets/agent_contact.py:276
 msgid "Additional description for the portlet."
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:277
+#: plone.mls.listing:/portlets/agent_contact.py:278
 msgid "Description"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:281
+#: plone.mls.listing:/portlets/agent_contact.py:282
 msgid "Thank you message that is shown after the mail was sent."
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:285
+#: plone.mls.listing:/portlets/agent_contact.py:286
 msgid "Mail Sent Message"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:289
+#: plone.mls.listing:/portlets/agent_contact.py:290
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:294
+#: plone.mls.listing:/portlets/agent_contact.py:295
 msgid "BCC Recipients"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:298
+#: plone.mls.listing:/portlets/agent_contact.py:299
 msgid ""
 "Activate for Spam Protection. Any attempt to use a link inside this form "
 "will raise a validation error."
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:303
+#: plone.mls.listing:/portlets/agent_contact.py:304
 msgid "Reject Text with Links?"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:318
+#: plone.mls.listing:/portlets/agent_contact.py:319
 msgid "Agent Contact"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:36
+#: plone.mls.listing:/portlets/agent_contact.py:37
 msgid ""
 "This portlet shows a form to contact the corresponding agent for a given "
 "listing via email."
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:374
-#: plone.mls.listing:/portlets/agent_information.py:82
+#: plone.mls.listing:/portlets/agent_contact.py:377
+#: plone.mls.listing:/portlets/agent_information.py:85
 msgid "Add Agent Information portlet"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:386
-#: plone.mls.listing:/portlets/agent_information.py:94
+#: plone.mls.listing:/portlets/agent_contact.py:389
+#: plone.mls.listing:/portlets/agent_information.py:97
 msgid "Edit Agent Information portlet"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:73
+#: plone.mls.listing:/portlets/agent_contact.py:74
 msgid "Invalid email address"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_contact.py:80
+#: plone.mls.listing:/portlets/agent_contact.py:81
 msgid "No Urls allowed"
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_information.py:23
+#: plone.mls.listing:/portlets/agent_information.py:24
 msgid ""
 "This portlet shows the corresponding agent information for a given listing. "
 "Note that this portlet is only available for the detail view of a listing."
 msgstr ""
 
-#: plone.mls.listing:/portlets/agent_information.py:47
+#: plone.mls.listing:/portlets/agent_information.py:48
 msgid "Agent Information"
 msgstr ""
 
@@ -490,11 +505,11 @@ msgstr ""
 msgid "Filter Results"
 msgstr ""
 
-#: plone.mls.listing:/portlets/quick_search.py:300
+#: plone.mls.listing:/portlets/quick_search.py:302
 msgid "Add Listing Quick Search portlet"
 msgstr ""
 
-#: plone.mls.listing:/portlets/quick_search.py:314
+#: plone.mls.listing:/portlets/quick_search.py:316
 msgid "Edit Listing Quick Search portlet"
 msgstr ""
 
