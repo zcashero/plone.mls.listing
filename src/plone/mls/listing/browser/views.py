@@ -199,8 +199,14 @@ class ListingDetails(BrowserView):
             else:
                 agent['agent_email'] = None
 
+            # Adjust agent avatar.
+            agent_avatar_url = getattr(settings, 'agent_avatar_url', None)
+            if agent_avatar_url is not None:
+                agent['avatar'] = agent_avatar_url
+            else:
+                agent['avatar'] = None
+
             # TODO: Adjust agent languages.
-            # TODO: Adjust agent avatar.
 
         return contact_data
 

@@ -112,6 +112,7 @@ class IMLSAgencyContactInformation(Interface):
     )
 
     agency_logo_url = schema.TextLine(
+        description=_('Enter the URL of the logo that should be used.'),
         required=False,
         title=_(u'Agency Logo'),
     )
@@ -129,6 +130,12 @@ class IMLSAgencyContactInformation(Interface):
     agent_name = schema.TextLine(
         required=True,
         title=_(u'Agent Name'),
+    )
+
+    agent_avatar_url = schema.TextLine(
+        description=_('Enter the URL of the avatar that should be used.'),
+        required=False,
+        title=_(u'Agent Avatar'),
     )
 
     agent_title = schema.TextLine(
