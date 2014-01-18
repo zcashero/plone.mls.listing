@@ -3,9 +3,12 @@
 
 from setuptools import setup, find_packages
 
-version = '1.0dev'
+version = '0.9.8'
 description = "Plone support for MLS Listings."
-long_description = open("README.rst").read() + "\n" + open("CHANGES.rst").read()
+long_description = ('\n'.join([
+    open('README.rst').read(),
+    open('CHANGES.rst').read(),
+]))
 
 install_requires = [
     'setuptools',

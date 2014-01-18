@@ -1,8 +1,12 @@
 Changelog
 =========
 
-1.0 (unreleased)
-----------------
+0.9.8 (2014-01-18)
+------------------
+
+- Added agent avatar URL field.
+- Fixed portlet reistartions so we can customise them now.
+- I18N updates.
 
 
 0.9.7 (2013-07-02)
