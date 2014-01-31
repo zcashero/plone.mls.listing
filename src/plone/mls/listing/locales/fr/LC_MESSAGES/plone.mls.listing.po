@@ -14,13 +14,13 @@
 # Translators:
 # claudia.aubin <claudia.aubin@propertyshelf.com>, 2014
 # claudiapropertyshelf <c.oberbeck@gmx.de>, 2013
-# Thomas Massmann <thomas@propertyshelf.com>, 2013
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: Sat Jan 18 10:01:22 2014\n"
-"PO-Revision-Date: 2014-01-18 09:12+0000\n"
-"Last-Translator: Thomas Massmann <thomas@propertyshelf.com>\n"
+"PO-Revision-Date: 2014-01-23 18:39+0000\n"
+"Last-Translator: claudia.aubin <claudia.aubin@propertyshelf.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "Propriétés du MLS"
 
 #: plone.mls.listing:/article/listing.py:35
 msgid "List of the contained MLS Listings."
-msgstr "Liste des MLS propriétés contenues."
+msgstr "Liste des propriétés MLS contenues."
 
 #: plone.mls.listing:/browser/adapter.py:12
 #: plone.mls.listing:/browser/adapter.py:14
@@ -62,7 +62,7 @@ msgstr "État"
 #: plone.mls.listing:/browser/listing_collection.py:115
 #: plone.mls.listing:/browser/listing_search.py:115
 msgid "County"
-msgstr "Arrondissement"
+msgstr "Conté"
 
 #: plone.mls.listing:/browser/listing_collection.py:121
 #: plone.mls.listing:/browser/listing_search.py:121
@@ -84,7 +84,7 @@ msgstr "Prix (Max)"
 #: plone.mls.listing:/browser/listing_collection.py:137
 #: plone.mls.listing:/browser/listing_search.py:142
 msgid "Location Type"
-msgstr "Type d'Emplacement"
+msgstr "Type de Localisation"
 
 #: plone.mls.listing:/browser/listing_collection.py:145
 #: plone.mls.listing:/browser/listing_search.py:150
@@ -114,11 +114,11 @@ msgstr "Articles par Page"
 
 #: plone.mls.listing:/browser/listing_collection.py:192
 msgid "'Listing Collection' Configuration"
-msgstr "Configuration de la 'Collection des Propriétés'"
+msgstr "Configuration de la 'Collection de Propriétés'"
 
 #: plone.mls.listing:/browser/listing_collection.py:193
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
-msgstr "Ajuster le comportement de la viewlet pour la 'Collection de la propriété'."
+msgstr "Ajuster le comportement de cette viewlet de 'Collection de propriétés'."
 
 #: plone.mls.listing:/browser/listing_collection.py:202
 #: plone.mls.listing:/browser/listing_search.py:429
@@ -134,11 +134,11 @@ msgstr "Annuler"
 
 #: plone.mls.listing:/browser/listing_collection.py:248
 msgid "'Listing Collection' viewlet deactivated."
-msgstr "Viewlet de la 'Collection de Propriété' désactivée."
+msgstr "Viewlet de la 'Collection de Propriétés' désactivée."
 
 #: plone.mls.listing:/browser/listing_collection.py:252
 msgid "'Listing Collection' viewlet activated."
-msgstr "Viewlet de la 'Collection de Propriété' activée."
+msgstr "Viewlet de la 'Collection de Propriétés' activée."
 
 #: plone.mls.listing:/browser/listing_collection.py:254
 msgid ""
@@ -149,7 +149,7 @@ msgstr "La viewlet de la «Collection de la Propriété» ne fonctionne pas avec
 
 #: plone.mls.listing:/browser/listing_search.py:127
 msgid "City/Town"
-msgstr "Ville"
+msgstr "Ville/Village"
 
 #: plone.mls.listing:/browser/listing_search.py:183
 msgid "Bedrooms"
@@ -185,25 +185,25 @@ msgstr "Cacher le formulaire de recherche lorsque la Portlet de Recherche Rapide
 
 #: plone.mls.listing:/browser/listing_search.py:421
 msgid "'Listing Search' Configuration"
-msgstr "Configuration de la 'Recherche de Propriété'"
+msgstr "Configuration de la 'Recherche de Propriétés'"
 
 #: plone.mls.listing:/browser/listing_search.py:422
 msgid "Adjust the behaviour for this 'Listing Search' viewlet."
-msgstr "Ajuster le comportement de la viewlet pour la 'Recherche de la Propriété'."
+msgstr "Ajuster le comportement de cette viewlet de 'Recherche de Propriétés'."
 
 #: plone.mls.listing:/browser/listing_search.py:478
 msgid "'Listing Search' viewlet deactivated."
-msgstr "Viewlet de la 'Recherche de Propriété' désactivée."
+msgstr "Viewlet de la 'Recherche de Propriétés' désactivée."
 
 #: plone.mls.listing:/browser/listing_search.py:482
 msgid "'Listing Search' viewlet activated."
-msgstr "Viewlet de la 'Recherche de Propriété' activée."
+msgstr "Viewlet de la 'Recherche de Propriétés' activée."
 
 #: plone.mls.listing:/browser/listing_search.py:484
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
-msgstr "La viewlet  de la 'Recherche de Propriété' ne fonctionne pas avec ce type de contenu. Ajouter 'Recherche Possible de Propriété' aux interfaces fournies pour activer cette fonction."
+msgstr "La viewlet de la 'Recherche de Propriété' ne fonctionne pas avec ce type de contenu. Ajouter 'Recherche Possible de Propriété' aux interfaces fournies pour activer cette fonction."
 
 #: plone.mls.listing:/browser/recent_listings.py:106
 msgid ""
@@ -223,7 +223,7 @@ msgstr "Configuration des 'Propriétés Récentes'"
 
 #: plone.mls.listing:/browser/recent_listings.py:136
 msgid "Adjust the behaviour for this 'Recent Listings' viewlet."
-msgstr "Régler le comportement pour ce viewlet de 'Propriétés Récentes'."
+msgstr "Ajuster le comportement de cette viewlet de 'Propriétés Récentes'."
 
 #: plone.mls.listing:/browser/recent_listings.py:190
 msgid "'Recent Listings' viewlet deactivated."
@@ -286,7 +286,7 @@ msgstr "Mettre à jour les informations de l'agent en affichant la propriété d
 msgid ""
 "Items in this vocabulary are sorted by priority key (if available) and value"
 " otherwise. Enter one item per line. Possible values are: %s"
-msgstr "Les articles de ce vocabulaire sont triés par une clé de priorité (le cas échéant) et autrement par la valeur. Entrer un article par ligne. Les valeurs possibles sont: % s"
+msgstr "Les items de ce vocabulaire sont triés par clé de priorité (le cas échéant) ou autrement par la valeur. Entrer un item par ligne. Les valeurs possibles sont: %s"
 
 #: plone.mls.listing:/interfaces.py:111
 msgid "Agency Name"
@@ -294,7 +294,7 @@ msgstr "Nom de l'Agence"
 
 #: plone.mls.listing:/interfaces.py:115
 msgid "Enter the URL of the logo that should be used."
-msgstr ""
+msgstr "Insérer le URL ou le logo qui devrait être utilisé."
 
 #: plone.mls.listing:/interfaces.py:117
 msgid "Agency Logo"
@@ -314,11 +314,11 @@ msgstr "Nom de l'Agent"
 
 #: plone.mls.listing:/interfaces.py:136
 msgid "Enter the URL of the avatar that should be used."
-msgstr ""
+msgstr "Insérer le URL ou l'avatar qui devrait être utilisé."
 
 #: plone.mls.listing:/interfaces.py:138
 msgid "Agent Avatar"
-msgstr ""
+msgstr "Avatar de l'Agent"
 
 #: plone.mls.listing:/interfaces.py:143
 msgid "Agent Title"
@@ -342,27 +342,27 @@ msgstr "Courriel de l'Agent"
 
 #: plone.mls.listing:/interfaces.py:60
 msgid "'Geographic Types' priority list"
-msgstr "Liste des priorités des 'Types Geographiques'"
+msgstr "Liste de priorité des 'Types Géographiques'"
 
 #: plone.mls.listing:/interfaces.py:66
 msgid "'Listing Types' priority list"
-msgstr "Liste des priorités des 'Types des Propriétés'"
+msgstr "Liste de priorité des 'Types de Propriétés'"
 
 #: plone.mls.listing:/interfaces.py:72
 msgid "'Location Types' priority list"
-msgstr "Liste des priorités des 'Types des Emplacements'"
+msgstr "Liste de priorité des 'Types d'Emplacements'"
 
 #: plone.mls.listing:/interfaces.py:78
 msgid "'Object Types' priority list"
-msgstr "Liste des priorités des 'Types des Objets'"
+msgstr "Liste de priorité des 'Types d'Objets'"
 
 #: plone.mls.listing:/interfaces.py:84
 msgid "'Ownership Types' priority list"
-msgstr "Liste des priorités des 'Types de la Possession'"
+msgstr "Liste de priorité des 'Types de Possession'"
 
 #: plone.mls.listing:/interfaces.py:90
 msgid "'View Types' priority list"
-msgstr "Liste des priorités des 'Types de la Vue'"
+msgstr "Liste de priorité des 'Types de Vue'"
 
 #: plone.mls.listing:/portlets/agent_contact.py:115
 msgid "Phone Number"
@@ -386,7 +386,7 @@ msgstr "Enfants"
 
 #: plone.mls.listing:/portlets/agent_contact.py:155
 msgid "Captcha"
-msgstr ""
+msgstr "Captcha"
 
 #: plone.mls.listing:/portlets/agent_contact.py:267
 #: plone.mls.listing:/portlets/agent_information.py:35
@@ -428,11 +428,11 @@ msgstr "Destinataires de BCC"
 msgid ""
 "Activate for Spam Protection. Any attempt to use a link inside this form "
 "will raise a validation error."
-msgstr ""
+msgstr "Activer pour la protection anti-spam. Toute tentative d'utilisation d'un lien à l'intérieur de ce formulaire générera une erreur de validation."
 
 #: plone.mls.listing:/portlets/agent_contact.py:304
 msgid "Reject Text with Links?"
-msgstr ""
+msgstr "Rejeter le texte avec des liens?"
 
 #: plone.mls.listing:/portlets/agent_contact.py:319
 msgid "Agent Contact"
@@ -460,7 +460,7 @@ msgstr "Adresse e-mail périmée"
 
 #: plone.mls.listing:/portlets/agent_contact.py:81
 msgid "No Urls allowed"
-msgstr ""
+msgstr "Aucun URL n'est permis"
 
 #: plone.mls.listing:/portlets/agent_information.py:24
 msgid ""
@@ -523,7 +523,7 @@ msgstr "Cette portlet affiche un formulaire de recherche rapide de propriétés.
 #: plone.mls.listing:/vocabularies.py:20 plone.mls.listing:/vocabularies.py:34
 #: plone.mls.listing:/vocabularies.py:48
 msgid "Min"
-msgstr "Mi"
+msgstr "Min"
 
 #: plone.mls.listing:/vocabularies.py:242
 msgid "Yes"
