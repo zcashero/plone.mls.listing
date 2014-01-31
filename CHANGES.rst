@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.0 (unreleased)
-----------------
+0.9.9 (2014-01-31)
+------------------
+
+- Fixed traversal conflict with contentleadimage.
+- I18N updates.
 
 
 0.9.8 (2014-01-18)
