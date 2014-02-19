@@ -9,7 +9,7 @@ from zope.component import getUtility, queryMultiAdapter
 from zope.interface import implementer
 
 # local imports
-from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.core import api
 from plone.mls.listing.api import listing_details
 from plone.mls.listing.browser.interfaces import IListingDetails
 from plone.mls.listing.interfaces import IMLSAgencyContactInformation
@@ -103,8 +103,8 @@ class ListingDetails(BrowserView):
     @property
     def contact(self):
         registry = getUtility(IRegistry)
-        mls_settings = registry.forInterface(IMLSSettings)
-        agency_id = getattr(mls_settings, 'agency_id', None)
+        mls_settings = api.get_settings()
+        agency_id = mls_settings.get('agency_id', None)
 
         if self.data is None:
             return

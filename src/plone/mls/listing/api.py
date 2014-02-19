@@ -6,14 +6,10 @@ from DateTime import DateTime
 import logging
 import time
 
-# zope imports
-from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
-
 # local imports
 from mls.apiclient.client import ListingResource
 from mls.apiclient.exceptions import MLSError
-from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.core import api
 from plone.mls.listing import PRODUCT_NAME
 
 
@@ -123,10 +119,9 @@ class SearchOptions(object):
         if self.category is not None:
             self._last_update_time_in_minutes = time.time() / 60
             self._last_update_time = DateTime()
-            registry = getUtility(IRegistry)
-            settings = registry.forInterface(IMLSSettings)
-            base_url = getattr(settings, 'mls_site', None)
-            api_key = getattr(settings, 'mls_key', None)
+            settings = api.get_settings()
+            base_url = settings.get('mls_site', None)
+            api_key = settings.get('mls_key', None)
             resource = ListingResource(base_url, api_key=api_key)
             results = []
             try:
@@ -175,10 +170,9 @@ def recent_listings(params={}, batching=True):
         'reverse': '1',
     }
     search_params.update(params)
-    registry = getUtility(IRegistry)
-    settings = registry.forInterface(IMLSSettings)
-    base_url = getattr(settings, 'mls_site', None)
-    api_key = getattr(settings, 'mls_key', None)
+    settings = api.get_settings()
+    base_url = settings.get('mls_site', None)
+    api_key = settings.get('mls_key', None)
     batch = None
     results = []
     resource = ListingResource(base_url, api_key=api_key)
@@ -195,10 +189,9 @@ def recent_listings(params={}, batching=True):
 
 def listing_details(listing_id, lang=None):
     """Return detail information for a listing."""
-    registry = getUtility(IRegistry)
-    settings = registry.forInterface(IMLSSettings)
-    base_url = getattr(settings, 'mls_site', None)
-    api_key = getattr(settings, 'mls_key', None)
+    settings = api.get_settings()
+    base_url = settings.get('mls_site', None)
+    api_key = settings.get('mls_key', None)
     resource = ListingResource(base_url, api_key=api_key)
     try:
         listing = resource.get(listing_id, lang=lang)
@@ -215,10 +208,9 @@ def search(params={}, batching=True):
         'reverse': '1',
     }
     search_params.update(params)
-    registry = getUtility(IRegistry)
-    settings = registry.forInterface(IMLSSettings)
-    base_url = getattr(settings, 'mls_site', None)
-    api_key = getattr(settings, 'mls_key', None)
+    settings = api.get_settings()
+    base_url = settings.get('mls_site', None)
+    api_key = settings.get('mls_key', None)
     batch = None
     results = []
     resource = ListingResource(base_url, api_key=api_key)
