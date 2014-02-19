@@ -40,7 +40,8 @@ class ListingDetails(BrowserView):
         else:
             self.listing_id = getattr(self.context, 'listing_id', None)
         if self.listing_id:
-            self._data = listing_details(self.listing_id, lang)
+            self._data = listing_details(self.listing_id, lang,
+                                         context=self.context)
 
     @property
     def data(self):
@@ -103,7 +104,7 @@ class ListingDetails(BrowserView):
     @property
     def contact(self):
         registry = getUtility(IRegistry)
-        mls_settings = api.get_settings()
+        mls_settings = api.get_settings(context=self.context)
         agency_id = mls_settings.get('agency_id', None)
 
         if self.data is None:

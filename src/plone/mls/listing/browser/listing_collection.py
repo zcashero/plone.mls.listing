@@ -69,7 +69,7 @@ class ListingCollectionViewlet(ViewletBase):
         }
         params.update(self.config)
         params = prepare_search_params(params)
-        results, batching = search(params)
+        results, batching = search(params, context=self.context)
         self._listings = results
         self._batching = batching
 

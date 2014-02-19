@@ -57,10 +57,11 @@ class SearchOptions(object):
     language = None
     timeout = 100
 
-    def __init__(self, category, language, timeout):
+    def __init__(self, category, language, timeout, context=None):
         self.category = category
         self.language = language
         self.timeout = timeout
+        self.context = context
 
         self._items = []
         self._loaded = False  # Is the category already loaded?
@@ -119,7 +120,7 @@ class SearchOptions(object):
         if self.category is not None:
             self._last_update_time_in_minutes = time.time() / 60
             self._last_update_time = DateTime()
-            settings = api.get_settings()
+            settings = api.get_settings(context=self.context)
             base_url = settings.get('mls_site', None)
             api_key = settings.get('mls_key', None)
             resource = ListingResource(base_url, api_key=api_key)
@@ -144,7 +145,7 @@ class SearchOptions(object):
         return self._items
 
 
-def search_options(mls_url, category, lang=None):
+def search_options(mls_url, category, lang=None, context=None):
     if mls_url is None or len(mls_url) < 1:
         return
 
@@ -153,7 +154,7 @@ def search_options(mls_url, category, lang=None):
     options = OPTIONS_CACHE.get(key, None)
 
     if options is None:
-        options = SearchOptions(category, lang, timeout)
+        options = SearchOptions(category, lang, timeout, context=context)
 
         if options.update():
             OPTIONS_CACHE[key] = options
@@ -163,14 +164,14 @@ def search_options(mls_url, category, lang=None):
     return options.items
 
 
-def recent_listings(params={}, batching=True):
+def recent_listings(params={}, batching=True, context=None):
     """Return a list of recent MLS listings."""
     search_params = {
         'sort_on': 'created',
         'reverse': '1',
     }
     search_params.update(params)
-    settings = api.get_settings()
+    settings = api.get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
     batch = None
@@ -187,9 +188,9 @@ def recent_listings(params={}, batching=True):
     return results
 
 
-def listing_details(listing_id, lang=None):
+def listing_details(listing_id, lang=None, context=None):
     """Return detail information for a listing."""
-    settings = api.get_settings()
+    settings = api.get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
     resource = ListingResource(base_url, api_key=api_key)
@@ -201,14 +202,14 @@ def listing_details(listing_id, lang=None):
     return listing.get('listing', None)
 
 
-def search(params={}, batching=True):
+def search(params={}, batching=True, context=None):
     """Search for listings."""
     search_params = {
         'sort_on': 'created',
         'reverse': '1',
     }
     search_params.update(params)
-    settings = api.get_settings()
+    settings = api.get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
     batch = None

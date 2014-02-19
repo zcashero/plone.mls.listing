@@ -128,11 +128,11 @@ class BasePriorityVocabulary(object):
             priority_list = [item.strip() for item in value.split(',')
                              if len(item.strip()) > 0]
 
-        mls_settings = api.get_settings()
+        mls_settings = api.get_settings(context=context)
         mls_url = mls_settings.get('mls_site', None)
 
         types = search_options(mls_url, self.vocabulary_name,
-                               portal_state.language())
+                               portal_state.language(), context=context)
         terms = []
         if types is not None:
             types = self._sort(types, priority_list)

@@ -66,7 +66,7 @@ class RecentListingsViewlet(ViewletBase):
         }
         params.update(self.config)
         params = prepare_search_params(params)
-        results, batching = recent_listings(params)
+        results, batching = recent_listings(params, context=self.context)
         self._listings = results
         self._batching = batching
 

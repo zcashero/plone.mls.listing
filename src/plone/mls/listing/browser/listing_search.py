@@ -371,7 +371,7 @@ class ListingSearchViewlet(ViewletBase):
             'lang': self.portal_state.language(),
         }
         search_params.update(params)
-        results, batching = search(search_params)
+        results, batching = search(search_params, context=self.context)
         self._listings = results
         self._batching = batching
 
