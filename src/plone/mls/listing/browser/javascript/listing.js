@@ -37,6 +37,17 @@ jQuery(function($) {
   }
 
 
+  if ($('#content-views #contentview-local-mls-agency-info').length > 0) {
+    // Show the local agency information form with a nice overlay.
+    $('#content-views #contentview-local-mls-agency-info > a').prepOverlay({
+      subtype: 'ajax',
+      filter: '#content>*',
+      formselector: '#content-core > form',
+      noform: 'reload',
+      closeselector: '[name="form.buttons.cancel"]'
+    });
+  }
+
   if ($('#content-views #contentview-listing-collection-config').length > 0) {
     // Show the listing search configuration form with a nice overlay.
     $('#content-views #contentview-listing-collection-config > a').prepOverlay({
