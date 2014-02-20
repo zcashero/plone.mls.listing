@@ -114,4 +114,14 @@
       profile="plone.mls.listing:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Update portal actions."
+      source="1007"
+      destination="1008"
+      handler=".migration.migrate_to_1008"
+      sortkey="1"
+      profile="plone.mls.listing:default"
+      />
+
 </configure>

@@ -169,3 +169,15 @@ def migrate_to_1007(context):
     """
     registry = getUtility(IRegistry)
     registry.registerInterface(IMLSAgencyContactInformation)
+
+
+def migrate_to_1008(context):
+    """Migrate from 1007 to 1008.
+
+    * Update portal actions.
+    """
+    site = getUtility(IPloneSiteRoot)
+    setup = getToolByName(site, 'portal_setup')
+    setup.runImportStepFromProfile(PROFILE_ID, 'actions')
+    registry = getUtility(IRegistry)
+    registry.registerInterface(IMLSAgencyContactInformation)
