@@ -6,11 +6,25 @@ from DateTime import DateTime
 import logging
 import time
 
+# zope imports
+from Acquisition import aq_parent, aq_inner
+from Products.CMFPlone.interfaces import IPloneSiteRoot
+from plone import api
+from plone.registry.interfaces import IRegistry
+from zope.annotation.interfaces import IAnnotations
+from zope.component import getUtility
+
+
 # local imports
 from mls.apiclient.client import ListingResource
 from mls.apiclient.exceptions import MLSError
-from plone.mls.core import api
+from plone.mls.core.api import get_settings
 from plone.mls.listing import PRODUCT_NAME
+from plone.mls.listing.browser.localconfig import CONFIGURATION_KEY
+from plone.mls.listing.interfaces import (
+    ILocalAgencyInfo,
+    IMLSAgencyContactInformation,
+)
 
 
 logger = logging.getLogger(PRODUCT_NAME)
@@ -120,7 +134,7 @@ class SearchOptions(object):
         if self.category is not None:
             self._last_update_time_in_minutes = time.time() / 60
             self._last_update_time = DateTime()
-            settings = api.get_settings(context=self.context)
+            settings = get_settings(context=self.context)
             base_url = settings.get('mls_site', None)
             api_key = settings.get('mls_key', None)
             resource = ListingResource(base_url, api_key=api_key)
@@ -171,7 +185,7 @@ def recent_listings(params={}, batching=True, context=None):
         'reverse': '1',
     }
     search_params.update(params)
-    settings = api.get_settings(context=context)
+    settings = get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
     batch = None
@@ -190,7 +204,7 @@ def recent_listings(params={}, batching=True, context=None):
 
 def listing_details(listing_id, lang=None, context=None):
     """Return detail information for a listing."""
-    settings = api.get_settings(context=context)
+    settings = get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
     resource = ListingResource(base_url, api_key=api_key)
@@ -209,7 +223,7 @@ def search(params={}, batching=True, context=None):
         'reverse': '1',
     }
     search_params.update(params)
-    settings = api.get_settings(context=context)
+    settings = get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
     batch = None
@@ -224,3 +238,52 @@ def search(params={}, batching=True, context=None):
     if batching:
         return results, batch
     return results
+
+
+def _local_agency_info(context):
+    """Get local agency information."""
+    settings = None
+    obj = context
+    while (
+            not IPloneSiteRoot.providedBy(obj) and
+            not ILocalAgencyInfo.providedBy(obj)):
+        parent = aq_parent(aq_inner(obj))
+        if parent is None:
+            return
+        obj = parent
+    if ILocalAgencyInfo.providedBy(obj):
+        annotations = IAnnotations(obj)
+        settings = annotations.get(
+            CONFIGURATION_KEY, annotations.setdefault(CONFIGURATION_KEY, {}))
+    return settings
+
+
+def get_agency_info(context=None):
+    """Get the agency information."""
+    if context is None:
+        context = api.portal.get()
+
+    local_info = _local_agency_info(context)
+    if local_info is not None:
+        logger.debug('Returning local agency information.')
+        return local_info
+
+    # Get the global agency info.
+    settings = {}
+    registry = getUtility(IRegistry)
+    if registry is not None:
+        try:
+            registry_settings = registry.forInterface(
+                IMLSAgencyContactInformation
+            )
+        except:
+            logger.warning('Global agency information not available.')
+        else:
+            settings = dict([
+                (a, getattr(registry_settings, a)) for a in
+                registry_settings.__schema__]
+            )
+            logger.debug('Returning global agency information.')
+    if not settings.get('use_custom_info', False):
+        return
+    return settings

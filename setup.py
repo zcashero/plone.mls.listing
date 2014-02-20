@@ -17,6 +17,7 @@ install_requires = [
     'collective.autopermission',
     'collective.prettyphoto',
     'mls.apiclient',
+    'plone.api',
     'plone.app.dexterity [grok]',
     'plone.app.referenceablebehavior',
     'plone.app.relationfield',
