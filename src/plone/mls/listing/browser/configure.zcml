@@ -6,6 +6,8 @@
   <include package=".valuerange" />
 
 
+  <!-- Global Agency Information. -->
+  <!-- ========================== -->
   <browser:page
       class=".controlpanel.MLSAgencyContactInfoSettingsControlPanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
@@ -13,6 +15,38 @@
       name="mls-agency-contact-info"
       permission="plone.app.controlpanel.Site"
       />
+
+
+  <!-- Local Agency Information. -->
+  <!-- ========================= -->
+
+  <!-- Local agency information form. -->
+  <browser:page
+      class=".localconfig.LocalAgencyInfo"
+      for="plone.mls.listing.interfaces.ILocalAgencyInfo"
+      layer=".interfaces.IListingSpecific"
+      name="mls-localagencyinfo"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <!-- Status page. -->
+  <browser:page
+      class=".localconfig.LocalAgencyInfoStatus"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="mls-localagencyinfo-status"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <!-- Toggle current status. -->
+  <browser:page
+      class=".localconfig.LocalAgencyInfoToggle"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="mls-localagencyinfo-toggle"
+      permission="cmf.ModifyPortalContent"
+      />
+
 
   <!-- Listing Collection. -->
   <!-- =================== -->

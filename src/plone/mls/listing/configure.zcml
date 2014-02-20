@@ -27,6 +27,7 @@
     <implements interface="plone.mls.listing.browser.listing_collection.IPossibleListingCollection" />
     <implements interface="plone.mls.listing.browser.listing_search.IPossibleListingSearch" />
     <implements interface="plone.mls.listing.browser.recent_listings.IPossibleRecentListings" />
+    <implements interface="plone.mls.listing.interfaces.IPossibleLocalAgencyInfo" />
   </class>
 
 

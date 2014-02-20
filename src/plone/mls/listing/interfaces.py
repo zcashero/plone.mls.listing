@@ -162,3 +162,11 @@ class IMLSAgencyContactInformation(Interface):
         required=True,
         title=_(u'Agent Email'),
     )
+
+
+class IPossibleLocalAgencyInfo(Interface):
+    """Marker interface for possible local agency information."""
+
+
+class ILocalAgencyInfo(Interface):
+    """Marker interface for activated local agency information."""
