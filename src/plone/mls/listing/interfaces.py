@@ -100,10 +100,20 @@ class IMLSAgencyContactInformation(Interface):
 
     use_custom_info = schema.Bool(
         default=False,
-        required=False,
-        title=_(
+        description=_(
             u'Update agent information when showing a third party listing?'
         ),
+        required=False,
+        title=_(u'Enable'),
+    )
+
+    force = schema.Bool(
+        default=False,
+        description=_(
+            u'Force usage of custom agency information, even on own listings?'
+        ),
+        required=False,
+        title=_(u'Force Overwrite'),
     )
 
     agency_name = schema.TextLine(
