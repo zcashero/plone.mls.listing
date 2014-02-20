@@ -4,6 +4,22 @@
         i18n:domain="plone.mls.listing">
 
   <object name="object" meta_type="CMF Action Category">
+    <!-- Local Agency Info. -->
+    <!-- ================== -->
+    <object name="local-mls-agency-info" meta_type="CMF Action">
+      <property name="available_expr">object/@@mls-localagencyinfo-status/active</property>
+      <property name="description" i18n:translate="">Manage the local agency information.</property>
+      <property name="icon_expr"></property>
+      <property name="i18n_domain">plone.mls.listing</property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Local Agency Information</property>
+      <property name="url_expr">string:${object_url}/@@mls-localagencyinfo</property>
+      <property name="visible">True</property>
+    </object>
+
     <!-- Listing Collection. -->
     <!-- =================== -->
     <object name="listing-collection-config" meta_type="CMF Action">
@@ -54,6 +70,35 @@
   </object>
 
   <object name="object_buttons" meta_type="CMF Action Category">
+    <!-- Local Agency Info. -->
+    <!-- ================== -->
+    <object name="local-mls-agencyinfo-activate" meta_type="CMF Action">
+      <property name="available_expr">object/@@mls-localagencyinfo-status/can_activate</property>
+      <property name="description" i18n:translate="">Activate the local agency information.</property>
+      <property name="icon_expr"></property>
+      <property name="i18n_domain">plone.mls.listing</property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Activate local agency information</property>
+      <property name="url_expr">string:${object_url}/@@mls-localagencyinfo-toggle</property>
+      <property name="visible">True</property>
+    </object>
+    <object name="local-mls-agencyinfo-deactivate" meta_type="CMF Action">
+      <property name="available_expr">object/@@mls-localagencyinfo-status/active</property>
+      <property name="description" i18n:translate="">Deactivate the local agency information.</property>
+      <property name="icon_expr"></property>
+      <property name="i18n_domain">plone.mls.listing</property>
+      <property name="link_target"></property>
+      <property name="permissions">
+        <element value="Modify portal content" />
+      </property>
+      <property name="title" i18n:translate="">Deactivate local agency information</property>
+      <property name="url_expr">string:${object_url}/@@mls-localagencyinfo-toggle</property>
+      <property name="visible">True</property>
+    </object>
+
     <!-- Listing Collection. -->
     <!-- =================== -->
     <object name="listing-collection-activate" meta_type="CMF Action">
