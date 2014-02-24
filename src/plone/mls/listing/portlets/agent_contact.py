@@ -111,6 +111,10 @@ class IEmailForm(Interface):
     )
 
     phone = schema.TextLine(
+        description=_(
+            u'Please enter a phone number. Some agents will not respond '
+            u'without one.'
+        ),
         missing_value=u'-',
         required=False,
         title=_(u'Phone Number'),
@@ -160,7 +164,7 @@ class IEmailForm(Interface):
 class EmailForm(form.Form):
     """Email Form."""
     fields = field.Fields(IEmailForm).omit(
-        'phone', 'arrival_date', 'departure_date', 'adults', 'children',
+        'arrival_date', 'departure_date', 'adults', 'children',
     )
     ignoreContext = True
     method = 'post'
