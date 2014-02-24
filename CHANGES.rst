@@ -4,10 +4,13 @@ Changelog
 1.0 (unreleased)
 ----------------
 
+- No changes yet.
+
 
 0.9.10 (2014-02-24)
 -------------------
 
+- Allow local agency information.
 - Show phone number for all listing types in agent contact portlet.
 - I18N updates.
 
