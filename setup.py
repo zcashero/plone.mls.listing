@@ -23,7 +23,7 @@ install_requires = [
     'plone.app.relationfield',
     'plone.app.versioningbehavior',
     'plone.formwidget.captcha',
-    'plone.mls.core >= 0.2',
+    'plone.mls.core >= 0.5',
 ]
 
 setup(
