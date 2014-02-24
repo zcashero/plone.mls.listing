@@ -5,6 +5,13 @@ Changelog
 ----------------
 
 
+0.9.10 (2014-02-24)
+-------------------
+
+- Show phone number for all listing types in agent contact portlet.
+- I18N updates.
+
+
 0.9.9 (2014-01-31)
 ------------------
 
