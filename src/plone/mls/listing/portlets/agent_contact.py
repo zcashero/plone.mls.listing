@@ -74,6 +74,7 @@ def validate_email(value):
             raise Invalid(_(u'Invalid email address'))
     return True
 
+
 def contains_nuts(value):
     """Check for traces of nuts, like urls or other spammer fun things"""
     if value:
@@ -257,7 +258,8 @@ class EmailForm(form.Form):
         return
 
 # Register Captcha validator for the captcha field in the ICaptchaForm
-validator.WidgetValidatorDiscriminators(CaptchaValidator, field=IEmailForm['captcha'])
+validator.WidgetValidatorDiscriminators(
+    CaptchaValidator, field=IEmailForm['captcha'])
 
 
 class IAgentContactPortlet(IPortletDataProvider):
@@ -303,7 +305,6 @@ class IAgentContactPortlet(IPortletDataProvider):
         required=False,
         title=_(u'Reject Text with Links?'),
     )
-
 
 
 @implementer(IAgentContactPortlet)
