@@ -13,14 +13,17 @@
 # ############################################################################
 # Translators:
 # claudia.aubin <claudia.aubin@propertyshelf.com>, 2014
+# claudia.aubin <claudia.aubin@propertyshelf.com>, 2014
 # claudiapropertyshelf <c.oberbeck@gmx.de>, 2013
+# claudiapropertyshelf <c.oberbeck@gmx.de>, 2013
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2013
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: Sat Jan 18 10:01:22 2014\n"
-"PO-Revision-Date: 2014-01-23 18:39+0000\n"
-"Last-Translator: claudia.aubin <claudia.aubin@propertyshelf.com>\n"
+"POT-Creation-Date: Tue Feb 25 12:16:56 2014\n"
+"PO-Revision-Date: 2014-02-25 11:20+0000\n"
+"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,103 +47,105 @@ msgstr "Liste des propriétés MLS contenues."
 #: plone.mls.listing:/browser/adapter.py:22
 #: plone.mls.listing:/browser/adapter.py:24
 #: plone.mls.listing:/browser/valuerange/widget.py:25
-#: plone.mls.listing:/vocabularies.py:244
+#: plone.mls.listing:/vocabularies.py:240
 msgid "All"
 msgstr "Tout"
 
-#: plone.mls.listing:/browser/listing_collection.py:101
+#: plone.mls.listing:/browser/listing_collection.py:103
 #: plone.mls.listing:/browser/listing_search.py:101
 #: plone.mls.listing:/browser/recent_listings.py:99
 msgid "Listing Type"
 msgstr "Type de Propriété"
 
-#: plone.mls.listing:/browser/listing_collection.py:109
+#: plone.mls.listing:/browser/listing_collection.py:111
 #: plone.mls.listing:/browser/listing_search.py:109
 msgid "State"
 msgstr "État"
 
-#: plone.mls.listing:/browser/listing_collection.py:115
+#: plone.mls.listing:/browser/listing_collection.py:117
 #: plone.mls.listing:/browser/listing_search.py:115
 msgid "County"
 msgstr "Conté"
 
-#: plone.mls.listing:/browser/listing_collection.py:121
+#: plone.mls.listing:/browser/listing_collection.py:123
 #: plone.mls.listing:/browser/listing_search.py:121
 msgid "District"
 msgstr "District"
 
-#: plone.mls.listing:/browser/listing_collection.py:127
+#: plone.mls.listing:/browser/listing_collection.py:129
 #: plone.mls.listing:/browser/listing_search.py:132
 #: plone.mls.listing:/browser/recent_listings.py:111
 msgid "Price (Min)"
 msgstr "Prix (Min)"
 
-#: plone.mls.listing:/browser/listing_collection.py:132
+#: plone.mls.listing:/browser/listing_collection.py:134
 #: plone.mls.listing:/browser/listing_search.py:137
 #: plone.mls.listing:/browser/recent_listings.py:120
 msgid "Price (Max)"
 msgstr "Prix (Max)"
 
-#: plone.mls.listing:/browser/listing_collection.py:137
+#: plone.mls.listing:/browser/listing_collection.py:139
 #: plone.mls.listing:/browser/listing_search.py:142
 msgid "Location Type"
 msgstr "Type de Localisation"
 
-#: plone.mls.listing:/browser/listing_collection.py:145
+#: plone.mls.listing:/browser/listing_collection.py:147
 #: plone.mls.listing:/browser/listing_search.py:150
 msgid "Geographic Type"
 msgstr "Type Géographique"
 
-#: plone.mls.listing:/browser/listing_collection.py:153
+#: plone.mls.listing:/browser/listing_collection.py:155
 #: plone.mls.listing:/browser/listing_search.py:158
 msgid "View Type"
 msgstr "Type de Vue"
 
-#: plone.mls.listing:/browser/listing_collection.py:161
+#: plone.mls.listing:/browser/listing_collection.py:163
 #: plone.mls.listing:/browser/listing_search.py:166
 msgid "Object Type"
 msgstr "Type d'Objet"
 
-#: plone.mls.listing:/browser/listing_collection.py:169
+#: plone.mls.listing:/browser/listing_collection.py:171
 #: plone.mls.listing:/browser/listing_search.py:174
 msgid "Ownership Type"
 msgstr "Type de Propriétaires"
 
-#: plone.mls.listing:/browser/listing_collection.py:178
+#: plone.mls.listing:/browser/listing_collection.py:180
 #: plone.mls.listing:/browser/listing_search.py:405
 #: plone.mls.listing:/browser/recent_listings.py:126
 msgid "Items per Page"
 msgstr "Articles par Page"
 
-#: plone.mls.listing:/browser/listing_collection.py:192
+#: plone.mls.listing:/browser/listing_collection.py:194
 msgid "'Listing Collection' Configuration"
 msgstr "Configuration de la 'Collection de Propriétés'"
 
-#: plone.mls.listing:/browser/listing_collection.py:193
+#: plone.mls.listing:/browser/listing_collection.py:195
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
 msgstr "Ajuster le comportement de cette viewlet de 'Collection de propriétés'."
 
-#: plone.mls.listing:/browser/listing_collection.py:202
+#: plone.mls.listing:/browser/listing_collection.py:204
 #: plone.mls.listing:/browser/listing_search.py:429
+#: plone.mls.listing:/browser/localconfig.py:41
 #: plone.mls.listing:/browser/recent_listings.py:145
 msgid "Save"
 msgstr "Enregistrer"
 
-#: plone.mls.listing:/browser/listing_collection.py:212
+#: plone.mls.listing:/browser/listing_collection.py:214
 #: plone.mls.listing:/browser/listing_search.py:441
+#: plone.mls.listing:/browser/localconfig.py:52
 #: plone.mls.listing:/browser/recent_listings.py:154
 msgid "Cancel"
 msgstr "Annuler"
 
-#: plone.mls.listing:/browser/listing_collection.py:248
+#: plone.mls.listing:/browser/listing_collection.py:250
 msgid "'Listing Collection' viewlet deactivated."
 msgstr "Viewlet de la 'Collection de Propriétés' désactivée."
 
-#: plone.mls.listing:/browser/listing_collection.py:252
+#: plone.mls.listing:/browser/listing_collection.py:254
 msgid "'Listing Collection' viewlet activated."
 msgstr "Viewlet de la 'Collection de Propriétés' activée."
 
-#: plone.mls.listing:/browser/listing_collection.py:254
+#: plone.mls.listing:/browser/listing_collection.py:256
 msgid ""
 "The 'Listing Collection' viewlet does't work with this content type. Add "
 "'IPossibleListingCollection' to the provided interfaces to enable this "
@@ -204,6 +209,31 @@ msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
 msgstr "La viewlet de la 'Recherche de Propriété' ne fonctionne pas avec ce type de contenu. Ajouter 'Recherche Possible de Propriété' aux interfaces fournies pour activer cette fonction."
+
+#: plone.mls.listing:/browser/localconfig.py:27
+msgid "Local Agency Information"
+msgstr ""
+
+#: plone.mls.listing:/browser/localconfig.py:28
+msgid ""
+"This agency information will be used for this content item and all possible "
+"child elements."
+msgstr ""
+
+#: plone.mls.listing:/browser/localconfig.py:92
+msgid "Local agency information deactivated."
+msgstr ""
+
+#: plone.mls.listing:/browser/localconfig.py:96
+msgid "Local agency information activated."
+msgstr ""
+
+#: plone.mls.listing:/browser/localconfig.py:98
+msgid ""
+"The local agency information don't work with this content type. Add "
+"'IPossibleLocalAgencyInfo' to the provided interfaces to enable this "
+"feature."
+msgstr ""
 
 #: plone.mls.listing:/browser/recent_listings.py:106
 msgid ""
@@ -278,9 +308,13 @@ msgstr "Titre"
 msgid "MLS Listing ID"
 msgstr "ID de la Propriété du MLS"
 
-#: plone.mls.listing:/interfaces.py:104
+#: plone.mls.listing:/interfaces.py:103
 msgid "Update agent information when showing a third party listing?"
 msgstr "Mettre à jour les informations de l'agent en affichant la propriété d'un tiers?"
+
+#: plone.mls.listing:/interfaces.py:107
+msgid "Enable"
+msgstr ""
 
 #: plone.mls.listing:/interfaces.py:11
 msgid ""
@@ -288,55 +322,63 @@ msgid ""
 " otherwise. Enter one item per line. Possible values are: %s"
 msgstr "Les items de ce vocabulaire sont triés par clé de priorité (le cas échéant) ou autrement par la valeur. Entrer un item par ligne. Les valeurs possibles sont: %s"
 
-#: plone.mls.listing:/interfaces.py:111
+#: plone.mls.listing:/interfaces.py:112
+msgid "Force usage of custom agency information, even on own listings?"
+msgstr ""
+
+#: plone.mls.listing:/interfaces.py:116
+msgid "Force Overwrite"
+msgstr ""
+
+#: plone.mls.listing:/interfaces.py:121
 msgid "Agency Name"
 msgstr "Nom de l'Agence"
 
-#: plone.mls.listing:/interfaces.py:115
+#: plone.mls.listing:/interfaces.py:125
 msgid "Enter the URL of the logo that should be used."
 msgstr "Insérer le URL ou le logo qui devrait être utilisé."
 
-#: plone.mls.listing:/interfaces.py:117
+#: plone.mls.listing:/interfaces.py:127
 msgid "Agency Logo"
 msgstr "Logo de l'Agence"
 
-#: plone.mls.listing:/interfaces.py:122
+#: plone.mls.listing:/interfaces.py:132
 msgid "Agency Office Phone"
 msgstr "Téléphone d'Affaires de l'Agence"
 
-#: plone.mls.listing:/interfaces.py:127
+#: plone.mls.listing:/interfaces.py:137
 msgid "Agency Website"
 msgstr "Site Internet de l'Agence"
 
-#: plone.mls.listing:/interfaces.py:132
+#: plone.mls.listing:/interfaces.py:142
 msgid "Agent Name"
 msgstr "Nom de l'Agent"
 
-#: plone.mls.listing:/interfaces.py:136
+#: plone.mls.listing:/interfaces.py:146
 msgid "Enter the URL of the avatar that should be used."
 msgstr "Insérer le URL ou l'avatar qui devrait être utilisé."
 
-#: plone.mls.listing:/interfaces.py:138
+#: plone.mls.listing:/interfaces.py:148
 msgid "Agent Avatar"
 msgstr "Avatar de l'Agent"
 
-#: plone.mls.listing:/interfaces.py:143
+#: plone.mls.listing:/interfaces.py:153
 msgid "Agent Title"
 msgstr "Titre de l'Agent"
 
-#: plone.mls.listing:/interfaces.py:148
+#: plone.mls.listing:/interfaces.py:158
 msgid "Agent Office Phone"
 msgstr "Téléphone d'Affaires de l'Agent"
 
-#: plone.mls.listing:/interfaces.py:153
+#: plone.mls.listing:/interfaces.py:163
 msgid "Agent Cell Phone"
 msgstr "Portable de l'Agent"
 
-#: plone.mls.listing:/interfaces.py:158
+#: plone.mls.listing:/interfaces.py:168
 msgid "Agent Fax"
 msgstr "Télécopieur de l'Agent"
 
-#: plone.mls.listing:/interfaces.py:163
+#: plone.mls.listing:/interfaces.py:173
 msgid "Agent Email"
 msgstr "Courriel de l'Agent"
 
@@ -364,77 +406,81 @@ msgstr "Liste de priorité des 'Types de Possession'"
 msgid "'View Types' priority list"
 msgstr "Liste de priorité des 'Types de Vue'"
 
-#: plone.mls.listing:/portlets/agent_contact.py:115
+#: plone.mls.listing:/portlets/agent_contact.py:114
+msgid "Please enter a phone number. Some agents will not respond without one."
+msgstr ""
+
+#: plone.mls.listing:/portlets/agent_contact.py:120
 msgid "Phone Number"
 msgstr "Numéro de téléphone"
 
-#: plone.mls.listing:/portlets/agent_contact.py:121
+#: plone.mls.listing:/portlets/agent_contact.py:126
 msgid "Arrival Date"
 msgstr "Date d'Arrivée"
 
-#: plone.mls.listing:/portlets/agent_contact.py:127
+#: plone.mls.listing:/portlets/agent_contact.py:132
 msgid "Departure Date"
 msgstr "Date de Départ"
 
-#: plone.mls.listing:/portlets/agent_contact.py:133
+#: plone.mls.listing:/portlets/agent_contact.py:138
 msgid "Adults"
 msgstr "Adultes"
 
-#: plone.mls.listing:/portlets/agent_contact.py:139
+#: plone.mls.listing:/portlets/agent_contact.py:144
 msgid "Children"
 msgstr "Enfants"
 
-#: plone.mls.listing:/portlets/agent_contact.py:155
+#: plone.mls.listing:/portlets/agent_contact.py:160
 msgid "Captcha"
 msgstr "Captcha"
 
-#: plone.mls.listing:/portlets/agent_contact.py:267
+#: plone.mls.listing:/portlets/agent_contact.py:273
 #: plone.mls.listing:/portlets/agent_information.py:35
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
 "used."
 msgstr "Titre personnalisé pour la portlet. Si aucun titre n'est fourni, le titre par défaut est utilisé."
 
-#: plone.mls.listing:/portlets/agent_contact.py:272
+#: plone.mls.listing:/portlets/agent_contact.py:278
 #: plone.mls.listing:/portlets/agent_information.py:39
 msgid "Portlet Title"
 msgstr "Titre de la Portlet"
 
-#: plone.mls.listing:/portlets/agent_contact.py:276
+#: plone.mls.listing:/portlets/agent_contact.py:282
 msgid "Additional description for the portlet."
 msgstr "Description supplémentaire pour la portlet."
 
-#: plone.mls.listing:/portlets/agent_contact.py:278
+#: plone.mls.listing:/portlets/agent_contact.py:284
 msgid "Description"
 msgstr "Description"
 
-#: plone.mls.listing:/portlets/agent_contact.py:282
+#: plone.mls.listing:/portlets/agent_contact.py:288
 msgid "Thank you message that is shown after the mail was sent."
 msgstr "Message de remerciement qui s'affiche suite à l'envoi du courriel."
 
-#: plone.mls.listing:/portlets/agent_contact.py:286
+#: plone.mls.listing:/portlets/agent_contact.py:292
 msgid "Mail Sent Message"
 msgstr "Message envoyé"
 
-#: plone.mls.listing:/portlets/agent_contact.py:290
+#: plone.mls.listing:/portlets/agent_contact.py:296
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr "Les adresses e-mail qui reçoivent une copie conforme invisible (virgule séparée)."
 
-#: plone.mls.listing:/portlets/agent_contact.py:295
+#: plone.mls.listing:/portlets/agent_contact.py:301
 msgid "BCC Recipients"
 msgstr "Destinataires de BCC"
 
-#: plone.mls.listing:/portlets/agent_contact.py:299
+#: plone.mls.listing:/portlets/agent_contact.py:305
 msgid ""
 "Activate for Spam Protection. Any attempt to use a link inside this form "
 "will raise a validation error."
 msgstr "Activer pour la protection anti-spam. Toute tentative d'utilisation d'un lien à l'intérieur de ce formulaire générera une erreur de validation."
 
-#: plone.mls.listing:/portlets/agent_contact.py:304
+#: plone.mls.listing:/portlets/agent_contact.py:310
 msgid "Reject Text with Links?"
 msgstr "Rejeter le texte avec des liens?"
 
-#: plone.mls.listing:/portlets/agent_contact.py:319
+#: plone.mls.listing:/portlets/agent_contact.py:324
 msgid "Agent Contact"
 msgstr "Coordonnées de l'Agent"
 
@@ -444,12 +490,12 @@ msgid ""
 "listing via email."
 msgstr "Cette portlet affiche un formulaire afin de contacter l'agent correspondant à un listage envoyé par courriel."
 
-#: plone.mls.listing:/portlets/agent_contact.py:377
+#: plone.mls.listing:/portlets/agent_contact.py:382
 #: plone.mls.listing:/portlets/agent_information.py:85
 msgid "Add Agent Information portlet"
 msgstr "Ajouter la portlet d'Information de l'Agent"
 
-#: plone.mls.listing:/portlets/agent_contact.py:389
+#: plone.mls.listing:/portlets/agent_contact.py:394
 #: plone.mls.listing:/portlets/agent_information.py:97
 msgid "Edit Agent Information portlet"
 msgstr "Modifier la portlet d'Information de l'Agent"
@@ -458,7 +504,7 @@ msgstr "Modifier la portlet d'Information de l'Agent"
 msgid "Invalid email address"
 msgstr "Adresse e-mail périmée"
 
-#: plone.mls.listing:/portlets/agent_contact.py:81
+#: plone.mls.listing:/portlets/agent_contact.py:82
 msgid "No Urls allowed"
 msgstr "Aucun URL n'est permis"
 
@@ -525,11 +571,11 @@ msgstr "Cette portlet affiche un formulaire de recherche rapide de propriétés.
 msgid "Min"
 msgstr "Min"
 
-#: plone.mls.listing:/vocabularies.py:242
+#: plone.mls.listing:/vocabularies.py:238
 msgid "Yes"
 msgstr "Oui"
 
-#: plone.mls.listing:/vocabularies.py:243
+#: plone.mls.listing:/vocabularies.py:239
 msgid "No"
 msgstr "Non"
 
