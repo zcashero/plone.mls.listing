@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: Tue Feb 25 12:16:56 2014\n"
-"PO-Revision-Date: 2014-02-25 11:20+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2014-03-07 20:34+0000\n"
+"Last-Translator: claudia.aubin <claudia.aubin@propertyshelf.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/MLS_Plone/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -150,7 +150,7 @@ msgid ""
 "The 'Listing Collection' viewlet does't work with this content type. Add "
 "'IPossibleListingCollection' to the provided interfaces to enable this "
 "feature."
-msgstr "La viewlet de la «Collection de la Propriété» ne fonctionne pas avec ce type de contenu. Ajouter \"Collection possible des Propriétés\" aux interfaces fournies pour activer cette fonction."
+msgstr "La viewlet de la «Collection de la Propriété» ne fonctionne pas avec ce type de contenu. Ajouter 'IPossibleListingCollection' aux interfaces fournies pour activer cette fonction."
 
 #: plone.mls.listing:/browser/listing_search.py:127
 msgid "City/Town"
@@ -208,32 +208,32 @@ msgstr "Viewlet de la 'Recherche de Propriétés' activée."
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
-msgstr "La viewlet de la 'Recherche de Propriété' ne fonctionne pas avec ce type de contenu. Ajouter 'Recherche Possible de Propriété' aux interfaces fournies pour activer cette fonction."
+msgstr "La viewlet de la 'Recherche de Propriété' ne fonctionne pas avec ce type de contenu. Ajouter 'IPossibleListingSearch' aux interfaces fournies pour activer cette fonction."
 
 #: plone.mls.listing:/browser/localconfig.py:27
 msgid "Local Agency Information"
-msgstr ""
+msgstr "Renseignements sur l'agence locale"
 
 #: plone.mls.listing:/browser/localconfig.py:28
 msgid ""
 "This agency information will be used for this content item and all possible "
 "child elements."
-msgstr ""
+msgstr "Ces renseignements sur l'agence sera utilisé pour ce contenu et pour tous les sous éléments possibles."
 
 #: plone.mls.listing:/browser/localconfig.py:92
 msgid "Local agency information deactivated."
-msgstr ""
+msgstr "Renseignements sur l'agence locale désactivés."
 
 #: plone.mls.listing:/browser/localconfig.py:96
 msgid "Local agency information activated."
-msgstr ""
+msgstr "Renseignements sur l'agence locale activés."
 
 #: plone.mls.listing:/browser/localconfig.py:98
 msgid ""
 "The local agency information don't work with this content type. Add "
 "'IPossibleLocalAgencyInfo' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "L'information de l'agence locale ne fonctionne pas avec ce type de contenu. Ajouter 'IPossibleLocalAgencyInfo' aux interfaces fournies pour activer cette fonction."
 
 #: plone.mls.listing:/browser/recent_listings.py:106
 msgid ""
@@ -267,7 +267,7 @@ msgstr "Viewlet des 'Propriétés Récentes' activée."
 msgid ""
 "The 'Recent Listings' viewlet does't work with this content type. Add "
 "'IPossibleRecentListings' to the provided interfaces to enable this feature."
-msgstr "La viewlet des \"Propriétés Récentes\" ne fonctionne pas avec ce type de contenu. Ajouter \"Propriétés Récentes Possibles» aux interfaces fournies pour activer cette fonction."
+msgstr "La viewlet des «Propriétés Récentes» ne fonctionne pas avec ce type de contenu. Ajouter 'IPossibleRecentListings' aux interfaces fournies pour activer cette fonction."
 
 #: plone.mls.listing:/browser/templates/listing_details.pt:108
 msgid ""
@@ -314,7 +314,7 @@ msgstr "Mettre à jour les informations de l'agent en affichant la propriété d
 
 #: plone.mls.listing:/interfaces.py:107
 msgid "Enable"
-msgstr ""
+msgstr "Activer"
 
 #: plone.mls.listing:/interfaces.py:11
 msgid ""
@@ -324,11 +324,11 @@ msgstr "Les items de ce vocabulaire sont triés par clé de priorité (le cas é
 
 #: plone.mls.listing:/interfaces.py:112
 msgid "Force usage of custom agency information, even on own listings?"
-msgstr ""
+msgstr "Forcer l'utilisation des renseignements de l'agence personnalisés, même sur vos propres propriétés?"
 
 #: plone.mls.listing:/interfaces.py:116
 msgid "Force Overwrite"
-msgstr ""
+msgstr "Modification Forcée"
 
 #: plone.mls.listing:/interfaces.py:121
 msgid "Agency Name"
@@ -408,7 +408,7 @@ msgstr "Liste de priorité des 'Types de Vue'"
 
 #: plone.mls.listing:/portlets/agent_contact.py:114
 msgid "Please enter a phone number. Some agents will not respond without one."
-msgstr ""
+msgstr "S'il-vous-plaît saisissez un numéro de téléphone. Sinon certains agents ne vous répondrons pas."
 
 #: plone.mls.listing:/portlets/agent_contact.py:120
 msgid "Phone Number"
@@ -464,7 +464,7 @@ msgstr "Message envoyé"
 
 #: plone.mls.listing:/portlets/agent_contact.py:296
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
-msgstr "Les adresses e-mail qui reçoivent une copie conforme invisible (virgule séparée)."
+msgstr "Les adresses e-mail qui reçoivent une copie conforme invisible (séparées par une virgule)."
 
 #: plone.mls.listing:/portlets/agent_contact.py:301
 msgid "BCC Recipients"
