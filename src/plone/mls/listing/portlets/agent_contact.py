@@ -197,9 +197,9 @@ class EmailForm(form.Form):
         super(EmailForm, self).updateWidgets()
         urltool = getToolByName(self.context, 'portal_url')
         portal = urltool.getPortalObject()
-        subject = '%(portal_title)s: %(title)s (%(lid)s)' % dict(
+        subject = u'%(portal_title)s: %(title)s (%(lid)s)' % dict(
             lid=self.listing_info['listing_id'],
-            portal_title=portal.getProperty('title'),
+            portal_title=portal.getProperty('title').decode('utf-8'),
             title=self.listing_info['listing_title'],
         )
         self.widgets['subject'].mode = HIDDEN_MODE
