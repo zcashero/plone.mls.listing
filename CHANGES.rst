@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.0 (unreleased)
-----------------
+0.9.11 (2014-03-17)
+-------------------
 
-- No changes yet.
+- Fixed UnicodeDecodeError for contact portlet.
+- I18N updates.
 
 
 0.9.10 (2014-02-24)
