@@ -16,4 +16,16 @@
       for="*"
       />
 
+    <plone:tile
+      name="plone.mls.listing.recentlistings"
+      title="Latest Listings from your MLS"
+      description="We show the fresh stuff from your MLS and you also can configure it."
+      icon="++resource++collective.cover/tile-mediagallery.png"
+      add_permission="cmf.ModifyPortalContent"
+      schema=".recentlistings.IRecentListingTile"
+      class=".recentlistings.RecentListingTile"
+      permission="zope2.View"
+      for="*"
+      />
+
 </configure>

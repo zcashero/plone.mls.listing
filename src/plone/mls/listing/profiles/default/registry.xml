@@ -6,6 +6,7 @@
   <record name="plone.app.tiles">
     <value purge="false">
       <element>plone.mls.listing.listing</element>
+      <element>plone.mls.listing.recentlistings</element>
     </value>
   </record>
 </registry>
