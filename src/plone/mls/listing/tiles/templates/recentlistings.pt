@@ -21,16 +21,193 @@
         <h3 tal:condition="python:htmltag == 'h3'"
             tal:content="python:field['content']" />
       </tal:title>
-
-      <tal:description condition="python:field['id'] == 'limit'">
-        <!-- FIXME -->
-        <p tal:content="python:field['content']">How many listings you may wish?</p>
-      </tal:description>
-
       <tal:last condition="repeat/field/end">
         <div class="visualClear"><!-- --></div>
       </tal:last>
-    </tal:fields>
+      </tal:fields>
+
+      
+      <!-- include actual recent listings --> 
+      <section id="latest-listings" tal:condition="view/recent_listings_available">
+        <tal:listings tal:define="listings view/recent_listings;
+                                  recent_listings_url view/recent_listings_url|nothing">
+          <div id="ll_wrapper">
+            
+          <tal:listing tal:repeat="listing listings">
+          <article  
+            tal:define="listing_url string:${recent_listings_url}/${listing/id/value};
+                        index repeat/listing/index|nothing;"
+            tal:attributes="class string:pos_${index}">
+            <tal:item tal:condition="listing/lead_image">
+              <div class="ll_image">
+
+                <a tal:attributes="href listing_url">
+                  <div class="image_caption"
+                    tal:attributes="
+                      class string:image_caption ${listing/rooms_beds/value|nothing}_${listing/rooms_baths/value|nothing}; "
+                    >
+                  <span
+                    tal:content="listing/rooms_beds/value|nothing">
+                  </span>
+                  <span
+                    tal:content='listing/rooms_beds/label|nothing'>
+                  </span>
+                  <span tal:condition="listing/rooms_beds/value|nothing">/</span>
+                  <span
+                    tal:content='listing/rooms_baths/value|nothing'>
+                  </span>
+                  <span
+                    tal:content='listing/rooms_baths/label|nothing'>
+                  </span>
+                </div>
+                <img
+                  tal:attributes="src listing/lead_image;
+                               alt listing/title/value;" 
+                  tal:on-error="nothing"/>
+              </a>
+              </div>
+            </tal:item>
+
+            <tal:item tal:define="item listing/price|nothing" 
+                      tal:condition="item"
+                      tal:on-error="nothing">
+              <!-- Price -->
+              <div class="ll_price property">
+                <ul class="">
+                  <li class="price label" tal:content="item/label" />
+                  <li class="price content">
+                    <a 
+                      tal:attributes="href listing_url"
+                      tal:content="structure item/value" />
+                    </li>
+              </ul>
+              </div>
+            </tal:item>
+
+            <tal:item tal:define="item listing/beds_baths|nothing" 
+                      tal:condition="item"
+                      tal:on-error="nothing">
+              <!-- Bed & Bathrooms -->
+              <div class="ll_beds_baths property">
+                <ul>
+                  <li class="beds_baths label" tal:content="item/label" />
+                  <li class="beds_baths content" >
+                    <a 
+                      tal:attributes="href listing_url"
+                      tal:content="structure item/value" />
+                  </li>
+                </ul>
+              </div>
+            </tal:item>
+
+            <tal:item tal:define="item listing/lot_size|nothing" 
+                      tal:condition="item"
+                      tal:on-error="nothing">
+              <!-- Lot Size -->
+              <div class="ll_lot_size property">
+                <ul>
+                  <li class="lot_size label" tal:content="item/label" />
+                  <li class="lot_size content">
+                    <a 
+                      tal:attributes="href listing_url"
+                      tal:content="structure item/value" />
+                    </li>
+                </ul>
+              </div>
+            </tal:item>
+            
+            <tal:item tal:define="item listing/view_type|nothing" 
+                      tal:condition="item"
+                      tal:on-error="nothing">
+              <!-- View Type -->
+              <div class="ll_view_type property">
+                <ul>
+                  <li class="view_type label" tal:content="item/label" />
+                  <li class="view_type content">
+                    <a 
+                      tal:attributes="href listing_url"
+                      tal:content="structure item/value" />
+                    </li>
+                </ul>
+              </div>
+            </tal:item>
+
+            <tal:item tal:define="item listing/listing_type|nothing" 
+                      tal:condition="item"
+                      tal:on-error="nothing">
+              <!-- Listing Type -->
+              <div class="ll_listing_type property">
+                <ul>
+                  <li class="listing_type label" tal:content="item/label" />
+                  <li class="listing_type content">
+                    <a 
+                      tal:attributes="href listing_url"
+                      tal:content="structure item/value" />
+                    </li>
+                </ul>
+              </div>
+            </tal:item>
+
+            <tal:item tal:define="item listing/location_type|nothing" 
+                      tal:condition="item"
+                      tal:on-error="nothing">
+              <!-- Listing Type -->
+              <div class="ll_location_type property">
+                <ul>
+                  <li class="location_type label" tal:content="item/label" />
+                  <li class="location_type content">
+                    <a 
+                      tal:attributes="href listing_url"
+                      tal:content="structure item/value" />
+                    </li>
+                </ul>
+              </div>
+            </tal:item>
+
+            <tal:item tal:define="item listing/title|nothing" 
+                      tal:condition="item"
+                      tal:on-error="nothing">
+              <!-- Linked Title of the listing -->
+              <div class="ll_description property">
+                <ul>
+                  <li class="description label" tal:content="item/label" />
+                  <li class="description content">
+                    <a 
+                      tal:attributes="href listing_url"
+                      tal:content="listing/title/value" />
+                  </li>
+                </ul>
+              </div>  
+            </tal:item>
+
+            <tal:item tal:define="item listing/location|nothing" tal:condition="item" 
+                      tal:on-error="nothing">
+              <div class="ll_location property">
+                <ul>
+                  <li class="location label" tal:content="item/label" />
+                  <li class="location short">
+                    <a class="listing-location"
+                      tal:attributes="href listing_url">
+                      <span class="listing-location-short" tal:content="listing/city/value"/>
+                    </a>
+                  </li>
+                  <li class="location long">
+                    <a class="listing-location"
+                      tal:attributes="href listing_url">
+                      <span class="listing-location-long" tal:content="listing/location/value"/>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </tal:item>
+              
+          </article>
+        </tal:listing>
+        </div>
+        </tal:listings>
+      </section>
+
+      
   </div>
 </body>
 </html>
