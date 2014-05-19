@@ -5,7 +5,10 @@ from setuptools import setup, find_packages
 
 version = '1.0dev'
 description = "Plone support for MLS Listings."
-long_description = open("README.rst").read() + "\n" + open("CHANGES.rst").read()
+long_description = ('\n'.join([
+    open('README.rst').read(),
+    open('CHANGES.rst').read(),
+]))
 
 install_requires = [
     'setuptools',
@@ -14,12 +17,13 @@ install_requires = [
     'collective.autopermission',
     'collective.prettyphoto',
     'mls.apiclient',
+    'plone.api',
     'plone.app.dexterity [grok]',
     'plone.app.referenceablebehavior',
     'plone.app.relationfield',
     'plone.app.versioningbehavior',
     'plone.formwidget.captcha',
-    'plone.mls.core >= 0.2',
+    'plone.mls.core >= 0.5',
 ]
 
 setup(

@@ -1,8 +1,34 @@
 Changelog
 =========
 
-1.0 (unreleased)
-----------------
+0.9.11 (2014-03-17)
+-------------------
+
+- Fixed UnicodeDecodeError for contact portlet.
+- I18N updates.
+
+
+0.9.10 (2014-02-24)
+-------------------
+
+- Allow local agency information.
+- Show phone number for all listing types in agent contact portlet.
+- I18N updates.
+
+
+0.9.9 (2014-01-31)
+------------------
+
+- Fixed traversal conflict with contentleadimage.
+- I18N updates.
+
+
+0.9.8 (2014-01-18)
+------------------
+
+- Added agent avatar URL field.
+- Fixed portlet reistartions so we can customise them now.
+- I18N updates.
 
 
 0.9.7 (2013-07-02)

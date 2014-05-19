@@ -9,6 +9,7 @@ import re
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.portlets import base
 from plone.directives import form
 from plone.portlets.interfaces import IPortletDataProvider
@@ -63,10 +64,22 @@ Message:
 check_email = re.compile(
     r"[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}").match
 
+check_for_url = re.compile(
+    r"http[s]?://").search
+
 
 def validate_email(value):
-    if not check_email(value):
-        raise Invalid(_(u'Invalid email address'))
+    if value:
+        if not check_email(value):
+            raise Invalid(_(u'Invalid email address'))
+    return True
+
+
+def contains_nuts(value):
+    """Check for traces of nuts, like urls or other spammer fun things"""
+    if value:
+        if check_for_url(value):
+            raise Invalid(_(u'No Urls allowed'))
     return True
 
 
@@ -98,6 +111,10 @@ class IEmailForm(Interface):
     )
 
     phone = schema.TextLine(
+        description=_(
+            u'Please enter a phone number. Some agents will not respond '
+            u'without one.'
+        ),
         missing_value=u'-',
         required=False,
         title=_(u'Phone Number'),
@@ -128,6 +145,7 @@ class IEmailForm(Interface):
     )
 
     message = schema.Text(
+        constraint=contains_nuts,
         description=PMF(
             u'help_message',
             default=u'Please enter the message you want to send.',
@@ -146,7 +164,7 @@ class IEmailForm(Interface):
 class EmailForm(form.Form):
     """Email Form."""
     fields = field.Fields(IEmailForm).omit(
-        'phone', 'arrival_date', 'departure_date', 'adults', 'children',
+        'arrival_date', 'departure_date', 'adults', 'children',
     )
     ignoreContext = True
     method = 'post'
@@ -159,6 +177,7 @@ class EmailForm(form.Form):
         self.data = data
         if portlet_hash:
             self.prefix = portlet_hash + '.' + self.prefix
+        self.check_for_spam = data.reject_links
 
     @property
     def already_sent(self):
@@ -178,13 +197,16 @@ class EmailForm(form.Form):
         super(EmailForm, self).updateWidgets()
         urltool = getToolByName(self.context, 'portal_url')
         portal = urltool.getPortalObject()
-        subject = '%(portal_title)s: %(title)s (%(lid)s)' % dict(
+        subject = u'%(portal_title)s: %(title)s (%(lid)s)' % dict(
             lid=self.listing_info['listing_id'],
-            portal_title=portal.getProperty('title'),
+            portal_title=portal.getProperty('title').decode('utf-8'),
             title=self.listing_info['listing_title'],
         )
         self.widgets['subject'].mode = HIDDEN_MODE
         self.widgets['subject'].value = subject
+
+        if not self.check_for_spam:
+            self.widgets['message'].field.constraint = None
 
     @button.buttonAndHandler(PMF(u'label_send', default='Send'), name='send')
     def handle_send(self, action):
@@ -240,7 +262,8 @@ class EmailForm(form.Form):
         return
 
 # Register Captcha validator for the captcha field in the ICaptchaForm
-validator.WidgetValidatorDiscriminators(CaptchaValidator, field=IEmailForm['captcha'])
+validator.WidgetValidatorDiscriminators(
+    CaptchaValidator, field=IEmailForm['captcha'])
 
 
 class IAgentContactPortlet(IPortletDataProvider):
@@ -277,6 +300,15 @@ class IAgentContactPortlet(IPortletDataProvider):
         required=False,
         title=_(u'BCC Recipients'),
     )
+    reject_links = schema.Bool(
+        default=True,
+        description=_(
+            u'Activate for Spam Protection. Any attempt to use a link inside '
+            u'this form will raise a validation error.'
+        ),
+        required=False,
+        title=_(u'Reject Text with Links?'),
+    )
 
 
 @implementer(IAgentContactPortlet)
@@ -287,18 +319,23 @@ class Assignment(base.Assignment):
     description = FieldProperty(IAgentContactPortlet['description'])
     mail_sent_msg = FieldProperty(IAgentContactPortlet['mail_sent_msg'])
     bcc = FieldProperty(IAgentContactPortlet['bcc'])
+    reject_links = FieldProperty(IAgentContactPortlet['reject_links'])
+
     title = _(u'Agent Contact')
 
     def __init__(self, heading=None, description=None, mail_sent_msg=None,
-                 bcc=None):
+                 bcc=None, reject_links=None):
         self.heading = heading
         self.description = description
         self.mail_sent_msg = mail_sent_msg
         self.bcc = bcc
+        self.reject_links = reject_links
 
 
 class Renderer(base.Renderer):
     """Agent Information Portlet Renderer."""
+
+    render = ViewPageTemplateFile('templates/agent_contact.pt')
 
     @property
     def already_sent(self):

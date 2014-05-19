@@ -4,19 +4,17 @@
 # zope imports
 from Products.Five import BrowserView
 from plone.memoize.view import memoize
-from plone.registry.interfaces import IRegistry
-from zope.component import getUtility, queryMultiAdapter
-from zope.interface import implements
+from zope.component import queryMultiAdapter
+from zope.interface import implementer
 
 # local imports
-from plone.mls.core.interfaces import IMLSSettings
-from plone.mls.listing.api import listing_details
+from plone.mls.core import api
+from plone.mls.listing.api import get_agency_info, listing_details
 from plone.mls.listing.browser.interfaces import IListingDetails
-from plone.mls.listing.interfaces import IMLSAgencyContactInformation
 
 
+@implementer(IListingDetails)
 class ListingDetails(BrowserView):
-    implements(IListingDetails)
 
     _error = {}
     _data = None
@@ -40,7 +38,8 @@ class ListingDetails(BrowserView):
         else:
             self.listing_id = getattr(self.context, 'listing_id', None)
         if self.listing_id:
-            self._data = listing_details(self.listing_id, lang)
+            self._data = listing_details(self.listing_id, lang,
+                                         context=self.context)
 
     @property
     def data(self):
@@ -102,9 +101,8 @@ class ListingDetails(BrowserView):
 
     @property
     def contact(self):
-        registry = getUtility(IRegistry)
-        mls_settings = registry.forInterface(IMLSSettings)
-        agency_id = getattr(mls_settings, 'agency_id', None)
+        mls_settings = api.get_settings(context=self.context)
+        agency_id = mls_settings.get('agency_id', None)
 
         if self.data is None:
             return
@@ -113,14 +111,17 @@ class ListingDetails(BrowserView):
         agency = contact_data.get('agency', {})
         agent = contact_data.get('agent', {})
 
+        settings = get_agency_info(context=self.context)
+
         if agency.get('id', {}).get('value', None) == agency_id:
-            return contact_data
+            if settings and settings.get('force', False) is True:
+                pass
+            else:
+                return contact_data
 
-        settings = registry.forInterface(IMLSAgencyContactInformation)
-        if getattr(settings, 'use_custom_info', False) is True:
-
+        if settings:
             # Adjust agency name.
-            agency_name = getattr(settings, 'agency_name', None)
+            agency_name = settings.get('agency_name', None)
             if agency_name is not None:
                 item = agency.setdefault('name', {})
                 item['value'] = agency_name
@@ -128,15 +129,14 @@ class ListingDetails(BrowserView):
                 agency['name'] = None
 
             # Adjust agency logo.
-            agency_logo = getattr(settings, 'agency_logo_url', None)
+            agency_logo = settings.get('agency_logo_url', None)
             if agency_logo is not None:
                 agency['logo'] = agency_logo
             else:
                 agency['logo'] = None
 
             # Adjust agency office phone.
-            agency_office_phone = \
-                getattr(settings, 'agency_office_phone', None)
+            agency_office_phone = settings.get('agency_office_phone', None)
             if agency_office_phone is not None:
                 item = agency.setdefault('office_phone', {})
                 item['value'] = agency_office_phone
@@ -144,7 +144,7 @@ class ListingDetails(BrowserView):
                 agency['office_phone'] = None
 
             # Adjust agency website.
-            agency_website = getattr(settings, 'agency_website', None)
+            agency_website = settings.get('agency_website', None)
             if agency_website is not None:
                 item = agency.setdefault('website', {})
                 item['value'] = agency_website
@@ -152,7 +152,7 @@ class ListingDetails(BrowserView):
                 agency['website'] = None
 
             # Adjust agent name.
-            agent_name = getattr(settings, 'agent_name', None)
+            agent_name = settings.get('agent_name', None)
             if agent_name is not None:
                 item = agent.setdefault('name', {})
                 item['value'] = agent_name
@@ -160,7 +160,7 @@ class ListingDetails(BrowserView):
                 agent['name'] = None
 
             # Adjust agent title.
-            agent_title = getattr(settings, 'agent_title', None)
+            agent_title = settings.get('agent_title', None)
             if agent_title is not None:
                 item = agent.setdefault('title', {})
                 item['value'] = agent_title
@@ -168,7 +168,7 @@ class ListingDetails(BrowserView):
                 agent['title'] = None
 
             # Adjust agent office phone.
-            agent_office_phone = getattr(settings, 'agent_office_phone', None)
+            agent_office_phone = settings.get('agent_office_phone', None)
             if agent_office_phone is not None:
                 item = agent.setdefault('agent_office_phone', {})
                 item['value'] = agent_office_phone
@@ -176,7 +176,7 @@ class ListingDetails(BrowserView):
                 agent['agent_office_phone'] = None
 
             # Adjust agent cell phone.
-            agent_cell_phone = getattr(settings, 'agent_cell_phone', None)
+            agent_cell_phone = settings.get('agent_cell_phone', None)
             if agent_cell_phone is not None:
                 item = agent.setdefault('agent_cell_phone', {})
                 item['value'] = agent_cell_phone
@@ -184,7 +184,7 @@ class ListingDetails(BrowserView):
                 agent['agent_cell_phone'] = None
 
             # Adjust agent fax.
-            agent_fax = getattr(settings, 'agent_fax', None)
+            agent_fax = settings.get('agent_fax', None)
             if agent_fax is not None:
                 item = agent.setdefault('agent_fax', {})
                 item['value'] = agent_fax
@@ -192,14 +192,26 @@ class ListingDetails(BrowserView):
                 agent['agent_fax'] = None
 
             # Adjust agent email.
-            agent_email = getattr(settings, 'agent_email', None)
+            agent_email = settings.get('agent_email', None)
             if agent_email is not None:
                 item = agent.setdefault('agent_email', {})
                 item['value'] = agent_email
             else:
                 agent['agent_email'] = None
 
+            # Adjust agent avatar.
+            agent_avatar_url = settings.get('agent_avatar_url', None)
+            if agent_avatar_url is not None:
+                agent['avatar'] = agent_avatar_url
+            else:
+                agent['avatar'] = None
+
             # TODO: Adjust agent languages.
-            # TODO: Adjust agent avatar.
 
         return contact_data
+
+    def base_url(self):
+        if getattr(self.request, 'listing_id', None) is not None:
+            return '/'.join([self.context.absolute_url(), self.listing_id])
+        else:
+            return self.context.absolute_url()

@@ -11,7 +11,7 @@ from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 # local imports
-from plone.mls.core.interfaces import IMLSSettings
+from plone.mls.core import api
 from plone.mls.listing.i18n import _
 from plone.mls.listing.api import search_options
 from plone.mls.listing.interfaces import IMLSVocabularySettings
@@ -128,15 +128,11 @@ class BasePriorityVocabulary(object):
             priority_list = [item.strip() for item in value.split(',')
                              if len(item.strip()) > 0]
 
-        try:
-            global_settings = registry.forInterface(IMLSSettings)
-        except KeyError:
-            mls_url = None
-        else:
-            mls_url = getattr(global_settings, 'mls_site', None)
+        mls_settings = api.get_settings(context=context)
+        mls_url = mls_settings.get('mls_site', None)
 
         types = search_options(mls_url, self.vocabulary_name,
-                               portal_state.language())
+                               portal_state.language(), context=context)
         terms = []
         if types is not None:
             types = self._sort(types, priority_list)

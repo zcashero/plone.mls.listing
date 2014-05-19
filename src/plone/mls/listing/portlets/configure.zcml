@@ -15,12 +15,6 @@
       renderer=".agent_contact.Renderer"
       />
 
-  <plone:portletRenderer
-      layer="..browser.interfaces.IListingSpecific"
-      portlet=".agent_contact.IAgentContactPortlet"
-      template="templates/agent_contact.pt"
-      />
-
 
   <!-- Agent Information Portlet. -->
   <!-- ========================== -->
@@ -33,11 +27,6 @@
       renderer=".agent_information.Renderer"
       />
 
-  <plone:portletRenderer
-      layer="..browser.interfaces.IListingSpecific"
-      portlet=".agent_information.IAgentInformationPortlet"
-      template="templates/agent_information.pt"
-      />
 
   <!-- Listing Quick Search Portlet. -->
   <!-- ============================= -->
@@ -50,11 +39,6 @@
       renderer=".quick_search.Renderer"
       />
 
-  <plone:portletRenderer
-      layer="..browser.interfaces.IListingSpecific"
-      portlet=".quick_search.IQuickSearchPortlet"
-      template="templates/quick_search.pt"
-      />
 
     <!-- Captcha validator -->
     <adapter

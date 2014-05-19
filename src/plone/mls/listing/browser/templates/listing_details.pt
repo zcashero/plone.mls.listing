@@ -142,19 +142,30 @@
             </tal:groups>
           </dl>
         </tal:listing>
-
+        <p><a href="print-listing" onclick="return popitup(this.href)"
+              tal:attributes="href string:${view/base_url}/print-listing">Print Listing</a></p>
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
       </div>
       <script type="text/javascript" src="++resource++plone.mls.listing.javascript/galleria-1.2.2.js"></script>
       <script type="text/javascript" src="++resource++plone.mls.listing.javascript/classic/galleria.classic.min.js"></script>
       <script type="text/javascript">
+  jq('title').text(jq('h1.documentFirstHeading').text() + ' - ' + jq('title').text())
   jq("#sec-agent-quote").hide();
   jq("#agentquote").click(function(event){
     event.preventDefault();
     $("#sec-agent-quote").slideToggle();
   })
-    </script>
+      </script>
+      <script language="javascript" type="text/javascript">
+  function popitup(url) {
+    newwindow = window.open(url, 'name', 'left=0');
+    if (window.focus) {
+      newwindow.focus();
+    }
+    return false;
+  }
+      </script>
     </metal:main>
   </body>
 </html>

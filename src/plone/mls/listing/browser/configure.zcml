@@ -6,6 +6,8 @@
   <include package=".valuerange" />
 
 
+  <!-- Global Agency Information. -->
+  <!-- ========================== -->
   <browser:page
       class=".controlpanel.MLSAgencyContactInfoSettingsControlPanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
@@ -13,6 +15,38 @@
       name="mls-agency-contact-info"
       permission="plone.app.controlpanel.Site"
       />
+
+
+  <!-- Local Agency Information. -->
+  <!-- ========================= -->
+
+  <!-- Local agency information form. -->
+  <browser:page
+      class=".localconfig.LocalAgencyInfo"
+      for="plone.mls.listing.interfaces.ILocalAgencyInfo"
+      layer=".interfaces.IListingSpecific"
+      name="mls-localagencyinfo"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <!-- Status page. -->
+  <browser:page
+      class=".localconfig.LocalAgencyInfoStatus"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="mls-localagencyinfo-status"
+      permission="cmf.ModifyPortalContent"
+      />
+
+  <!-- Toggle current status. -->
+  <browser:page
+      class=".localconfig.LocalAgencyInfoToggle"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="mls-localagencyinfo-toggle"
+      permission="cmf.ModifyPortalContent"
+      />
+
 
   <!-- Listing Collection. -->
   <!-- =================== -->
@@ -87,6 +121,7 @@
       permission="cmf.ModifyPortalContent"
       />
 
+
   <!-- Recent Listings. -->
   <!-- ================ -->
   <browser:viewlet
@@ -144,6 +179,15 @@
       template="templates/listing_details.pt"
       />
 
+  <browser:page
+      class=".views.ListingDetails"
+      for="*"
+      layer=".interfaces.IListingSpecific"
+      name="print-listing"
+      permission="zope2.View"
+      template="templates/print_listing_details.pt"
+      />
+
 
   <!-- Traversing Adapter. -->
   <!-- =================== -->
@@ -154,6 +198,7 @@
       factory=".traversal.RecentListingsTraverser"
       permission="zope2.View"
       />
+
 
   <!-- Breadcrumb Navigation. -->
   <!-- ====================== -->
@@ -187,6 +232,9 @@
       name="plone.mls.listing.stylesheets"
       />
 
+
+  <!-- z3c.form adapter. -->
+  <!-- ================= -->
   <adapter
       factory=".adapter.PleaseSelectLCC"
       name="noValueMessage"

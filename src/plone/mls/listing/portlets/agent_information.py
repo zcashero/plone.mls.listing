@@ -2,6 +2,7 @@
 """Agent Information Portlet."""
 
 # zope imports
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import (
     IPortletDataProvider,
@@ -52,6 +53,8 @@ class Assignment(base.Assignment):
 
 class Renderer(base.Renderer):
     """Agent Information Portlet Renderer."""
+
+    render = ViewPageTemplateFile('templates/agent_information.pt')
 
     @property
     def available(self):

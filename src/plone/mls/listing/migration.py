@@ -5,10 +5,12 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from plone.browserlayer import utils as layerutils
+from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 
 # local imports
 from plone.mls.listing.browser.interfaces import IListingSpecific
+from plone.mls.listing.interfaces import IMLSAgencyContactInformation
 
 
 LISTING_TYPE = 'plone.mls.listing.listing'
@@ -36,8 +38,9 @@ def migrate_to_1001(context):
             # Kupu's resource list can accumulate old, no longer valid types.
             # It will throw an exception if we try to resave them.
             # So, let's clean the list.
-            valid_types = dict([(t.id, 1) for t in \
-                                portal_types.listTypeInfo()])
+            valid_types = dict(
+                [(t.id, 1) for t in portal_types.listTypeInfo()]
+            )
             linkable = [pt for pt in linkable if pt in valid_types]
 
             linkable.append(LISTING_TYPE)
@@ -157,3 +160,24 @@ def migrate_to_1006(context):
     setup.runImportStepFromProfile(PROFILE_ID, 'portlets')
     setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.registry')
     setup.runImportStepFromProfile(PROFILE_ID, 'controlpanel')
+
+
+def migrate_to_1007(context):
+    """Migrate from 1006 to 1007.
+
+    * Update the IMLSAgencyContactInformation registry settings.
+    """
+    registry = getUtility(IRegistry)
+    registry.registerInterface(IMLSAgencyContactInformation)
+
+
+def migrate_to_1008(context):
+    """Migrate from 1007 to 1008.
+
+    * Update portal actions.
+    """
+    site = getUtility(IPloneSiteRoot)
+    setup = getToolByName(site, 'portal_setup')
+    setup.runImportStepFromProfile(PROFILE_ID, 'actions')
+    registry = getUtility(IRegistry)
+    registry.registerInterface(IMLSAgencyContactInformation)

@@ -52,7 +52,7 @@
       handler=".migration.migrate_to_1001"
       sortkey="1"
       profile="plone.mls.listing:default"
-      /> 
+      />
 
   <genericsetup:upgradeStep
       title="Upgrade plone.mls.listing"
@@ -62,7 +62,7 @@
       handler=".migration.migrate_to_1002"
       sortkey="1"
       profile="plone.mls.listing:default"
-      /> 
+      />
 
   <genericsetup:upgradeStep
       title="Upgrade plone.mls.listing"
@@ -72,7 +72,7 @@
       handler=".migration.migrate_to_1003"
       sortkey="1"
       profile="plone.mls.listing:default"
-      /> 
+      />
 
   <genericsetup:upgradeStep
       title="Upgrade plone.mls.listing"
@@ -82,7 +82,7 @@
       handler=".migration.migrate_to_1004"
       sortkey="1"
       profile="plone.mls.listing:default"
-      /> 
+      />
 
   <genericsetup:upgradeStep
       title="Upgrade plone.mls.listing"
@@ -92,7 +92,7 @@
       handler=".migration.migrate_to_1005"
       sortkey="1"
       profile="plone.mls.listing:default"
-      /> 
+      />
 
   <genericsetup:upgradeStep
       title="Upgrade plone.mls.listing"
@@ -102,6 +102,26 @@
       handler=".migration.migrate_to_1006"
       sortkey="1"
       profile="plone.mls.listing:default"
-      /> 
+      />
+
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Update IMLSAgencyContactInformation."
+      source="1006"
+      destination="1007"
+      handler=".migration.migrate_to_1007"
+      sortkey="1"
+      profile="plone.mls.listing:default"
+      />
+
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Update portal actions."
+      source="1007"
+      destination="1008"
+      handler=".migration.migrate_to_1008"
+      sortkey="1"
+      profile="plone.mls.listing:default"
+      />
 
 </configure>

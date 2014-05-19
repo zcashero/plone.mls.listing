@@ -100,10 +100,20 @@ class IMLSAgencyContactInformation(Interface):
 
     use_custom_info = schema.Bool(
         default=False,
-        required=False,
-        title=_(
+        description=_(
             u'Update agent information when showing a third party listing?'
         ),
+        required=False,
+        title=_(u'Enable'),
+    )
+
+    force = schema.Bool(
+        default=False,
+        description=_(
+            u'Force usage of custom agency information, even on own listings?'
+        ),
+        required=False,
+        title=_(u'Force Overwrite'),
     )
 
     agency_name = schema.TextLine(
@@ -112,6 +122,7 @@ class IMLSAgencyContactInformation(Interface):
     )
 
     agency_logo_url = schema.TextLine(
+        description=_('Enter the URL of the logo that should be used.'),
         required=False,
         title=_(u'Agency Logo'),
     )
@@ -129,6 +140,12 @@ class IMLSAgencyContactInformation(Interface):
     agent_name = schema.TextLine(
         required=True,
         title=_(u'Agent Name'),
+    )
+
+    agent_avatar_url = schema.TextLine(
+        description=_('Enter the URL of the avatar that should be used.'),
+        required=False,
+        title=_(u'Agent Avatar'),
     )
 
     agent_title = schema.TextLine(
@@ -155,3 +172,11 @@ class IMLSAgencyContactInformation(Interface):
         required=True,
         title=_(u'Agent Email'),
     )
+
+
+class IPossibleLocalAgencyInfo(Interface):
+    """Marker interface for possible local agency information."""
+
+
+class ILocalAgencyInfo(Interface):
+    """Marker interface for activated local agency information."""
