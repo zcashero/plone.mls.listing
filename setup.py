@@ -63,8 +63,9 @@ setup(
             'collective.cover',
         ],
         test=[
+            'collective.cover [test]',
+            'mock',
             'plone.app.testing',
-            # 'raptus.article.core',
         ],
     ),
     install_requires=install_requires,
