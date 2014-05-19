@@ -1,12 +1,24 @@
 # -*- coding: utf-8 -*-
-from plone.mls.listing.tiles.recentlistings import RecentListingTile
-from plone.mls.listing.tiles.recentlistings import IRecentListingTile
-from mock import Mock
+"""Integration tests for the 'Recent Listings' tile."""
 
+# python imports
+from mock import Mock
 import unittest2 as unittest
 
+# zope imports
+from collective.cover.tests.base import TestTileMixin
 
-class TileRecentListingsTestCase(unittest.TestCase):
+# local imports
+from plone.mls.listing.testing import PLONE_MLS_LISTING_INTEGRATION_TESTING
+from plone.mls.listing.tiles.recentlistings import (
+    IRecentListingTile,
+    RecentListingTile,
+)
+
+
+class TileRecentListingsTestCase(TestTileMixin, unittest.TestCase):
+
+    layer = PLONE_MLS_LISTING_INTEGRATION_TESTING
 
     def setUp(self):
         super(TileRecentListingsTestCase, self).setUp()
@@ -14,7 +26,7 @@ class TileRecentListingsTestCase(unittest.TestCase):
         self.tile.__name__ = u'plone.mls.listing.recentlistings'
         self.tile.id = u'test'
 
-    @unittest.expectedFailure 
+    @unittest.expectedFailure
     def test_interface(self):
         self.interface = IRecentListingTile
         self.klass = RecentListingTile
