@@ -16,13 +16,13 @@
   <include package=".browser" />
   <include package=".content" />
   <include package=".portlets" />
-  <include package=".tiles" />
   <include file="profiles.zcml" />
 
 
   <!-- Include optional package dependencies. -->
   <!-- ====================================== -->
   <include package=".article" zcml:condition="installed raptus.article.core" />
+  <include package=".tiles" zcml:condition="installed collective.cover" />
 
   <class class="Products.Archetypes.BaseObject.BaseObject">
     <implements interface="plone.mls.listing.browser.listing_collection.IPossibleListingCollection" />

@@ -4,6 +4,8 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plone.mls.listing">
 
+  <include package="collective.cover" />
+
   <plone:tile
       name="plone.mls.listing.listing"
       title="MLS Listing Tile"

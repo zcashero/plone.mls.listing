@@ -59,6 +59,9 @@ setup(
     include_package_data=True,
     zip_safe=False,
     extras_require=dict(
+        cover=[
+            'collective.cover',
+        ],
         test=[
             'plone.app.testing',
             # 'raptus.article.core',
