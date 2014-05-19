@@ -22,6 +22,7 @@ install:
 branches:
   only:
     - master
+    - tiles
 script: bin/test
 notifications:
   irc: irc.freenode.org#propertyshelf
