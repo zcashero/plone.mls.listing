@@ -29,8 +29,10 @@ except ImportError:
 # local imports
 from plone.mls.core.navigation import ListingBatch
 from plone.mls.listing.api import prepare_search_params, search
-from plone.mls.listing.browser.interfaces import (IBaseListingItems,
-    IListingDetails)
+from plone.mls.listing.browser.interfaces import (
+    IBaseListingItems,
+    IListingDetails,
+)
 from plone.mls.listing.browser.valuerange.widget import ValueRangeFieldWidget
 from plone.mls.listing.i18n import _
 
@@ -300,10 +302,14 @@ class ListingSearchForm(form.Form):
     def widgets_outstanding(self):
         """Return all other widgets that have not been shown until now."""
         defined_fields = FIELD_ORDER.values()
-        shown_fields = [shown_field for field_lists in defined_fields for \
-                        shown_field in field_lists]
-        return [widget for field_name, widget in self.widgets.items() if not \
-                    field_name in shown_fields]
+        shown_fields = [
+            shown_field for field_lists in defined_fields for
+            shown_field in field_lists
+        ]
+        return [
+            widget for field_name, widget in self.widgets.items() if not
+            field_name in shown_fields
+        ]
 
     def widgets_tabbed(self):
         """Return the widgets for the row ``row_tabbed``."""
@@ -319,7 +325,7 @@ class ListingSearchViewlet(ViewletBase):
     @property
     def available(self):
         return IListingSearch.providedBy(self.context) and \
-               not IListingDetails.providedBy(self.view)
+            not IListingDetails.providedBy(self.view)
 
     @property
     def config(self):
@@ -329,7 +335,7 @@ class ListingSearchViewlet(ViewletBase):
 
     @property
     def hide_form(self):
-        if self.config.get('hide_form', False) == False:
+        if self.config.get('hide_form', False) is False:
             return False
 
         from plone.mls.listing.portlets.quick_search import IQuickSearchPortlet
@@ -339,8 +345,10 @@ class ListingSearchViewlet(ViewletBase):
             retriever = queryMultiAdapter((self.context, manager),
                                           IPortletRetriever)
             portlets.extend(retriever.getPortlets())
-        return len([portlet for portlet in portlets if \
-            IQuickSearchPortlet.providedBy(portlet['assignment'])]) > 0
+        return len([
+            portlet for portlet in portlets if
+            IQuickSearchPortlet.providedBy(portlet['assignment'])
+        ]) > 0
 
     def update(self):
         """Prepare view related data."""
