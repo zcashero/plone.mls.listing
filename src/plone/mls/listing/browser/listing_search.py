@@ -95,9 +95,10 @@ class IListingSearch(IBaseListingItems):
     """Marker interface for ListingSearch viewlet."""
 
 
-class IListingSearchForm(Interface):
+class IListingSearchForm(form.Schema):
     """Listing search form schema definition."""
 
+    form.widget(listing_type=checkbox.CheckBoxFieldWidget)
     listing_type = schema.Tuple(
         required=False,
         title=_(u'Listing Type'),
@@ -139,6 +140,7 @@ class IListingSearchForm(Interface):
         title=_(u'Price (Max)'),
     )
 
+    form.widget(location_type=checkbox.CheckBoxFieldWidget)
     location_type = schema.Tuple(
         required=False,
         title=_(u'Location Type'),
@@ -147,6 +149,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(geographic_type=checkbox.CheckBoxFieldWidget)
     geographic_type = schema.Tuple(
         required=False,
         title=_(u'Geographic Type'),
@@ -155,6 +158,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(view_type=checkbox.CheckBoxFieldWidget)
     view_type = schema.Tuple(
         required=False,
         title=_(u'View Type'),
@@ -163,6 +167,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(object_type=checkbox.CheckBoxFieldWidget)
     object_type = schema.Tuple(
         required=False,
         title=_(u'Object Type'),
@@ -171,6 +176,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(ownership_type=checkbox.CheckBoxFieldWidget)
     ownership_type = schema.Tuple(
         required=False,
         title=_(u'Ownership Type'),
@@ -179,6 +185,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(beds=ValueRangeFieldWidget)
     beds = schema.Tuple(
         default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
@@ -188,6 +195,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(baths=ValueRangeFieldWidget)
     baths = schema.Tuple(
         default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
@@ -197,6 +205,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(air_condition=radio.RadioFieldWidget)
     air_condition = schema.Choice(
         default='--NOVALUE--',
         required=False,
@@ -204,6 +213,7 @@ class IListingSearchForm(Interface):
         title=_(u'Air Condition'),
     )
 
+    form.widget(pool=radio.RadioFieldWidget)
     pool = schema.Choice(
         default='--NOVALUE--',
         required=False,
@@ -211,6 +221,7 @@ class IListingSearchForm(Interface):
         title=_(u'Pool'),
     )
 
+    form.widget(jacuzzi=radio.RadioFieldWidget)
     jacuzzi = schema.Choice(
         default='--NOVALUE--',
         required=False,
@@ -218,6 +229,7 @@ class IListingSearchForm(Interface):
         title=_(u'Jacuzzi'),
     )
 
+    form.widget(lot_size=ValueRangeFieldWidget)
     lot_size = schema.Tuple(
         default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
@@ -227,6 +239,7 @@ class IListingSearchForm(Interface):
         ),
     )
 
+    form.widget(interior_area=ValueRangeFieldWidget)
     interior_area = schema.Tuple(
         default=('--MINVALUE--', '--MAXVALUE--'),
         required=False,
