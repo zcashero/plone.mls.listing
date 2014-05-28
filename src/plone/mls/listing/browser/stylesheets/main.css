@@ -169,6 +169,10 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
 /* Table-like listing summary.
    ===========================
 */
+#content .listing-summary .tileItem {
+  margin-bottom: 1em;
+}
+
 #content .listing-summary figure {
   float: left;
   margin-right: 3%;
@@ -198,6 +202,7 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   float: left;
   margin: 0 3% 0 0;
   width: 22%;
+  word-wrap: break-word;
 }
 
 #content .listing-summary dt.row {

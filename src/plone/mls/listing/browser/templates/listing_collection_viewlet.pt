@@ -21,7 +21,7 @@
 
       <div metal:use-macro="context/batch_macros/macros/navigation" />
 
-      <div class="tileItem visualIEFloatFix" style="margin-bottom: 1em;"
+      <div class="tileItem visualIEFloatFix"
            tal:repeat="listing batch">
         <h2 class="tileHeadline"><a href="" class="summary url"
             tal:attributes="href string:${page_url}${listing/id/value}"><span
