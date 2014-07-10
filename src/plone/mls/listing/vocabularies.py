@@ -89,7 +89,6 @@ class BasePriorityVocabulary(object):
 
         data_arg.sort(key=get_key)
 
-        print data_arg
         assert data_arg == data_sorted
 
     sort_data(data, priority)

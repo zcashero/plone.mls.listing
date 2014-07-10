@@ -96,8 +96,7 @@ class ListingsViewlet(ViewletBase):
             lang = get_language(obj)
             try:
                 raw = get_listing(listing_id, summary=True, lang=lang)
-            except (MLSDataError, MLSConnectionError), e:
-                print(e)
+            except (MLSDataError, MLSConnectionError):
                 continue
             else:
                 listing = raw.get('listing', None)
