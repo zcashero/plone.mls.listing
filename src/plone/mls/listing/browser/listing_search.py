@@ -98,12 +98,6 @@ class IListingSearch(IBaseListingItems):
 class IListingSearchForm(form.Schema):
     """Listing search form schema definition."""
 
-    agency_listings = schema.Bool(
-        description=_(u'Only show listings of the current configured agency.'),
-        required=False,
-        title=_(u'Agency Listings'),
-    )
-
     form.widget(listing_type=checkbox.CheckBoxFieldWidget)
     listing_type = schema.Tuple(
         required=False,
@@ -425,6 +419,12 @@ class ListingSearchViewlet(ViewletBase):
 
 class IListingSearchConfiguration(Interface):
     """Listing Search Configuration Form."""
+
+    agency_listings = schema.Bool(
+        description=_(u'Only show listings of the current configured agency.'),
+        required=False,
+        title=_(u'Agency Listings'),
+    )
 
     limit = schema.Int(
         default=25,
