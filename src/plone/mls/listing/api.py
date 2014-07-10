@@ -204,12 +204,15 @@ def listing_details(listing_id, lang=None, context=None):
 
 def search(params={}, batching=True, context=None):
     """Search for listings."""
+    settings = get_settings(context=context)
     search_params = {
         'sort_on': 'created',
         'reverse': '1',
     }
+    agency_listings = params.pop('agency_listings', False)
+    if agency_listings is True:
+        search_params['agency_id'] = settings.get('agency_id', None)
     search_params.update(params)
-    settings = get_settings(context=context)
     base_url = settings.get('mls_site', None)
     api_key = settings.get('mls_key', None)
     batch = None

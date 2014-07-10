@@ -96,6 +96,12 @@ class RecentListingsViewlet(ViewletBase):
 class IRecentListingsConfiguration(Interface):
     """Recent Listings Configuration Form."""
 
+    agency_listings = schema.Bool(
+        description=_(u'Only show listings of the current configured agency.'),
+        required=False,
+        title=_(u'Agency Listings'),
+    )
+
     listing_type = schema.List(
         required=False,
         title=_(u'Listing Type'),

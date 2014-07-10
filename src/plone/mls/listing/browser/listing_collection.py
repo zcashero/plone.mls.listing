@@ -97,6 +97,12 @@ class ListingCollectionViewlet(ViewletBase):
 class IListingCollectionConfiguration(Interface):
     """Listing Collection Configuration Form."""
 
+    agency_listings = schema.Bool(
+        description=_(u'Only show listings of the current configured agency.'),
+        required=False,
+        title=_(u'Agency Listings'),
+    )
+
     listing_type = schema.Tuple(
         default=('cl', 'cs', 'll', 'rl', 'rs', ),
         required=False,
