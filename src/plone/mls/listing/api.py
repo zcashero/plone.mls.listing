@@ -185,21 +185,7 @@ def recent_listings(params={}, batching=True, context=None):
         'reverse': '1',
     }
     search_params.update(params)
-    settings = get_settings(context=context)
-    base_url = settings.get('mls_site', None)
-    api_key = settings.get('mls_key', None)
-    batch = None
-    results = []
-    resource = ListingResource(base_url, api_key=api_key)
-
-    try:
-        results, batch = resource.search(search_params)
-    except MLSError, e:
-        logger.warn(e)
-
-    if batching:
-        return results, batch
-    return results
+    return search(search_params, batching=batching, context=context)
 
 
 def listing_details(listing_id, lang=None, context=None):
