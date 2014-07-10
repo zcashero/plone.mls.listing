@@ -49,47 +49,47 @@
       <dl class="contact_details">
         <tal:item tal:define="item contact/agent/languages | nothing"
                   tal:condition="item">
-          <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-          <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          <dt class="languages"><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+          <dd class="languages"><span tal:replace="item/value | nothing">[Value]</span></dd>
         </tal:item>
 
         <tal:item tal:define="item contact/agent/agent_office_phone | nothing"
                   tal:condition="item">
-          <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-          <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          <dt class="agent_office_phone"><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+          <dd class="agent_office_phone"><span tal:replace="item/value | nothing">[Value]</span></dd>
         </tal:item>
 
         <tal:item tal:define="item contact/agent/agent_cell_phone | nothing"
                   tal:condition="item">
-          <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-          <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          <dt class="agent_cell_phone"><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+          <dd class="agent_cell_phone"><span tal:replace="item/value | nothing">[Value]</span></dd>
         </tal:item>
 
         <tal:item tal:define="item contact/agent/agent_fax | nothing"
                   tal:condition="item">
-          <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-          <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          <dt class="agent_fax"><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+          <dd class="agent_fax"><span tal:replace="item/value | nothing">[Value]</span></dd>
         </tal:item>
 
         <tal:item tal:define="item contact/agency/office_phone | nothing"
                   tal:condition="item">
-          <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-          <dd><span tal:replace="item/value | nothing">[Value]</span></dd>
+          <dt class="office_phone"><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+          <dd class="office_phone"><span tal:replace="item/value | nothing">[Value]</span></dd>
         </tal:item>
 
         <tal:contact tal:condition="not: view/agent_contact_portlet_available | nothing">
           <tal:item tal:define="item contact/agent/agent_email | nothing"
                     tal:condition="item">
-            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-            <dd><a href=""
+            <dt class="agent_email"><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd class="agent_email"><a href=""
                    tal:attributes="href string: mailto:${item/value}"><span
                    tal:replace="item/value | nothing">[Value]</span></a></dd>
           </tal:item>
 
           <tal:item tal:define="item contact/agency/website | nothing"
                     tal:condition="item">
-            <dt><span tal:replace="item/label | nothing">[Label]</span>:</dt>
-            <dd><a href="" target="_blank"
+            <dt class="website"><span tal:replace="item/label | nothing">[Label]</span>:</dt>
+            <dd class="website"><a href="" target="_blank"
                    tal:attributes="href item/value | nothing"><span
                    tal:replace="item/value | nothing">[Value]</span></a></dd>
           </tal:item>
