@@ -12,13 +12,13 @@
 # 
 # ############################################################################
 # Translators:
-# valeriassimsou <valeriassimsou@gmail.com>, 2014
+# Valeria Garcia <valeriassimsou@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: Tue Feb 25 12:16:56 2014\n"
-"PO-Revision-Date: 2014-05-15 15:47+0000\n"
-"Last-Translator: valeriassimsou <valeriassimsou@gmail.com>\n"
+"PO-Revision-Date: 2014-05-19 16:34+0000\n"
+"Last-Translator: Valeria Garcia <valeriassimsou@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MLS_Plone/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,11 +29,11 @@ msgstr ""
 
 #: plone.mls.listing:/article/listing.py:34
 msgid "MLS Listings"
-msgstr ""
+msgstr "Lista de SLM"
 
 #: plone.mls.listing:/article/listing.py:35
 msgid "List of the contained MLS Listings."
-msgstr ""
+msgstr "Lista incorporada de SLM."
 
 #: plone.mls.listing:/browser/adapter.py:12
 #: plone.mls.listing:/browser/adapter.py:14
@@ -112,11 +112,11 @@ msgstr "Itens por Página"
 
 #: plone.mls.listing:/browser/listing_collection.py:194
 msgid "'Listing Collection' Configuration"
-msgstr "'Coleção de Listagem' Configuração"
+msgstr "'Classificação de Imóveis' Configuração"
 
 #: plone.mls.listing:/browser/listing_collection.py:195
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
-msgstr "Ajuste o comportamento para esta 'Coleção de Listagem'"
+msgstr "Ajuste o comportamento para esta 'Classificação de Imóveis'"
 
 #: plone.mls.listing:/browser/listing_collection.py:204
 #: plone.mls.listing:/browser/listing_search.py:429
@@ -134,18 +134,18 @@ msgstr "Cancelar"
 
 #: plone.mls.listing:/browser/listing_collection.py:250
 msgid "'Listing Collection' viewlet deactivated."
-msgstr "'Coleção de Listagem' desativado."
+msgstr "'Classificação de Imóveis' desativado."
 
 #: plone.mls.listing:/browser/listing_collection.py:254
 msgid "'Listing Collection' viewlet activated."
-msgstr "'Coleção de Listagem' ativado."
+msgstr "'Classificação de Imóveis' ativado."
 
 #: plone.mls.listing:/browser/listing_collection.py:256
 msgid ""
 "The 'Listing Collection' viewlet does't work with this content type. Add "
 "'IPossibleListingCollection' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "A 'Classificação de Imóveis' não funciona com este tipo de conteúdo. Adicione 'Coleção Possível de Imóvel' as interfaces fornecida para ativar essa característica. "
 
 #: plone.mls.listing:/browser/listing_search.py:127
 msgid "City/Town"
@@ -203,7 +203,7 @@ msgstr "'Procura de Listagem' ativado"
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
-msgstr ""
+msgstr "A 'Procura de Imóveis' não funciona com este tipo de conteúdo. Adicione 'Coleção Possível de Imóvel' as interfaces fornecida para ativar essa característica. "
 
 #: plone.mls.listing:/browser/localconfig.py:27
 msgid "Local Agency Information"
@@ -228,7 +228,7 @@ msgid ""
 "The local agency information don't work with this content type. Add "
 "'IPossibleLocalAgencyInfo' to the provided interfaces to enable this "
 "feature."
-msgstr ""
+msgstr "A informação da agência local não funciona com este tipo de conteúdo. Adicione 'Coleção Possível de Imóvel' as interfaces fornecida para ativar essa característica. "
 
 #: plone.mls.listing:/browser/recent_listings.py:106
 msgid ""
@@ -262,7 +262,7 @@ msgstr "'Anúncios Recentes' ativado"
 msgid ""
 "The 'Recent Listings' viewlet does't work with this content type. Add "
 "'IPossibleRecentListings' to the provided interfaces to enable this feature."
-msgstr ""
+msgstr "Os 'Anúncios Recentes' não funcionão com este tipo de conteúdo. Adicione 'Coleção Possível de Imóvel' as interfaces fornecida para ativar essa característica. "
 
 #: plone.mls.listing:/browser/templates/listing_details.pt:108
 msgid ""
@@ -301,7 +301,7 @@ msgstr "Título"
 
 #: plone.mls.listing:/content/listing.py:20
 msgid "MLS Listing ID"
-msgstr ""
+msgstr "Número de Identificação da Lista de SLM"
 
 #: plone.mls.listing:/interfaces.py:103
 msgid "Update agent information when showing a third party listing?"
@@ -383,7 +383,7 @@ msgstr "'Tipos de Geográfia' lista de prioridades"
 
 #: plone.mls.listing:/interfaces.py:66
 msgid "'Listing Types' priority list"
-msgstr "'Tipos de Listagem' lista de prioridades"
+msgstr "'Tipos de Imóveis' lista de prioridades"
 
 #: plone.mls.listing:/interfaces.py:72
 msgid "'Location Types' priority list"
@@ -427,14 +427,14 @@ msgstr "Crianças"
 
 #: plone.mls.listing:/portlets/agent_contact.py:160
 msgid "Captcha"
-msgstr ""
+msgstr "Captcha"
 
 #: plone.mls.listing:/portlets/agent_contact.py:273
 #: plone.mls.listing:/portlets/agent_information.py:35
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
 "used."
-msgstr "Titulo personalizado para o portlet. Se nenhum título é fornecido, o título padrão é usado"
+msgstr "Titulo personalizado para o portlet. Se nenhum título é fornecido, o título padrão é usado."
 
 #: plone.mls.listing:/portlets/agent_contact.py:278
 #: plone.mls.listing:/portlets/agent_information.py:39
@@ -455,7 +455,7 @@ msgstr "Mensagem de agradecimento que aparece depois que o correio foi enviado."
 
 #: plone.mls.listing:/portlets/agent_contact.py:292
 msgid "Mail Sent Message"
-msgstr "Mensagem enviada"
+msgstr "Mensagem Enviada"
 
 #: plone.mls.listing:/portlets/agent_contact.py:296
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
@@ -463,7 +463,7 @@ msgstr "E-mail que recebem uma cópia oculta (separados por vírgula)"
 
 #: plone.mls.listing:/portlets/agent_contact.py:301
 msgid "BCC Recipients"
-msgstr "CCO destinatário"
+msgstr "CCO Destinatário"
 
 #: plone.mls.listing:/portlets/agent_contact.py:305
 msgid ""
@@ -497,7 +497,7 @@ msgstr "Editar Informações do Agente ao portlet"
 
 #: plone.mls.listing:/portlets/agent_contact.py:74
 msgid "Invalid email address"
-msgstr "email inválido"
+msgstr "Email inválido"
 
 #: plone.mls.listing:/portlets/agent_contact.py:82
 msgid "No Urls allowed"
@@ -511,7 +511,7 @@ msgstr "Este portlet exibe as informações do agente correspondente para um det
 
 #: plone.mls.listing:/portlets/agent_information.py:48
 msgid "Agent Information"
-msgstr "Informação do agente"
+msgstr "Informação do Agente"
 
 #: plone.mls.listing:/portlets/quick_search.py:187
 msgid ""
@@ -543,7 +543,7 @@ msgstr "Página de Pesquisa"
 
 #: plone.mls.listing:/portlets/quick_search.py:225
 msgid "Search Listings"
-msgstr "Pesquisar Listagens"
+msgstr "Pesquisar Imóveis"
 
 #: plone.mls.listing:/portlets/quick_search.py:226
 msgid "Filter Results"

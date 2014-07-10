@@ -14,8 +14,8 @@
 # Translators:
 # claudia.aubin <claudia.aubin@propertyshelf.com>, 2014
 # claudia.aubin <claudia.aubin@propertyshelf.com>, 2014
-# claudiapropertyshelf <c.oberbeck@gmx.de>, 2013
-# claudiapropertyshelf <c.oberbeck@gmx.de>, 2013
+# Claudia Oberbeck <c.oberbeck@gmx.de>, 2013
+# Claudia Oberbeck <c.oberbeck@gmx.de>, 2013
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2013
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2013
 msgid ""
