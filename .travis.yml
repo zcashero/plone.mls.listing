@@ -22,7 +22,12 @@ install:
 branches:
   only:
     - master
-script: bin/test
+script:
+  - bin/test
+after_success:
+  - bin/createcoverage run bin/test
+  - pip install -q coveralls
+  - coveralls
 notifications:
   irc: irc.freenode.org#propertyshelf
   hipchat:
