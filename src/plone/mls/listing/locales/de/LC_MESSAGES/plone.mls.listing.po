@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2014-07-10 10:03+0000\n"
-"PO-Revision-Date: 2014-07-10 10:05+0000\n"
+"PO-Revision-Date: 2014-07-10 10:15+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -407,7 +407,7 @@ msgstr "Überschreiben erzwingen"
 
 #: plone/mls/listing/interfaces.py:112
 msgid "Force usage of custom agency information, even on own listings?"
-msgstr "Nutzung von benutzerdefinierten Agenturinformationen auch für die eigene Immobilie erzwingen?"
+msgstr "Nutzung von benutzerdefinierten Agentur-Informationen auch für die eigene Immobilie erzwingen?"
 
 #: plone/mls/listing/browser/listing_collection.py:155
 #: plone/mls/listing/browser/listing_search.py:155
@@ -470,15 +470,15 @@ msgstr "Art der Immobilie"
 #: plone/mls/listing/browser/localconfig.py:27
 #: plone/mls/listing/profiles/default/actions.xml
 msgid "Local Agency Information"
-msgstr "Lokale Agenturinformationen"
+msgstr "Lokale Agentur-Informationen"
 
 #: plone/mls/listing/browser/localconfig.py:96
 msgid "Local agency information activated."
-msgstr "Lokale Agenturinformationen wurden aktiviert."
+msgstr "Lokale Agentur-Informationen wurden aktiviert."
 
 #: plone/mls/listing/browser/localconfig.py:92
 msgid "Local agency information deactivated."
-msgstr "Lokale Agenturinformationen wurden deaktiviert."
+msgstr "Lokale Agentur-Informationen wurden deaktiviert."
 
 #: plone/mls/listing/browser/listing_collection.py:147
 #: plone/mls/listing/browser/listing_search.py:146
@@ -640,13 +640,13 @@ msgid ""
 "The local agency information don't work with this content type. Add "
 "'IPossibleLocalAgencyInfo' to the provided interfaces to enable this "
 "feature."
-msgstr "Die lokalen Agenturinformationen konnten für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleLocalMLSSettings' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
+msgstr "Die lokalen Agentur-Informationen konnten für diesen Inhaltstyp nicht aktiviert werden. Fügen Sie 'IPossibleLocalAgencyInfo' zu den unterstützten Interfaces hinzu um dieses Feature zu aktivieren."
 
 #: plone/mls/listing/browser/localconfig.py:28
 msgid ""
 "This agency information will be used for this content item and all possible "
 "child elements."
-msgstr "Diese lokalen Agenturinformationen werden hier und in allen möglichen Unterelementen verwendet."
+msgstr "Diese lokalen Agentur-Informationen werden hier und in allen möglichen Unterelementen verwendet."
 
 #: plone/mls/listing/portlets/agent_contact.py:37
 msgid ""
