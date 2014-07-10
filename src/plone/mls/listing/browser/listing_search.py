@@ -390,6 +390,7 @@ class ListingSearchViewlet(ViewletBase):
             'limit': self.limit,
             'offset': self.request.get('b_start', 0),
             'lang': self.portal_state.language(),
+            'agency_listings': self.config.get('agency_listings', False)
         }
         search_params.update(params)
         results, batching = search(search_params, context=self.context)
