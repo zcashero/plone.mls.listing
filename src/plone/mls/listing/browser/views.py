@@ -99,58 +99,40 @@ class ListingDetails(BrowserView):
             if len(images) > 1:
                 return images
 
-    @property
-    def contact(self):
-        mls_settings = api.get_settings(context=self.context)
-        agency_id = mls_settings.get('agency_id', None)
+    def update_agency_info(self, agency, settings):
+        # Adjust agency name.
+        agency_name = settings.get('agency_name', None)
+        if agency_name is not None:
+            item = agency.setdefault('name', {})
+            item['value'] = agency_name
+        else:
+            agency['name'] = None
 
-        if self.data is None:
-            return
+        # Adjust agency logo.
+        agency_logo = settings.get('agency_logo_url', None)
+        if agency_logo is not None:
+            agency['logo'] = agency_logo
+        else:
+            agency['logo'] = None
 
-        contact_data = self.data.get('contact', None)
-        agency = contact_data.get('agency', {})
-        agent = contact_data.get('agent', {})
+        # Adjust agency office phone.
+        agency_office_phone = settings.get('agency_office_phone', None)
+        if agency_office_phone is not None:
+            item = agency.setdefault('office_phone', {})
+            item['value'] = agency_office_phone
+        else:
+            agency['office_phone'] = None
 
-        settings = get_agency_info(context=self.context)
+        # Adjust agency website.
+        agency_website = settings.get('agency_website', None)
+        if agency_website is not None:
+            item = agency.setdefault('website', {})
+            item['value'] = agency_website
+        else:
+            agency['website'] = None
+        return agency
 
-        if agency.get('id', {}).get('value', None) == agency_id:
-            if settings and settings.get('force', False) is True:
-                pass
-            else:
-                return contact_data
-
-        if settings:
-            # Adjust agency name.
-            agency_name = settings.get('agency_name', None)
-            if agency_name is not None:
-                item = agency.setdefault('name', {})
-                item['value'] = agency_name
-            else:
-                agency['name'] = None
-
-            # Adjust agency logo.
-            agency_logo = settings.get('agency_logo_url', None)
-            if agency_logo is not None:
-                agency['logo'] = agency_logo
-            else:
-                agency['logo'] = None
-
-            # Adjust agency office phone.
-            agency_office_phone = settings.get('agency_office_phone', None)
-            if agency_office_phone is not None:
-                item = agency.setdefault('office_phone', {})
-                item['value'] = agency_office_phone
-            else:
-                agency['office_phone'] = None
-
-            # Adjust agency website.
-            agency_website = settings.get('agency_website', None)
-            if agency_website is not None:
-                item = agency.setdefault('website', {})
-                item['value'] = agency_website
-            else:
-                agency['website'] = None
-
+    def update_agent_info(self, agent, settings):
             # Adjust agent name.
             agent_name = settings.get('agent_name', None)
             if agent_name is not None:
@@ -207,6 +189,30 @@ class ListingDetails(BrowserView):
                 agent['avatar'] = None
 
             # TODO: Adjust agent languages.
+
+    @property
+    def contact(self):
+        mls_settings = api.get_settings(context=self.context)
+        agency_id = mls_settings.get('agency_id', None)
+
+        if self.data is None:
+            return
+
+        contact_data = self.data.get('contact', None)
+        agency = contact_data.get('agency', {})
+        agent = contact_data.get('agent', {})
+
+        settings = get_agency_info(context=self.context)
+
+        if agency.get('id', {}).get('value', None) == agency_id:
+            if settings and settings.get('force', False) is True:
+                pass
+            else:
+                return contact_data
+
+        if settings:
+            agency = self.update_agency_info(agency, settings)
+            agent = self.update_agent_info(agent, settings)
 
         return contact_data
 
