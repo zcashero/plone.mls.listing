@@ -71,7 +71,10 @@ class Renderer(base.Renderer):
     def agent_contact_portlet_available(self):
         for column in ['plone.leftcolumn', 'plone.rightcolumn']:
             manager = getUtility(IPortletManager, name=column)
-            retriever = getMultiAdapter((self.context, manager), IPortletRetriever)
+            retriever = getMultiAdapter(
+                (self.context, manager),
+                IPortletRetriever,
+            )
             portlets = retriever.getPortlets()
             for portlet in portlets:
                 if IAgentContactPortlet.providedBy(portlet['assignment']):

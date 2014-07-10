@@ -57,8 +57,11 @@ class TestAgentContactPortlet(unittest.TestCase):
     def test_renderer(self):
         request = self.layer['request']
         view = self.portal.restrictedTraverse('@@plone')
-        manager = getUtility(interfaces.IPortletManager,
-            name='plone.rightcolumn', context=self.portal)
+        manager = getUtility(
+            interfaces.IPortletManager,
+            name='plone.rightcolumn',
+            context=self.portal,
+        )
         assignment = agent_contact.Assignment()
         renderer = getMultiAdapter(
             (self.portal, request, view, manager, assignment),
@@ -101,15 +104,17 @@ class TestRenderer(unittest.TestCase):
 
     def test_spam_setting(self):
         r = self.renderer(
-            context=self.portal, assignment=agent_contact.Assignment(
-            reject_links=True ))
+            context=self.portal,
+            assignment=agent_contact.Assignment(reject_links=True),
+        )
         self.assertTrue(r.data.reject_links)
 
         r = self.renderer(
-            context=self.portal, assignment=agent_contact.Assignment(
-            reject_links=False ))
+            context=self.portal,
+            assignment=agent_contact.Assignment(reject_links=False),
+        )
         self.assertFalse(r.data.reject_links)
-        
+
 
 class TestValidators(unittest.TestCase):
     """Test Case for validators."""
@@ -169,6 +174,3 @@ class TestValidators(unittest.TestCase):
 
         value = '@propertyshelf.com'
         self.assertRaises(Invalid, self._callFUTemail, value)
-
-        
-

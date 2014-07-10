@@ -16,8 +16,10 @@ from zope.traversing.browser.absoluteurl import absoluteURL
 # local imports
 from plone.mls.core.navigation import ListingBatch
 from plone.mls.listing.api import prepare_search_params, recent_listings
-from plone.mls.listing.browser.interfaces import (IBaseListingItems,
-    IListingDetails)
+from plone.mls.listing.browser.interfaces import (
+    IBaseListingItems,
+    IListingDetails,
+)
 from plone.mls.listing.i18n import _
 
 CONFIGURATION_KEY = 'plone.mls.listing.recentlistings'
@@ -40,7 +42,7 @@ class RecentListingsViewlet(ViewletBase):
     @property
     def available(self):
         return IRecentListings.providedBy(self.context) and \
-               not IListingDetails.providedBy(self.view)
+            not IListingDetails.providedBy(self.view)
 
     @property
     def config(self):

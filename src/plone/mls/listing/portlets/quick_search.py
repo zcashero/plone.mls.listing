@@ -174,10 +174,14 @@ class QuickSearchForm(form.Form):
     def widgets_filter_other(self):
         """Return all other widgets that have not been shown until now."""
         defined_fields = FIELD_ORDER.values()
-        shown_fields = [shown_field for field_lists in defined_fields for
-                        shown_field in field_lists]
-        return [widget for field_name, widget in self.widgets.items() if not
-                field_name in shown_fields]
+        shown_fields = [
+            shown_field for field_lists in defined_fields for
+            shown_field in field_lists
+        ]
+        return [
+            widget for field_name, widget in self.widgets.items() if
+            field_name not in shown_fields
+        ]
 
 
 class IQuickSearchPortlet(IPortletDataProvider):
@@ -280,7 +284,7 @@ class Renderer(base.Renderer):
                 'form.buttons.search' in form.keys():
             return 'FILTER'
         elif listing_search.IListingSearch.providedBy(self.context) and \
-                not 'form.buttons.search' in form.keys():
+                'form.buttons.search' not in form.keys():
             return 'HIDDEN'
         else:
             return 'SEARCH'

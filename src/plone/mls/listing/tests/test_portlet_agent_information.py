@@ -56,8 +56,11 @@ class TestAgentInformationPortlet(unittest.TestCase):
     def test_renderer(self):
         request = self.layer['request']
         view = self.portal.restrictedTraverse('@@plone')
-        manager = getUtility(interfaces.IPortletManager,
-            name='plone.rightcolumn', context=self.portal)
+        manager = getUtility(
+            interfaces.IPortletManager,
+            name='plone.rightcolumn',
+            context=self.portal,
+        )
         assignment = agent_information.Assignment()
         renderer = getMultiAdapter(
             (self.portal, request, view, manager, assignment),

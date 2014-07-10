@@ -320,8 +320,8 @@ class ListingSearchForm(form.Form):
             shown_field in field_lists
         ]
         return [
-            widget for field_name, widget in self.widgets.items() if not
-            field_name in shown_fields
+            widget for field_name, widget in self.widgets.items() if
+            field_name not in shown_fields
         ]
 
     def widgets_tabbed(self):

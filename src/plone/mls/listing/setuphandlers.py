@@ -24,8 +24,9 @@ def setup_kupu(context):
             # Kupu's resource list can accumulate old, no longer valid types.
             # It will throw an exception if we try to resave them.
             # So, let's clean the list.
-            valid_types = dict([(t.id, 1) for t in \
-                                portal_types.listTypeInfo()])
+            valid_types = dict([
+                (t.id, 1) for t in portal_types.listTypeInfo()
+            ])
             linkable = [pt for pt in linkable if pt in valid_types]
 
             linkable.append(LISTING_TYPE)
@@ -48,7 +49,7 @@ def setup_article(context):
         article = portal_types.get('Article', None)
         if article is None:
             return
-        if not LISTING_TYPE in article.allowed_content_types:
+        if LISTING_TYPE not in article.allowed_content_types:
             article.allowed_content_types += (LISTING_TYPE, )
 
 

@@ -2,8 +2,13 @@
 """Test Layer for plone.mls.listing."""
 
 # zope imports
-from plone.app.testing import (IntegrationTesting, PloneSandboxLayer,
-    PLONE_FIXTURE, applyProfile, quickInstallProduct)
+from plone.app.testing import (
+    IntegrationTesting,
+    PloneSandboxLayer,
+    PLONE_FIXTURE,
+    applyProfile,
+    quickInstallProduct,
+)
 from zope.configuration import xmlconfig
 
 
@@ -15,8 +20,11 @@ class PloneMLSListing(PloneSandboxLayer):
         """Set up Zope for testing."""
         # Load ZCML
         import plone.mls.listing
-        xmlconfig.file('configure.zcml', plone.mls.listing,
-                       context=configurationContext)
+        xmlconfig.file(
+            'configure.zcml',
+            plone.mls.listing,
+            context=configurationContext,
+        )
 
     def setUpPloneSite(self, portal):
         """Set up a Plone site for testing."""

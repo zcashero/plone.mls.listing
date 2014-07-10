@@ -56,8 +56,11 @@ class TestQuickSearchPortlet(unittest.TestCase):
     def test_renderer(self):
         request = self.layer['request']
         view = self.portal.restrictedTraverse('@@plone')
-        manager = getUtility(interfaces.IPortletManager,
-            name='plone.rightcolumn', context=self.portal)
+        manager = getUtility(
+            interfaces.IPortletManager,
+            name='plone.rightcolumn',
+            context=self.portal,
+        )
         assignment = quick_search.Assignment()
         renderer = getMultiAdapter(
             (self.portal, request, view, manager, assignment),
@@ -88,9 +91,15 @@ class TestRenderer(unittest.TestCase):
                                interfaces.IPortletRenderer)
 
     def test_title(self):
-        r = self.renderer(context=self.portal, assignment=quick_search.Assignment())
+        r = self.renderer(
+            context=self.portal,
+            assignment=quick_search.Assignment(),
+        )
         self.assertEqual('Search Listings', r.title)
 
     def test_custom_title(self):
-        r = self.renderer(context=self.portal, assignment=quick_search.Assignment(heading=u'My Title'))
+        r = self.renderer(
+            context=self.portal,
+            assignment=quick_search.Assignment(heading=u'My Title'),
+        )
         self.assertEqual('My Title', r.title)

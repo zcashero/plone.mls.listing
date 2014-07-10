@@ -67,7 +67,7 @@ def migrate_to_1002(context):
         article = portal_types.get('Article', None)
         if article is None:
             return
-        if not LISTING_TYPE in article.allowed_content_types:
+        if LISTING_TYPE not in article.allowed_content_types:
             article.allowed_content_types += (LISTING_TYPE, )
 
     # 2. Add versioning behavior.
@@ -83,7 +83,7 @@ def migrate_to_1002(context):
 
         versioning_behavior = 'plone.app.versioningbehavior.behaviors.' \
                               'IVersionable'
-        if not versioning_behavior in listing.behaviors:
+        if versioning_behavior not in listing.behaviors:
             listing.behaviors += (versioning_behavior, )
 
     try:
@@ -116,7 +116,7 @@ def migrate_to_1003(context):
     """
     site = getUtility(IPloneSiteRoot)
 
-    if not IListingSpecific in layerutils.registered_layers():
+    if IListingSpecific not in layerutils.registered_layers():
         layerutils.register_layer(IListingSpecific, name='plone.mls.listing')
 
     portal_css = getToolByName(site, 'portal_css')

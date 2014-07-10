@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Agent Contact Portlet."""
 
-#python imports
+# python imports
 from email import message_from_string
 import re
 
