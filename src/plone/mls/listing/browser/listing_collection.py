@@ -98,7 +98,9 @@ class IListingCollectionConfiguration(Interface):
     """Listing Collection Configuration Form."""
 
     agency_listings = schema.Bool(
-        description=_(u'Only show listings of the current configured agency.'),
+        description=_(
+            u'If activated, only listings of the configured agency are shown.',
+        ),
         required=False,
         title=_(u'Agency Listings'),
     )
