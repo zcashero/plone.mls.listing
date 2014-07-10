@@ -44,10 +44,10 @@ class ListingsComponent(object):
 class ListingsViewlet(ViewletBase):
     """Viewlet listing the MLS Listings."""
     index = ViewPageTemplateFile('listing.pt')
-    image_class = "component componentLeft"
-    type = "left"
-    thumb_size = "listingleft"
-    component = "listing.left"
+    image_class = 'component componentLeft'
+    type = 'left'
+    thumb_size = 'listingleft'
+    component = 'listing.left'
 
     def _class(self, brain, i, l):
         cls = []

@@ -62,10 +62,10 @@ Message:
 """
 
 check_email = re.compile(
-    r"[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}").match
+    r'[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}').match
 
 check_for_url = re.compile(
-    r"http[s]?://").search
+    r'http[s]?://').search
 
 
 def validate_email(value):
@@ -352,7 +352,7 @@ class Renderer(base.Renderer):
 
     @property
     def mail_sent_msg(self):
-        return self.data.mail_sent_msg or PMF(u"Mail sent.")
+        return self.data.mail_sent_msg or PMF(u'Mail sent.')
 
     @property
     def title(self):

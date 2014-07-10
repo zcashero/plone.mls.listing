@@ -353,7 +353,7 @@ class ListingSearchViewlet(ViewletBase):
 
         from plone.mls.listing.portlets.quick_search import IQuickSearchPortlet
         portlets = []
-        for column in ["plone.leftcolumn", "plone.rightcolumn"]:
+        for column in ['plone.leftcolumn', 'plone.rightcolumn']:
             manager = manager = getUtility(IPortletManager, name=column)
             retriever = queryMultiAdapter((self.context, manager),
                                           IPortletRetriever)
@@ -503,9 +503,9 @@ class ListingSearchToggle(object):
             msg = _(u"'Listing Search' viewlet activated.")
         else:
             msg = _(
-                u"The 'Listing Search' viewlet does't work with this content "
-                u"type. Add 'IPossibleListingSearch' to the provided "
-                u"interfaces to enable this feature."
+                u'The \'Listing Search\' viewlet does\'t work with this '
+                u'content type. Add \'IPossibleListingSearch\' to the '
+                u'provided interfaces to enable this feature.'
             )
             msg_type = 'error'
 

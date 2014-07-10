@@ -36,7 +36,7 @@ class IAgentInformationPortlet(IPortletDataProvider):
             u'Custom title for the portlet. If no title is provided, the '
             u'default title is used.'),
         required=False,
-        title=_(u"Portlet Title"),
+        title=_(u'Portlet Title'),
     )
 
 
@@ -69,12 +69,12 @@ class Renderer(base.Renderer):
 
     @property
     def agent_contact_portlet_available(self):
-        for column in ["plone.leftcolumn", "plone.rightcolumn"]:
+        for column in ['plone.leftcolumn', 'plone.rightcolumn']:
             manager = getUtility(IPortletManager, name=column)
             retriever = getMultiAdapter((self.context, manager), IPortletRetriever)
             portlets = retriever.getPortlets()
             for portlet in portlets:
-                if IAgentContactPortlet.providedBy(portlet["assignment"]):
+                if IAgentContactPortlet.providedBy(portlet['assignment']):
                     return True
         return False
 

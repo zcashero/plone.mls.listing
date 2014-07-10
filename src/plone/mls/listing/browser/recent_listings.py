@@ -194,9 +194,9 @@ class RecentListingsToggle(object):
             msg = _(u"'Recent Listings' viewlet activated.")
         else:
             msg = _(
-                u"The 'Recent Listings' viewlet does't work with this content "
-                u"type. Add 'IPossibleRecentListings' to the provided "
-                u"interfaces to enable this feature."
+                u'The \'Recent Listings\' viewlet does\'t work with this '
+                u'content type. Add \'IPossibleRecentListings\' to the '
+                u'provided interfaces to enable this feature.'
             )
             msg_type = 'error'
 

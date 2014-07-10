@@ -127,7 +127,7 @@ class TestValidators(unittest.TestCase):
         self.assertTrue(self._callFUT(u''))
 
     def test_no_urls(self):
-        value = "foobar"
+        value = 'foobar'
         self.assertTrue(self._callFUT(value))
         value = """This is a multi line text.
 
@@ -138,7 +138,7 @@ class TestValidators(unittest.TestCase):
         self.assertTrue(self._callFUT(value))
 
     def test_urls(self):
-        value = "Text with http://google.com url."
+        value = 'Text with http://google.com url.'
         self.assertRaises(Invalid, self._callFUT, value)
 
         value = """This is a multi line text.
@@ -152,22 +152,22 @@ class TestValidators(unittest.TestCase):
 
     def test_no_value_mail(self):
         self.assertTrue(self._callFUTemail(None))
-        self.assertTrue(self._callFUTemail(u""))
+        self.assertTrue(self._callFUTemail(u''))
 
     def test_valid_emails(self):
-        value = "test@propertyshelf.com"
+        value = 'test@propertyshelf.com'
         self.assertTrue(self._callFUTemail(value))
-        value = "test123.tester@propertyshelf.com"
+        value = 'test123.tester@propertyshelf.com'
         self.assertTrue(self._callFUTemail(value))
 
     def test_not_valid(self):
-        value = "t!st@propertyshelf.com"
+        value = 't!st@propertyshelf.com'
         self.assertRaises(Invalid, self._callFUTemail, value)
 
-        value = "test.propertyshelf.com"
+        value = 'test.propertyshelf.com'
         self.assertRaises(Invalid, self._callFUTemail, value)
 
-        value = "@propertyshelf.com"
+        value = '@propertyshelf.com'
         self.assertRaises(Invalid, self._callFUTemail, value)
 
         

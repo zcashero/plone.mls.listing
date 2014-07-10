@@ -124,7 +124,7 @@ class QuickSearchForm(form.Form):
     @property
     def action(self):
         """See interfaces.IInputForm."""
-        p_state = self.context.unrestrictedTraverse("@@plone_portal_state")
+        p_state = self.context.unrestrictedTraverse('@@plone_portal_state')
         search_path = self.data.target_search
         if search_path.startswith('/'):
             search_path = search_path[1:]

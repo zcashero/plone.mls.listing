@@ -57,7 +57,7 @@ def prepare_search_params(data):
         if data[item] is not None:
             value = data[item]
             if isinstance(value, unicode):
-                value = value.encode("utf-8")
+                value = value.encode('utf-8')
             params[item] = value
     return params
 

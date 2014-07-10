@@ -254,9 +254,9 @@ class ListingCollectionToggle(object):
             msg = _(u"'Listing Collection' viewlet activated.")
         else:
             msg = _(
-                u"The 'Listing Collection' viewlet does't work with this "
-                u"content type. Add 'IPossibleListingCollection' to the "
-                u"provided interfaces to enable this feature."
+                u'The \'Listing Collection\' viewlet does\'t work with this '
+                u'content type. Add \'IPossibleListingCollection\' to the '
+                u'provided interfaces to enable this feature.'
             )
             msg_type = 'error'
 
