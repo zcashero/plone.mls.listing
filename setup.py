@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-version = '0.9.12'
+version = '1.0dev'
 description = "Plone support for MLS Listings."
 long_description = ('\n'.join([
     open('README.rst').read(),
