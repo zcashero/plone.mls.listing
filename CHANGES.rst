@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.9.12 (2014-07-14)
+-------------------
+
+- Added option to filter listing results for the current agency.
+- Add css classes for agent info portlet fields.
+- I18N updates.
+
+
 0.9.11 (2014-03-17)
 -------------------
 
