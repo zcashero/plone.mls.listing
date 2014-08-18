@@ -252,7 +252,6 @@ class EmailForm(form.Form):
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
         message['From'] = from_address
-        message['Cc'] = sender
         if getattr(self.data, 'bcc', None) is not None:
             message['Bcc'] = self.data.bcc
         message['Reply-to'] = sender
