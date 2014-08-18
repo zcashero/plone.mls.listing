@@ -237,10 +237,14 @@ class EmailForm(form.Form):
         if from_name is not None:
             from_address = '%s <%s>' % (from_name, from_address)
 
-        try:
-            rcp = self.listing_info['agent'].get('agent_email').get('value')
-        except:
-            rcp = from_address
+        if getattr(self.data, 'recipient', None) is not None:
+            rcp = self.data.recipient
+        else:
+            try:
+                agent = self.listing_info['agent']
+                rcp = agent.get('agent_email').get('value')
+            except:
+                rcp = from_address
 
         sender = '%s <%s>' % (data['name'], data['sender_from_address'])
         subject = data['subject']
@@ -291,6 +295,16 @@ class IAgentContactPortlet(IPortletDataProvider):
         title=_(u'Mail Sent Message'),
     )
 
+    recipient = schema.TextLine(
+        constraint=validate_email,
+        description=_(
+            u'Override the recipient e-mail address. Leave blank to use the '
+            u'e-mail address from the agent information.'
+        ),
+        required=False,
+        title=_(u'Override Recipient'),
+    )
+
     bcc = schema.TextLine(
         description=_(
             u'E-mail addresses which receive a blind carbon copy (comma '
@@ -299,6 +313,7 @@ class IAgentContactPortlet(IPortletDataProvider):
         required=False,
         title=_(u'BCC Recipients'),
     )
+
     reject_links = schema.Bool(
         default=True,
         description=_(
@@ -317,6 +332,7 @@ class Assignment(base.Assignment):
     heading = FieldProperty(IAgentContactPortlet['heading'])
     description = FieldProperty(IAgentContactPortlet['description'])
     mail_sent_msg = FieldProperty(IAgentContactPortlet['mail_sent_msg'])
+    recipient = FieldProperty(IAgentContactPortlet['recipient'])
     bcc = FieldProperty(IAgentContactPortlet['bcc'])
     reject_links = FieldProperty(IAgentContactPortlet['reject_links'])
 
