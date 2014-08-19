@@ -192,15 +192,19 @@ class ListingDetails(BrowserView):
 
     @property
     def contact(self):
-        mls_settings = api.get_settings(context=self.context)
-        agency_id = mls_settings.get('agency_id', None)
-
         if self.data is None:
             return
 
+        mls_settings = api.get_settings(context=self.context)
+        agency_id = mls_settings.get('agency_id', None)
+
         contact_data = self.data.get('contact', None)
+        contact_data['overridden'] = False
         agency = contact_data.get('agency', {})
         agent = contact_data.get('agent', {})
+
+        original_agent = self.data.get('original_agent')
+        contact_data['original_agent'] = original_agent
 
         settings = get_agency_info(context=self.context)
 
@@ -211,6 +215,7 @@ class ListingDetails(BrowserView):
                 return contact_data
 
         if settings:
+            contact_data['overridden'] = True
             agency = self.update_agency_info(agency, settings)
             agent = self.update_agent_info(agent, settings)
 

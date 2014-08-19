@@ -3,6 +3,7 @@
 
 # python imports
 from DateTime import DateTime
+import copy
 import logging
 import time
 
@@ -199,7 +200,11 @@ def listing_details(listing_id, lang=None, context=None):
     except MLSError, e:
         logger.warn(e)
         return None
-    return listing.get('listing', None)
+    listing = listing.get('listing', None)
+    if listing is not None:
+        agent = copy.deepcopy(listing.get('contact', {}).get('agent'))
+        listing['original_agent'] = agent
+    return listing
 
 
 def search(params={}, batching=True, context=None):

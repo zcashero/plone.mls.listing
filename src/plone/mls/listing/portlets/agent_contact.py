@@ -61,6 +61,13 @@ Message:
 %(message)s
 """
 
+EMAIL_TEMPLATE_ORIGINAL_AGENT = """
+The responsible agent for this listing is %(agent)s (%(profile)s).
+
+Please contact %(agent)s at %(agent_email)s.
+"""
+
+
 check_email = re.compile(
     r'[a-zA-Z0-9._%-]+@([a-zA-Z0-9-]+\.)*[a-zA-Z]{2,4}').match
 
@@ -237,8 +244,9 @@ class EmailForm(form.Form):
         if from_name is not None:
             from_address = '%s <%s>' % (from_name, from_address)
 
-        if getattr(self.data, 'recipient', None) is not None:
-            rcp = self.data.recipient
+        review_recipient = getattr(self.data, 'recipient', None)
+        if review_recipient is not None:
+            rcp = review_recipient
         else:
             try:
                 agent = self.listing_info['agent']
@@ -249,6 +257,16 @@ class EmailForm(form.Form):
         sender = '%s <%s>' % (data['name'], data['sender_from_address'])
         subject = data['subject']
         data['url'] = self.request.getURL()
+        overridden = self.listing_info.get('overridden', False)
+        if overridden is True or review_recipient is not None:
+            orig_agent = self.listing_info.get('original_agent')
+            agent_data = {
+                'agent': orig_agent.get('name').get('value'),
+                'agent_email': orig_agent.get('agent_email').get('value'),
+                'profile': orig_agent.get('profile'),
+            }
+            agent = EMAIL_TEMPLATE_ORIGINAL_AGENT % agent_data
+            data['message'] = '\n'.join([data['message'], agent])
         if self.is_residential_lease:
             message = EMAIL_TEMPLATE_RL % data
         else:
@@ -380,6 +398,8 @@ class Renderer(base.Renderer):
             'listing_id': self.view.info.get('id').get('value'),
             'listing_title': self.view.info.get('title').get('value'),
             'agent': self.view.contact.get('agent'),
+            'original_agent': self.view.contact.get('original_agent'),
+            'overridden': self.view.contact.get('overridden', False),
         }
 
         z2.switch_on(self, request_layer=IFormLayer)
