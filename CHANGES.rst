@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.9.13 (2014-08-21)
+-------------------
+
+- Don't send a copy of the agent contact portlet message to the sender.
+- Added override recipient to agent contact portlet. Use this to redirect all emails to that address for (spam) review.
+- Add info about the original agent to the contact form email. Referral agents need to be able to contact the responsible listing agent.
+- I18N updates.
+
+
 0.9.12 (2014-07-14)
 -------------------
 
