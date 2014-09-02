@@ -113,6 +113,11 @@ class ValueRangeWidget(HTMLTextInputWidget, SequenceWidget):
         min_ = self.request.get(self.name + '-min', default)
         max_ = self.request.get(self.name + '-max', default)
 
+        if isinstance(min_, list):
+            min_ = min_[0]
+        if isinstance(max_, list):
+            max_ = max_[0]
+
         try:
             self.terms.getTermByToken(min_)
         except LookupError:
