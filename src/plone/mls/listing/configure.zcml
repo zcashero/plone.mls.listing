@@ -44,6 +44,11 @@
       />
 
   <utility
+      component=".vocabularies.ListingTypesSearchVocabularyFactory"
+      name="plone.mls.listing.ListingTypesSearch"
+      />
+
+  <utility
       component=".vocabularies.LocationCountyVocabularyFactory"
       name="plone.mls.listing.LocationCounties"
       />
