@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone.mls.listing\n"
-"POT-Creation-Date: 2014-08-19 12:01+0000\n"
+"POT-Creation-Date: 2014-09-02 18:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,15 +30,15 @@ msgstr ""
 msgid "'Listing Collection' viewlet deactivated."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:451
+#: plone/mls/listing/browser/listing_search.py:467
 msgid "'Listing Search' Configuration"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:512
+#: plone/mls/listing/browser/listing_search.py:528
 msgid "'Listing Search' viewlet activated."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:508
+#: plone/mls/listing/browser/listing_search.py:524
 msgid "'Listing Search' viewlet deactivated."
 msgstr ""
 
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Add Agent Information portlet"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:306
+#: plone/mls/listing/portlets/quick_search.py:321
 msgid "Add Listing Quick Search portlet"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:452
+#: plone/mls/listing/browser/listing_search.py:468
 msgid "Adjust the behaviour for this 'Listing Search' viewlet."
 msgstr ""
 
@@ -144,7 +144,7 @@ msgid "Adults"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:105
-#: plone/mls/listing/browser/listing_search.py:429
+#: plone/mls/listing/browser/listing_search.py:431
 #: plone/mls/listing/browser/recent_listings.py:104
 msgid "Agency Listings"
 msgstr ""
@@ -201,13 +201,13 @@ msgstr ""
 msgid "Agent Title"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:213
+#: plone/mls/listing/browser/listing_search.py:215
 msgid "Air Condition"
 msgstr ""
 
 #: plone/mls/listing/browser/adapter.py:12
 #: plone/mls/listing/browser/valuerange/widget.py:25
-#: plone/mls/listing/vocabularies.py:239
+#: plone/mls/listing/vocabularies.py:266
 msgid "All"
 msgstr ""
 
@@ -224,16 +224,16 @@ msgstr ""
 msgid "Basic Listing Information"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:202
+#: plone/mls/listing/browser/listing_search.py:204
 msgid "Bathrooms"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:192
+#: plone/mls/listing/browser/listing_search.py:194
 msgid "Bedrooms"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:222
-#: plone/mls/listing/browser/listing_search.py:471
+#: plone/mls/listing/browser/listing_search.py:487
 #: plone/mls/listing/browser/localconfig.py:52
 msgid "Cancel"
 msgstr ""
@@ -246,7 +246,7 @@ msgstr ""
 msgid "Children"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:130
+#: plone/mls/listing/browser/listing_search.py:132
 msgid "City/Town"
 msgstr ""
 
@@ -279,15 +279,15 @@ msgid "Contact Information"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:125
-#: plone/mls/listing/browser/listing_search.py:118
+#: plone/mls/listing/browser/listing_search.py:120
 msgid "County"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:200
+#: plone/mls/listing/portlets/quick_search.py:215
 msgid "Custom title for the portlet (filter mode). If no title is provided, the default title is used."
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:191
+#: plone/mls/listing/portlets/quick_search.py:206
 msgid "Custom title for the portlet (search mode). If no title is provided, the default title is used."
 msgstr ""
 
@@ -337,7 +337,7 @@ msgid "Description"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:131
-#: plone/mls/listing/browser/listing_search.py:124
+#: plone/mls/listing/browser/listing_search.py:126
 msgid "District"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgstr ""
 msgid "Edit Agent Information portlet"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:320
+#: plone/mls/listing/portlets/quick_search.py:335
 msgid "Edit Listing Quick Search portlet"
 msgstr ""
 
@@ -374,11 +374,11 @@ msgstr ""
 msgid "Enter the minimum price for listings. If no price is given, all listings from the lowest price are shown."
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:230
+#: plone/mls/listing/portlets/quick_search.py:245
 msgid "Filter Results"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:209
+#: plone/mls/listing/portlets/quick_search.py:224
 msgid "Find the search page which will be used to show the results."
 msgstr ""
 
@@ -391,21 +391,21 @@ msgid "Force usage of custom agency information, even on own listings?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:155
-#: plone/mls/listing/browser/listing_search.py:155
+#: plone/mls/listing/browser/listing_search.py:157
 msgid "Geographic Type"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:441
+#: plone/mls/listing/browser/listing_search.py:443
 msgid "Hide the search form when Quick Search Portlet is available?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:101
-#: plone/mls/listing/browser/listing_search.py:425
+#: plone/mls/listing/browser/listing_search.py:427
 #: plone/mls/listing/browser/recent_listings.py:100
 msgid "If activated, only listings of the configured agency are shown."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:246
+#: plone/mls/listing/browser/listing_search.py:248
 msgid "Interior Area"
 msgstr ""
 
@@ -418,12 +418,12 @@ msgid "Items in this vocabulary are sorted by priority key (if available) and va
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:188
-#: plone/mls/listing/browser/listing_search.py:435
+#: plone/mls/listing/browser/listing_search.py:437
 #: plone/mls/listing/browser/recent_listings.py:136
 msgid "Items per Page"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:229
+#: plone/mls/listing/browser/listing_search.py:231
 msgid "Jacuzzi"
 msgstr ""
 
@@ -441,7 +441,7 @@ msgid "Listing Images"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:111
-#: plone/mls/listing/browser/listing_search.py:104
+#: plone/mls/listing/browser/listing_search.py:106
 #: plone/mls/listing/browser/recent_listings.py:109
 msgid "Listing Type"
 msgstr ""
@@ -460,7 +460,7 @@ msgid "Local agency information deactivated."
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:147
-#: plone/mls/listing/browser/listing_search.py:146
+#: plone/mls/listing/browser/listing_search.py:148
 msgid "Location Type"
 msgstr ""
 
@@ -468,7 +468,7 @@ msgstr ""
 msgid "Long Description"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:236
+#: plone/mls/listing/browser/listing_search.py:238
 msgid "Lot Size"
 msgstr ""
 
@@ -492,11 +492,11 @@ msgstr ""
 msgid "Manage the local agency information."
 msgstr ""
 
-#: plone/mls/listing/vocabularies.py:30
+#: plone/mls/listing/vocabularies.py:32
 msgid "Max"
 msgstr ""
 
-#: plone/mls/listing/vocabularies.py:20
+#: plone/mls/listing/vocabularies.py:22
 msgid "Min"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgstr ""
 msgid "More about this property"
 msgstr ""
 
-#: plone/mls/listing/vocabularies.py:238
+#: plone/mls/listing/vocabularies.py:265
 msgid "No"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgid "No Urls allowed"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:171
-#: plone/mls/listing/browser/listing_search.py:173
+#: plone/mls/listing/browser/listing_search.py:175
 msgid "Object Type"
 msgstr ""
 
@@ -526,7 +526,7 @@ msgid "Override the recipient e-mail address. Leave blank to use the e-mail addr
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:179
-#: plone/mls/listing/browser/listing_search.py:182
+#: plone/mls/listing/browser/listing_search.py:184
 msgid "Ownership Type"
 msgstr ""
 
@@ -538,7 +538,7 @@ msgstr ""
 msgid "Please enter a phone number. Some agents will not respond without one."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:221
+#: plone/mls/listing/browser/listing_search.py:223
 msgid "Pool"
 msgstr ""
 
@@ -547,22 +547,22 @@ msgstr ""
 msgid "Portlet Title"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:205
+#: plone/mls/listing/portlets/quick_search.py:220
 msgid "Portlet Title (Filter)"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:196
+#: plone/mls/listing/portlets/quick_search.py:211
 msgid "Portlet Title (Search)"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:142
-#: plone/mls/listing/browser/listing_search.py:140
+#: plone/mls/listing/browser/listing_search.py:142
 #: plone/mls/listing/browser/recent_listings.py:130
 msgid "Price (Max)"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:137
-#: plone/mls/listing/browser/listing_search.py:135
+#: plone/mls/listing/browser/listing_search.py:137
 #: plone/mls/listing/browser/recent_listings.py:121
 msgid "Price (Min)"
 msgstr ""
@@ -576,16 +576,16 @@ msgid "Reject Text with Links?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:212
-#: plone/mls/listing/browser/listing_search.py:459
+#: plone/mls/listing/browser/listing_search.py:475
 #: plone/mls/listing/browser/localconfig.py:41
 msgid "Save"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:229
+#: plone/mls/listing/portlets/quick_search.py:244
 msgid "Search Listings"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:217
+#: plone/mls/listing/portlets/quick_search.py:232
 msgid "Search Page"
 msgstr ""
 
@@ -597,8 +597,12 @@ msgstr ""
 msgid "Select a value..."
 msgstr ""
 
+#: plone/mls/listing/browser/listing_search.py:450
+msgid "Select the available listing types for this search. If nothing is selected, all available listing types will be shown."
+msgstr ""
+
 #: plone/mls/listing/browser/listing_collection.py:119
-#: plone/mls/listing/browser/listing_search.py:112
+#: plone/mls/listing/browser/listing_search.py:114
 msgid "State"
 msgstr ""
 
@@ -610,7 +614,7 @@ msgstr ""
 msgid "The 'Listing Collection' viewlet does't work with this content type. Add 'IPossibleListingCollection' to the provided interfaces to enable this feature."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:514
+#: plone/mls/listing/browser/listing_search.py:530
 msgid "The 'Listing Search' viewlet does't work with this content type. Add 'IPossibleListingSearch' to the provided interfaces to enable this feature."
 msgstr ""
 
@@ -647,11 +651,11 @@ msgid "Update agent information when showing a third party listing?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:163
-#: plone/mls/listing/browser/listing_search.py:164
+#: plone/mls/listing/browser/listing_search.py:166
 msgid "View Type"
 msgstr ""
 
-#: plone/mls/listing/vocabularies.py:237
+#: plone/mls/listing/vocabularies.py:264
 msgid "Yes"
 msgstr ""
 

@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2014-08-19 12:01+0000\n"
-"PO-Revision-Date: 2014-08-19 12:02+0000\n"
+"POT-Creation-Date: 2014-09-02 18:02+0000\n"
+"PO-Revision-Date: 2014-09-02 18:04+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: Chinese (http://www.transifex.com/projects/p/MLS_Plone/language/zh/)\n"
 "MIME-Version: 1.0\n"
@@ -35,15 +35,15 @@ msgstr "房地產物件收集功能viewlet已啓用。"
 msgid "'Listing Collection' viewlet deactivated."
 msgstr "房地產物件收集功能viewlet已停用。"
 
-#: plone/mls/listing/browser/listing_search.py:451
+#: plone/mls/listing/browser/listing_search.py:467
 msgid "'Listing Search' Configuration"
 msgstr "房地產物件搜尋配製設定"
 
-#: plone/mls/listing/browser/listing_search.py:512
+#: plone/mls/listing/browser/listing_search.py:528
 msgid "'Listing Search' viewlet activated."
 msgstr "房地產物件搜尋viewlet已啓用。"
 
-#: plone/mls/listing/browser/listing_search.py:508
+#: plone/mls/listing/browser/listing_search.py:524
 msgid "'Listing Search' viewlet deactivated."
 msgstr "房地產物件搜尋viewlet已停用。"
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Add Agent Information portlet"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:306
+#: plone/mls/listing/portlets/quick_search.py:321
 msgid "Add Listing Quick Search portlet"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgstr ""
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
 msgstr "調整房地產物件收集功能viewlet"
 
-#: plone/mls/listing/browser/listing_search.py:452
+#: plone/mls/listing/browser/listing_search.py:468
 msgid "Adjust the behaviour for this 'Listing Search' viewlet."
 msgstr "調整房地產物件搜尋viewlet"
 
@@ -151,7 +151,7 @@ msgid "Adults"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:105
-#: plone/mls/listing/browser/listing_search.py:429
+#: plone/mls/listing/browser/listing_search.py:431
 #: plone/mls/listing/browser/recent_listings.py:104
 msgid "Agency Listings"
 msgstr ""
@@ -208,13 +208,13 @@ msgstr ""
 msgid "Agent Title"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:213
+#: plone/mls/listing/browser/listing_search.py:215
 msgid "Air Condition"
 msgstr "冷氣空調"
 
 #: plone/mls/listing/browser/adapter.py:12
 #: plone/mls/listing/browser/valuerange/widget.py:25
-#: plone/mls/listing/vocabularies.py:239
+#: plone/mls/listing/vocabularies.py:266
 msgid "All"
 msgstr ""
 
@@ -231,16 +231,16 @@ msgstr ""
 msgid "Basic Listing Information"
 msgstr "基本資料"
 
-#: plone/mls/listing/browser/listing_search.py:202
+#: plone/mls/listing/browser/listing_search.py:204
 msgid "Bathrooms"
 msgstr "衛浴"
 
-#: plone/mls/listing/browser/listing_search.py:192
+#: plone/mls/listing/browser/listing_search.py:194
 msgid "Bedrooms"
 msgstr "臥室"
 
 #: plone/mls/listing/browser/listing_collection.py:222
-#: plone/mls/listing/browser/listing_search.py:471
+#: plone/mls/listing/browser/listing_search.py:487
 #: plone/mls/listing/browser/localconfig.py:52
 msgid "Cancel"
 msgstr "取消"
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Children"
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:130
+#: plone/mls/listing/browser/listing_search.py:132
 msgid "City/Town"
 msgstr "市/鎮"
 
@@ -286,17 +286,17 @@ msgid "Contact Information"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:125
-#: plone/mls/listing/browser/listing_search.py:118
+#: plone/mls/listing/browser/listing_search.py:120
 msgid "County"
 msgstr "縣"
 
-#: plone/mls/listing/portlets/quick_search.py:200
+#: plone/mls/listing/portlets/quick_search.py:215
 msgid ""
 "Custom title for the portlet (filter mode). If no title is provided, the "
 "default title is used."
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:191
+#: plone/mls/listing/portlets/quick_search.py:206
 msgid ""
 "Custom title for the portlet (search mode). If no title is provided, the "
 "default title is used."
@@ -350,7 +350,7 @@ msgid "Description"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:131
-#: plone/mls/listing/browser/listing_search.py:124
+#: plone/mls/listing/browser/listing_search.py:126
 msgid "District"
 msgstr "區"
 
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Edit Agent Information portlet"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:320
+#: plone/mls/listing/portlets/quick_search.py:335
 msgid "Edit Listing Quick Search portlet"
 msgstr ""
 
@@ -391,11 +391,11 @@ msgid ""
 "from the lowest price are shown."
 msgstr "輸入房地產物件的最低價位。若未填入任何金額，所有價位的房地產物件皆會顯示。"
 
-#: plone/mls/listing/portlets/quick_search.py:230
+#: plone/mls/listing/portlets/quick_search.py:245
 msgid "Filter Results"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:209
+#: plone/mls/listing/portlets/quick_search.py:224
 msgid "Find the search page which will be used to show the results."
 msgstr ""
 
@@ -408,21 +408,21 @@ msgid "Force usage of custom agency information, even on own listings?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:155
-#: plone/mls/listing/browser/listing_search.py:155
+#: plone/mls/listing/browser/listing_search.py:157
 msgid "Geographic Type"
 msgstr "地理位置類型"
 
-#: plone/mls/listing/browser/listing_search.py:441
+#: plone/mls/listing/browser/listing_search.py:443
 msgid "Hide the search form when Quick Search Portlet is available?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:101
-#: plone/mls/listing/browser/listing_search.py:425
+#: plone/mls/listing/browser/listing_search.py:427
 #: plone/mls/listing/browser/recent_listings.py:100
 msgid "If activated, only listings of the configured agency are shown."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:246
+#: plone/mls/listing/browser/listing_search.py:248
 msgid "Interior Area"
 msgstr ""
 
@@ -437,12 +437,12 @@ msgid ""
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:188
-#: plone/mls/listing/browser/listing_search.py:435
+#: plone/mls/listing/browser/listing_search.py:437
 #: plone/mls/listing/browser/recent_listings.py:136
 msgid "Items per Page"
 msgstr "每頁物件數量"
 
-#: plone/mls/listing/browser/listing_search.py:229
+#: plone/mls/listing/browser/listing_search.py:231
 msgid "Jacuzzi"
 msgstr "按摩浴缸"
 
@@ -460,7 +460,7 @@ msgid "Listing Images"
 msgstr "房地產物件照片"
 
 #: plone/mls/listing/browser/listing_collection.py:111
-#: plone/mls/listing/browser/listing_search.py:104
+#: plone/mls/listing/browser/listing_search.py:106
 #: plone/mls/listing/browser/recent_listings.py:109
 msgid "Listing Type"
 msgstr "房地產物件類型"
@@ -479,7 +479,7 @@ msgid "Local agency information deactivated."
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:147
-#: plone/mls/listing/browser/listing_search.py:146
+#: plone/mls/listing/browser/listing_search.py:148
 msgid "Location Type"
 msgstr "地理位置類型"
 
@@ -487,7 +487,7 @@ msgstr "地理位置類型"
 msgid "Long Description"
 msgstr "完整詳細說明"
 
-#: plone/mls/listing/browser/listing_search.py:236
+#: plone/mls/listing/browser/listing_search.py:238
 msgid "Lot Size"
 msgstr ""
 
@@ -511,11 +511,11 @@ msgstr ""
 msgid "Manage the local agency information."
 msgstr ""
 
-#: plone/mls/listing/vocabularies.py:30
+#: plone/mls/listing/vocabularies.py:32
 msgid "Max"
 msgstr ""
 
-#: plone/mls/listing/vocabularies.py:20
+#: plone/mls/listing/vocabularies.py:22
 msgid "Min"
 msgstr ""
 
@@ -523,7 +523,7 @@ msgstr ""
 msgid "More about this property"
 msgstr ""
 
-#: plone/mls/listing/vocabularies.py:238
+#: plone/mls/listing/vocabularies.py:265
 msgid "No"
 msgstr ""
 
@@ -532,7 +532,7 @@ msgid "No Urls allowed"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:171
-#: plone/mls/listing/browser/listing_search.py:173
+#: plone/mls/listing/browser/listing_search.py:175
 msgid "Object Type"
 msgstr "物件類別"
 
@@ -547,7 +547,7 @@ msgid ""
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:179
-#: plone/mls/listing/browser/listing_search.py:182
+#: plone/mls/listing/browser/listing_search.py:184
 msgid "Ownership Type"
 msgstr "所有權類別"
 
@@ -559,7 +559,7 @@ msgstr ""
 msgid "Please enter a phone number. Some agents will not respond without one."
 msgstr ""
 
-#: plone/mls/listing/browser/listing_search.py:221
+#: plone/mls/listing/browser/listing_search.py:223
 msgid "Pool"
 msgstr "游泳池"
 
@@ -568,22 +568,22 @@ msgstr "游泳池"
 msgid "Portlet Title"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:205
+#: plone/mls/listing/portlets/quick_search.py:220
 msgid "Portlet Title (Filter)"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:196
+#: plone/mls/listing/portlets/quick_search.py:211
 msgid "Portlet Title (Search)"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:142
-#: plone/mls/listing/browser/listing_search.py:140
+#: plone/mls/listing/browser/listing_search.py:142
 #: plone/mls/listing/browser/recent_listings.py:130
 msgid "Price (Max)"
 msgstr "價位(最高)"
 
 #: plone/mls/listing/browser/listing_collection.py:137
-#: plone/mls/listing/browser/listing_search.py:135
+#: plone/mls/listing/browser/listing_search.py:137
 #: plone/mls/listing/browser/recent_listings.py:121
 msgid "Price (Min)"
 msgstr "價位(最低)"
@@ -597,16 +597,16 @@ msgid "Reject Text with Links?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:212
-#: plone/mls/listing/browser/listing_search.py:459
+#: plone/mls/listing/browser/listing_search.py:475
 #: plone/mls/listing/browser/localconfig.py:41
 msgid "Save"
 msgstr "儲存"
 
-#: plone/mls/listing/portlets/quick_search.py:229
+#: plone/mls/listing/portlets/quick_search.py:244
 msgid "Search Listings"
 msgstr ""
 
-#: plone/mls/listing/portlets/quick_search.py:217
+#: plone/mls/listing/portlets/quick_search.py:232
 msgid "Search Page"
 msgstr ""
 
@@ -619,8 +619,14 @@ msgstr "查看仲介商如何形容此房地產 - 原標題及原說明文"
 msgid "Select a value..."
 msgstr ""
 
+#: plone/mls/listing/browser/listing_search.py:450
+msgid ""
+"Select the available listing types for this search. If nothing is selected, "
+"all available listing types will be shown."
+msgstr ""
+
 #: plone/mls/listing/browser/listing_collection.py:119
-#: plone/mls/listing/browser/listing_search.py:112
+#: plone/mls/listing/browser/listing_search.py:114
 msgid "State"
 msgstr "州/省"
 
@@ -635,7 +641,7 @@ msgid ""
 "feature."
 msgstr "房地產物件收集功能viewlet無法在此內容類型使用。加入IPossibleListingCollection 至已提供的界面來啓用此功能。"
 
-#: plone/mls/listing/browser/listing_search.py:514
+#: plone/mls/listing/browser/listing_search.py:530
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
@@ -685,10 +691,10 @@ msgid "Update agent information when showing a third party listing?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:163
-#: plone/mls/listing/browser/listing_search.py:164
+#: plone/mls/listing/browser/listing_search.py:166
 msgid "View Type"
 msgstr "景觀類別"
 
-#: plone/mls/listing/vocabularies.py:237
+#: plone/mls/listing/vocabularies.py:264
 msgid "Yes"
 msgstr ""
