@@ -4,6 +4,7 @@
 # zope imports
 from plone.registry.interfaces import IRegistry
 
+from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility, queryMultiAdapter
 from zope.globalrequest import getRequest
 from zope.interface import implementer
@@ -14,6 +15,7 @@ from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from plone.mls.core import api
 from plone.mls.listing.i18n import _
 from plone.mls.listing.api import search_options
+from plone.mls.listing.browser import listing_search
 from plone.mls.listing.interfaces import IMLSVocabularySettings
 
 ROOM_VALUES = [
@@ -95,6 +97,8 @@ class BasePriorityVocabulary(object):
     """
     priority = ''
     vocabulary_name = None
+    local_settings_key = None
+    filter_key = ''
 
     def _sort(self, data, priority):
         """Sort list of tuple by keys in priority list or value otherwise."""
@@ -132,10 +136,24 @@ class BasePriorityVocabulary(object):
 
         types = search_options(mls_url, self.vocabulary_name,
                                portal_state.language(), context=context)
+
+        if self.local_settings_key is not None:
+            try:
+                annotations = IAnnotations(context)
+            except:
+                pass
+            else:
+                local_settings = annotations.get(self.local_settings_key, {})
+                filtered = local_settings.get(self.filter_key, ())
+                if len(filtered) > 0:
+                    types = [(k, v) for k, v in types if k in filtered]
+
         terms = []
         if types is not None:
             types = self._sort(types, priority_list)
-            terms = [SimpleTerm(item[0], item[0], item[1]) for item in types]
+            terms = [
+                SimpleTerm(item[0], item[0], item[1]) for item in types
+            ]
         return SimpleVocabulary(terms)
 
 
@@ -155,6 +173,15 @@ class ListingTypesVocabulary(BasePriorityVocabulary):
     priority = 'listing_types_priority'
 
 ListingTypesVocabularyFactory = ListingTypesVocabulary()
+
+
+class ListingTypesSearchVocabulary(ListingTypesVocabulary):
+    """Priority sortable vocabulary factory for 'listing_types'."""
+
+    local_settings_key = listing_search.CONFIGURATION_KEY
+    filter_key = 'listing_type'
+
+ListingTypesSearchVocabularyFactory = ListingTypesSearchVocabulary()
 
 
 class LocationCountyVocabulary(BasePriorityVocabulary):
