@@ -6,9 +6,11 @@ from Acquisition import aq_inner
 from Products.CMFPlone import PloneMessageFactory as PMF
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
+from plone.autoform import directives
 from plone.directives import form
 from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletManager, IPortletRetriever
+from plone.supermodel import model
 from plone.z3cform import z2
 from z3c.form import field, button
 from z3c.form.browser import checkbox, radio
@@ -103,7 +105,7 @@ class IListingSearchForm(form.Schema):
         required=False,
         title=_(u'Listing Type'),
         value_type=schema.Choice(
-            source='plone.mls.listing.ListingTypes'
+            source='plone.mls.listing.ListingTypesSearch'
         ),
     )
 
@@ -418,7 +420,7 @@ class ListingSearchViewlet(ViewletBase):
                             batch_data=self._batching)
 
 
-class IListingSearchConfiguration(Interface):
+class IListingSearchConfiguration(model.Schema):
     """Listing Search Configuration Form."""
 
     agency_listings = schema.Bool(
@@ -443,11 +445,25 @@ class IListingSearchConfiguration(Interface):
         ),
     )
 
+    directives.widget(listing_type=checkbox.CheckBoxFieldWidget)
+    listing_type = schema.Tuple(
+        description=_(
+            u'Select the available listing types for this search. If nothing '
+            u'is selected, all available listing types will be shown.'
+        ),
+        required=False,
+        title=_(u'Listing Type'),
+        value_type=schema.Choice(
+            source='plone.mls.listing.ListingTypes'
+        ),
+    )
 
-class ListingSearchConfiguration(form.Form):
+
+class ListingSearchConfiguration(form.SchemaForm):
     """Listing Search Configuration Form."""
 
-    fields = field.Fields(IListingSearchConfiguration)
+    prefix = 'form.config'
+    schema = IListingSearchConfiguration
     label = _(u"'Listing Search' Configuration")
     description = _(u"Adjust the behaviour for this 'Listing Search' viewlet.")
 
