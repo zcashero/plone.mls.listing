@@ -104,6 +104,21 @@ class QuickSearchForm(form.Form):
         super(QuickSearchForm, self).__init__(context, request)
         self.data = data
 
+    def getContent(self):
+        search_path = self.data.target_search
+        if search_path is None:
+            return self.context
+
+        if search_path.startswith('/'):
+            search_path = search_path[1:]
+
+        try:
+            search_view = self.context.restrictedTraverse(search_path)
+        except Unauthorized:
+            return self.context
+
+        return search_view
+
     def updateWidgets(self):
         super(QuickSearchForm, self).updateWidgets()
         # Temporary hide those 2 fields
