@@ -43,6 +43,8 @@ EMAIL_TEMPLATE = """\
 Enquiry from: %(name)s <%(sender_from_address)s>
 Listing URL: %(url)s
 
+Phone Number: %(phone)s
+
 Message:
 %(message)s
 """
