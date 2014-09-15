@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.9.14 (2014-09-15)
+-------------------
+
+- Support 'filtered' vocabularies for e.g. search options.
+- Support filtering of listing types within the search.
+- Include phone number in contact email.
+- I18N updates.
+
+
 0.9.13 (2014-08-21)
 -------------------
 
