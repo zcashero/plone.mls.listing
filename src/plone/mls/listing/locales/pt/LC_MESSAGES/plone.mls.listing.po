@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2014-09-02 18:02+0000\n"
-"PO-Revision-Date: 2014-09-02 18:04+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2014-09-02 18:14+0000\n"
+"Last-Translator: Valeria Garcia <valeriassimsou@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MLS_Plone/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -537,13 +537,13 @@ msgstr "Tipo de Objeto"
 
 #: plone/mls/listing/portlets/agent_contact.py:323
 msgid "Override Recipient"
-msgstr ""
+msgstr "Substituir Destinatário"
 
 #: plone/mls/listing/portlets/agent_contact.py:318
 msgid ""
 "Override the recipient e-mail address. Leave blank to use the e-mail address"
 " from the agent information."
-msgstr ""
+msgstr "Substituir o endereço de e-mail do destinatário. Deixe em branco para usar o endereço de e-mail a partir da informação do agente."
 
 #: plone/mls/listing/browser/listing_collection.py:179
 #: plone/mls/listing/browser/listing_search.py:184
@@ -589,7 +589,7 @@ msgstr "Preço (Min)"
 
 #: plone/mls/listing/browser/templates/listing_details.pt:145
 msgid "Print Listing"
-msgstr ""
+msgstr "Imprimir Anúncio"
 
 #: plone/mls/listing/portlets/agent_contact.py:342
 msgid "Reject Text with Links?"
@@ -622,7 +622,7 @@ msgstr "Selecione un valor..."
 msgid ""
 "Select the available listing types for this search. If nothing is selected, "
 "all available listing types will be shown."
-msgstr ""
+msgstr "Selecione os tipos de anúncio disponíveis para esta pesquisa. Se nada for selecionado, todos os tipos de anúncio disponíveis serão mostrados."
 
 #: plone/mls/listing/browser/listing_collection.py:119
 #: plone/mls/listing/browser/listing_search.py:114
