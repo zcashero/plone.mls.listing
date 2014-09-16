@@ -395,7 +395,11 @@ class ListingSearchViewlet(ViewletBase):
             'agency_listings': self.config.get('agency_listings', False)
         }
         search_params.update(params)
-        results, batching = search(search_params, context=self.context)
+        results, batching = search(
+            params=search_params,
+            context=self.context,
+            config=self.config,
+        )
         self._listings = results
         self._batching = batching
 

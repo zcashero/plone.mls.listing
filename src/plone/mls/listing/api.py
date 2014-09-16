@@ -207,13 +207,23 @@ def listing_details(listing_id, lang=None, context=None):
     return listing
 
 
-def search(params={}, batching=True, context=None):
+def search(params={}, batching=True, context=None, config=None):
     """Search for listings."""
+    if config is None:
+        config = {}
     settings = get_settings(context=context)
     search_params = {
         'sort_on': 'created',
         'reverse': '1',
     }
+    listing_types = set(config.get('listing_type', ()))
+    if listing_types:
+        # Available Listing Types are restricted.
+        search_listing_types = params.get('listing_type', None)
+        if search_listing_types:
+            search_listing_types = set(search_listing_types.split(','))
+            listing_types = listing_types.intersection(search_listing_types)
+        params['listing_type'] = ','.join(listing_types)
     agency_listings = params.pop('agency_listings', False)
     if agency_listings is True:
         search_params['agency_id'] = settings.get('agency_id', None)
