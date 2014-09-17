@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2014-09-02 18:02+0000\n"
-"PO-Revision-Date: 2014-09-02 18:04+0000\n"
+"POT-Creation-Date: 2014-09-17 07:10+0000\n"
+"PO-Revision-Date: 2014-09-17 07:10+0000\n"
 "Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/MLS_Plone/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -36,15 +36,15 @@ msgstr "'リストコレクション \"ビューレットが作動した。"
 msgid "'Listing Collection' viewlet deactivated."
 msgstr "'リストコレクション \"ビューレットは無効になりました。"
 
-#: plone/mls/listing/browser/listing_search.py:467
+#: plone/mls/listing/browser/listing_search.py:472
 msgid "'Listing Search' Configuration"
 msgstr "'リストの検索\"構成"
 
-#: plone/mls/listing/browser/listing_search.py:528
+#: plone/mls/listing/browser/listing_search.py:533
 msgid "'Listing Search' viewlet activated."
 msgstr "'リストの検索\"ビューレットが作動した。"
 
-#: plone/mls/listing/browser/listing_search.py:524
+#: plone/mls/listing/browser/listing_search.py:529
 msgid "'Listing Search' viewlet deactivated."
 msgstr "'リストの検索\"ビューレットは無効になりました。"
 
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Activate Recent Listings"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:337
+#: plone/mls/listing/portlets/agent_contact.py:339
 msgid ""
 "Activate for Spam Protection. Any attempt to use a link inside this form "
 "will raise a validation error."
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Activate the local agency information."
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:417
+#: plone/mls/listing/portlets/agent_contact.py:419
 #: plone/mls/listing/portlets/agent_information.py:88
 msgid "Add Agent Information portlet"
 msgstr "エージェント情報ポートレット追加"
@@ -131,7 +131,7 @@ msgstr "エージェント情報ポートレット追加"
 msgid "Add Listing Quick Search portlet"
 msgstr "物件検索ポートレットを追加 "
 
-#: plone/mls/listing/portlets/agent_contact.py:303
+#: plone/mls/listing/portlets/agent_contact.py:305
 msgid "Additional description for the portlet."
 msgstr "ポートレット追加説明"
 
@@ -139,7 +139,7 @@ msgstr "ポートレット追加説明"
 msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
 msgstr "この \"リスト·コレクション\"ビューレットのために行動を調整します。"
 
-#: plone/mls/listing/browser/listing_search.py:468
+#: plone/mls/listing/browser/listing_search.py:473
 msgid "Adjust the behaviour for this 'Listing Search' viewlet."
 msgstr "この \"リスト検索\"ビューレットの振る舞いを調整します。"
 
@@ -147,12 +147,12 @@ msgstr "この \"リスト検索\"ビューレットの振る舞いを調整し�
 msgid "Adjust the behaviour for this 'Recent Listings' viewlet."
 msgstr "この\"最近の掲載'ビューレットの振る舞いを調整します。"
 
-#: plone/mls/listing/portlets/agent_contact.py:145
+#: plone/mls/listing/portlets/agent_contact.py:147
 msgid "Adults"
 msgstr "大人"
 
 #: plone/mls/listing/browser/listing_collection.py:105
-#: plone/mls/listing/browser/listing_search.py:431
+#: plone/mls/listing/browser/listing_search.py:436
 #: plone/mls/listing/browser/recent_listings.py:104
 msgid "Agency Listings"
 msgstr ""
@@ -181,7 +181,7 @@ msgstr "エージェントのアバター"
 msgid "Agent Cell Phone"
 msgstr "代理人携帯電話"
 
-#: plone/mls/listing/portlets/agent_contact.py:357
+#: plone/mls/listing/portlets/agent_contact.py:359
 msgid "Agent Contact"
 msgstr "エージェント連絡先"
 
@@ -219,11 +219,11 @@ msgstr "冷暖房"
 msgid "All"
 msgstr "全部"
 
-#: plone/mls/listing/portlets/agent_contact.py:133
+#: plone/mls/listing/portlets/agent_contact.py:135
 msgid "Arrival Date"
 msgstr "到着日"
 
-#: plone/mls/listing/portlets/agent_contact.py:332
+#: plone/mls/listing/portlets/agent_contact.py:334
 msgid "BCC Recipients"
 msgstr "BCC受信者名"
 
@@ -241,16 +241,16 @@ msgid "Bedrooms"
 msgstr "寝室"
 
 #: plone/mls/listing/browser/listing_collection.py:222
-#: plone/mls/listing/browser/listing_search.py:487
+#: plone/mls/listing/browser/listing_search.py:492
 #: plone/mls/listing/browser/localconfig.py:52
 msgid "Cancel"
 msgstr "取り消し"
 
-#: plone/mls/listing/portlets/agent_contact.py:167
+#: plone/mls/listing/portlets/agent_contact.py:169
 msgid "Captcha"
 msgstr "キャプチャ"
 
-#: plone/mls/listing/portlets/agent_contact.py:151
+#: plone/mls/listing/portlets/agent_contact.py:153
 msgid "Children"
 msgstr "子供"
 
@@ -303,7 +303,7 @@ msgid ""
 "default title is used."
 msgstr "ポートレット（検索モード）のカスタムタイトル。タイトルが提供されていない場合、デフォルトのタイトルが使用されます。"
 
-#: plone/mls/listing/portlets/agent_contact.py:294
+#: plone/mls/listing/portlets/agent_contact.py:296
 #: plone/mls/listing/portlets/agent_information.py:35
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
@@ -342,11 +342,11 @@ msgstr ""
 msgid "Deactivate the local agency information."
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:139
+#: plone/mls/listing/portlets/agent_contact.py:141
 msgid "Departure Date"
 msgstr "出発日"
 
-#: plone/mls/listing/portlets/agent_contact.py:305
+#: plone/mls/listing/portlets/agent_contact.py:307
 msgid "Description"
 msgstr "説明"
 
@@ -355,11 +355,11 @@ msgstr "説明"
 msgid "District"
 msgstr "地区"
 
-#: plone/mls/listing/portlets/agent_contact.py:327
+#: plone/mls/listing/portlets/agent_contact.py:329
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr "BCC受信者メールアドレス"
 
-#: plone/mls/listing/portlets/agent_contact.py:429
+#: plone/mls/listing/portlets/agent_contact.py:431
 #: plone/mls/listing/portlets/agent_information.py:100
 msgid "Edit Agent Information portlet"
 msgstr "エージェント情報ポートレットの修正"
@@ -413,12 +413,12 @@ msgstr ""
 msgid "Geographic Type"
 msgstr "地形タイプ"
 
-#: plone/mls/listing/browser/listing_search.py:443
+#: plone/mls/listing/browser/listing_search.py:448
 msgid "Hide the search form when Quick Search Portlet is available?"
 msgstr "クイック検索ポートレットが利用可能であるときに検索フォームを非表示にするには？"
 
 #: plone/mls/listing/browser/listing_collection.py:101
-#: plone/mls/listing/browser/listing_search.py:427
+#: plone/mls/listing/browser/listing_search.py:432
 #: plone/mls/listing/browser/recent_listings.py:100
 msgid "If activated, only listings of the configured agency are shown."
 msgstr ""
@@ -427,7 +427,7 @@ msgstr ""
 msgid "Interior Area"
 msgstr "内部領域"
 
-#: plone/mls/listing/portlets/agent_contact.py:81
+#: plone/mls/listing/portlets/agent_contact.py:83
 msgid "Invalid email address"
 msgstr "無効メールアドレス"
 
@@ -438,7 +438,7 @@ msgid ""
 msgstr "この語彙内のアイテムは、優先キー(使用可能な場合)、それ以外の値でソートされています。 1行につき1つの項目を入力します。可能な値は以下の通りです %s"
 
 #: plone/mls/listing/browser/listing_collection.py:188
-#: plone/mls/listing/browser/listing_search.py:437
+#: plone/mls/listing/browser/listing_search.py:442
 #: plone/mls/listing/browser/recent_listings.py:136
 msgid "Items per Page"
 msgstr "検索限度"
@@ -504,7 +504,7 @@ msgstr "物件ID番号"
 msgid "MLS Listings"
 msgstr "物件"
 
-#: plone/mls/listing/portlets/agent_contact.py:313
+#: plone/mls/listing/portlets/agent_contact.py:315
 msgid "Mail Sent Message"
 msgstr "送信メールメッセージ"
 
@@ -528,8 +528,12 @@ msgstr "不動産仲介、もと情報"
 msgid "No"
 msgstr "いいえ"
 
-#: plone/mls/listing/portlets/agent_contact.py:89
+#: plone/mls/listing/portlets/agent_contact.py:91
 msgid "No Urls allowed"
+msgstr ""
+
+#: plone/mls/listing/browser/templates/listing_search_viewlet.pt:22
+msgid "No matching results found - please expand your search."
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:171
@@ -537,11 +541,11 @@ msgstr ""
 msgid "Object Type"
 msgstr "物種類"
 
-#: plone/mls/listing/portlets/agent_contact.py:323
+#: plone/mls/listing/portlets/agent_contact.py:325
 msgid "Override Recipient"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:318
+#: plone/mls/listing/portlets/agent_contact.py:320
 msgid ""
 "Override the recipient e-mail address. Leave blank to use the e-mail address"
 " from the agent information."
@@ -552,11 +556,11 @@ msgstr ""
 msgid "Ownership Type"
 msgstr "所有権の種類"
 
-#: plone/mls/listing/portlets/agent_contact.py:127
+#: plone/mls/listing/portlets/agent_contact.py:129
 msgid "Phone Number"
 msgstr "電話番後"
 
-#: plone/mls/listing/portlets/agent_contact.py:121
+#: plone/mls/listing/portlets/agent_contact.py:123
 msgid "Please enter a phone number. Some agents will not respond without one."
 msgstr "あなたの電話番後おください"
 
@@ -564,7 +568,7 @@ msgstr "あなたの電話番後おください"
 msgid "Pool"
 msgstr "プール"
 
-#: plone/mls/listing/portlets/agent_contact.py:299
+#: plone/mls/listing/portlets/agent_contact.py:301
 #: plone/mls/listing/portlets/agent_information.py:39
 msgid "Portlet Title"
 msgstr "ポートレットタイトル"
@@ -593,12 +597,12 @@ msgstr "最低額"
 msgid "Print Listing"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:342
+#: plone/mls/listing/portlets/agent_contact.py:344
 msgid "Reject Text with Links?"
 msgstr ""
 
 #: plone/mls/listing/browser/listing_collection.py:212
-#: plone/mls/listing/browser/listing_search.py:475
+#: plone/mls/listing/browser/listing_search.py:480
 #: plone/mls/listing/browser/localconfig.py:41
 msgid "Save"
 msgstr "保存"
@@ -620,7 +624,7 @@ msgstr "代理人はこのリスト（オリジナルタイトルと説明）に
 msgid "Select a value..."
 msgstr "値を選択してください..."
 
-#: plone/mls/listing/browser/listing_search.py:450
+#: plone/mls/listing/browser/listing_search.py:455
 msgid ""
 "Select the available listing types for this search. If nothing is selected, "
 "all available listing types will be shown."
@@ -631,7 +635,7 @@ msgstr ""
 msgid "State"
 msgstr "州"
 
-#: plone/mls/listing/portlets/agent_contact.py:309
+#: plone/mls/listing/portlets/agent_contact.py:311
 msgid "Thank you message that is shown after the mail was sent."
 msgstr "メール送信後の礼文"
 
@@ -642,7 +646,7 @@ msgid ""
 "feature."
 msgstr "このコンテンツタイプを使用して、'リストコレクション \"ビューレットのdoes't作業。この機能を有効にするために提供されているインタフェースに 'IPossibleListingCollection'を追加します。"
 
-#: plone/mls/listing/browser/listing_search.py:530
+#: plone/mls/listing/browser/listing_search.py:535
 msgid ""
 "The 'Listing Search' viewlet does't work with this content type. Add "
 "'IPossibleListingSearch' to the provided interfaces to enable this feature."
