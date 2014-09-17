@@ -8,7 +8,8 @@
       tal:condition="view/available | nothing"
       tal:define="listings view/listings | nothing;
                   batch view/batching | nothing;
-                  results batch/sequence_length | nothing;">
+                  results batch/sequence_length | nothing;
+                  search_performed view/search_performed | nothing;">
 
   <section id="listing-search" class="listing-summary"
            tal:define="page_url view/view_url | nothing;
@@ -16,6 +17,10 @@
                        b_size view/limit;
                        b_orphan python: 1;
                        b_start request/b_start | python: 0;">
+
+    <tal:nolistings tal:condition="python: search_performed and not results">
+      <h2 i18n:translate="">No matching results found - please expand your search.</h2>
+    </tal:nolistings>
 
     <div id="search-form"
          tal:condition="python: not view.hide_form or not listings"
