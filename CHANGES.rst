@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.9.15 (2014-09-17)
+-------------------
+
+- Limit listing types in searches if restricted and no listing type is selected.
+- Show no results found message when no search results available.
+- I18N updates.
+
+
 0.9.14 (2014-09-15)
 -------------------
 
