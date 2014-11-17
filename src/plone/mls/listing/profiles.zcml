@@ -25,14 +25,6 @@
     <depends name="metadata" />
   </genericsetup:importStep>
 
-  <genericsetup:importStep
-      name="plone.mls.listing.versioning"
-      title="Enable versioning for plone.mls.listing"
-      description="Additional setup steps for plone.mls.listing"
-      handler=".setuphandlers.setup_versioning">
-    <depends name="types" />
-  </genericsetup:importStep>
-
 
   <!-- GenericSetup Upgrade Steps. -->
   <!-- =========================== -->
