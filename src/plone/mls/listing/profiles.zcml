@@ -17,14 +17,6 @@
   <!-- GenericSetup Import Steps. -->
   <!-- ========================== -->
   <genericsetup:importStep
-      name="plone.mls.listing.kupu"
-      title="Kupu configuration for plone.mls.listing"
-      description="Additional setup steps for plone.mls.listing"
-      handler=".setuphandlers.setup_kupu">
-    <depends name="kupu" />
-  </genericsetup:importStep>
-
-  <genericsetup:importStep
       name="plone.mls.listing.article"
       title="raptus.article configuration for plone.mls.listing"
       description="Additional setup steps for plone.mls.listing"
