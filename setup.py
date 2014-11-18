@@ -24,6 +24,7 @@ install_requires = [
     'plone.app.versioningbehavior',
     'plone.formwidget.captcha',
     'plone.mls.core >= 0.5',
+    'ps.plone.fotorama',
 ]
 
 setup(
