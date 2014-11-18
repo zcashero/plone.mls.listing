@@ -24,11 +24,17 @@ class TestSetup(unittest.TestCase):
         qi = portal.portal_quickinstaller
         self.assertTrue(qi.isProductInstalled('plone.app.dexterity'))
 
+    def test_ps_plone_fotorama_installed(self):
+        """Validate that ps.plone.fotorama is installed."""
+        portal = self.layer['portal']
+        qi = portal.portal_quickinstaller
+        self.assertTrue(qi.isProductInstalled('ps.plone.fotorama'))
+
     # def test_raptus_article_core_installed(self):
     #     """Test that raptus.article.core is installed.
 
-    #     Note that raptus.article.core is only installed automatically in tests
-    #     so that we can test the article integration.
+    #     Note that raptus.article.core is only installed automatically in
+    #     tests so that we can test the article integration.
     #     """
     #     portal = self.layer['portal']
     #     qi = portal.portal_quickinstaller
