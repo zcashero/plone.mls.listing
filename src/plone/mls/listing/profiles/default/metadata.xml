@@ -2,9 +2,9 @@
 <metadata>
   <version>1008</version>
   <dependencies>
+    <dependency>profile-collective.prettyphoto:default</dependency>
     <dependency>profile-plone.app.dexterity:default</dependency>
     <dependency>profile-plone.mls.core:default</dependency>
-    <dependency>profile-collective.prettyphoto:default</dependency>
     <dependency>profile-ps.plone.fotorama:default</dependency>
   </dependencies>
 </metadata>
