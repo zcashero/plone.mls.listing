@@ -256,4 +256,5 @@ class ListingDetails(BrowserView):
                 logger.warning('MLS UI settings not available.')
             else:
                 return getattr(settings, 'slideshow') == u'galleria'
-        return False
+        # Fallback: 'galleria' is the default.
+        return True
