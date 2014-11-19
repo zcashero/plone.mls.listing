@@ -1,16 +1,25 @@
 # -*- coding: utf-8 -*-
 """Various browser views for listings."""
 
+# python imports
+import logging
+
 # zope imports
 from Products.Five import BrowserView
 from plone.memoize.view import memoize
-from zope.component import queryMultiAdapter
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility, queryMultiAdapter
 from zope.interface import implementer
 
 # local imports
 from plone.mls.core import api
+from plone.mls.listing import PRODUCT_NAME
 from plone.mls.listing.api import get_agency_info, listing_details
 from plone.mls.listing.browser.interfaces import IListingDetails
+from plone.mls.listing.interfaces import IMLSUISettings
+
+
+logger = logging.getLogger(PRODUCT_NAME)
 
 
 @implementer(IListingDetails)
@@ -25,8 +34,10 @@ class ListingDetails(BrowserView):
         self.update()
 
     def update(self):
-        self.portal_state = queryMultiAdapter((self.context, self.request),
-                                              name='plone_portal_state')
+        self.portal_state = queryMultiAdapter(
+            (self.context, self.request), name='plone_portal_state',
+        )
+        self.registry = getUtility(IRegistry)
         self._get_data()
 
     @memoize
@@ -133,62 +144,62 @@ class ListingDetails(BrowserView):
         return agency
 
     def update_agent_info(self, agent, settings):
-            # Adjust agent name.
-            agent_name = settings.get('agent_name', None)
-            if agent_name is not None:
-                item = agent.setdefault('name', {})
-                item['value'] = agent_name
-            else:
-                agent['name'] = None
+        # Adjust agent name.
+        agent_name = settings.get('agent_name', None)
+        if agent_name is not None:
+            item = agent.setdefault('name', {})
+            item['value'] = agent_name
+        else:
+            agent['name'] = None
 
-            # Adjust agent title.
-            agent_title = settings.get('agent_title', None)
-            if agent_title is not None:
-                item = agent.setdefault('title', {})
-                item['value'] = agent_title
-            else:
-                agent['title'] = None
+        # Adjust agent title.
+        agent_title = settings.get('agent_title', None)
+        if agent_title is not None:
+            item = agent.setdefault('title', {})
+            item['value'] = agent_title
+        else:
+            agent['title'] = None
 
-            # Adjust agent office phone.
-            agent_office_phone = settings.get('agent_office_phone', None)
-            if agent_office_phone is not None:
-                item = agent.setdefault('agent_office_phone', {})
-                item['value'] = agent_office_phone
-            else:
-                agent['agent_office_phone'] = None
+        # Adjust agent office phone.
+        agent_office_phone = settings.get('agent_office_phone', None)
+        if agent_office_phone is not None:
+            item = agent.setdefault('agent_office_phone', {})
+            item['value'] = agent_office_phone
+        else:
+            agent['agent_office_phone'] = None
 
-            # Adjust agent cell phone.
-            agent_cell_phone = settings.get('agent_cell_phone', None)
-            if agent_cell_phone is not None:
-                item = agent.setdefault('agent_cell_phone', {})
-                item['value'] = agent_cell_phone
-            else:
-                agent['agent_cell_phone'] = None
+        # Adjust agent cell phone.
+        agent_cell_phone = settings.get('agent_cell_phone', None)
+        if agent_cell_phone is not None:
+            item = agent.setdefault('agent_cell_phone', {})
+            item['value'] = agent_cell_phone
+        else:
+            agent['agent_cell_phone'] = None
 
-            # Adjust agent fax.
-            agent_fax = settings.get('agent_fax', None)
-            if agent_fax is not None:
-                item = agent.setdefault('agent_fax', {})
-                item['value'] = agent_fax
-            else:
-                agent['agent_fax'] = None
+        # Adjust agent fax.
+        agent_fax = settings.get('agent_fax', None)
+        if agent_fax is not None:
+            item = agent.setdefault('agent_fax', {})
+            item['value'] = agent_fax
+        else:
+            agent['agent_fax'] = None
 
-            # Adjust agent email.
-            agent_email = settings.get('agent_email', None)
-            if agent_email is not None:
-                item = agent.setdefault('agent_email', {})
-                item['value'] = agent_email
-            else:
-                agent['agent_email'] = None
+        # Adjust agent email.
+        agent_email = settings.get('agent_email', None)
+        if agent_email is not None:
+            item = agent.setdefault('agent_email', {})
+            item['value'] = agent_email
+        else:
+            agent['agent_email'] = None
 
-            # Adjust agent avatar.
-            agent_avatar_url = settings.get('agent_avatar_url', None)
-            if agent_avatar_url is not None:
-                agent['avatar'] = agent_avatar_url
-            else:
-                agent['avatar'] = None
+        # Adjust agent avatar.
+        agent_avatar_url = settings.get('agent_avatar_url', None)
+        if agent_avatar_url is not None:
+            agent['avatar'] = agent_avatar_url
+        else:
+            agent['avatar'] = None
 
-            # TODO: Adjust agent languages.
+        # TODO: Adjust agent languages.
 
     @property
     def contact(self):
@@ -226,3 +237,23 @@ class ListingDetails(BrowserView):
             return '/'.join([self.context.absolute_url(), self.listing_id])
         else:
             return self.context.absolute_url()
+
+    def use_fotorama(self):
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)
+            except:
+                logger.warning('MLS UI settings not available.')
+            else:
+                return getattr(settings, 'slideshow') == u'fotorama'
+        return False
+
+    def use_galleria(self):
+        if self.registry is not None:
+            try:
+                settings = self.registry.forInterface(IMLSUISettings)
+            except:
+                logger.warning('MLS UI settings not available.')
+            else:
+                return getattr(settings, 'slideshow') == u'galleria'
+        return False
