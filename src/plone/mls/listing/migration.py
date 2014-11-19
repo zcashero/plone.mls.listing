@@ -181,3 +181,17 @@ def migrate_to_1008(context):
     setup.runImportStepFromProfile(PROFILE_ID, 'actions')
     registry = getUtility(IRegistry)
     registry.registerInterface(IMLSAgencyContactInformation)
+
+
+def migrate_to_1009(context):
+    """Migrate from 1008 to 1009.
+
+    * Add the IMLSUIInformation registry settings.
+    * Install ps.plone.fotorama.
+    """
+    site = getUtility(IPloneSiteRoot)
+    quickinstaller = getToolByName(site, 'portal_quickinstaller')
+    quickinstaller.installProduct('ps.plone.fotorama')
+    setup = getToolByName(site, 'portal_setup')
+    setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.registry')
+    setup.runImportStepFromProfile(PROFILE_ID, 'controlpanel')
