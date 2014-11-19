@@ -17,6 +17,17 @@
       />
 
 
+  <!-- UI Settings. -->
+  <!-- ============ -->
+  <browser:page
+      class=".controlpanel.MLSUISettingsControlPanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      layer=".interfaces.IListingSpecific"
+      name="mls-ui-settings"
+      permission="plone.app.controlpanel.Site"
+      />
+
+
   <!-- Local Agency Information. -->
   <!-- ========================= -->
 

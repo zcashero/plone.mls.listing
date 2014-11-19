@@ -2,4 +2,5 @@
 <registry>
   <records interface="plone.mls.listing.interfaces.IMLSVocabularySettings" />
   <records interface="plone.mls.listing.interfaces.IMLSAgencyContactInformation" />
+  <records interface="plone.mls.listing.interfaces.IMLSUISettings" />
 </registry>

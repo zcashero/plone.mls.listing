@@ -91,6 +91,21 @@ class IMLSVocabularySettings(Interface):
     )
 
 
+class IMLSUISettings(Interface):
+    """Propertyshelf MLS UI settings.
+
+    This describes records stored in the configuration registry and obtainable
+    via plone.registry.
+    """
+
+    slideshow = schema.Choice(
+        default=u'galleria',
+        required=True,
+        title=_(u'Slideshow'),
+        values=[u'galleria', u'fotorama'],
+    )
+
+
 class IMLSAgencyContactInformation(Interface):
     """Propertyshelf MLS settings for custom contact information.
 
