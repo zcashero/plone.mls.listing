@@ -88,8 +88,8 @@
           <div id="listing-images"
                tal:define="images view/images | nothing;
                            lead_image view/lead_image | nothing;
-                           use_fotorama view/use_fotorama;
-                           use_galleria view/use_galleria;">
+                           use_fotorama view/use_fotorama | nothing;
+                           use_galleria view/use_galleria | nothing;">
             <h2 class="hiddenStructure" i18n:translate="">Listing Images</h2>
             <tal:leadimage tal:condition="python: not images and lead_image">
               <a href="" rel="prettyPhoto[listing]" class="preview"
