@@ -1,6 +1,7 @@
 # 
 # Translators:
 # Ameet Oliver Mahajan <ameet@propertyshelf.com>, 2014
+# Ameet Oliver Mahajan <ameet@propertyshelf.com>, 2014
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2012-2013
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2014
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2013-2014
@@ -8,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2014-09-17 07:10+0000\n"
-"PO-Revision-Date: 2014-09-17 07:10+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2014-09-17 17:59+0000\n"
+"Last-Translator: Ameet Oliver Mahajan <ameet@propertyshelf.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -535,7 +536,7 @@ msgstr "Es sind keine URLs erlaubt."
 
 #: plone/mls/listing/browser/templates/listing_search_viewlet.pt:22
 msgid "No matching results found - please expand your search."
-msgstr ""
+msgstr "Keine passenden Ergebnisse gefunden - bitte erweitern Sie Ihre Suche."
 
 #: plone/mls/listing/browser/listing_collection.py:171
 #: plone/mls/listing/browser/listing_search.py:175
@@ -544,13 +545,13 @@ msgstr "Art des Objektes"
 
 #: plone/mls/listing/portlets/agent_contact.py:325
 msgid "Override Recipient"
-msgstr ""
+msgstr "Empfänger überschreiben"
 
 #: plone/mls/listing/portlets/agent_contact.py:320
 msgid ""
 "Override the recipient e-mail address. Leave blank to use the e-mail address"
 " from the agent information."
-msgstr ""
+msgstr "Empfänger Emailadresse überschreiben. Freilassen, um die Emailadresse der Maklerinformation zu nutzen."
 
 #: plone/mls/listing/browser/listing_collection.py:179
 #: plone/mls/listing/browser/listing_search.py:184
@@ -596,7 +597,7 @@ msgstr "Preis (Min)"
 
 #: plone/mls/listing/browser/templates/listing_details.pt:145
 msgid "Print Listing"
-msgstr ""
+msgstr "Immobilie ausdrucken"
 
 #: plone/mls/listing/portlets/agent_contact.py:344
 msgid "Reject Text with Links?"
@@ -629,7 +630,7 @@ msgstr "Bitte wählen Sie..."
 msgid ""
 "Select the available listing types for this search. If nothing is selected, "
 "all available listing types will be shown."
-msgstr ""
+msgstr "Die verfügbaren Immobilientypen für diese Suche wählen. Wenn keine gewählt sind, werden alle verfügbaren angezeigt."
 
 #: plone/mls/listing/browser/listing_collection.py:119
 #: plone/mls/listing/browser/listing_search.py:114
