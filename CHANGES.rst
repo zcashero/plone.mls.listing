@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.9.16 (2014-11-24)
+-------------------
+
+- Listing Details template: add field id CSS class to tabbed ListingDetails.
+- Removed kupu integration.
+- Support galleria and fotorama slideshow.
+- Added MLS UI settings controlpanel. Allows selection of slideshow plugin.
+
+
 0.9.15 (2014-09-17)
 -------------------
 
