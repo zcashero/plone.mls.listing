@@ -3,6 +3,7 @@
 
 # python imports
 from email import message_from_string
+import copy
 import re
 
 # zope imports
@@ -215,7 +216,9 @@ class EmailForm(form.Form):
         self.widgets['subject'].value = subject
 
         if not self.check_for_spam:
-            self.widgets['message'].field.constraint = None
+            schema_field = copy.copy(self.widgets['message'].field)
+            schema_field.constraint = lambda x: True
+            self.widgets['message'].field = schema_field
 
     @button.buttonAndHandler(PMF(u'label_send', default='Send'), name='send')
     def handle_send(self, action):
