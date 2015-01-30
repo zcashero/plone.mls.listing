@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.9.17 (2015-01-30)
+-------------------
+- Make a copy of the field before changing its attributes.
+- Make ps.plone.fotorama dependency optional.
+
+
 0.9.16 (2014-11-24)
 -------------------
 
