@@ -1,8 +1,10 @@
 Changelog
 =========
 
-1.0dev (unreleased)
+0.9.18 (2015-01-30)
 -------------------
+
+- Fixed migration step from 1008 to 1009.
 
 
 0.9.17 (2015-01-30)
