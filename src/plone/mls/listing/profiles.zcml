@@ -25,6 +25,14 @@
     <depends name="metadata" />
   </genericsetup:importStep>
 
+  <genericsetup:importStep
+      name="plone.mls.listing.addons"
+      title="plone.mls.listing add-on installation"
+      description="Install additional available add-ons."
+      handler=".setuphandlers.install_add_ons">
+    <depends name="metadata" />
+  </genericsetup:importStep>
+
 
   <!-- GenericSetup Upgrade Steps. -->
   <!-- =========================== -->
