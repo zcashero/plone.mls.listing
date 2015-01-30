@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0dev (unreleased)
+-------------------
+
+
 0.9.17 (2015-01-30)
 -------------------
 - Make a copy of the field before changing its attributes.
