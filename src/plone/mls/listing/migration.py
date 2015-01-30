@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Migration steps for plone.mls.listing."""
 
+# python imports
+import pkg_resources
+
 # zope imports
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
@@ -190,8 +193,16 @@ def migrate_to_1009(context):
     * Install ps.plone.fotorama.
     """
     site = getUtility(IPloneSiteRoot)
-    quickinstaller = getToolByName(site, 'portal_quickinstaller')
-    quickinstaller.installProduct('ps.plone.fotorama')
+    try:
+        item = 'ps.plone.fotorama'
+        pkg_resources.get_distribution(item)
+    except pkg_resources.DistributionNotFound:
+        pass
+    else:
+        quickinstaller = getToolByName(site, 'portal_quickinstaller')
+        if not quickinstaller.isProductInstalled(item):
+            if quickinstaller.isProductInstallable(item):
+                quickinstaller.installProduct(item)
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.registry')
     setup.runImportStepFromProfile(PROFILE_ID, 'controlpanel')
