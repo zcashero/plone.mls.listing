@@ -24,7 +24,6 @@ install_requires = [
     'plone.app.versioningbehavior',
     'plone.formwidget.captcha',
     'plone.mls.core >= 0.5',
-    'ps.plone.fotorama',
 ]
 
 setup(
@@ -63,6 +62,9 @@ setup(
         test=[
             'plone.app.testing',
             # 'raptus.article.core',
+        ],
+        fotorama=[
+            'ps.plone.fotorama',
         ],
     ),
     install_requires=install_requires,

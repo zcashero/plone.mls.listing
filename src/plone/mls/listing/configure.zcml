@@ -21,6 +21,7 @@
 
   <!-- Include optional package dependencies. -->
   <!-- ====================================== -->
+  <include package="ps.plone.fotorama" zcml:condition="installed ps.plone.fotorama" />
   <include package=".article" zcml:condition="installed raptus.article.core" />
 
   <class class="Products.Archetypes.BaseObject.BaseObject">
