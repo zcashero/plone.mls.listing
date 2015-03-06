@@ -2,6 +2,8 @@
 """Propertyshelf MLS Embedding interfaces."""
 
 # zope imports
+from plone.directives import form
+from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import Interface
 
@@ -110,12 +112,49 @@ class IMLSUISettings(Interface):
     )
 
 
-class IMLSAgencyContactInformation(Interface):
+FIELDS_AGENCY = (
+    'agency_name',
+    'agency_description',
+    'agency_address',
+    'agency_logo_url',
+    'agency_office_phone',
+    'agency_office_phone_alternative',
+    'agency_office_fax',
+    'agency_website',
+    'agency_email',
+    'agency_email_alternative',
+    'agency_geo_location',
+)
+
+FIELDS_AGENT = (
+    'agent_name',
+    'agent_avatar_url',
+    'agent_title',
+    'agent_office_phone',
+    'agent_cell_phone',
+    'agent_fax',
+    'agent_email',
+)
+
+
+class IMLSAgencyContactInformation(form.Schema):
     """Propertyshelf MLS settings for custom contact information.
 
     This describes records stored in the configuration registry and obtainable
     via plone.registry.
     """
+
+    fieldset(
+        'agency',
+        label=_(u'Agency'),
+        fields=FIELDS_AGENCY,
+    )
+
+    fieldset(
+        'agent',
+        label=_(u'Agent'),
+        fields=FIELDS_AGENT,
+    )
 
     use_custom_info = schema.Bool(
         default=False,
