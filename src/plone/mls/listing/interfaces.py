@@ -131,6 +131,16 @@ class IMLSAgencyContactInformation(Interface):
         title=_(u'Force Overwrite'),
     )
 
+    clear = schema.Bool(
+        default=False,
+        description=_(
+            u'Clear the orignal provided information so that only the newly '
+            u'provided info is used?'
+        ),
+        required=False,
+        title=_(u'Clear orignal information')
+    )
+
     agency_name = schema.TextLine(
         required=True,
         title=_(u'Agency Name'),
