@@ -136,6 +136,16 @@ class IMLSAgencyContactInformation(Interface):
         title=_(u'Agency Name'),
     )
 
+    agency_description = schema.Text(
+        required=False,
+        title=_(u'Agency Description'),
+    )
+
+    agency_address = schema.Text(
+        required=False,
+        title=_(u'Agency Business Address'),
+    )
+
     agency_logo_url = schema.TextLine(
         description=_('Enter the URL of the logo that should be used.'),
         required=False,
@@ -147,9 +157,34 @@ class IMLSAgencyContactInformation(Interface):
         title=_(u'Agency Office Phone'),
     )
 
+    agency_office_phone_alternative = schema.TextLine(
+        required=False,
+        title=_(u'Agency Office Phone (alternative)'),
+    )
+
+    agency_office_fax = schema.TextLine(
+        required=False,
+        title=_(u'Agency Office Fax'),
+    )
+
     agency_website = schema.TextLine(
         required=False,
         title=_(u'Agency Website'),
+    )
+
+    agency_email = schema.TextLine(
+        required=False,
+        title=_(u'Agency Email'),
+    )
+
+    agency_email_alternative = schema.TextLine(
+        required=False,
+        title=_(u'Agency Email (alternative'),
+    )
+
+    agency_geo_location = schema.TextLine(
+        required=False,
+        title=_(u'Geographic Location (latitude, longitude)'),
     )
 
     agent_name = schema.TextLine(
