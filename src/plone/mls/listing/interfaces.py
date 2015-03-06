@@ -47,6 +47,10 @@ POSSIBLE_VIEW_TYPES = ', '.join([
 ])
 
 
+class IMLSAgencyContactInfoSettingsEditForm(Interface):
+    """Marker interface for the Agency Information Settings Form."""
+
+
 class IMLSVocabularySettings(Interface):
     """Propertyshelf MLS settings for vocabularies.
 
