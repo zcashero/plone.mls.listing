@@ -156,6 +156,8 @@ class IMLSAgencyContactInformation(form.Schema):
         fields=FIELDS_AGENT,
     )
 
+    form.omitted('use_custom_info')
+    form.no_omit(IMLSAgencyContactInfoSettingsEditForm, 'use_custom_info')
     use_custom_info = schema.Bool(
         default=False,
         description=_(

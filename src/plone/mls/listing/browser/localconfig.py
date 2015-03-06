@@ -20,10 +20,10 @@ from plone.mls.listing.interfaces import (
 CONFIGURATION_KEY = 'plone.mls.listing.localagencyinfo'
 
 
-class LocalAgencyInfo(form.Form):
+class LocalAgencyInfo(form.SchemaForm):
     """Local agency information form."""
 
-    fields = field.Fields(IMLSAgencyContactInformation).omit('use_custom_info')
+    schema = IMLSAgencyContactInformation
     label = _(u'Local Agency Information')
     description = _(
         u'This agency information will be used for this content item and all '
