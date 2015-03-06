@@ -161,7 +161,8 @@ class IMLSAgencyContactInformation(form.Schema):
     use_custom_info = schema.Bool(
         default=False,
         description=_(
-            u'Update agent information when showing a third party listing?'
+            u'Update contact information when showing third party items '
+            u'from other agencies?'
         ),
         required=False,
         title=_(u'Enable'),
@@ -170,7 +171,8 @@ class IMLSAgencyContactInformation(form.Schema):
     force = schema.Bool(
         default=False,
         description=_(
-            u'Force usage of custom agency information, even on own listings?'
+            u'Force usage of custom contact information, even when showing '
+            u'items from this agency?'
         ),
         required=False,
         title=_(u'Force Overwrite'),
@@ -179,11 +181,11 @@ class IMLSAgencyContactInformation(form.Schema):
     clear = schema.Bool(
         default=False,
         description=_(
-            u'Clear the orignal provided information so that only the newly '
-            u'provided info is used?'
+            u'Remove the contact information coming from the MLS. '
+            u'Only custom provided contact information will be used.'
         ),
         required=False,
-        title=_(u'Clear orignal information')
+        title=_(u'Remove MLS Contact Information')
     )
 
     agency_name = schema.TextLine(
