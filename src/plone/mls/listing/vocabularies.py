@@ -126,22 +126,34 @@ class BasePriorityVocabulary(object):
         )
         registry = getUtility(IRegistry)
         try:
-            settings = registry.forInterface(IMLSVocabularySettings,
-                                             check=False)
+            settings = registry.forInterface(
+                IMLSVocabularySettings,
+                check=False,
+            )
         except KeyError:
             priority_list = []
         else:
             value = getattr(settings, self.priority, '')
             if value is None:
                 value = ''
-            priority_list = [item.strip() for item in value.split(',')
-                             if len(item.strip()) > 0]
+            priority_list = [
+                item.strip() for item in value.split(',')
+                if len(item.strip()) > 0
+            ]
 
         mls_settings = api.get_settings(context=context)
         mls_url = mls_settings.get('mls_site', None)
 
-        types = search_options(mls_url, self.vocabulary_name,
-                               portal_state.language(), context=context)
+        try:
+            language = portal_state.language()
+        except:
+            language = None
+
+        types = search_options(
+            mls_url, self.vocabulary_name,
+            language,
+            context=context,
+        )
 
         if self.local_settings_key is not None:
             try:

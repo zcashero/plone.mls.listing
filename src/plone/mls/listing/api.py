@@ -165,7 +165,7 @@ def search_options(mls_url, category, lang=None, context=None):
         return
 
     timeout = 60
-    key = mls_url + category + '_' + lang
+    key = mls_url + category + '_' + str(lang)
     options = OPTIONS_CACHE.get(key, None)
 
     if options is None:
