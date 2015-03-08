@@ -30,6 +30,7 @@ except ImportError:
 
 # local imports
 from plone.mls.core.navigation import ListingBatch
+from plone.mls.listing import AnnotationStorage
 from plone.mls.listing.api import prepare_search_params, search
 from plone.mls.listing.browser.interfaces import (
     IBaseListingItems,
@@ -474,8 +475,13 @@ class ListingSearchConfiguration(form.SchemaForm):
 
     def getContent(self):
         annotations = IAnnotations(self.context)
-        return annotations.get(CONFIGURATION_KEY,
-                               annotations.setdefault(CONFIGURATION_KEY, {}))
+        content = annotations.get(
+            CONFIGURATION_KEY,
+            annotations.setdefault(CONFIGURATION_KEY, {})
+        )
+        content = AnnotationStorage(content)
+        content.context = self.context
+        return content
 
     @button.buttonAndHandler(_(u'Save'))
     def handle_save(self, action):
