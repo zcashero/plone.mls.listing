@@ -13,6 +13,7 @@ from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 # local imports
 from plone.mls.core import api
+from plone.mls.listing import AnnotationStorage
 from plone.mls.listing.i18n import _
 from plone.mls.listing.api import search_options
 from plone.mls.listing.browser import listing_search
@@ -116,8 +117,13 @@ class BasePriorityVocabulary(object):
         return data
 
     def __call__(self, context):
-        portal_state = queryMultiAdapter((context, getRequest()),
-                                         name='plone_portal_state')
+        if isinstance(context, AnnotationStorage):
+            context = context.context
+
+        portal_state = queryMultiAdapter(
+            (context, getRequest()),
+            name='plone_portal_state',
+        )
         registry = getUtility(IRegistry)
         try:
             settings = registry.forInterface(IMLSVocabularySettings,
