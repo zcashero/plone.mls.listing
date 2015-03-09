@@ -226,7 +226,7 @@ class IMLSAgencyContactInformation(form.Schema):
 
     agency_email_alternative = schema.TextLine(
         required=False,
-        title=_(u'Agency Email (alternative'),
+        title=_(u'Agency Email (alternative)'),
     )
 
     agency_geo_location = schema.TextLine(
