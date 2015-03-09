@@ -178,16 +178,6 @@ class IMLSAgencyContactInformation(form.Schema):
         title=_(u'Force Overwrite'),
     )
 
-    clear = schema.Bool(
-        default=False,
-        description=_(
-            u'Remove the contact information coming from the MLS. '
-            u'Only custom provided contact information will be used.'
-        ),
-        required=False,
-        title=_(u'Remove MLS Contact Information')
-    )
-
     agency_name = schema.TextLine(
         required=True,
         title=_(u'Agency Name'),
