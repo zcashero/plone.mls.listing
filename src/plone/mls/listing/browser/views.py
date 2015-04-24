@@ -10,6 +10,7 @@ from plone.memoize.view import memoize
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility, queryMultiAdapter
 from zope.interface import implementer
+from zope.publisher.interfaces import NotFound
 
 # local imports
 from plone.mls.core import api
@@ -49,8 +50,13 @@ class ListingDetails(BrowserView):
         else:
             self.listing_id = getattr(self.context, 'listing_id', None)
         if self.listing_id:
-            self._data = listing_details(self.listing_id, lang,
-                                         context=self.context)
+            self._data = listing_details(
+                self.listing_id,
+                lang,
+                context=self.context,
+            )
+            if self._data is None:
+                raise NotFound(self.context, None, self.request)
 
     @property
     def data(self):
