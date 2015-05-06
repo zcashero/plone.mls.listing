@@ -185,6 +185,10 @@
                 </dd>
               </tal:group>
             </tal:groups>
+          <tal:video tal:define="item view/video | nothing" tal:condition="item">
+            <div class="listing-video"
+              tal:content="structure item" />
+          </tal:video>
           </dl>
         </tal:listing>
         <p><a href="print-listing" onclick="return popitup(this.href)"

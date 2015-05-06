@@ -116,6 +116,11 @@ class ListingDetails(BrowserView):
             if len(images) > 1:
                 return images
 
+    @property
+    def video(self):
+        if self.data is not None:
+            return self.data.get('property_video_embedding', None)
+
     def update_agency_info(self, agency, settings):
         # Adjust agency name.
         agency_name = settings.get('agency_name', None)
