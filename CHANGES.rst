@@ -4,6 +4,9 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+0.9.19 (2015-05-06)
+-------------------
+- Listing Details template: add Listing Video
 
 0.9.18 (2015-01-30)
 -------------------
