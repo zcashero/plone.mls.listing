@@ -206,3 +206,15 @@ def migrate_to_1009(context):
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.registry')
     setup.runImportStepFromProfile(PROFILE_ID, 'controlpanel')
+
+
+def migrate_to_1010(context):
+    """"Migrate from 1009 to 1010
+
+    * update java sscript registry
+    * update css registry
+    """
+    site = getUtility(IPloneSiteRoot)
+    setup = getToolByName(site, 'portal_setup')
+    setup.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
+    setup.runImportStepFromProfile(PROFILE_ID, 'cssregistry')
