@@ -136,4 +136,14 @@
       profile="plone.mls.listing:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Update CSS"
+      source="1010"
+      destination="1011"
+      handler=".migration.migrate_to_1011"
+      sortkey="1"
+      profile="plone.mls.listing:default"
+      />
+
 </configure>
