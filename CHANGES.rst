@@ -1,8 +1,11 @@
 Changelog
 =========
 
-1.0dev (unreleased)
+0.9.21 (2015-05-07)
 -------------------
+- mobile improvement ListingDetails
+- additional spacing around embedding video
+- added migration step
 
 0.9.20 (2015-05-07)
 -------------------
