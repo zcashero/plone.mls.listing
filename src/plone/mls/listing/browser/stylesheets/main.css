@@ -104,6 +104,11 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   margin-bottom: 1.5em;
   margin-right: 1.5em;
   width: 412px;
+  max-width:100%;
+}
+
+.listing #listing-images img{
+  max-width: 100%;
 }
 
 .listing #listing-images .galleria-container {
