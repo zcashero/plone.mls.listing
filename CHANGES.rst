@@ -4,6 +4,11 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
+0.9.20 (2015-05-07)
+-------------------
+- ListingQuickSearch Portlet: fix JQuery Error
+- ListingDetails: add css for responsive Video embedding
+
 0.9.19 (2015-05-06)
 -------------------
 - Listing Details template: add Listing Video
