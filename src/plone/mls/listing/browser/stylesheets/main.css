@@ -262,6 +262,8 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
 
 /* Video Embedding Listing Details */
 .listing-video{
+  margin-top:1em;
+  margin-bottom:2em;
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
   padding-top: 25px;
