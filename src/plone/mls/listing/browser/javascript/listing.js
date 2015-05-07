@@ -83,37 +83,38 @@ jQuery(function($) {
 
   if ($('.portletQuickSearch').length > 0) {
 
-    if ($('.portletQuickSearch input[name=form.widgets.object_type:list]:checked').length > 0) {
+    if ($('.portletQuickSearch #formfield-form-widgets-object_type input:checked').length > 0) {
       $('.portletQuickSearch #formfield-form-widgets-object_type > .collapser').click();
     }
 
-    if ($('.portletQuickSearch input[name=form.widgets.location_type:list]:checked').length > 0) {
+    if ($('.portletQuickSearch #formfield-form-widgets-location_type input:checked').length > 0) {
       $('.portletQuickSearch #formfield-form-widgets-location_type > .collapser').click();
     }
 
-    if ($('.portletQuickSearch input[name=form.widgets.geographic_type:list]:checked').length > 0) {
+    if ($('.portletQuickSearch #formfield-form-widgets-geographic_type input:checked').length > 0) {
       $('.portletQuickSearch #formfield-form-widgets-geographic_type > .collapser').click();
     }
 
-    if ($('.portletQuickSearch input[name=form.widgets.view_type:list]:checked').length > 0) {
+    if ($('.portletQuickSearch #formfield-form-widgets-view_type input:checked').length > 0) {
       $('.portletQuickSearch #formfield-form-widgets-view_type > .collapser').click();
     }
 
-    if ($('.portletQuickSearch input[name=form.widgets.ownership_type:list]:checked').length > 0) {
+    if ($('.portletQuickSearch #formfield-form-widgets-ownership_type input:checked').length > 0) {
       $('.portletQuickSearch #formfield-form-widgets-ownership_type > .collapser').click();
     }
 
-    if ($('.portletQuickSearch input[name=form.widgets.air_condition:list]:checked').val() != '--NOVALUE--') {
+    if ($('.portletQuickSearch #formfield-form-widgets-air_condition input:checked').val() != '--NOVALUE--') {
       $('.portletQuickSearch #formfield-form-widgets-air_condition > .collapser').click();
     }
 
-    if ($('.portletQuickSearch input[name=form.widgets.pool:list]:checked').val() != '--NOVALUE--') {
+    if ($('.portletQuickSearch #formfield-form-widgets-pool input:checked').val() != '--NOVALUE--') {
       $('.portletQuickSearch #formfield-form-widgets-pool > .collapser').click();
     }
 
-    if ($('.portletQuickSearch input[name=form.widgets.jacuzzi:list]:checked').val() != '--NOVALUE--') {
+    if ($('.portletQuickSearch #formfield-form-widgets-jacuzzi input:checked').val() != '--NOVALUE--') {
       $('.portletQuickSearch #formfield-form-widgets-jacuzzi > .collapser').click();
     }
+    
   }
 
 });
