@@ -42,7 +42,8 @@ MSG_PORTLET_DESCRIPTION = _(
 )
 
 EMAIL_TEMPLATE = _(
-    u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
+    u'agent_contact_email',
+    default=u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
     u'Listing URL: %(url)s\n'
     u'\n'
     u'Phone Number: %(phone)s\n'
@@ -52,7 +53,8 @@ EMAIL_TEMPLATE = _(
 )
 
 EMAIL_TEMPLATE_RL = _(
-    u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
+    u'agent_contact_email_rl',
+    default=u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
     u'Listing URL: %(url)s\n'
     u'\n'
     u'Phone Number: %(phone)s\n'
@@ -66,7 +68,9 @@ EMAIL_TEMPLATE_RL = _(
 )
 
 EMAIL_TEMPLATE_AGENT = _(
-    u'The responsible agent for this listing is %(agent)s (%(profile)s).\n'
+    u'agent_contact_email_agent',
+    default=u'The responsible agent for this listing is '
+    u'%(agent)s (%(profile)s).\n'
     u'\n'
     u'Please contact %(agent)s at %(agent_email)s.\n'
 )
