@@ -2,11 +2,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Translators:
 # Valeria Garcia <valeriassimsou@gmail.com>, 2014-2015
+# Zach Cashero <zcashero@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-06-12 17:47+0000\n"
-"PO-Revision-Date: 2015-06-12 17:54+0000\n"
+"PO-Revision-Date: 2015-06-12 18:02+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MLS_Plone/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -439,7 +440,7 @@ msgstr "Forçar Sobreposição"
 msgid ""
 "Force usage of custom contact information, even when showing items from this"
 " agency?"
-msgstr ""
+msgstr "Forçar o uso de informações personalizados da agência, mesmo nos próprios anúncios?"
 
 #: plone/mls/listing/interfaces.py:234
 msgid "Geographic Location (latitude, longitude)"
@@ -744,7 +745,7 @@ msgstr "Título"
 msgid ""
 "Update contact information when showing third party items from other "
 "agencies?"
-msgstr ""
+msgstr "Atualize informações do agente ao mostrar um anúncio de terceira pessoa?"
 
 #: plone/mls/listing/browser/listing_collection.py:164
 #: plone/mls/listing/browser/listing_search.py:167

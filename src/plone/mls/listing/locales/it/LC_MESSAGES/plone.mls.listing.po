@@ -3,11 +3,12 @@
 # Translators:
 # Athanassios <a.karaiannis@gmail.com>, 2015
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2013
+# Zach Cashero <zcashero@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-06-12 17:47+0000\n"
-"PO-Revision-Date: 2015-06-12 17:54+0000\n"
+"PO-Revision-Date: 2015-06-12 18:02+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/MLS_Plone/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -440,7 +441,7 @@ msgstr "Forza Sovrascrittura"
 msgid ""
 "Force usage of custom contact information, even when showing items from this"
 " agency?"
-msgstr ""
+msgstr "Forzare utilizzo di informazioni agenzia personalizzate, anche sui propri annunci?"
 
 #: plone/mls/listing/interfaces.py:234
 msgid "Geographic Location (latitude, longitude)"
@@ -745,7 +746,7 @@ msgstr "Titolo"
 msgid ""
 "Update contact information when showing third party items from other "
 "agencies?"
-msgstr ""
+msgstr "Aggiornare le informazioni agente quando si mostra un annuncio di terze parti?"
 
 #: plone/mls/listing/browser/listing_collection.py:164
 #: plone/mls/listing/browser/listing_search.py:167

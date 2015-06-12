@@ -6,11 +6,12 @@
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2012-2013
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2014
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2013-2014
+# Zach Cashero <zcashero@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2015-06-12 17:47+0000\n"
-"PO-Revision-Date: 2015-06-12 17:54+0000\n"
+"PO-Revision-Date: 2015-06-12 17:57+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/MLS_Plone/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -443,7 +444,7 @@ msgstr "Überschreiben erzwingen"
 msgid ""
 "Force usage of custom contact information, even when showing items from this"
 " agency?"
-msgstr ""
+msgstr "Nutzung von benutzerdefinierten Agentur-Informationen auch für die eigene Immobilie erzwingen?"
 
 #: plone/mls/listing/interfaces.py:234
 msgid "Geographic Location (latitude, longitude)"
@@ -748,7 +749,7 @@ msgstr "Titel"
 msgid ""
 "Update contact information when showing third party items from other "
 "agencies?"
-msgstr ""
+msgstr "Makler-Informationen überschreiben, wenn Immobilie von Drittanbietern angezeigt wird?"
 
 #: plone/mls/listing/browser/listing_collection.py:164
 #: plone/mls/listing/browser/listing_search.py:167
