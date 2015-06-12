@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Benjamin Berger <ben@propertyshelf.com>, 2014
+# Benjamin Berger <ben@propertyshelf.com>, 2014-2015
 # Juan Salazar <juancarlos@propertyshelf.com>, 2012-2013
 # Thomas Massmann <thomas.massmann@it-spir.it>, 2012-2013
 # Valeria Garcia <valeriassimsou@gmail.com>, 2014
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2014-09-17 07:10+0000\n"
-"PO-Revision-Date: 2014-09-17 07:10+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2015-03-30 22:15+0000\n"
+"Last-Translator: Benjamin Berger <ben@propertyshelf.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/MLS_Plone/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -535,7 +535,7 @@ msgstr "URLs no son permitidos"
 
 #: plone/mls/listing/browser/templates/listing_search_viewlet.pt:22
 msgid "No matching results found - please expand your search."
-msgstr ""
+msgstr "No hay resultados.  Ampliar tu búsqueda."
 
 #: plone/mls/listing/browser/listing_collection.py:171
 #: plone/mls/listing/browser/listing_search.py:175

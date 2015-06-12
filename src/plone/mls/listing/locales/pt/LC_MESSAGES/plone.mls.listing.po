@@ -1,12 +1,12 @@
 # 
 # Translators:
-# Valeria Garcia <valeriassimsou@gmail.com>, 2014
+# Valeria Garcia <valeriassimsou@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
 "POT-Creation-Date: 2014-09-17 07:10+0000\n"
-"PO-Revision-Date: 2014-09-17 07:10+0000\n"
-"Last-Translator: Thomas Massmann <thomas.massmann@it-spir.it>\n"
+"PO-Revision-Date: 2015-06-11 16:09+0000\n"
+"Last-Translator: Valeria Garcia <valeriassimsou@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/projects/p/MLS_Plone/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -532,7 +532,7 @@ msgstr "Urls Não permitidos"
 
 #: plone/mls/listing/browser/templates/listing_search_viewlet.pt:22
 msgid "No matching results found - please expand your search."
-msgstr ""
+msgstr "Nenhum resultado correspondente foi encontrado - por favor, ampliar sua pesquisa."
 
 #: plone/mls/listing/browser/listing_collection.py:171
 #: plone/mls/listing/browser/listing_search.py:175
