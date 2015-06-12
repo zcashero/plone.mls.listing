@@ -18,6 +18,7 @@ from plone.z3cform import z2
 from z3c.form import button, field, validator
 from z3c.form.interfaces import HIDDEN_MODE, IFormLayer
 from zope import formlib, schema
+from zope.i18n import translate
 from zope.interface import Interface, Invalid, alsoProvides, implementer
 from zope.schema.fieldproperty import FieldProperty
 
@@ -40,35 +41,35 @@ MSG_PORTLET_DESCRIPTION = _(
     u'given listing via email.'
 )
 
-EMAIL_TEMPLATE = """\
-Enquiry from: %(name)s <%(sender_from_address)s>
-Listing URL: %(url)s
+EMAIL_TEMPLATE = _(
+    u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
+    u'Listing URL: %(url)s\n'
+    u'\n'
+    u'Phone Number: %(phone)s\n'
+    u'\n'
+    u'Message:\n'
+    u'%(message)s\n'
+)
 
-Phone Number: %(phone)s
+EMAIL_TEMPLATE_RL = _(
+    u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
+    u'Listing URL: %(url)s\n'
+    u'\n'
+    u'Phone Number: %(phone)s\n'
+    u'Arrival Date: %(arrival_date)s\n'
+    u'Departure Date: %(departure_date)s\n'
+    u'Adults: %(adults)s\n'
+    u'Children: %(children)s\n'
+    u'\n'
+    u'Message:\n'
+    u'%(message)s\n'
+)
 
-Message:
-%(message)s
-"""
-
-EMAIL_TEMPLATE_RL = """\
-Enquiry from: %(name)s <%(sender_from_address)s>
-Listing URL: %(url)s
-
-Phone Number: %(phone)s
-Arrival Date: %(arrival_date)s
-Departure Date: %(departure_date)s
-Adults: %(adults)s
-Children: %(children)s
-
-Message:
-%(message)s
-"""
-
-EMAIL_TEMPLATE_ORIGINAL_AGENT = """
-The responsible agent for this listing is %(agent)s (%(profile)s).
-
-Please contact %(agent)s at %(agent_email)s.
-"""
+EMAIL_TEMPLATE_ORIGINAL_AGENT = _(
+    u'The responsible agent for this listing is %(agent)s (%(profile)s).\n'
+    u'\n'
+    u'Please contact %(agent)s at %(agent_email)s.\n'
+)
 
 
 check_email = re.compile(
@@ -270,12 +271,15 @@ class EmailForm(form.Form):
                 'agent_email': orig_agent.get('agent_email').get('value'),
                 'profile': orig_agent.get('profile'),
             }
-            agent = EMAIL_TEMPLATE_ORIGINAL_AGENT % agent_data
+            agent = translate(
+                EMAIL_TEMPLATE_ORIGINAL_AGENT,
+                context=self.request,
+            ) % agent_data
             data['message'] = '\n'.join([data['message'], agent])
         if self.is_residential_lease:
-            message = EMAIL_TEMPLATE_RL % data
+            message = translate(EMAIL_TEMPLATE_RL, contxt=self.request) % data
         else:
-            message = EMAIL_TEMPLATE % data
+            message = translate(EMAIL_TEMPLATE, context=self.reqest) % data
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
         message['From'] = from_address
