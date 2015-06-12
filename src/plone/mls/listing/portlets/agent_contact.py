@@ -65,7 +65,7 @@ EMAIL_TEMPLATE_RL = _(
     u'%(message)s\n'
 )
 
-EMAIL_TEMPLATE_ORIGINAL_AGENT = _(
+EMAIL_TEMPLATE_AGENT = _(
     u'The responsible agent for this listing is %(agent)s (%(profile)s).\n'
     u'\n'
     u'Please contact %(agent)s at %(agent_email)s.\n'
@@ -266,15 +266,11 @@ class EmailForm(form.Form):
         overridden = self.listing_info.get('overridden', False)
         if overridden is True or review_recipient is not None:
             orig_agent = self.listing_info.get('original_agent')
-            agent_data = {
+            agent = translate(EMAIL_TEMPLATE_AGENT, context=self.request) % {
                 'agent': orig_agent.get('name').get('value'),
                 'agent_email': orig_agent.get('agent_email').get('value'),
                 'profile': orig_agent.get('profile'),
             }
-            agent = translate(
-                EMAIL_TEMPLATE_ORIGINAL_AGENT,
-                context=self.request,
-            ) % agent_data
             data['message'] = '\n'.join([data['message'], agent])
         if self.is_residential_lease:
             message = translate(EMAIL_TEMPLATE_RL, contxt=self.request) % data
