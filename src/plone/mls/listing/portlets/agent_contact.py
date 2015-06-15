@@ -277,9 +277,9 @@ class EmailForm(form.Form):
             }
             data['message'] = '\n'.join([data['message'], agent])
         if self.is_residential_lease:
-            message = translate(EMAIL_TEMPLATE_RL, contxt=self.request) % data
+            message = translate(EMAIL_TEMPLATE_RL, context=self.request) % data
         else:
-            message = translate(EMAIL_TEMPLATE, context=self.reqest) % data
+            message = translate(EMAIL_TEMPLATE, context=self.request) % data
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
         message['From'] = from_address
