@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-06-12 19:50+0000\n"
+"POT-Creation-Date: 2015-06-15 00:53+0000\n"
 "PO-Revision-Date: 2015-06-12 19:38+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/MLS_Plone/language/ru/)\n"
@@ -96,7 +96,7 @@ msgstr "Активировать поиск листингов"
 msgid "Activate Recent Listings"
 msgstr "Активировать 'Недавние листинги'"
 
-#: plone/mls/listing/portlets/agent_contact.py:346
+#: plone/mls/listing/portlets/agent_contact.py:355
 msgid ""
 "Activate for Spam Protection. Any attempt to use a link inside this form "
 "will raise a validation error."
@@ -122,7 +122,7 @@ msgstr "Активируйте обзор Недавних листингов"
 msgid "Activate the local agency information."
 msgstr "Активируйте информацию о местном агентстве."
 
-#: plone/mls/listing/portlets/agent_contact.py:426
+#: plone/mls/listing/portlets/agent_contact.py:435
 #: plone/mls/listing/portlets/agent_information.py:88
 msgid "Add Agent Information portlet"
 msgstr "Добавьте информационный портлет об Агенте "
@@ -131,7 +131,7 @@ msgstr "Добавьте информационный портлет об Аге
 msgid "Add Listing Quick Search portlet"
 msgstr "Добавьте портлет Быстрого поиска листинга"
 
-#: plone/mls/listing/portlets/agent_contact.py:312
+#: plone/mls/listing/portlets/agent_contact.py:321
 msgid "Additional description for the portlet."
 msgstr "Дополнительное описание для портлета."
 
@@ -213,7 +213,7 @@ msgstr "Аватар агента"
 msgid "Agent Cell Phone"
 msgstr "Мобильный телефон агента"
 
-#: plone/mls/listing/portlets/agent_contact.py:366
+#: plone/mls/listing/portlets/agent_contact.py:375
 msgid "Agent Contact"
 msgstr "Контактная информация агента"
 
@@ -255,7 +255,7 @@ msgstr "Все"
 msgid "Arrival Date"
 msgstr "Дата прибытия"
 
-#: plone/mls/listing/portlets/agent_contact.py:341
+#: plone/mls/listing/portlets/agent_contact.py:350
 msgid "BCC Recipients"
 msgstr "Получатели BCC"
 
@@ -335,7 +335,7 @@ msgid ""
 "default title is used."
 msgstr "Пользовательское название для портлета (режим поиска). Если название не предусмотрено, заголовок по умолчанию используется."
 
-#: plone/mls/listing/portlets/agent_contact.py:303
+#: plone/mls/listing/portlets/agent_contact.py:312
 #: plone/mls/listing/portlets/agent_information.py:35
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
@@ -378,7 +378,7 @@ msgstr "Деактивировать информацию о местном аг
 msgid "Departure Date"
 msgstr "Дата отъезда"
 
-#: plone/mls/listing/portlets/agent_contact.py:314
+#: plone/mls/listing/portlets/agent_contact.py:323
 msgid "Description"
 msgstr "Описание"
 
@@ -387,11 +387,11 @@ msgstr "Описание"
 msgid "District"
 msgstr "Район"
 
-#: plone/mls/listing/portlets/agent_contact.py:336
+#: plone/mls/listing/portlets/agent_contact.py:345
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr "Адреса электронной почты, которые получают скрытую копию (разделенные запятой)."
 
-#: plone/mls/listing/portlets/agent_contact.py:438
+#: plone/mls/listing/portlets/agent_contact.py:447
 #: plone/mls/listing/portlets/agent_information.py:100
 msgid "Edit Agent Information portlet"
 msgstr "Редактировать информационный портлет агента"
@@ -546,7 +546,7 @@ msgstr "Листинги MLS"
 msgid "MLS UI Settings"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:322
+#: plone/mls/listing/portlets/agent_contact.py:331
 msgid "Mail Sent Message"
 msgstr "Сообщение о том, что послание отправлено"
 
@@ -583,11 +583,11 @@ msgstr ""
 msgid "Object Type"
 msgstr "Тип объекта"
 
-#: plone/mls/listing/portlets/agent_contact.py:332
+#: plone/mls/listing/portlets/agent_contact.py:341
 msgid "Override Recipient"
 msgstr "Отвергнутый получатель "
 
-#: plone/mls/listing/portlets/agent_contact.py:327
+#: plone/mls/listing/portlets/agent_contact.py:336
 msgid ""
 "Override the recipient e-mail address. Leave blank to use the e-mail address"
 " from the agent information."
@@ -610,7 +610,7 @@ msgstr "Пожалуйста, введите номер телефона. Нек
 msgid "Pool"
 msgstr "Бассейн"
 
-#: plone/mls/listing/portlets/agent_contact.py:308
+#: plone/mls/listing/portlets/agent_contact.py:317
 #: plone/mls/listing/portlets/agent_information.py:39
 msgid "Portlet Title"
 msgstr "Название портлета"
@@ -643,7 +643,7 @@ msgstr "Распечатать листинг"
 msgid "Registry has been updated. Please reload this page."
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:351
+#: plone/mls/listing/portlets/agent_contact.py:360
 msgid "Reject Text with Links?"
 msgstr "Отклонить текст со ссылками?"
 
@@ -685,7 +685,7 @@ msgstr ""
 msgid "State"
 msgstr "Статус"
 
-#: plone/mls/listing/portlets/agent_contact.py:318
+#: plone/mls/listing/portlets/agent_contact.py:327
 msgid "Thank you message that is shown after the mail was sent."
 msgstr "Благодарственное письмо, показанное после отправленной почты."
 
@@ -756,22 +756,22 @@ msgstr "Смотреть тип"
 msgid "Yes"
 msgstr "Да"
 
-#. Default: "Enquiry from: %(name)s <%(sender_from_address)s>\nListing URL:
-#. %(url)s\n\nPhone Number: %(phone)s\n\nMessage:\n%(message)s\n"
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nListing URL:
+#. {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}"
 #: plone/mls/listing/portlets/agent_contact.py:44
 msgid "agent_contact_email"
 msgstr ""
 
-#. Default: "The responsible agent for this listing is %(agent)s
-#. (%(profile)s).\n\nPlease contact %(agent)s at %(agent_email)s.\n"
+#. Default: "The responsible agent for this listing is {agent}
+#. ({profile}).\n\nPlease contact {agent} at {agent_email}."
 #: plone/mls/listing/portlets/agent_contact.py:70
 msgid "agent_contact_email_agent"
 msgstr ""
 
-#. Default: "Enquiry from: %(name)s <%(sender_from_address)s>\nListing URL:
-#. %(url)s\n\nPhone Number: %(phone)s\nArrival Date:
-#. %(arrival_date)s\nDeparture Date: %(departure_date)s\nAdults:
-#. %(adults)s\nChildren: %(children)s\n\nMessage:\n%(message)s\n"
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nListing URL:
+#. {url}\n\nPhone Number: {phone}\nArrival Date: {arrival_date}\nDeparture
+#. Date: {departure_date}\nAdults: {adults}\nChildren:
+#. {children}\n\nMessage:\n{message}"
 #: plone/mls/listing/portlets/agent_contact.py:55
 msgid "agent_contact_email_rl"
 msgstr ""

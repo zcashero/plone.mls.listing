@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MLS Plone Components\n"
-"POT-Creation-Date: 2015-06-12 19:50+0000\n"
+"POT-Creation-Date: 2015-06-15 00:53+0000\n"
 "PO-Revision-Date: 2015-06-12 19:38+0000\n"
 "Last-Translator: Zach Cashero <zcashero@gmail.com>\n"
 "Language-Team: Estonian (http://www.transifex.com/projects/p/MLS_Plone/language/et/)\n"
@@ -94,7 +94,7 @@ msgstr ""
 msgid "Activate Recent Listings"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:346
+#: plone/mls/listing/portlets/agent_contact.py:355
 msgid ""
 "Activate for Spam Protection. Any attempt to use a link inside this form "
 "will raise a validation error."
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Activate the local agency information."
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:426
+#: plone/mls/listing/portlets/agent_contact.py:435
 #: plone/mls/listing/portlets/agent_information.py:88
 msgid "Add Agent Information portlet"
 msgstr ""
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Add Listing Quick Search portlet"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:312
+#: plone/mls/listing/portlets/agent_contact.py:321
 msgid "Additional description for the portlet."
 msgstr ""
 
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Agent Cell Phone"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:366
+#: plone/mls/listing/portlets/agent_contact.py:375
 msgid "Agent Contact"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Arrival Date"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:341
+#: plone/mls/listing/portlets/agent_contact.py:350
 msgid "BCC Recipients"
 msgstr ""
 
@@ -333,7 +333,7 @@ msgid ""
 "default title is used."
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:303
+#: plone/mls/listing/portlets/agent_contact.py:312
 #: plone/mls/listing/portlets/agent_information.py:35
 msgid ""
 "Custom title for the portlet. If no title is provided, the default title is "
@@ -376,7 +376,7 @@ msgstr ""
 msgid "Departure Date"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:314
+#: plone/mls/listing/portlets/agent_contact.py:323
 msgid "Description"
 msgstr ""
 
@@ -385,11 +385,11 @@ msgstr ""
 msgid "District"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:336
+#: plone/mls/listing/portlets/agent_contact.py:345
 msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:438
+#: plone/mls/listing/portlets/agent_contact.py:447
 #: plone/mls/listing/portlets/agent_information.py:100
 msgid "Edit Agent Information portlet"
 msgstr ""
@@ -544,7 +544,7 @@ msgstr ""
 msgid "MLS UI Settings"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:322
+#: plone/mls/listing/portlets/agent_contact.py:331
 msgid "Mail Sent Message"
 msgstr ""
 
@@ -581,11 +581,11 @@ msgstr ""
 msgid "Object Type"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:332
+#: plone/mls/listing/portlets/agent_contact.py:341
 msgid "Override Recipient"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:327
+#: plone/mls/listing/portlets/agent_contact.py:336
 msgid ""
 "Override the recipient e-mail address. Leave blank to use the e-mail address"
 " from the agent information."
@@ -608,7 +608,7 @@ msgstr ""
 msgid "Pool"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:308
+#: plone/mls/listing/portlets/agent_contact.py:317
 #: plone/mls/listing/portlets/agent_information.py:39
 msgid "Portlet Title"
 msgstr ""
@@ -641,7 +641,7 @@ msgstr ""
 msgid "Registry has been updated. Please reload this page."
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:351
+#: plone/mls/listing/portlets/agent_contact.py:360
 msgid "Reject Text with Links?"
 msgstr ""
 
@@ -683,7 +683,7 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#: plone/mls/listing/portlets/agent_contact.py:318
+#: plone/mls/listing/portlets/agent_contact.py:327
 msgid "Thank you message that is shown after the mail was sent."
 msgstr ""
 
@@ -754,22 +754,22 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#. Default: "Enquiry from: %(name)s <%(sender_from_address)s>\nListing URL:
-#. %(url)s\n\nPhone Number: %(phone)s\n\nMessage:\n%(message)s\n"
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nListing URL:
+#. {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}"
 #: plone/mls/listing/portlets/agent_contact.py:44
 msgid "agent_contact_email"
 msgstr ""
 
-#. Default: "The responsible agent for this listing is %(agent)s
-#. (%(profile)s).\n\nPlease contact %(agent)s at %(agent_email)s.\n"
+#. Default: "The responsible agent for this listing is {agent}
+#. ({profile}).\n\nPlease contact {agent} at {agent_email}."
 #: plone/mls/listing/portlets/agent_contact.py:70
 msgid "agent_contact_email_agent"
 msgstr ""
 
-#. Default: "Enquiry from: %(name)s <%(sender_from_address)s>\nListing URL:
-#. %(url)s\n\nPhone Number: %(phone)s\nArrival Date:
-#. %(arrival_date)s\nDeparture Date: %(departure_date)s\nAdults:
-#. %(adults)s\nChildren: %(children)s\n\nMessage:\n%(message)s\n"
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nListing URL:
+#. {url}\n\nPhone Number: {phone}\nArrival Date: {arrival_date}\nDeparture
+#. Date: {departure_date}\nAdults: {adults}\nChildren:
+#. {children}\n\nMessage:\n{message}"
 #: plone/mls/listing/portlets/agent_contact.py:55
 msgid "agent_contact_email_rl"
 msgstr ""
