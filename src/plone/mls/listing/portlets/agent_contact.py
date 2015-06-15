@@ -43,36 +43,36 @@ MSG_PORTLET_DESCRIPTION = _(
 
 EMAIL_TEMPLATE = _(
     u'agent_contact_email',
-    default=u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
-    u'Listing URL: %(url)s\n'
+    default=u'Enquiry from: {name} <{sender_from_address}>\n'
+    u'Listing URL: {url}\n'
     u'\n'
-    u'Phone Number: %(phone)s\n'
+    u'Phone Number: {phone}\n'
     u'\n'
     u'Message:\n'
-    u'%(message)s\n'
+    u'{message}'
 )
 
 EMAIL_TEMPLATE_RL = _(
     u'agent_contact_email_rl',
-    default=u'Enquiry from: %(name)s <%(sender_from_address)s>\n'
-    u'Listing URL: %(url)s\n'
+    default=u'Enquiry from: {name} <{sender_from_address}>\n'
+    u'Listing URL: {url}\n'
     u'\n'
-    u'Phone Number: %(phone)s\n'
-    u'Arrival Date: %(arrival_date)s\n'
-    u'Departure Date: %(departure_date)s\n'
-    u'Adults: %(adults)s\n'
-    u'Children: %(children)s\n'
+    u'Phone Number: {phone}\n'
+    u'Arrival Date: {arrival_date}\n'
+    u'Departure Date: {departure_date}\n'
+    u'Adults: {adults}\n'
+    u'Children: {children}\n'
     u'\n'
     u'Message:\n'
-    u'%(message)s\n'
+    u'{message}'
 )
 
 EMAIL_TEMPLATE_AGENT = _(
     u'agent_contact_email_agent',
     default=u'The responsible agent for this listing is '
-    u'%(agent)s (%(profile)s).\n'
+    u'{agent} ({profile}).\n'
     u'\n'
-    u'Please contact %(agent)s at %(agent_email)s.\n'
+    u'Please contact {agent} at {agent_email}.'
 )
 
 
@@ -270,16 +270,25 @@ class EmailForm(form.Form):
         overridden = self.listing_info.get('overridden', False)
         if overridden is True or review_recipient is not None:
             orig_agent = self.listing_info.get('original_agent')
-            agent = translate(EMAIL_TEMPLATE_AGENT, context=self.request) % {
-                'agent': orig_agent.get('name').get('value'),
-                'agent_email': orig_agent.get('agent_email').get('value'),
-                'profile': orig_agent.get('profile'),
-            }
+            agent = translate(
+                EMAIL_TEMPLATE_AGENT,
+                context=self.request,
+            ).format(
+                agent=orig_agent.get('name').get('value'),
+                agent_email=orig_agent.get('agent_email').get('value'),
+                profile=orig_agent.get('profile'),
+            )
             data['message'] = '\n'.join([data['message'], agent])
         if self.is_residential_lease:
-            message = translate(EMAIL_TEMPLATE_RL, context=self.request) % data
+            message = translate(
+                EMAIL_TEMPLATE_RL,
+                context=self.request,
+            ).format(**data)
         else:
-            message = translate(EMAIL_TEMPLATE, context=self.request) % data
+            message = translate(
+                EMAIL_TEMPLATE,
+                context=self.request,
+            ).format(**data)
         message = message_from_string(message.encode(email_charset))
         message['To'] = rcp
         message['From'] = from_address
