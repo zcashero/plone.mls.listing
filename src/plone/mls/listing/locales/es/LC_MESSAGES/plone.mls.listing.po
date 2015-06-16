@@ -763,13 +763,13 @@ msgstr "Sí"
 #. {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}"
 #: plone/mls/listing/portlets/agent_contact.py:44
 msgid "agent_contact_email"
-msgstr ""
+msgstr "Solicitud de: {name} <{sender_from_address}>\nURL de Anuncio: {url}\n\nNúmero Telefónico: {phone}\n\nMensaje:\n{message}"
 
 #. Default: "The responsible agent for this listing is {agent}
 #. ({profile}).\n\nPlease contact {agent} at {agent_email}."
 #: plone/mls/listing/portlets/agent_contact.py:70
 msgid "agent_contact_email_agent"
-msgstr ""
+msgstr "El agente responsable de este anuncio es {agent} ({profile}).\n\nPonte en contacto con {agent} at {agent_email}."
 
 #. Default: "Enquiry from: {name} <{sender_from_address}>\nListing URL:
 #. {url}\n\nPhone Number: {phone}\nArrival Date: {arrival_date}\nDeparture
@@ -777,4 +777,4 @@ msgstr ""
 #. {children}\n\nMessage:\n{message}"
 #: plone/mls/listing/portlets/agent_contact.py:55
 msgid "agent_contact_email_rl"
-msgstr ""
+msgstr "Solicitud de: {name} <{sender_from_address}>\nURL de Anuncio: {url}\n\nNúmero Telefónico: {phone}\nFecha de Llegada: {arrival_date}\nFecha de Salida: {departure_date}\nAdultos: {adults}\nNiños: {children}\n\nMensaje:\n{message}"
