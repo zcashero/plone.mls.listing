@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-0.9.22 (unreleased)
+0.9.22 (2015-06-15)
 -------------------
 
 - Email templates are i18n message strings in order to be translatable.
