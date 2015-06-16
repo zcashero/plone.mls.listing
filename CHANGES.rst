@@ -1,20 +1,33 @@
 Changelog
 =========
 
+
+0.9.22 (unreleased)
+-------------------
+
+- Email templates are i18n message strings in order to be translatable.
+
+
 0.9.21 (2015-05-07)
 -------------------
+
 - mobile improvement ListingDetails
 - additional spacing around embedding video
 - added migration step
 
+
 0.9.20 (2015-05-07)
 -------------------
+
 - ListingQuickSearch Portlet: fix JQuery Error
 - ListingDetails: add css for responsive Video embedding
 
+
 0.9.19 (2015-05-06)
 -------------------
+
 - Listing Details template: add Listing Video
+
 
 0.9.18 (2015-01-30)
 -------------------
@@ -24,6 +37,7 @@ Changelog
 
 0.9.17 (2015-01-30)
 -------------------
+
 - Make a copy of the field before changing its attributes.
 - Make ps.plone.fotorama dependency optional.
 
