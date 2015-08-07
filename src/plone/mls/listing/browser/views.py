@@ -22,6 +22,46 @@ from plone.mls.listing.interfaces import IMLSUISettings
 
 logger = logging.getLogger(PRODUCT_NAME)
 
+MAP_JS = """
+function initializeMap() {{
+    var center = new google.maps.LatLng({lat}, {lng})
+    var myOptions = {{
+        zoom: {zoom},
+        center: center,
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        mapTypeControl: true,
+        disableDoubleClickZoom: true,
+        overviewMapControl: true,
+        streetViewControl: true,
+        scrollwheel: false
+    }}
+
+    var map = new google.maps.Map(
+        document.getElementById('{map_id}'),
+        myOptions
+    );
+
+    var has_marker = true;
+    if(has_marker) {{
+        var myLatlng = new google.maps.LatLng({lat}, {lng});
+        var marker = new google.maps.Marker({{
+            position: myLatlng,
+            map: map,
+            icon: {icon}
+        }});
+    }}
+    return map;
+}};
+
+map = initializeMap();
+google.maps.event.addDomListener(window, "resize", function() {{
+    var center = map.getCenter();
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(center);
+}});
+
+"""
+
 
 @implementer(IListingDetails)
 class ListingDetails(BrowserView):
@@ -269,3 +309,36 @@ class ListingDetails(BrowserView):
                 return getattr(settings, 'slideshow') == u'galleria'
         # Fallback: 'galleria' is the default.
         return True
+
+    @property
+    def map_id(self):
+        """Generate a unique css id for the map."""
+        info = self.data.get('info', None)
+        try:
+            item_id = info['id']['value']
+        except:
+            item_id = 'unknown'
+
+        return u'map__{0}'.format(item_id)
+
+    def javascript_map(self):
+        """Return the JS code for the map."""
+
+        info = self.data.get('info', None)
+        if info is None:
+            return
+
+        geo = info.get('geolocation', None)
+        if geo is None:
+            return
+
+        lat, lng = geo.split(',')
+        icon = '++resource++plone.mls.listing.images/house.png'
+
+        return MAP_JS.format(
+            lat=lat,
+            lng=lng,
+            map_id=self.map_id,
+            zoom=7,
+            icon=icon
+        )
