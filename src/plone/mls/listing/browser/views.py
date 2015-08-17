@@ -23,6 +23,15 @@ from plone.mls.listing.interfaces import IMLSUISettings
 logger = logging.getLogger(PRODUCT_NAME)
 
 MAP_JS = """
+var isTouch = false;
+var map;
+
+window.addEventListener('touchmove', function MoveDetector(){{
+    isTouch = true;
+    window.removeEventListener('touchmove', MoveDetector);
+    map = initializeMap();
+}});
+
 function initializeMap() {{
     var center = new google.maps.LatLng({lat}, {lng})
     var myOptions = {{
@@ -33,7 +42,8 @@ function initializeMap() {{
         disableDoubleClickZoom: true,
         overviewMapControl: true,
         streetViewControl: true,
-        scrollwheel: false
+        scrollwheel: false,
+        draggable:!isTouch
     }}
 
     var map = new google.maps.Map(
