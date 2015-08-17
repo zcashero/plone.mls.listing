@@ -46,8 +46,7 @@ function initializeMap() {{
         var myLatlng = new google.maps.LatLng({lat}, {lng});
         var marker = new google.maps.Marker({{
             position: myLatlng,
-            map: map,
-            icon: {icon}
+            map: map
         }});
     }}
     return map;
@@ -333,12 +332,11 @@ class ListingDetails(BrowserView):
             return
 
         lat, lng = geo.split(',')
-        icon = '++resource++plone.mls.listing.images/house.png'
+        # icon = '++resource++plone.mls.listing.images/house.png'
 
         return MAP_JS.format(
             lat=lat,
             lng=lng,
             map_id=self.map_id,
-            zoom=7,
-            icon=icon
+            zoom=7
         )
