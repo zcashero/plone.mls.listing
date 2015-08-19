@@ -14,6 +14,13 @@ jQuery(function($) {
     }
   }
 
+  if($('.formTab #fieldsetlegend-map').length > 0){
+    $('#fieldsetlegend-map').click(function(event) {
+      // try to initiate google map in ListingDetails Tab
+      try { map = initializeMap(); } catch(err) {}
+    });
+  }
+
   if ($('#listing-images .thumbnails').length > 0) {
     // Build JS Gallery for listing detail view.
 
