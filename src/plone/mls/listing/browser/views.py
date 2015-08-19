@@ -33,7 +33,7 @@ window.addEventListener('touchmove', function MoveDetector(){{
 }});
 
 function initializeMap() {{
-    var center = new google.maps.LatLng({lat}, {lng})
+    var center = new google.maps.LatLng({lat}, {lng});
     var myOptions = {{
         zoom: {zoom},
         center: center,
@@ -44,7 +44,7 @@ function initializeMap() {{
         streetViewControl: true,
         scrollwheel: false,
         draggable:!isTouch
-    }}
+    }};
 
     var map = new google.maps.Map(
         document.getElementById('{map_id}'),
