@@ -282,3 +282,9 @@ article, aside, figure, figcaption, footer, header, hgroup, nav, section {
   width: 100%;
   height: 100%;
 }
+
+/* Google Maps style */
+.map__canvas {
+    height: 340px;
+    width: 100%;
+}
