@@ -232,8 +232,9 @@ def migrate_to_1011(context):
 
 def migrate_to_1012(context):
     """"Migrate from 1011 to 1012
-    * update javascript registry
+    * update javascript & css registry
     """
     site = getUtility(IPloneSiteRoot)
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
+    setup.runImportStepFromProfile(PROFILE_ID, 'cssregistry')
