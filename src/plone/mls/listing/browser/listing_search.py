@@ -443,6 +443,12 @@ class IListingSearchConfiguration(model.Schema):
         title=_(u'Items per Page'),
     )
 
+    zoomlevel = schema.Int(
+        default=7,
+        required=False,
+        title=_(u'Zoomlevel for google-maps '),
+    )
+
     hide_form = schema.Bool(
         default=True,
         required=False,
