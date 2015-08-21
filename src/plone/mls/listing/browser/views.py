@@ -8,6 +8,7 @@ import logging
 from Products.Five import BrowserView
 from plone.memoize.view import memoize
 from plone.registry.interfaces import IRegistry
+from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility, queryMultiAdapter
 from zope.interface import implementer
 from zope.publisher.interfaces import NotFound
@@ -17,6 +18,19 @@ from plone.mls.core import api
 from plone.mls.listing import PRODUCT_NAME
 from plone.mls.listing.api import get_agency_info, listing_details
 from plone.mls.listing.browser.interfaces import IListingDetails
+from plone.mls.listing.browser.listing_collection import (
+    CONFIGURATION_KEY as LC_KEY,
+    IListingCollection,
+)
+from plone.mls.listing.browser.listing_search import (
+    CONFIGURATION_KEY as LS_KEY,
+    IListingSearch,
+)
+from plone.mls.listing.browser.recent_listings import (
+    CONFIGURATION_KEY as RL_KEY,
+    IRecentListings,
+)
+
 from plone.mls.listing.interfaces import IMLSUISettings
 
 
@@ -161,6 +175,11 @@ class ListingDetails(BrowserView):
     def video(self):
         if self.data is not None:
             return self.data.get('property_video_embedding', None)
+
+    @property
+    def config(self):
+        """Get all annotations to for this content."""
+        return IAnnotations(self.context)
 
     def update_agency_info(self, agency, settings):
         # Adjust agency name.
@@ -322,6 +341,32 @@ class ListingDetails(BrowserView):
 
         return u'map__{0}'.format(item_id)
 
+    @property
+    def zoomlevel(self):
+        """get the zoomlevel of the context"""
+        # default zoomlevel
+        zoomlevel = 7
+        # check RecentListings settings
+        rl = self.config.get(RL_KEY, None)
+        if rl is not None and IRecentListings.providedBy(self.context):
+            z = rl.get('zoomlevel', None)
+            if z is not None:
+                zoomlevel = z
+        # check ListingCollection settings
+        lc = self.config.get(LC_KEY, None)
+        if lc is not None and IListingCollection.providedBy(self.context):
+            z = lc.get('zoomlevel', None)
+            if z is not None:
+                zoomlevel = z
+        # check ListingSearch settings
+        ls = self.config.get(LS_KEY, None)
+        if ls is not None and IListingSearch.providedBy(self.context):
+            z = ls.get('zoomlevel', None)
+            if z is not None:
+                zoomlevel = z
+
+        return zoomlevel
+
     def javascript_map(self):
         """Return the JS code for the map."""
 
@@ -334,11 +379,10 @@ class ListingDetails(BrowserView):
             return
 
         lat, lng = geo.split(',')
-        # icon = '++resource++plone.mls.listing.images/house.png'
 
         return MAP_JS.format(
             lat=lat,
             lng=lng,
             map_id=self.map_id,
-            zoom=7
+            zoom=self.zoomlevel
         )

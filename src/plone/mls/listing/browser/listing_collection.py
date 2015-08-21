@@ -189,6 +189,12 @@ class IListingCollectionConfiguration(Interface):
         title=_(u'Items per Page'),
     )
 
+    zoomlevel = schema.Int(
+        default=7,
+        required=False,
+        title=_(u'Zoomlevel for google-maps '),
+    )
+
 
 class ListingCollectionConfiguration(form.Form):
     """Listing Collection Configuration Form."""
