@@ -378,7 +378,12 @@ class ListingDetails(BrowserView):
         if geo is None:
             return
 
-        lat, lng = geo.split(',')
+        try:
+            # try to get geo coordinates
+            lat, lng = geo.split(',')
+        except:
+            # on error no map
+            return
 
         return MAP_JS.format(
             lat=lat,
