@@ -5,7 +5,8 @@ Changelog
 0.9.23 (unreleased)
 -------------------
 
-- No changes yet.
+- add Geolocation map
+- change sort order for RecentListings to "last activated"
 
 
 0.9.22 (2015-06-15)
