@@ -110,22 +110,31 @@ class IListingSearchForm(form.Schema):
         ),
     )
 
-    location_state = schema.Choice(
+    form.widget(location_state=checkbox.CheckBoxFieldWidget)
+    location_state = schema.Tuple(
         required=False,
         title=_(u'State'),
-        source='plone.mls.listing.LocationStates',
+        value_type=schema.Choice(
+            source='plone.mls.listing.LocationStates'
+        ),
     )
 
-    location_county = schema.Choice(
+    form.widget(location_county=checkbox.CheckBoxFieldWidget)
+    location_county = schema.Tuple(
         required=False,
         title=_(u'County'),
-        source='plone.mls.listing.LocationCounties',
+        value_type=schema.Choice(
+            source='plone.mls.listing.LocationCounties'
+        ),
     )
 
-    location_district = schema.Choice(
+    form.widget(location_district=checkbox.CheckBoxFieldWidget)
+    location_district = schema.Tuple(
         required=False,
         title=_(u'District'),
-        source='plone.mls.listing.LocationDistricts',
+        value_type=schema.Choice(
+            source='plone.mls.listing.LocationDistricts'
+        ),
     )
 
     location_city = schema.TextLine(
@@ -268,6 +277,9 @@ class ListingSearchForm(form.Form):
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['jacuzzi'].widgetFactory = radio.RadioFieldWidget
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['location_state'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['location_district'].widgetFactory = checkbox.CheckBoxFieldWidget
+    fields['location_county'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
