@@ -182,7 +182,7 @@ def search_options(mls_url, category, lang=None, context=None):
 def recent_listings(params={}, batching=True, context=None):
     """Return a list of recent MLS listings."""
     search_params = {
-        'sort_on': 'created',
+        'sort_on': 'last_activated_date',
         'reverse': '1',
     }
     search_params.update(params)
@@ -213,7 +213,7 @@ def search(params={}, batching=True, context=None, config=None):
         config = {}
     settings = get_settings(context=context)
     search_params = {
-        'sort_on': 'created',
+        'sort_on': 'last_activated_date',
         'reverse': '1',
     }
     listing_types = set(config.get('listing_type', ()))
