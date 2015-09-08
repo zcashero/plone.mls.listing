@@ -78,9 +78,6 @@ class QuickSearchForm(form.Form):
     method = 'get'
 
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_state'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_district'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_county'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['baths'].widgetFactory = ValueRangeFieldWidget
