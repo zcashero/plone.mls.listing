@@ -3,7 +3,7 @@
 
 # zope imports
 from Acquisition import aq_inner
-from Products.CMFPlone import PloneMessageFactory as PMF
+from Products.CMFPlone import PloneMessageFactory as PMF  # noqa
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.autoform import directives
@@ -110,31 +110,22 @@ class IListingSearchForm(form.Schema):
         ),
     )
 
-    form.widget(location_state=checkbox.CheckBoxFieldWidget)
-    location_state = schema.Tuple(
+    location_state = schema.Choice(
         required=False,
         title=_(u'State'),
-        value_type=schema.Choice(
-            source='plone.mls.listing.LocationStates'
-        ),
+        source='plone.mls.listing.LocationStates',
     )
 
-    form.widget(location_county=checkbox.CheckBoxFieldWidget)
-    location_county = schema.Tuple(
+    location_county = schema.Choice(
         required=False,
         title=_(u'County'),
-        value_type=schema.Choice(
-            source='plone.mls.listing.LocationCounties'
-        ),
+        source='plone.mls.listing.LocationCounties',
     )
 
-    form.widget(location_district=checkbox.CheckBoxFieldWidget)
-    location_district = schema.Tuple(
+    location_district = schema.Choice(
         required=False,
         title=_(u'District'),
-        value_type=schema.Choice(
-            source='plone.mls.listing.LocationDistricts'
-        ),
+        source='plone.mls.listing.LocationDistricts',
     )
 
     location_city = schema.TextLine(
@@ -277,9 +268,6 @@ class ListingSearchForm(form.Form):
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['jacuzzi'].widgetFactory = radio.RadioFieldWidget
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_state'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_district'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_county'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
