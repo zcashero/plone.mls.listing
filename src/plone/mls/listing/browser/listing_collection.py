@@ -206,15 +206,15 @@ class ListingCollectionConfiguration(form.Form):
     """Listing Collection Configuration Form."""
 
     fields = field.Fields(IListingCollectionConfiguration)
-    fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     # fields['location_state'].widgetFactory = checkbox.CheckBoxFieldWidget
     # fields['location_county'].widgetFactory = checkbox.CheckBoxFieldWidget
     # fields['location_district'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['view_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     label = _(u"'Listing Collection' Configuration")
     description = _(
         u"Adjust the behaviour for this 'Listing Collection' viewlet."
