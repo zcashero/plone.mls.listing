@@ -208,9 +208,9 @@ class ListingCollectionConfiguration(form.Form):
     fields = field.Fields(IListingCollectionConfiguration)
     fields['geographic_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['listing_type'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_state'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_county'].widgetFactory = checkbox.CheckBoxFieldWidget
-    fields['location_district'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['location_state'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['location_county'].widgetFactory = checkbox.CheckBoxFieldWidget
+    # fields['location_district'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['location_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['object_type'].widgetFactory = checkbox.CheckBoxFieldWidget
     fields['ownership_type'].widgetFactory = checkbox.CheckBoxFieldWidget
