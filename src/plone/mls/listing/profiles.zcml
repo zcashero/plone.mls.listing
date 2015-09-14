@@ -156,4 +156,14 @@
       profile="plone.mls.listing:default"
       />
 
+  <genericsetup:upgradeStep
+      title="Upgrade plone.mls.listing"
+      description="Update ListingCollections"
+      source="*"
+      destination="1013"
+      handler=".migration.migrate_to_1013"
+      sortkey="1"
+      profile="plone.mls.listing:default"
+      />
+
 </configure>

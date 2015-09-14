@@ -9,14 +9,19 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from plone.browserlayer import utils as layerutils
 from plone.registry.interfaces import IRegistry
+from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility
 
 # local imports
 from plone.mls.listing.browser.interfaces import IListingSpecific
+from plone.mls.listing.browser.listing_collection import IListingCollection
 from plone.mls.listing.interfaces import IMLSAgencyContactInformation
+
+from pprint import pprint as pp
 
 
 LISTING_TYPE = 'plone.mls.listing.listing'
+COLLECTION = 'plone.mls.listing.listingcollection'
 PROFILE_ID = 'profile-plone.mls.listing:default'
 
 
@@ -238,3 +243,41 @@ def migrate_to_1012(context):
     setup = getToolByName(site, 'portal_setup')
     setup.runImportStepFromProfile(PROFILE_ID, 'jsregistry')
     setup.runImportStepFromProfile(PROFILE_ID, 'cssregistry')
+
+
+def migrate_to_1013(context):
+    """"Migrate from 1012 to 1013
+    * update existing ListingCollections
+    """
+    catalog = getToolByName(context, 'portal_catalog')
+    collections = catalog(object_provides=IListingCollection.__identifier__)
+    for c in collections:
+        print 'ListingCollection:'
+        obj = c.getObject()
+        pp(obj)
+        annotation = IAnnotations(obj)
+        district = annotation[COLLECTION].get('location_district', None)
+        county = annotation[COLLECTION].get('location_county', None)
+        state = annotation[COLLECTION].get('location_state', None)
+        print "district: "
+        pp(type(district))
+        pp(district)
+        print "county: "
+        pp(type(county))
+        pp(county)
+        print "state: "
+        pp(type(state))
+        pp(state)
+
+        if isinstance(district, unicode):
+            annotation[COLLECTION]['location_district'] = (district,)
+
+        if isinstance(county, unicode):
+            annotation[COLLECTION]['location_county'] = (county,)
+
+        if isinstance(state, unicode):
+            annotation[COLLECTION]['location_state'] = (state,)
+
+        pp(annotation)
+        catalog.reindexObject(obj)
+        obj = None
