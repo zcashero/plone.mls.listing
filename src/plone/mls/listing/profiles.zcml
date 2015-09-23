@@ -159,7 +159,7 @@
   <genericsetup:upgradeStep
       title="Upgrade plone.mls.listing"
       description="Update ListingCollections"
-      source="*"
+      source="1012"
       destination="1013"
       handler=".migration.migrate_to_1013"
       sortkey="1"
