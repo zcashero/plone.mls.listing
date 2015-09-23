@@ -17,8 +17,6 @@ from plone.mls.listing.browser.interfaces import IListingSpecific
 from plone.mls.listing.browser.listing_collection import IListingCollection
 from plone.mls.listing.interfaces import IMLSAgencyContactInformation
 
-from pprint import pprint as pp
-
 
 LISTING_TYPE = 'plone.mls.listing.listing'
 COLLECTION = 'plone.mls.listing.listingcollection'
@@ -252,22 +250,11 @@ def migrate_to_1013(context):
     catalog = getToolByName(context, 'portal_catalog')
     collections = catalog(object_provides=IListingCollection.__identifier__)
     for c in collections:
-        print 'ListingCollection:'
         obj = c.getObject()
-        pp(obj)
         annotation = IAnnotations(obj)
         district = annotation[COLLECTION].get('location_district', None)
         county = annotation[COLLECTION].get('location_county', None)
         state = annotation[COLLECTION].get('location_state', None)
-        print "district: "
-        pp(type(district))
-        pp(district)
-        print "county: "
-        pp(type(county))
-        pp(county)
-        print "state: "
-        pp(type(state))
-        pp(state)
 
         if isinstance(district, unicode):
             annotation[COLLECTION]['location_district'] = (district,)
@@ -277,7 +264,3 @@ def migrate_to_1013(context):
 
         if isinstance(state, unicode):
             annotation[COLLECTION]['location_state'] = (state,)
-
-        pp(annotation)
-        import transaction
-        transaction.commit()
