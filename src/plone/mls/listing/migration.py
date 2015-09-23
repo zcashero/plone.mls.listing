@@ -253,16 +253,25 @@ def migrate_to_1013(context):
     collections = catalog(object_provides=IListingCollection.__identifier__)
     for c in collections:
         obj = c.getObject()
-        annotation = IAnnotations(obj)
-        district = annotation[COLLECTION].get('location_district', None)
-        county = annotation[COLLECTION].get('location_county', None)
-        state = annotation[COLLECTION].get('location_state', None)
+        annotations = IAnnotations(obj)
+        content = annotations.get(COLLECTION, None)
+        if content is None:
+            continue
+
+        district = content.get('location_district', None)
+        county = content.get('location_county', None)
+        state = content.get('location_state', None)
 
         if isinstance(district, unicode):
-            annotation[COLLECTION]['location_district'] = (district,)
+            content['location_district'] = (district, )
 
         if isinstance(county, unicode):
-            annotation[COLLECTION]['location_county'] = (county,)
+            content['location_county'] = (county, )
 
         if isinstance(state, unicode):
-            annotation[COLLECTION]['location_state'] = (state,)
+            content['location_state'] = (state, )
+
+        annotations[COLLECTION] = content
+
+    import transaction
+    transaction.commit()
