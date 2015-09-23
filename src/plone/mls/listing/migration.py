@@ -279,5 +279,5 @@ def migrate_to_1013(context):
             annotation[COLLECTION]['location_state'] = (state,)
 
         pp(annotation)
-        catalog.reindexObject(obj)
-        obj = None
+        import transaction
+        transaction.commit()
