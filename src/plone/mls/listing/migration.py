@@ -14,12 +14,14 @@ from zope.component import getUtility
 
 # local imports
 from plone.mls.listing.browser.interfaces import IListingSpecific
-from plone.mls.listing.browser.listing_collection import IListingCollection
+from plone.mls.listing.browser.listing_collection import (
+    CONFIGURATION_KEY as COLLECTION,
+    IListingCollection,
+)
 from plone.mls.listing.interfaces import IMLSAgencyContactInformation
 
 
 LISTING_TYPE = 'plone.mls.listing.listing'
-COLLECTION = 'plone.mls.listing.listingcollection'
 PROFILE_ID = 'profile-plone.mls.listing:default'
 
 
