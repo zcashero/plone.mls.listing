@@ -11,6 +11,7 @@ from plone.browserlayer import utils as layerutils
 from plone.registry.interfaces import IRegistry
 from zope.annotation.interfaces import IAnnotations
 from zope.component import getUtility
+from zope.schema.interfaces import IVocabularyFactory
 
 # local imports
 from plone.mls.listing.browser.interfaces import IListingSpecific
@@ -249,6 +250,18 @@ def migrate_to_1013(context):
     """"Migrate from 1012 to 1013
     * update existing ListingCollections
     """
+    state_vocab_factory = getUtility(
+        IVocabularyFactory,
+        'plone.mls.listing.LocationStates',
+    )
+    county_vocab_factory = getUtility(
+        IVocabularyFactory,
+        'plone.mls.listing.LocationCounties',
+    )
+    district_vocab_factory = getUtility(
+        IVocabularyFactory,
+        'plone.mls.listing.LocationDistricts',
+    )
     catalog = getToolByName(context, 'portal_catalog')
     collections = catalog(object_provides=IListingCollection.__identifier__)
     for c in collections:
@@ -262,14 +275,47 @@ def migrate_to_1013(context):
         county = content.get('location_county', None)
         state = content.get('location_state', None)
 
+        def convert_value_to_token(value, vocab, loc_type):
+            token_values = []
+            for term in vocab:
+                if value == term.title:
+                    token_values.append(term.token)
+
+            if len(token_values) == 0:
+                token_values = [value]
+                print(
+                    'Error when trying to migrate the {0} name for '
+                    'collection: \'{1}\' not found. {2}'.format(
+                        loc_type,
+                        value,
+                        obj.absolute_url(),
+                    )
+                )
+            elif len(token_values) > 1:
+                print(
+                    'Warning: multiple valuse match the previously selected '
+                    '{0} name of \'{1}\': {2}'.format(
+                        loc_type,
+                        value,
+                        obj.absolute_url(),
+                    )
+                )
+            return tuple(token_values)
+
         if isinstance(district, unicode):
-            content['location_district'] = (district, )
+            vocab = district_vocab_factory(obj)
+            token_values = convert_value_to_token(district, vocab, 'district')
+            content['location_district'] = token_values
 
         if isinstance(county, unicode):
-            content['location_county'] = (county, )
+            vocab = county_vocab_factory(obj)
+            token_values = convert_value_to_token(county, vocab, 'county')
+            content['location_county'] = token_values
 
         if isinstance(state, unicode):
-            content['location_state'] = (state, )
+            vocab = state_vocab_factory(obj)
+            token_values = convert_value_to_token(state, vocab, 'state')
+            content['location_state'] = token_values
 
         annotations[COLLECTION] = content
 
